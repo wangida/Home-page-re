@@ -11,29 +11,29 @@ import {
 
 const NEWS = [
   {
-    date: "2026.05.02",
-    cat: "TECH",
-    title: "웨더체인 베타 — 기상 데이터 온체인 검증 PoC 공개",
+    date: "2026.05.28",
+    cat: "보도자료",
+    title: "케이웨더, 산업현장 온열질환 예방 ‘폭염 관리솔루션’ 구축 확대",
     excerpt:
-      "기상관측·예보 데이터의 무결성을 분산원장으로 보장하는 첫 검증 사례를 발표했습니다.",
+      "고용노동부에 체감온도계 4만3천여 대 공급계약을 체결했습니다.",
   },
   {
-    date: "2026.04.21",
-    cat: "IR",
-    title: "케이웨더, 1분기 매출 전년 동기 대비 32% 증가",
-    excerpt: "디지털 사업과 솔루션 매출이 동반 성장하며 흑자 전환을 이어갑니다.",
+    date: "2026.05.21",
+    cat: "보도자료",
+    title: "케이웨더, AI 기술로 60일 일별 기상예보 도전한다",
+    excerpt: "AI 모델 기반 차세대 기상예보 서비스로 예보기간을 60일까지 확장합니다.",
   },
   {
-    date: "2026.04.04",
-    cat: "NEWS",
-    title: "서초구 350개소 청정위생공간 운영 1주년",
-    excerpt: "실내 PM10 평균 25% 저감, 학부모 만족도 91%를 기록했습니다.",
+    date: "2026.05.20",
+    cat: "K-STORY",
+    title: "올해 역대급 폭염, 근로자 안전관리 준비되셨나요?",
+    excerpt: "AI 체감온도 분석과 실시간 모니터링으로 산업현장 온열질환을 예방합니다.",
   },
   {
-    date: "2026.03.18",
-    cat: "TECH",
-    title: "AI 환기청정솔루션 NeT 신기술 재인증",
-    excerpt: "5년 만에 갱신된 NeT 인증으로 기술력을 다시 확인받았습니다.",
+    date: "2026.05.08",
+    cat: "뉴스레터",
+    title: "세균·바이러스 99.8% 박멸, 구리 항균 기술의 원리",
+    excerpt: "구리 이온이 세균 세포막을 파괴해 강력한 항균 작용을 제공합니다.",
   },
 ];
 
@@ -80,7 +80,13 @@ export default function NewsAndContact() {
               최신 소식 · IR 정보 · 채용 · 비즈니스 문의
             </p>
           </div>
-          <a href="#" className="btn btn--ghost" style={{ flexShrink: 0 }}>
+          <a
+            href="https://www.kweather.co.kr/sub/news/?page=1&tp=4&c=4"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn--ghost"
+            style={{ flexShrink: 0 }}
+          >
             전체 보기 <Icon name="arrow" size={16} />
           </a>
         </motion.header>
@@ -152,7 +158,7 @@ export default function NewsAndContact() {
                       color: "var(--ink-600)",
                     }}
                   >
-                    <Icon name="arrow-up-right" size={18} />
+                    <Icon name="arrow" size={18} />
                   </span>
                 </div>
               </motion.a>

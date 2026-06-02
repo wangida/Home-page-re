@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type Card = {
   id: string;
@@ -56,6 +56,17 @@ const SWAP_WIDTH = `width 0.5s ${EASE}`;
 
 export default function Solutions() {
   const [active, setActive] = useState<number>(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 900px)");
+    const update = () => setIsMobile(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+
+  const effectiveActive = isMobile ? -1 : active;
 
   return (
     <section
@@ -104,21 +115,29 @@ export default function Solutions() {
         </header>
 
         <div
-          onMouseLeave={() => setActive(0)}
+          className="solutions-track"
+          onMouseLeave={isMobile ? undefined : () => setActive(0)}
           style={{
             display: "flex",
-            gap: GAP,
-            justifyContent: "center",
+            gap: isMobile ? 14 : GAP,
+            justifyContent: isMobile ? "flex-start" : "center",
             alignItems: "stretch",
-            flexWrap: "wrap",
+            flexWrap: isMobile ? "nowrap" : "wrap",
+            overflowX: isMobile ? "auto" : "visible",
+            overflowY: "visible",
+            scrollSnapType: isMobile ? "x mandatory" : undefined,
+            WebkitOverflowScrolling: "touch",
+            margin: isMobile ? "0 -16px" : 0,
+            padding: isMobile ? "4px 16px 8px" : 0,
           }}
         >
           {CARDS.map((c, i) => {
-            const isActive = active === i;
+            const isActive = effectiveActive === i;
             return (
               <article
                 key={c.id}
-                onMouseEnter={() => setActive(i)}
+                className="solutions-card"
+                onMouseEnter={isMobile ? undefined : () => setActive(i)}
                 aria-expanded={isActive}
                 style={{
                   position: "relative",
@@ -126,14 +145,16 @@ export default function Solutions() {
                   height: CARD_H,
                   borderRadius: 20,
                   overflow: "hidden",
-                  cursor: "pointer",
+                  cursor: isMobile ? "default" : "pointer",
                   flexShrink: 0,
+                  scrollSnapAlign: isMobile ? "start" : undefined,
                   background: "#08153b",
                   transition: SWAP_WIDTH,
                 }}
               >
                 {/* Big content */}
                 <div
+                  data-role="big"
                   aria-hidden={!isActive}
                   style={{
                     position: "absolute",
@@ -209,6 +230,7 @@ export default function Solutions() {
 
                 {/* Small content */}
                 <div
+                  data-role="small"
                   aria-hidden={isActive}
                   style={{
                     position: "absolute",

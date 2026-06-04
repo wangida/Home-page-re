@@ -10,12 +10,12 @@ import {
 } from "@/lib/motion-variants";
 
 const REFERENCES: { key: string; label: string; img: string }[] = [
-  { key: "biz",    label: "[ 기업 · 스마일 게이트 ]",           img: "/assets/thum_01.png" },
-  { key: "gov",    label: "[ 공공기관 · 강북구청 ]",             img: "/assets/thum_02.png" },
-  { key: "med",    label: "[ 의료기관 · 남양주 비전 요양권 ]",   img: "/assets/thum_03.png" },
-  { key: "edu",    label: "[ 학교 · 포천갈월중학교 ]",           img: "/assets/thum_04.png" },
-  { key: "house",  label: "[ 주거공간 · 반포 래미안 원베일리 ]", img: "/assets/thum_05.png" },
-  { key: "sports", label: "[ 스포츠&레저 · KBO ]",               img: "/assets/thum_06.png" },
+  { key: "biz",    label: "[ 기업 · 현대자동차 환경측정망 구축 ]",      img: "/assets/thum_01_re.png" },
+  { key: "gov",    label: "[ 공공기관 · 울산항만공사 방재기상 ]",       img: "/assets/thum_02_re.png" },
+  { key: "med",    label: "[ 병원 · 양산시 시나브로 복지관 ]",          img: "/assets/thum_03_re.png" },
+  { key: "house",  label: "[ 주거공간 · 포스코이앤씨 더샵 리오몬트 ]",  img: "/assets/thum_04_re.png" },
+  { key: "edu",    label: "[ 학교 · 충북 오송2 초등학교 ]",             img: "/assets/thum_05_re.png" },
+  { key: "sports", label: "[ 스포츠&레저 · KPGA ]",                     img: "/assets/thum_06_re.png" },
 ];
 
 const PUBLIC_LOGOS = [

@@ -7,7 +7,7 @@ import AnimatedText from "./AnimatedText";
 import { EASE_EXPO } from "@/lib/motion-variants";
 import { useParallax } from "@/lib/use-parallax";
 
-type SlideKey = "data" | "ai" | "dsp" | "idol";
+type SlideKey = "data" | "ai" | "heat" | "idol";
 
 type Slide = {
   key: SlideKey;
@@ -27,17 +27,17 @@ const HERO_SLIDES: Slide[] = [
   },
   {
     key: "ai",
-    eyebrow: "산업·공간 맞춤 AI 모델",
+    eyebrow: "산업·공간 맞춤 AI 환기청정 솔루션",
     title: "케이웨더는 Ai로 공기와\n환기를 관리합니다",
     bg: "/assets/hero_02.jpg",
     cta: { label: "바로가기", href: "#solutions" },
   },
   {
-    key: "dsp",
-    eyebrow: "Data · Service · Product",
-    title: "하나의 사이클로\n이어지는 케이웨더 모델",
-    bg: "/assets/hero_03.jpg",
-    cta: { label: "바로가기", href: "#about" },
+    key: "heat",
+    eyebrow: "리뷰로 검증된 베스트 셀러",
+    title: "폭염관리, 온열질환 예방\n폭염관리 솔루션",
+    bg: "/assets/hero_03_re.jpg",
+    cta: { label: "바로가기", href: "#solutions" },
   },
   {
     key: "idol",
@@ -101,146 +101,76 @@ export default function Hero() {
 
       {s.key === "data" && <DataFX />}
 
+      {s.key === "heat" && (
+        <motion.img
+          key={`heat-${idx}`}
+          src="/assets/hero_03_img.png"
+          alt="폭염관리 솔루션 — 온습지수측정계와 Air365 모니터링 대시보드"
+          className="hero__product"
+          initial={{ opacity: 0, y: 28 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.25, duration: 1.0, ease: EASE_EXPO }}
+        />
+      )}
+
       <div className="hero__bg" />
       <div className="hero__grid" />
       <div className="hero__noise" />
 
       <div className="hero__inner container">
         <div className={`hero__cols hero__cols--${s.key}`}>
-          {s.key === "dsp" ? (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 18 }}
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: EASE_EXPO }}
+            className="hero__text"
+          >
+            <motion.span
+              className="hero__eyebrow"
+              initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, ease: EASE_EXPO }}
-              className="hero__text hero__text--dsp"
+              transition={{
+                delay: 0.1,
+                duration: 1.0,
+                ease: EASE_EXPO,
+              }}
             >
-              <div className="hero-dsp-stage">
-                <div className="hero-dsp-text">
-                  <span className="hero-dsp-eyebrow">
-                    측정 → 진단 → 제어 → 리포트
-                  </span>
-                  <AnimatedText
-                    as="h1"
-                    text={"Data · Service · Product\n하나의 사이클"}
-                    mode="line"
-                    className="hero-dsp-title"
-                    viewport={{ once: true, amount: 0.1 }}
-                  />
-                  <div className="hero__cta-row">
-                    <motion.a
-                      initial={{ opacity: 0, y: 32, scale: 0.92 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      transition={{
-                        delay: 0.55,
-                        duration: 0.9,
-                        ease: EASE_EXPO,
-                      }}
-                      className="btn btn--ondark"
-                      href={s.cta.href}
-                    >
-                      {s.cta.label} <Icon name="arrow" size={16} />
-                    </motion.a>
-                  </div>
-                </div>
-                {/* SVG는 path 기반이라 Next.js Image 캐싱 우회를 위해 일반 <img> 사용 */}
-                <img
-                  src="/assets/circle_re.svg"
-                  alt="Data · Service · Product"
-                  width={614}
-                  height={513}
-                  className="hero-dsp-img"
-                />
-                <div className="hero-dsp-label hero-dsp-label--tr">
-                  <motion.span
-                    style={{ display: "inline-block" }}
-                    initial={{ opacity: 0, y: 14 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.25, duration: 1.3, ease: [0.22, 1, 0.36, 1] }}
-                  >
-                    3만여 자체 공기측정망 인프라
-                    <br />
-                    국내 최대 날씨·공기 빅데이터
-                  </motion.span>
-                </div>
-                <div className="hero-dsp-label hero-dsp-label--ml">
-                  <motion.span
-                    style={{ display: "inline-block" }}
-                    initial={{ opacity: 0, y: 14 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.35, duration: 1.3, ease: [0.22, 1, 0.36, 1] }}
-                  >
-                    국가인증 1등급 제조 기술력
-                    <br />
-                    고정밀 기상 및 청정 시스템
-                  </motion.span>
-                </div>
-                <div className="hero-dsp-label hero-dsp-label--br">
-                  <motion.span
-                    style={{ display: "inline-block" }}
-                    initial={{ opacity: 0, y: 14 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.45, duration: 1.3, ease: [0.22, 1, 0.36, 1] }}
-                  >
-                    데이터에 기반한 전문 컨설팅
-                    <br />
-                    맞춤형 공기지능 솔루션
-                  </motion.span>
-                </div>
-              </div>
-            </motion.div>
-          ) : (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, ease: EASE_EXPO }}
-              className="hero__text"
-            >
-              <motion.span
-                className="hero__eyebrow"
-                initial={{ opacity: 0, y: 28 }}
+              {s.eyebrow}
+            </motion.span>
+            <AnimatedText
+              as="h1"
+              text={s.title}
+              mode="line"
+              className="hero__title"
+              viewport={{ once: true, amount: 0.1 }}
+            />
+            <div className="hero__cta-row">
+              <motion.a
+                initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
-                  delay: 0.1,
-                  duration: 1.0,
+                  delay: 0.4,
+                  duration: 0.75,
                   ease: EASE_EXPO,
                 }}
+                className={`btn ${
+                  s.key === "data" || s.key === "heat"
+                    ? "btn--ondark"
+                    : "btn--primary"
+                }`}
+                href={s.cta.href}
+                target={s.cta.href.startsWith("http") ? "_blank" : undefined}
+                rel={
+                  s.cta.href.startsWith("http")
+                    ? "noopener noreferrer"
+                    : undefined
+                }
               >
-                {s.eyebrow}
-              </motion.span>
-              <AnimatedText
-                as="h1"
-                text={s.title}
-                mode="line"
-                className="hero__title"
-                viewport={{ once: true, amount: 0.1 }}
-              />
-              <div className="hero__cta-row">
-                <motion.a
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    delay: 0.4,
-                    duration: 0.75,
-                    ease: EASE_EXPO,
-                  }}
-                  className={`btn ${
-                    s.key === "data" ? "btn--ondark" : "btn--primary"
-                  }`}
-                  href={s.cta.href}
-                  target={s.cta.href.startsWith("http") ? "_blank" : undefined}
-                  rel={
-                    s.cta.href.startsWith("http")
-                      ? "noopener noreferrer"
-                      : undefined
-                  }
-                >
-                  {s.cta.label} <Icon name="arrow" size={16} />
-                </motion.a>
-              </div>
-            </motion.div>
-          )}
+                {s.cta.label} <Icon name="arrow" size={16} />
+              </motion.a>
+            </div>
+          </motion.div>
         </div>
       </div>
 

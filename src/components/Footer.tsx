@@ -14,8 +14,8 @@ const COLS: [string, string[]][] = [
 ];
 
 const FAMILY_SITES = [
-  { label: "날씨지도 (kweather map)", href: "https://map.kweather.co.kr" },
   { label: "날씨정보", href: "https://www.kweather.co.kr" },
+  { label: "날씨지도 (kweather map)", href: "https://map.kweather.co.kr" },
   { label: "Air365", href: "https://www.air365.co.kr" },
   { label: "날씨환경청", href: "https://www.kweather.co.kr" },
   { label: "날씨앱", href: "https://www.kweather.co.kr" },
@@ -68,18 +68,6 @@ export default function Footer() {
               height={37}
               style={{ width: 160, height: "auto", display: "block" }}
             />
-            <p
-              style={{
-                marginTop: 18,
-                fontSize: 14,
-                lineHeight: 1.7,
-                color: "rgba(255,255,255,0.55)",
-              }}
-            >
-              데이터 · AI · DSP.
-              <br />
-              안전한 공기와 신뢰할 수 있는 기후 데이터를 만듭니다.
-            </p>
             <div
               style={{
                 marginTop: 22,
@@ -88,11 +76,24 @@ export default function Footer() {
                 color: "rgba(255,255,255,0.45)",
               }}
             >
-              ㈜케이웨더 · 서울특별시 영등포구 영중로 15
+              케이웨더(주) · 대표자 김동식
               <br />
-              TEL 02-6005-0700 · FAX 02-6005-0790
+              서울특별시 구로구 디지털로26길 5, 에이스하이엔드타워
               <br />
-              사업자등록번호 113-86-44841
+              1차 401호 (우)08389
+              <div style={{ marginTop: 12 }}>
+                대표전화 1644-0902 · 팩스 02-360-2288
+                <br />
+                사업자등록번호 110-81-37628
+                <br />
+                대표메일{" "}
+                <a
+                  href="mailto:khelp@kweather.co.kr"
+                  style={{ color: "rgba(255,255,255,0.55)" }}
+                >
+                  khelp@kweather.co.kr
+                </a>
+              </div>
             </div>
           </div>
           {COLS.map(([title, list]) => (
@@ -193,6 +194,12 @@ export default function Footer() {
               href="#"
               style={{ color: "rgba(255,255,255,0.6)", fontWeight: 600 }}
             >
+              오시는길
+            </a>
+            <a
+              href="#"
+              style={{ color: "rgba(255,255,255,0.6)", fontWeight: 600 }}
+            >
               개인정보처리방침
             </a>
             <a href="#">이용약관</a>
@@ -205,7 +212,7 @@ export default function Footer() {
                 aria-expanded={familyOpen}
                 onClick={() => setFamilyOpen((v) => !v)}
               >
-                <span>Family Site</span>
+                <span>Weather Site</span>
                 <svg
                   className="footer-family-chev"
                   width="13"

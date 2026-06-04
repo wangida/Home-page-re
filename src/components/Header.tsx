@@ -12,14 +12,6 @@ const NAV = [
   { key: "about", label: "회사소개" },
 ] as const;
 
-const FAMILY_SITES = [
-  { label: "날씨지도 (kweather map)", href: "https://map.kweather.co.kr" },
-  { label: "날씨정보", href: "https://www.kweather.co.kr" },
-  { label: "Air365", href: "https://www.air365.co.kr" },
-  { label: "날씨환경청", href: "https://www.kweather.co.kr" },
-  { label: "날씨앱", href: "https://www.kweather.co.kr" },
-] as const;
-
 type MegaCol = "data" | "service" | "product" | "solution" | "ref";
 
 const MEGA: {
@@ -74,9 +66,7 @@ function Logo({ light = false }: { light?: boolean }) {
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState<string | null>(null);
-  const [familyOpen, setFamilyOpen] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const familyRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -84,24 +74,6 @@ export default function Header() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  useEffect(() => {
-    if (!familyOpen) return;
-    const onDocClick = (e: MouseEvent) => {
-      if (familyRef.current && !familyRef.current.contains(e.target as Node)) {
-        setFamilyOpen(false);
-      }
-    };
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setFamilyOpen(false);
-    };
-    document.addEventListener("mousedown", onDocClick);
-    document.addEventListener("keydown", onKey);
-    return () => {
-      document.removeEventListener("mousedown", onDocClick);
-      document.removeEventListener("keydown", onKey);
-    };
-  }, [familyOpen]);
 
   const enter = (k: string) => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
@@ -164,47 +136,28 @@ export default function Header() {
             </svg>
           </a>
 
-          <div className="gnb__family" ref={familyRef}>
-            <button
-              type="button"
-              className="gnb__family-btn"
-              aria-haspopup="listbox"
-              aria-expanded={familyOpen}
-              onClick={() => setFamilyOpen((v) => !v)}
+          <a
+            href="https://www.kweather.co.kr"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="gnb__shop"
+          >
+            <span>날씨정보</span>
+            <svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
             >
-              <span>Family Site</span>
-              <svg
-                className="gnb__family-chev"
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <polyline points="6 9 12 15 18 9" />
-              </svg>
-            </button>
-            {familyOpen && (
-              <ul className="gnb__family-list" role="listbox">
-                {FAMILY_SITES.map((site) => (
-                  <li key={site.label}>
-                    <a
-                      href={site.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={() => setFamilyOpen(false)}
-                    >
-                      {site.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
+              <line x1="7" y1="17" x2="17" y2="7" />
+              <polyline points="7 7 17 7 17 17" />
+            </svg>
+          </a>
 
           <button
             type="button"

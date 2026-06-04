@@ -354,9 +354,10 @@ img, svg { display: block; max-width: 100%; }
     linear-gradient(180deg, rgba(0,0,0,0.30) 0%, rgba(0,0,0,0) 22%),
     linear-gradient(270deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0) 50%);
 }
-.hero__bg-image-veil--dsp {
+.hero__bg-image-veil--heat {
   background:
-    linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 28%);
+    linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 28%),
+    linear-gradient(90deg, rgba(40,10,0,0.35) 0%, rgba(40,10,0,0) 45%);
 }
 .hero__bg-image-veil--idol {
   background:
@@ -612,8 +613,8 @@ img, svg { display: block; max-width: 100%; }
 .hero__cols--idol { grid-template-columns: 1fr; align-items: start; }
 .hero__cols--idol .hero__text { justify-self: end; text-align: center; max-width: 540px; margin-top: clamp(20px, 6vh, 77px); }
 
-.hero__cols--dsp { grid-template-columns: 1fr; justify-items: center; align-items: start; }
-.hero__cols--dsp .hero__text--dsp { margin-top: clamp(20px, 6vh, 73px); }
+.hero__cols--heat { grid-template-columns: 1fr; align-items: start; }
+.hero__cols--heat .hero__text { justify-self: start; max-width: 620px; margin-top: clamp(12px, 4vh, 38px); }
 
 .hero__eyebrow {
   font-family: var(--font-display);
@@ -642,7 +643,8 @@ img, svg { display: block; max-width: 100%; }
 .hero--ai .hero__title   { color: rgb(5,16,50); }
 .hero--idol .hero__eyebrow { color: rgb(24,24,24); }
 .hero--idol .hero__title   { color: rgb(24,24,24); }
-.hero--dsp .hero__title    { color: #fff; }
+.hero--heat .hero__eyebrow { color: #fff440; }
+.hero--heat .hero__title   { color: #fff; }
 
 .hero__text {
   opacity: 1;
@@ -742,88 +744,33 @@ img, svg { display: block; max-width: 100%; }
 
 .hero__cta-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 18px; }
 
-/* DSP stage */
-.hero__text--dsp {
-  width: 100% !important;
-  max-width: none !important;
-  justify-self: stretch !important;
-}
-.hero-dsp-stage {
-  position: relative;
-  width: 100%;
-  height: 540px;
-  min-height: 540px;
-}
-.hero-dsp-text {
+/* Heat slide (hero_03_re02) — 폭염관리 솔루션 제품 비주얼.
+   Figma 기준(2400×780): 이미지 756,135 / 1039×582.
+   - 오른쪽 끝을 중앙 +595px에 고정 (figma: 1795 - 1200)
+   - 폭 상한 = 컨테이너/2 + 90px → 타이틀 오른쪽과 42px 간격 유지 (figma: 756 - 714)
+   - 바닥 기준 정렬 (figma: 하단에서 63px ≈ 8%) */
+.hero__product {
   position: absolute;
-  left: 0;
-  top: 0;
-  max-width: 620px;
-  color: #fff;
-  z-index: 2;
-}
-.hero-dsp-eyebrow {
-  display: block;
-  font-family: var(--font-display);
-  font-weight: 300;
-  font-size: 26px;
-  letter-spacing: -0.02em;
-  line-height: 1;
-  margin-bottom: 12px;
-  color: #fff440;
-}
-.hero-dsp-title {
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: clamp(32px, 3.5vw, 52px);
-  letter-spacing: -0.02em;
-  line-height: 1.18;
-  margin: 0;
-  color: #fff;
-  white-space: nowrap;
-}
-.hero-dsp-img {
-  position: absolute;
-  left: 58%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: clamp(420px, 44vw, 614px);
+  right: calc(50% - 640px);
+  bottom: 8%;
+  width: min(1039px, calc(var(--container) / 2 + 135px), 48vw);
   height: auto;
   display: block;
-  filter: drop-shadow(0 18px 40px rgba(0,0,0,0.28));
   z-index: 1;
+  pointer-events: none;
+  filter: drop-shadow(0 18px 40px rgba(0,0,0,0.28));
 }
-.hero-dsp-label {
-  position: absolute;
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(14px, 1.5vw, 26px);
-  line-height: 1.45;
-  letter-spacing: -0.02em;
-  color: #fff;
-  word-break: keep-all;
-  white-space: nowrap;
-  z-index: 2;
+@media (max-width: 1100px) {
+  .hero__product {
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: 16%;
+    width: min(80vw, 700px);
+  }
 }
-/* Positions relative to .hero-dsp-stage — labels sit OUTSIDE the diagram bounds
-   (diagram occupies ~35.7%–80.3% horizontally at desktop) */
-.hero-dsp-label--tr { top: 20%; left: 74%; transform: translateY(-50%); }
-.hero-dsp-label--ml { top: 68%; right: 67%; transform: translateY(-50%); text-align: right; }
-.hero-dsp-label--br { top: 88%; left: 82%; transform: translateY(-50%); }
-
-@media (max-width: 1180px) {
-  .hero-dsp-text { max-width: 500px; }
-  .hero-dsp-img { width: 420px; left: 66%; }
-  .hero-dsp-label--tr { top: 18%; left: 78%; }
-  .hero-dsp-label--ml { top: 66%; right: 59%; }
-  .hero-dsp-label--br { top: 90%; left: 86%; }
-}
-@media (max-width: 920px) {
-  .hero-dsp-stage { min-height: 620px; }
-  .hero-dsp-text { position: static; transform: none; max-width: none; margin-bottom: 18px; }
-  .hero-dsp-title { white-space: normal; }
-  .hero-dsp-img { position: static; transform: none; margin: 0 auto; width: 340px; }
-  .hero-dsp-label { display: none; }
+@media (max-width: 768px) {
+  .hero__product { bottom: 18%; width: min(92vw, 560px); }
 }
 
 .scroll-hint { display: none; }
@@ -1663,7 +1610,6 @@ img, svg { display: block; max-width: 100%; }
   aspect-ratio: 458 / 290;
   border-radius: 16px;
   overflow: hidden;
-  background: var(--ink-100);
 }
 .references-card__thumb img {
   width: 100%;

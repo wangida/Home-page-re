@@ -23,7 +23,7 @@ CSS는 vanilla CSS로 작성돼 있으니, CSS Modules / Tailwind / styled-compo
 - **Vanilla CSS** with custom properties
 - **Web fonts**: Pretendard (본문), Paperlogy (타이틀), Roboto (영문/숫자)
 
-프로덕션에선 Babel 브라우저 트랜스파일 제거하고 빌드 단계에서 처리.
+프로덕션에선 Babel 브라우저 트랜스파일 제거하고 빌드 단계에서   처리.
 
 ---
 

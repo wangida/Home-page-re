@@ -35,7 +35,7 @@ const HERO_SLIDES: Slide[] = [
   {
     key: "heat",
     eyebrow: "리뷰로 검증된 베스트 셀러",
-    title: "폭염관리, 온열질환 예방\n폭염관리 솔루션",
+    title: "폭염 대응, 온열질환 예방\n폭염관리 솔루션",
     bg: "/assets/hero_03_re.jpg",
     cta: { label: "바로가기", href: "#solutions" },
   },

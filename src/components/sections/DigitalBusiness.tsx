@@ -23,27 +23,35 @@ type Card = {
 
 const DIGITAL: Card[] = [
   {
-    key: "wellbian",
-    name: "웰비안 앱",
-    desc: "날씨를 넘어, 나의\n라이프스타일 조언까지",
-    img: "/assets/phone02.png",
+    key: "weather",
+    name: "케이웨더 날씨",
+    desc: "국내 최대 날씨와 공기\n정보 서비스 제공",
+    img: "/assets/01_img_re.png",
     icon: "/assets/icon_01.png",
-    href: "https://play.google.com/store/apps/details?id=ai.wellbian.twa&hl=ko",
+    href: "#", // TODO: 링크 추후 전달 예정
   },
   {
-    key: "idol",
-    name: "날씨 아이돌",
-    desc: "세계 최초의 AI 기반\n날씨 테마 아이돌 그룹",
-    img: "/assets/woman.png",
+    key: "thermo",
+    name: "체감 온도계",
+    desc: "리뷰로 검증된 베스트 셀러\n실내 · 실외 온도를 한눈에",
+    img: "/assets/02_img_re.png",
     icon: "/assets/icon_02.png",
-    href: "https://www.youtube.com/@weatheridols",
+    href: "#", // TODO: 링크 추후 전달 예정
+  },
+  {
+    key: "fume",
+    name: "조리흄 솔루션",
+    desc: "조리실 통합공기 시스템\n급기, 배기, 송풍기, 환기 등",
+    img: "/assets/03_img_re.png",
+    icon: "/assets/icon_03.png",
+    href: "#", // TODO: 링크 추후 전달 예정
   },
   {
     key: "caster",
     name: "Ai 기상캐스터",
     desc: "AI 캐스터를 활용하여\n날씨 방송 콘텐츠 제작",
     img: "/assets/man.png",
-    icon: "/assets/icon_03.png",
+    icon: "/assets/icon_04.png",
     href: "https://www.kweather.co.kr/audition/index.html",
   },
   {
@@ -52,14 +60,6 @@ const DIGITAL: Card[] = [
     desc: "생태계의 핵심 엔진인\n초정밀 AI예보 시스템 구축",
     img: "/assets/earth.png",
     imgExtra: "/assets/graph.png",
-    icon: "/assets/icon_04.png",
-    href: "#",
-  },
-  {
-    key: "chain",
-    name: "웨더체인&마켓",
-    desc: "기상데이터를 블록체인에\n기록하는 인프라 구축",
-    img: "/assets/nft.png",
     icon: "/assets/icon_05.png",
     href: "#",
   },
@@ -112,19 +112,19 @@ export default function DigitalBusiness() {
         >
           <AnimatedText
             as="h2"
-            text="Digital Business"
+            text="Business Services"
             mode="word"
             stagger={0.08}
             className="digital-header__title"
           />
           <motion.p className="digital-header__sub" variants={fadeUpSm}>
-            AI기술과 기상 데이터를
+            Weather & Air Intelligence를
             <br />
-            결합한 차세대
+            기반으로 생활과 산업 현장
             <br />
-            Weather Intelligence
+            전반에 활용되는
             <br />
-            디지털 비즈니스
+            다양한 비즈니스 서비스
           </motion.p>
         </motion.div>
 
@@ -138,8 +138,9 @@ export default function DigitalBusiness() {
             viewport={VIEWPORT_DEFAULT}
           >
             {DIGITAL.map((d, i) => {
-              const isActive = i < 3; // 1~3번 활성, 4~5번 오픈 전
+              const isActive = i < 4; // 피그마 기준 1~4번 활성, 5번 오픈 전
               const external = d.href.startsWith("http");
+              const pendingLink = isActive && d.href === "#"; // 링크 추후 전달 — 클릭해도 이동 없음
               return (
                 <motion.a
                   href={d.href}
@@ -148,7 +149,9 @@ export default function DigitalBusiness() {
                   rel={external && isActive ? "noopener noreferrer" : undefined}
                   onClick={
                     isActive
-                      ? undefined
+                      ? pendingLink
+                        ? (e) => e.preventDefault()
+                        : undefined
                       : (e) => {
                           e.preventDefault();
                           window.alert(

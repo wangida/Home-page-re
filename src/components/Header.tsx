@@ -12,41 +12,109 @@ const NAV = [
   { key: "about", label: "회사소개" },
 ] as const;
 
-type MegaCol = "data" | "service" | "product" | "solution" | "ref";
+/* ===== 메가메뉴 — Figma navi(211:164) 좌표 그대로 (1920 기준, 프레임 x−240 보정)
+   패널 상대 y = Figma y − 90(상단바 높이) ===== */
+type MegaItem = { label: string; small?: string };
+type MegaBlock = { y: number; items: MegaItem[] };
 
-const MEGA: {
-  air: Record<MegaCol, string[]>;
-  weather: Record<MegaCol, string[]>;
-  aboutFlat: string[];
-} = {
-  air: {
-    data: [
-      "공기측정데이터 (국가관측/IoT측정)",
-      "공기예보",
-      "동별미세먼지데이터",
-      "Air365",
+const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
+  {
+    key: "data",
+    x: 318,
+    blocks: [
+      { y: 38, items: [{ label: "공기측정", small: "(국가관측/IoT측정)" }] },
+      {
+        y: 106,
+        items: [{ label: "공기예보" }, { label: "동별미세먼지" }, { label: "Air365" }],
+      },
+      {
+        y: 353,
+        items: [{ label: "기상데이터" }, { label: "방송 컨텐츠" }, { label: "모바일정보" }],
+      },
     ],
-    service: ["공기질 측정진단", "공기개선 서비스", "유지관리 서비스"],
-    product: ["공기측정기", "환기청정기", "공기빅데이터플랫폼"],
-    solution: ["AI환기청정솔루션", "조리실 자동제어 솔루션"],
-    ref: ["공기지능 사례", "공기지능 인증"],
   },
-  weather: {
-    data: ["기상데이터", "방송컨텐츠", "모바일정보"],
-    service: ["날씨경영 컨설팅"],
-    product: ["체감온도계", "기상장비"],
-    solution: ["기후위험관리솔루션 (CMAaaS)"],
-    ref: ["날씨 경영 사례"],
+  {
+    key: "service",
+    x: 494,
+    blocks: [
+      {
+        y: 32,
+        items: [
+          { label: "공기질 측정진단" },
+          { label: "공기개선 서비스" },
+          { label: "유지관리 서비스" },
+        ],
+      },
+      { y: 353, items: [{ label: "날씨경영 컨설팅" }] },
+    ],
   },
-  aboutFlat: [
-    "기업소개",
-    "연혁",
-    "IR·주식정보",
-    "홍보센터",
-    "E-카탈로그",
-    "인재채용",
-  ],
-};
+  {
+    key: "product",
+    x: 656,
+    blocks: [
+      {
+        y: 32,
+        items: [
+          { label: "공기측정기" },
+          { label: "환기청정기" },
+          { label: "공기빅데이터플랫폼" },
+        ],
+      },
+      { y: 353, items: [{ label: "체감온도계" }, { label: "기상장비" }] },
+    ],
+  },
+  {
+    key: "solution",
+    x: 838,
+    blocks: [
+      { y: 32, items: [{ label: "AI 환기청정" }, { label: "조리실 자동제어" }] },
+      { y: 358, items: [{ label: "기후위험관리", small: "(폭염·건설·해양·ESG)" }] },
+    ],
+  },
+  {
+    key: "ref",
+    x: 1030,
+    blocks: [
+      { y: 32, items: [{ label: "공기지능사례" }, { label: "공기지능인증" }] },
+      { y: 353, items: [{ label: "날씨경영사례" }] },
+    ],
+  },
+  {
+    key: "about",
+    x: 1208,
+    blocks: [
+      {
+        y: 32,
+        items: [
+          { label: "기업소개" },
+          { label: "연혁" },
+          { label: "IR · 주식정보" },
+          { label: "홍보센터" },
+          { label: "E-카탈로그" },
+          { label: "인재채용" },
+        ],
+      },
+    ],
+  },
+];
+
+/* 세로 점선(ia_line.png) x 좌표 — 점선 간격 175(피치 176), 시작 x=282 */
+const MEGA_LINES_X = [282, 458, 634, 810, 986, 1162, 1338];
+
+/* 패밀리 영역 — Figma family(371:528): 프레임 x=1477(뷰포트), y=34(패널 상대), 241×275
+   썸네일 75×55 r10, 라벨 17px #515151 x=96, 버튼 btn_sgo 20×20 (라벨별 위치 상이) */
+const FAMILY_ITEMS = [
+  { label: "날씨지도", thumb: "/assets/ia_s_thum01.png", thumbTop: 0, textTop: 8, btnLeft: 163, btnTop: 19 },
+  { label: "Air365", thumb: "/assets/ia_s_thum02.png", thumbTop: 70, textTop: 78, btnLeft: 156, btnTop: 90 },
+  { label: "날씨환경청", thumb: "/assets/ia_s_thum03.png", thumbTop: 139, textTop: 147, btnLeft: 178, btnTop: 158 },
+  { label: "날씨앱", thumb: "/assets/ia_s_thum04.png", thumbTop: 210, textTop: 201 },
+] as const;
+
+/* 날씨앱 하위 스토어 링크 — Figma: IOS x=97 / Android x=167, y=233, 16px #222 */
+const FAMILY_APPS = [
+  { label: "IOS", left: 97, btnLeft: 131 },
+  { label: "Android", left: 167, btnLeft: 232 },
+] as const;
 
 function Logo({ light = false }: { light?: boolean }) {
   return (
@@ -54,10 +122,10 @@ function Logo({ light = false }: { light?: boolean }) {
       <Image
         src={light ? "/assets/logo_white.svg" : "/assets/logo_blue.svg"}
         alt="K-WEATHER"
-        width={120}
-        height={28}
+        width={218}
+        height={30}
         priority
-        style={{ height: "28px", width: "auto", display: "block" }}
+        style={{ height: "30px", width: "auto", display: "block" }}
       />
     </div>
   );
@@ -93,7 +161,7 @@ export default function Header() {
       }`}
       onMouseLeave={leave}
     >
-      <div className="container gnb__inner">
+      <div className="gnb__inner">
         <a href="#top" className="gnb__logo" aria-label="K-WEATHER home">
           <Logo light={!useDarkText} />
         </a>
@@ -103,7 +171,7 @@ export default function Header() {
             <a
               key={n.key}
               href={`#${n.key}`}
-              className="gnb__link"
+              className={`gnb__link ${open === n.key ? "is-active" : ""}`}
               onMouseEnter={() => enter(n.key)}
               onFocus={() => enter(n.key)}
             >
@@ -183,45 +251,99 @@ export default function Header() {
         }}
         onMouseLeave={leave}
       >
-        <div className="mega__row mega__row--air">
-          <div className="mega__inner container">
-            <div className="mega__row-label">공기</div>
-            {(["data", "service", "product", "solution", "ref"] as MegaCol[]).map(
-              (col) => (
-                <ul key={`a-${col}`} className="mega__col">
-                  {(MEGA.air[col] || []).map((item) => (
-                    <li key={item}>
-                      <a href="#">{item}</a>
-                    </li>
-                  ))}
-                </ul>
-              )
-            )}
-            <ul className="mega__col mega__col--about">
-              {MEGA.aboutFlat.map((item) => (
-                <li key={item}>
-                  <a href="#">{item}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+        {/* 기상(하단) 영역 배경 — full-bleed */}
+        <div className="mega__bottom-bg" aria-hidden="true" />
 
-        <div className="mega__row mega__row--weather">
-          <div className="mega__inner container">
-            <div className="mega__row-label">기상</div>
-            {(["data", "service", "product", "solution", "ref"] as MegaCol[]).map(
-              (col) => (
-                <ul key={`w-${col}`} className="mega__col">
-                  {(MEGA.weather[col] || []).map((item) => (
-                    <li key={item}>
-                      <a href="#">{item}</a>
-                    </li>
-                  ))}
-                </ul>
-              )
-            )}
-            <div className="mega__col mega__col--spacer" aria-hidden="true" />
+        <div className="mega__canvas">
+          {/* 메뉴별 세로 점선 */}
+          {MEGA_LINES_X.map((x) => (
+            <img
+              key={x}
+              src="/assets/ia_line.png"
+              alt=""
+              aria-hidden="true"
+              className="mega__line"
+              style={{ left: x }}
+              loading="lazy"
+            />
+          ))}
+
+          <div className="mega__row-label mega__row-label--air">공기</div>
+          <div className="mega__row-label mega__row-label--weather">기상</div>
+
+          {MEGA_COLS.map((col) =>
+            col.blocks.map((block, bi) => (
+              <ul
+                key={`${col.key}-${bi}`}
+                className={`mega__list ${
+                  col.key === "product" ? "mega__list--tight" : ""
+                }`}
+                style={{ left: col.x, top: block.y }}
+              >
+                {block.items.map((it) => (
+                  <li key={it.label} className={it.small ? "has-small" : ""}>
+                    <a href="#">
+                      {it.label}
+                      {it.small && (
+                        <span className="mega__small">{it.small}</span>
+                      )}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            ))
+          )}
+
+          {/* 패밀리 사이트 — Figma family(371:528) */}
+          <div className="mega__family">
+            {FAMILY_ITEMS.map((f) => (
+              <div key={f.label}>
+                <img
+                  src={f.thumb}
+                  alt=""
+                  aria-hidden="true"
+                  className="mega__family-thumb"
+                  style={{ top: f.thumbTop }}
+                  loading="lazy"
+                />
+                <a
+                  href="#"
+                  className="mega__family-label"
+                  style={{ top: f.textTop }}
+                >
+                  {f.label}
+                </a>
+                {"btnLeft" in f && (
+                  <a
+                    href="#"
+                    className="mega__family-btn"
+                    style={{ left: f.btnLeft, top: f.btnTop }}
+                    aria-label={`${f.label} 바로가기`}
+                  >
+                    <img src="/assets/btn_sgo.svg" alt="" />
+                  </a>
+                )}
+              </div>
+            ))}
+            {FAMILY_APPS.map((a) => (
+              <div key={a.label}>
+                <a
+                  href="#"
+                  className="mega__family-label mega__family-label--app"
+                  style={{ left: a.left, top: 233 }}
+                >
+                  {a.label}
+                </a>
+                <a
+                  href="#"
+                  className="mega__family-btn"
+                  style={{ left: a.btnLeft, top: 244 }}
+                  aria-label={`날씨앱 ${a.label} 바로가기`}
+                >
+                  <img src="/assets/btn_sgo.svg" alt="" />
+                </a>
+              </div>
+            ))}
           </div>
         </div>
       </div>

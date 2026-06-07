@@ -227,7 +227,7 @@ img, svg { display: block; max-width: 100%; }
   #trust .container > div:last-child { grid-template-columns: repeat(3, 1fr) !important; gap: 14px !important; }
   #news .container > div:last-child { grid-template-columns: 1fr !important; }
   #news .container > div:last-child > div:first-child > a > div { grid-template-columns: 1fr !important; }
-  footer .container > div:first-child { grid-template-columns: 1fr 1fr !important; }
+  footer .footer-menus { gap: 28px 40px !important; }
 }
 
 @media (max-width: 640px) {
@@ -238,7 +238,8 @@ img, svg { display: block; max-width: 100%; }
   #proof .container > div:nth-child(2) > div { border-left: none !important; }
   #trust .container > div:last-child { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
   #top.hero .hero__inner { padding-left: 20px !important; padding-right: 20px !important; }
-  footer .container > div:first-child { grid-template-columns: 1fr !important; }
+  footer .footer-menus { gap: 24px 28px !important; }
+  footer .footer-menus > div { min-width: 124px; }
 }
 
 /* Solutions: mobile horizontal scroll */
@@ -806,8 +807,8 @@ img, svg { display: block; max-width: 100%; }
   white-space: nowrap;
   flex: 0 0 auto;
 }
-/* 1뎁스를 2뎁스 칼럼(점선 x=282~1338, 피치 176px) 중앙에 정렬:
-   각 메뉴 = 176px 박스 + 중앙 텍스트 → 메뉴/바 중심이 칼럼 중심과 일치 */
+/* 1뎁스를 2뎁스 칼럼(점선 x=282~1242, 피치 160px) 중앙에 정렬:
+   각 메뉴 = 160px 박스 + 중앙 텍스트 → 메뉴/바 중심이 칼럼 중심과 일치 */
 .gnb__nav {
   position: absolute;
   left: 282px;
@@ -822,7 +823,7 @@ img, svg { display: block; max-width: 100%; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 176px;
+  width: 160px;
   font-family: 'Pretendard Variable', Pretendard, system-ui, sans-serif;
   font-size: 18px; font-weight: 600; /* Figma SemiBold 20 → 18로 조정 */
   padding: 0;
@@ -835,14 +836,14 @@ img, svg { display: block; max-width: 100%; }
   color: #fff;
   text-shadow: 0 2px 2px rgba(0,0,0,0.25);
 }
-/* Figma bar: 150×4, radius 20, #3f5abb, 상단바 하단에 밀착 */
+/* Figma bar: 150×4 → 피치 160 기준 144×4, radius 20, #3f5abb, 상단바 하단에 밀착 */
 .gnb__link::after {
   content: "";
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   bottom: 0;
-  width: 150px;
+  width: 144px;
   height: 4px;
   border-radius: 20px;
   background: #3f5abb;
@@ -895,12 +896,14 @@ img, svg { display: block; max-width: 100%; }
   padding: 0 14px;
   border-radius: 999px;
   background: transparent;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
   white-space: nowrap;
   border: 1px solid rgba(255, 255, 255, 0.35);
   transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
 }
+/* 쇼핑몰·날씨정보를 햄버거에서 왼쪽으로 띄움 */
+.gnb__shop + .gnb__shop { margin-right: 20px; }
 .gnb--top .gnb__shop { color: #fff; text-shadow: 0 2px 2px rgba(0,0,0,0.25); }
 .gnb--top .gnb__shop:hover { background: rgba(255,255,255,0.14); }
 .gnb--scrolled .gnb__shop {
@@ -1106,11 +1109,14 @@ img, svg { display: block; max-width: 100%; }
 .mega__row-label--air { top: 32px; }
 .mega__row-label--weather { top: 353px; }
 /* 메뉴 텍스트: Pretendard Regular 18, line-height 40, #222 */
+/* 칼럼 x = 좌측 점선 x, 폭 = 점선 피치(160) → 셀 중앙정렬 */
 .mega__list {
   position: absolute;
   list-style: none;
   margin: 0;
   padding: 0;
+  width: 160px;
+  text-align: center;
 }
 .mega__list li { line-height: 40px; }
 .mega__list a {
@@ -1135,7 +1141,7 @@ img, svg { display: block; max-width: 100%; }
 /* ===== 패밀리 사이트 — Figma family(371:528): x=1477, y=34, 241×275 ===== */
 .mega__family {
   position: absolute;
-  left: 1427px;
+  left: 1290px;
   top: 34px;
   width: 241px;
   height: 275px;
@@ -1143,14 +1149,14 @@ img, svg { display: block; max-width: 100%; }
 .mega__family-thumb {
   position: absolute;
   left: 0;
-  width: 75px;
-  height: 55px;
+  width: 68px;
+  height: 50px;
   border-radius: 10px;
   object-fit: cover;
 }
 .mega__family-label {
   position: absolute;
-  left: 96px;
+  left: 82px;
   font-family: 'Pretendard Variable', Pretendard, system-ui, sans-serif;
   font-size: 17px;
   font-weight: 400;
@@ -1172,6 +1178,54 @@ img, svg { display: block; max-width: 100%; }
   display: inline-flex;
 }
 .mega__family-btn img { width: 100%; height: 100%; display: block; }
+
+/* 마스크 프로모 — Figma mask(371:527): x=1680(캔버스 1320), y=466(패널 376), 324×103 */
+.mega__mask {
+  position: absolute;
+  left: 1275px;
+  top: 368px;
+  width: 324px;
+  height: 103px;
+}
+.mega__mask-img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 179px;
+  height: auto;
+}
+.mega__mask-small {
+  position: absolute;
+  left: 204px;
+  top: 17px;
+  font-size: 14px;
+  line-height: 1.15;
+  color: #222;
+  white-space: nowrap;
+}
+.mega__mask-title {
+  position: absolute;
+  left: 204px;
+  top: 38px;
+  font-size: 22px;
+  line-height: 1.2;
+  font-weight: 600;
+  color: #222;
+  white-space: nowrap;
+}
+.mega__mask-link {
+  position: absolute;
+  left: 204px;
+  top: 72px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  color: #222;
+  white-space: nowrap;
+}
+.mega__mask-link img { width: 20px; height: 20px; display: block; }
+.mega__mask-link:hover { color: #3f5abb; }
 
 .kpi-pop {
   display: inline-block;
@@ -1331,7 +1385,7 @@ img, svg { display: block; max-width: 100%; }
 .digital-card__name {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 26px;
+  font-size: 24px;
   letter-spacing: -0.02em;
   line-height: 1.15;
   color: #222;

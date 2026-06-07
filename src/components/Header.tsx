@@ -20,7 +20,7 @@ type MegaBlock = { y: number; items: MegaItem[] };
 const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
   {
     key: "data",
-    x: 318,
+    x: 282,
     blocks: [
       { y: 38, items: [{ label: "공기측정", small: "(국가관측/IoT측정)" }] },
       {
@@ -35,7 +35,7 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
   },
   {
     key: "service",
-    x: 494,
+    x: 442,
     blocks: [
       {
         y: 32,
@@ -50,7 +50,7 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
   },
   {
     key: "product",
-    x: 656,
+    x: 602,
     blocks: [
       {
         y: 32,
@@ -65,7 +65,7 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
   },
   {
     key: "solution",
-    x: 838,
+    x: 762,
     blocks: [
       { y: 32, items: [{ label: "AI 환기청정" }, { label: "조리실 자동제어" }] },
       { y: 358, items: [{ label: "기후위험관리", small: "(폭염·건설·해양·ESG)" }] },
@@ -73,7 +73,7 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
   },
   {
     key: "ref",
-    x: 1030,
+    x: 922,
     blocks: [
       { y: 32, items: [{ label: "공기지능사례" }, { label: "공기지능인증" }] },
       { y: 353, items: [{ label: "날씨경영사례" }] },
@@ -81,7 +81,7 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
   },
   {
     key: "about",
-    x: 1208,
+    x: 1082,
     blocks: [
       {
         y: 32,
@@ -98,22 +98,22 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
   },
 ];
 
-/* 세로 점선(ia_line.png) x 좌표 — 점선 간격 175(피치 176), 시작 x=282 */
-const MEGA_LINES_X = [282, 458, 634, 810, 986, 1162, 1338];
+/* 세로 점선(ia_line.png) x 좌표 — 피치 160, 시작 x=282 */
+const MEGA_LINES_X = [282, 442, 602, 762, 922, 1082, 1242];
 
 /* 패밀리 영역 — Figma family(371:528): 프레임 x=1477(뷰포트), y=34(패널 상대), 241×275
    썸네일 75×55 r10, 라벨 17px #515151 x=96, 버튼 btn_sgo 20×20 (라벨별 위치 상이) */
 const FAMILY_ITEMS = [
-  { label: "날씨지도", thumb: "/assets/ia_s_thum01.png", thumbTop: 0, textTop: 8, btnLeft: 163, btnTop: 19 },
-  { label: "Air365", thumb: "/assets/ia_s_thum02.png", thumbTop: 70, textTop: 78, btnLeft: 156, btnTop: 90 },
-  { label: "날씨환경청", thumb: "/assets/ia_s_thum03.png", thumbTop: 139, textTop: 147, btnLeft: 178, btnTop: 158 },
+  { label: "날씨지도", thumb: "/assets/ia_s_thum01.png", thumbTop: 0, textTop: 5, btnLeft: 163, btnTop: 16 },
+  { label: "Air365", thumb: "/assets/ia_s_thum02.png", thumbTop: 70, textTop: 75, btnLeft: 156, btnTop: 86 },
+  { label: "날씨환경청", thumb: "/assets/ia_s_thum03.png", thumbTop: 139, textTop: 144, btnLeft: 178, btnTop: 155 },
   { label: "날씨앱", thumb: "/assets/ia_s_thum04.png", thumbTop: 210, textTop: 201 },
 ] as const;
 
 /* 날씨앱 하위 스토어 링크 — Figma: IOS x=97 / Android x=167, y=233, 16px #222 */
 const FAMILY_APPS = [
-  { label: "IOS", left: 97, btnLeft: 131 },
-  { label: "Android", left: 167, btnLeft: 232 },
+  { label: "IOS", left: 83, btnLeft: 117 },
+  { label: "Android", left: 153, btnLeft: 218 },
 ] as const;
 
 function Logo({ light = false }: { light?: boolean }) {
@@ -125,7 +125,7 @@ function Logo({ light = false }: { light?: boolean }) {
         width={218}
         height={30}
         priority
-        style={{ height: "30px", width: "auto", display: "block" }}
+        style={{ height: "26px", width: "auto", display: "block" }}
       />
     </div>
   );
@@ -344,6 +344,22 @@ export default function Header() {
                 </a>
               </div>
             ))}
+          </div>
+
+          {/* 마스크 프로모 — Figma mask(371:527) */}
+          <div className="mega__mask">
+            <img
+              src="/assets/mask_img.png"
+              alt="데일리 마스크 + 세정티슈"
+              className="mega__mask-img"
+              loading="lazy"
+            />
+            <span className="mega__mask-small">세정티슈까지 한번에</span>
+            <strong className="mega__mask-title">데일리 마스크</strong>
+            <a href="#" className="mega__mask-link" aria-label="데일리 마스크 바로가기">
+              바로가기
+              <img src="/assets/btn_sgo.svg" alt="" />
+            </a>
           </div>
         </div>
       </div>

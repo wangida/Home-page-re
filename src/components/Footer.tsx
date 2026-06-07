@@ -3,26 +3,35 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
-/* GNB 메가메뉴 IA와 동일 구조 (공기/기상 통합 나열) */
-const COLS: [string, string[]][] = [
-  [
-    "데이터",
-    ["공기측정", "공기예보", "동별미세먼지", "Air365", "기상데이터", "방송 컨텐츠", "모바일정보"],
-  ],
-  [
-    "서비스",
-    ["공기질 측정진단", "공기개선 서비스", "유지관리 서비스", "날씨경영 컨설팅"],
-  ],
-  [
-    "제품",
-    ["공기측정기", "환기청정기", "공기빅데이터플랫폼", "체감온도계", "기상장비"],
-  ],
-  ["솔루션", ["AI 환기청정", "조리실 자동제어", "기후위험관리"]],
-  ["레퍼런스", ["공기지능사례", "공기지능인증", "날씨경영사례"]],
-  [
-    "회사소개",
-    ["기업소개", "연혁", "IR · 주식정보", "홍보센터", "E-카탈로그", "인재채용"],
-  ],
+/* GNB 메가메뉴 IA와 동일 구조 — 컬럼 내 공기/기상 그룹을 행간으로 구분 */
+const COLS: { title: string; groups: string[][] }[] = [
+  {
+    title: "데이터",
+    groups: [
+      ["공기측정", "공기예보", "동별미세먼지", "Air365"],
+      ["기상데이터", "방송 컨텐츠", "모바일정보"],
+    ],
+  },
+  {
+    title: "서비스",
+    groups: [
+      ["공기질 측정진단", "공기개선 서비스", "유지관리 서비스"],
+      ["날씨경영 컨설팅"],
+    ],
+  },
+  {
+    title: "제품",
+    groups: [
+      ["공기측정기", "환기청정기", "공기빅데이터플랫폼"],
+      ["체감온도계", "기상장비"],
+    ],
+  },
+  { title: "솔루션", groups: [["AI 환기청정", "조리실 자동제어"], ["기후위험관리"]] },
+  { title: "레퍼런스", groups: [["공기지능사례", "공기지능인증"], ["날씨경영사례"]] },
+  {
+    title: "회사소개",
+    groups: [["기업소개", "연혁", "IR · 주식정보", "홍보센터", "E-카탈로그", "인재채용"]],
+  },
 ];
 
 const FAMILY_SITES = [
@@ -60,16 +69,18 @@ export default function Footer() {
       style={{
         background: "var(--ink-950)",
         color: "rgba(255,255,255,0.7)",
-        padding: "80px 0 36px",
+        padding: "32px 0 25px",
       }}
     >
       <div className="container">
         <div
+          className="footer-top"
           style={{
-            display: "grid",
-            gridTemplateColumns: "1.4fr repeat(6, 1fr)",
-            gap: 36,
-            marginBottom: 56,
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "space-between",
+            gap: "40px 48px",
+            marginBottom: 48,
           }}
         >
           <div>
@@ -82,7 +93,7 @@ export default function Footer() {
             />
             <div
               style={{
-                marginTop: 22,
+                marginTop: 24,
                 fontSize: 13,
                 lineHeight: 1.9,
                 color: "rgba(255,255,255,0.45)",
@@ -108,47 +119,61 @@ export default function Footer() {
               </div>
             </div>
           </div>
-          {COLS.map(([title, list]) => (
-            <div key={title}>
-              <div
-                style={{
-                  color: "#fff",
-                  fontWeight: 700,
-                  fontSize: 14,
-                  marginBottom: 16,
-                }}
-              >
-                {title}
-              </div>
-              <ul
-                style={{
-                  listStyle: "none",
-                  padding: 0,
-                  margin: 0,
-                  display: "grid",
-                  gap: 10,
-                }}
-              >
-                {list.map((l) => (
-                  <li key={l}>
-                    <a
-                      href="#"
-                      style={{ fontSize: 13, color: "rgba(255,255,255,0.6)" }}
+          <nav
+            className="footer-menus"
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "32px clamp(40px, 7vw, 100px)",
+            }}
+          >
+            {COLS.map(({ title, groups }) => (
+              <div key={title}>
+                <div
+                  style={{
+                    color: "#fff",
+                    fontWeight: 700,
+                    fontSize: 14,
+                    marginBottom: 20,
+                  }}
+                >
+                  {title}
+                </div>
+                <div style={{ display: "grid", gap: 24 }}>
+                  {groups.map((group, gi) => (
+                    <ul
+                      key={gi}
+                      style={{
+                        listStyle: "none",
+                        padding: 0,
+                        margin: 0,
+                        display: "grid",
+                        gap: 15,
+                      }}
                     >
-                      {l}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+                      {group.map((l) => (
+                        <li key={l}>
+                          <a
+                            href="#"
+                            style={{ fontSize: 13, color: "rgba(255,255,255,0.6)" }}
+                          >
+                            {l}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </nav>
         </div>
         <div
           style={{
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            paddingTop: 28,
+            paddingTop: 25,
             borderTop: "1px solid rgba(255,255,255,0.08)",
             fontSize: 12,
             color: "rgba(255,255,255,0.4)",

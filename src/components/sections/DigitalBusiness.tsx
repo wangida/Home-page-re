@@ -40,7 +40,7 @@ const DIGITAL: Card[] = [
   },
   {
     key: "fume",
-    name: "조리흄 솔루션",
+    name: "스마트 조리실 솔루션",
     desc: "조리실 통합공기 시스템\n급기, 배기, 송풍기, 환기 등",
     img: "/assets/03_img_re.png",
     icon: "/assets/icon_03.png",

@@ -11,6 +11,11 @@ const nextConfig: NextConfig = {
     "172.30.1.88",
     "10.0.0.*",
   ],
+  experimental: {
+    // Next 16.1+ 기본 활성화된 dev 파일시스템 캐시가 CSS 변경을 누락시키는
+    // 문제(stale chunk 서빙)가 있어 비활성화한다.
+    turbopackFileSystemCacheForDev: false,
+  },
 };
 
 export default nextConfig;

@@ -40,7 +40,7 @@ const DIGITAL: Card[] = [
   },
   {
     key: "fume",
-    name: "스마트 조리실 솔루션",
+    name: "조리실 솔루션",
     desc: "조리실 통합공기 시스템\n급기, 배기, 송풍기, 환기 등",
     img: "/assets/03_img_re.png",
     icon: "/assets/icon_03.png",
@@ -118,13 +118,11 @@ export default function DigitalBusiness() {
             className="digital-header__title"
           />
           <motion.p className="digital-header__sub" variants={fadeUpSm}>
-            Weather & Air Intelligence를
+            기상과 환경 데이터를 활용한
             <br />
-            기반으로 생활과 산업 현장
+            생활과 산업 현장 전반에 제공되는
             <br />
-            전반에 활용되는
-            <br />
-            다양한 비즈니스 서비스
+            다양한 서비스와 솔루션
           </motion.p>
         </motion.div>
 

@@ -32,7 +32,7 @@ const CARDS: Card[] = [
     id: "03",
     title: "기후리스크 솔루션",
     subSmall: "기후변화와 ESG 대응을 위한\n기업 맞춤 리스크 관리 솔루션",
-    subBig: "폭염 · 폭우 · ESG 대응, 기업 맞춤 리스크 분석\nCRMaaS 기반 통합 관리",
+    subBig: "폭염 · 건설 · 해양/항만 · ESG 대응,\n기업 맞춤 리스크 분석, CRMaaS 기반 통합 관리",
     bullets: ["CRMaaS 플랫폼", "ESG 대응", "폭염·재난 관리", "산업 안전 솔루션"],
     bigImg: "/assets/big_box02.png",
   },

@@ -1311,7 +1311,7 @@ img, svg { display: block; max-width: 100%; }
 .digital-header__sub {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(18px, 1.5vw, 20px);
+  font-size: clamp(18px, 1.75vw, 24px);
   line-height: 1.55;
   color: #5b5b5b;
   margin: 0;

@@ -1364,8 +1364,8 @@ img, svg { display: block; max-width: 100%; }
   position: absolute;
   top: 20px;
   right: 20px;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   z-index: 3;
   pointer-events: none;
 }

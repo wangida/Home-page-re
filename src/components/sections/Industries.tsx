@@ -10,7 +10,7 @@ import {
 } from "@/lib/motion-variants";
 
 const REFERENCES: { key: string; label: string; img: string }[] = [
-  { key: "biz",    label: "[ 기업 · 현대자동차 환경측정망 구축 ]",      img: "/assets/thum_01_re.png" },
+  { key: "biz",    label: "[ 기업 · 현대자동차 환경측정망 ]",      img: "/assets/thum_01_re.png" },
   { key: "gov",    label: "[ 공공기관 · 울산항만공사 방재기상 ]",       img: "/assets/thum_02_re.png" },
   { key: "med",    label: "[ 병원 · 양산시 시나브로 복지관 ]",          img: "/assets/thum_03_re.png" },
   { key: "house",  label: "[ 주거공간 · 포스코이앤씨 더샵 리오몬트 ]",  img: "/assets/thum_04_re.png" },

@@ -1141,7 +1141,7 @@ img, svg { display: block; max-width: 100%; }
 /* ===== 패밀리 사이트 — Figma family(371:528): x=1477, y=34, 241×275 ===== */
 .mega__family {
   position: absolute;
-  left: 1290px;
+  left: 1320px;
   top: 34px;
   width: 241px;
   height: 275px;
@@ -1182,7 +1182,7 @@ img, svg { display: block; max-width: 100%; }
 /* 마스크 프로모 — Figma mask(371:527): x=1680(캔버스 1320), y=466(패널 376), 324×103 */
 .mega__mask {
   position: absolute;
-  left: 1275px;
+  left: 1305px;
   top: 368px;
   width: 324px;
   height: 103px;

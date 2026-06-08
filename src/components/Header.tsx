@@ -22,14 +22,14 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
     key: "data",
     x: 282,
     blocks: [
-      { y: 38, items: [{ label: "공기측정", small: "(국가관측/IoT측정)" }] },
+      { y: 38, items: [{ label: "공기 측정", small: "(국가관측/IoT측정)" }] },
       {
         y: 106,
-        items: [{ label: "공기예보" }, { label: "동별미세먼지" }, { label: "Air365" }],
+        items: [{ label: "공기 예보" }, { label: "동별 미세먼지" }, { label: "Air365" }],
       },
       {
         y: 353,
-        items: [{ label: "기상데이터" }, { label: "방송 컨텐츠" }, { label: "모바일정보" }],
+        items: [{ label: "기상 데이터" }, { label: "방송 컨텐츠" }, { label: "모바일 정보" }],
       },
     ],
   },
@@ -40,8 +40,8 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
       {
         y: 32,
         items: [
-          { label: "공기질 측정진단" },
-          { label: "공기개선 서비스" },
+          { label: "공기질 측정·진단" },
+          { label: "공기 개선 서비스" },
           { label: "유지관리 서비스" },
         ],
       },
@@ -55,9 +55,9 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
       {
         y: 32,
         items: [
-          { label: "공기측정기" },
-          { label: "환기청정기" },
-          { label: "공기빅데이터플랫폼" },
+          { label: "공기 측정기" },
+          { label: "환기 청정기" },
+          { label: "공기 빅데이터 플랫폼" },
         ],
       },
       { y: 353, items: [{ label: "체감온도계" }, { label: "기상장비" }] },
@@ -67,16 +67,16 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
     key: "solution",
     x: 762,
     blocks: [
-      { y: 32, items: [{ label: "AI 환기청정" }, { label: "조리실 자동제어" }] },
-      { y: 358, items: [{ label: "기후위험관리", small: "(폭염·건설·해양·ESG)" }] },
+      { y: 32, items: [{ label: "AI 환기청정 솔루션" }, { label: "조리실 자동 제어" }] },
+      { y: 358, items: [{ label: "기후위험 관리", small: "(폭염·건설·해양·ESG)" }] },
     ],
   },
   {
     key: "ref",
     x: 922,
     blocks: [
-      { y: 32, items: [{ label: "공기지능사례" }, { label: "공기지능인증" }] },
-      { y: 353, items: [{ label: "날씨경영사례" }] },
+      { y: 32, items: [{ label: "공기지능 사례" }, { label: "공기지능 인증" }] },
+      { y: 353, items: [{ label: "날씨경영 사례" }] },
     ],
   },
   {

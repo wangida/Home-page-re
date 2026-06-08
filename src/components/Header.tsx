@@ -350,11 +350,12 @@ export default function Header() {
           <div className="mega__mask">
             <img
               src="/assets/mask_img.png"
+              srcSet="/assets/mask_img.png 1x, /assets/mask_img@2x.png 2x"
               alt="데일리 마스크 + 세정티슈"
               className="mega__mask-img"
               loading="lazy"
             />
-            <span className="mega__mask-small">세정티슈까지 한번에</span>
+            <span className="mega__mask-small">차단·위생·세정 한번에</span>
             <strong className="mega__mask-title">데일리 마스크</strong>
             <a href="#" className="mega__mask-link" aria-label="데일리 마스크 바로가기">
               바로가기

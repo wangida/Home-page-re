@@ -1191,12 +1191,12 @@ img, svg { display: block; max-width: 100%; }
   position: absolute;
   left: 0;
   top: 0;
-  width: 179px;
+  width: 170px;
   height: auto;
 }
 .mega__mask-small {
   position: absolute;
-  left: 204px;
+  left: 181px;
   top: 17px;
   font-size: 14px;
   line-height: 1.15;
@@ -1205,7 +1205,7 @@ img, svg { display: block; max-width: 100%; }
 }
 .mega__mask-title {
   position: absolute;
-  left: 204px;
+  left: 181px;
   top: 38px;
   font-size: 22px;
   line-height: 1.2;
@@ -1215,8 +1215,8 @@ img, svg { display: block; max-width: 100%; }
 }
 .mega__mask-link {
   position: absolute;
-  left: 204px;
-  top: 72px;
+  left: 181px;
+  top: 66px;
   display: inline-flex;
   align-items: center;
   gap: 5px;
@@ -1310,7 +1310,7 @@ img, svg { display: block; max-width: 100%; }
 }
 .digital-header__sub {
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: 300;
   font-size: clamp(18px, 1.75vw, 24px);
   line-height: 1.55;
   color: #5b5b5b;

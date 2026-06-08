@@ -148,7 +148,7 @@ export default function Footer() {
                         padding: 0,
                         margin: 0,
                         display: "grid",
-                        gap: 15,
+                        gap: 6,
                       }}
                     >
                       {group.map((l) => (

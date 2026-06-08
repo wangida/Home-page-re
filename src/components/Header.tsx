@@ -41,7 +41,7 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
         y: 32,
         items: [
           { label: "공기질 측정·진단" },
-          { label: "공기 개선 서비스" },
+          { label: "공기개선 서비스" },
           { label: "유지관리 서비스" },
         ],
       },
@@ -104,9 +104,9 @@ const MEGA_LINES_X = [282, 442, 602, 762, 922, 1082, 1242];
 /* 패밀리 영역 — Figma family(371:528): 프레임 x=1477(뷰포트), y=34(패널 상대), 241×275
    썸네일 75×55 r10, 라벨 17px #515151 x=96, 버튼 btn_sgo 20×20 (라벨별 위치 상이) */
 const FAMILY_ITEMS = [
-  { label: "날씨지도", thumb: "/assets/ia_s_thum01.png", thumbTop: 0, textTop: 5, btnLeft: 163, btnTop: 16 },
-  { label: "Air365", thumb: "/assets/ia_s_thum02.png", thumbTop: 70, textTop: 75, btnLeft: 156, btnTop: 86 },
-  { label: "날씨환경청", thumb: "/assets/ia_s_thum03.png", thumbTop: 139, textTop: 144, btnLeft: 178, btnTop: 155 },
+  { label: "날씨지도", thumb: "/assets/ia_s_thum01.png", thumbTop: 0, textTop: 5, btnLeft: 145, btnTop: 16 },
+  { label: "Air365", thumb: "/assets/ia_s_thum02.png", thumbTop: 70, textTop: 75, btnLeft: 138, btnTop: 86 },
+  { label: "날씨환경청", thumb: "/assets/ia_s_thum03.png", thumbTop: 139, textTop: 144, btnLeft: 160, btnTop: 155 },
   { label: "날씨앱", thumb: "/assets/ia_s_thum04.png", thumbTop: 210, textTop: 201 },
 ] as const;
 
@@ -330,14 +330,14 @@ export default function Header() {
                 <a
                   href="#"
                   className="mega__family-label mega__family-label--app"
-                  style={{ left: a.left, top: 233 }}
+                  style={{ left: a.left, top: 225 }}
                 >
                   {a.label}
                 </a>
                 <a
                   href="#"
                   className="mega__family-btn"
-                  style={{ left: a.btnLeft, top: 244 }}
+                  style={{ left: a.btnLeft, top: 236 }}
                   aria-label={`날씨앱 ${a.label} 바로가기`}
                 >
                   <img src="/assets/btn_sgo.svg" alt="" />

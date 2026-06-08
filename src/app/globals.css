@@ -1158,8 +1158,8 @@ img, svg { display: block; max-width: 100%; }
   position: absolute;
   left: 82px;
   font-family: 'Pretendard Variable', Pretendard, system-ui, sans-serif;
-  font-size: 17px;
-  font-weight: 400;
+  font-size: 16px;
+  font-weight: 500;
   line-height: 40px;
   color: #515151;
   white-space: nowrap;
@@ -1167,7 +1167,7 @@ img, svg { display: block; max-width: 100%; }
 }
 .mega__family-label:hover { color: #3f5abb; }
 .mega__family-label--app {
-  font-size: 16px;
+  font-size: 15px;
   color: #222;
 }
 /* btn_sgo: 원본 40×40 에셋을 20×20으로 축소 */
@@ -1198,7 +1198,7 @@ img, svg { display: block; max-width: 100%; }
   position: absolute;
   left: 181px;
   top: 17px;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.15;
   color: #222;
   white-space: nowrap;
@@ -1207,7 +1207,7 @@ img, svg { display: block; max-width: 100%; }
   position: absolute;
   left: 181px;
   top: 38px;
-  font-size: 22px;
+  font-size: 20px;
   line-height: 1.2;
   font-weight: 600;
   color: #222;

@@ -9,7 +9,7 @@ const COLS: { title: string; groups: string[][] }[] = [
     title: "데이터",
     groups: [
       ["공기측정", "공기예보", "동별미세먼지", "Air365"],
-      ["기상데이터", "방송컨텐츠", "모바일정보"],
+      ["기상데이터", "AI기상예보", "방송컨텐츠", "모바일정보"],
     ],
   },
   {
@@ -80,7 +80,7 @@ export default function Footer() {
             flexWrap: "wrap",
             justifyContent: "space-between",
             gap: "40px 48px",
-            marginBottom: 48,
+            marginBottom: 32,
           }}
         >
           <div>
@@ -99,7 +99,7 @@ export default function Footer() {
                 color: "rgba(255,255,255,0.45)",
               }}
             >
-              케이웨더(주) · 대표자 김동식
+              케이웨더(주) · 대표이사 김동식
               <br />
               서울특별시 구로구 디지털로26길 5, 에이스하이엔드타워
               <br />
@@ -125,6 +125,7 @@ export default function Footer() {
               display: "flex",
               flexWrap: "wrap",
               gap: "32px clamp(40px, 7vw, 100px)",
+              marginTop: 2,
             }}
           >
             {COLS.map(({ title, groups }) => (

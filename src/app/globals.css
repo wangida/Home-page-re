@@ -1094,7 +1094,7 @@ img, svg { display: block; max-width: 100%; }
   position: absolute;
   top: 35px;
   width: 1px;
-  height: 460px;
+  height: 454px;
 }
 /* 행 라벨: 공기/기상 — Pretendard SemiBold 20, x=198 */
 .mega__row-label {
@@ -1107,7 +1107,7 @@ img, svg { display: block; max-width: 100%; }
   color: #222;
 }
 .mega__row-label--air { top: 32px; }
-.mega__row-label--weather { top: 353px; }
+.mega__row-label--weather { top: 346px; }
 /* 메뉴 텍스트: Pretendard Regular 18, line-height 40, #222 */
 /* 칼럼 x = 좌측 점선 x, 폭 = 점선 피치(160) → 셀 중앙정렬 */
 .mega__list {
@@ -1198,7 +1198,7 @@ img, svg { display: block; max-width: 100%; }
 .mega__mask-small {
   position: absolute;
   left: 181px;
-  top: 17px;
+  top: 16px;
   font-size: 13px;
   line-height: 1.15;
   color: #222;
@@ -1217,7 +1217,7 @@ img, svg { display: block; max-width: 100%; }
 .mega__mask-link {
   position: absolute;
   left: 181px;
-  top: 66px;
+  top: 70px;
   display: inline-flex;
   align-items: center;
   gap: 5px;

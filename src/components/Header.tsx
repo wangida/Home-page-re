@@ -28,7 +28,7 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
         items: [{ label: "공기 예보" }, { label: "동별 미세먼지" }, { label: "Air365" }],
       },
       {
-        y: 353,
+        y: 349,
         tight: true,
         items: [
           { label: "기상 데이터" },
@@ -51,7 +51,7 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
           { label: "유지관리 서비스" },
         ],
       },
-      { y: 353, tight: true, items: [{ label: "날씨경영 컨설팅" }] },
+      { y: 349, tight: true, items: [{ label: "날씨경영 컨설팅" }] },
     ],
   },
   {
@@ -66,7 +66,7 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
           { label: "공기 빅데이터 플랫폼" },
         ],
       },
-      { y: 353, tight: true, items: [{ label: "체감온도계" }, { label: "기상장비" }] },
+      { y: 349, tight: true, items: [{ label: "체감온도계" }, { label: "기상장비" }] },
     ],
   },
   {
@@ -74,7 +74,7 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
     x: 762,
     blocks: [
       { y: 32, items: [{ label: "AI 환기청정 솔루션" }, { label: "조리실 자동제어" }] },
-      { y: 358, tight: true, items: [{ label: "기후위험 관리", small: "(폭염·건설·해양·ESG)" }] },
+      { y: 354, tight: true, items: [{ label: "기후위험 관리", small: "(폭염·건설·해양·ESG)" }] },
     ],
   },
   {
@@ -82,7 +82,7 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
     x: 922,
     blocks: [
       { y: 32, items: [{ label: "공기지능 사례" }, { label: "공기지능 인증" }] },
-      { y: 353, tight: true, items: [{ label: "날씨경영 사례" }] },
+      { y: 349, tight: true, items: [{ label: "날씨경영 사례" }] },
     ],
   },
   {

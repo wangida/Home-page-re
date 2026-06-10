@@ -1080,7 +1080,7 @@ img, svg { display: block; max-width: 100%; }
   position: absolute;
   left: 0; right: 0;
   top: 330px;
-  height: 190px;
+  height: 205px;
   background: #ecf4ff;
 }
 .mega__canvas {
@@ -1094,7 +1094,7 @@ img, svg { display: block; max-width: 100%; }
   position: absolute;
   top: 35px;
   width: 1px;
-  height: 445px;
+  height: 460px;
 }
 /* 행 라벨: 공기/기상 — Pretendard SemiBold 20, x=198 */
 .mega__row-label {
@@ -1119,6 +1119,7 @@ img, svg { display: block; max-width: 100%; }
   text-align: center;
 }
 .mega__list li { line-height: 40px; }
+.mega__list--tight-rows li { line-height: 36px; }
 .mega__list a {
   display: inline-block;
   font-family: 'Pretendard Variable', Pretendard, system-ui, sans-serif;

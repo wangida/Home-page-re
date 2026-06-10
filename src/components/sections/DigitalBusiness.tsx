@@ -41,14 +41,14 @@ const DIGITAL: Card[] = [
   {
     key: "fume",
     name: "조리실 솔루션",
-    desc: "조리실 통합공기 시스템\n급기, 배기, 송풍기, 환기 등",
+    desc: "조리실 자동제어, 통합공기\n급기, 배기, 송풍기, 환기 등",
     img: "/assets/03_img_re.png",
     icon: "/assets/icon_03.png",
     href: "#", // TODO: 링크 추후 전달 예정
   },
   {
     key: "caster",
-    name: "Ai 기상캐스터",
+    name: "AI 기상캐스터",
     desc: "AI 캐스터를 활용하여\n날씨 방송 콘텐츠 제작",
     img: "/assets/man.png",
     icon: "/assets/icon_04.png",
@@ -56,7 +56,7 @@ const DIGITAL: Card[] = [
   },
   {
     key: "model",
-    name: "Ai 날씨 예측 모델",
+    name: "AI 날씨 예측 모델",
     desc: "생태계의 핵심 엔진인\n초정밀 AI예보 시스템 구축",
     img: "/assets/earth.png",
     imgExtra: "/assets/graph.png",

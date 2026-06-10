@@ -15,7 +15,7 @@ const NAV = [
 /* ===== 메가메뉴 — Figma navi(211:164) 좌표 그대로 (1920 기준, 프레임 x−240 보정)
    패널 상대 y = Figma y − 90(상단바 높이) ===== */
 type MegaItem = { label: string; small?: string };
-type MegaBlock = { y: number; items: MegaItem[] };
+type MegaBlock = { y: number; items: MegaItem[]; tight?: boolean };
 
 const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
   {
@@ -24,12 +24,18 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
     blocks: [
       { y: 38, items: [{ label: "공기 측정", small: "(국가관측/IoT측정)" }] },
       {
-        y: 106,
+        y: 102,
         items: [{ label: "공기 예보" }, { label: "동별 미세먼지" }, { label: "Air365" }],
       },
       {
         y: 353,
-        items: [{ label: "기상 데이터" }, { label: "방송 컨텐츠" }, { label: "모바일 정보" }],
+        tight: true,
+        items: [
+          { label: "기상 데이터" },
+          { label: "AI 기상예보" },
+          { label: "방송 컨텐츠" },
+          { label: "모바일 정보" },
+        ],
       },
     ],
   },
@@ -45,7 +51,7 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
           { label: "유지관리 서비스" },
         ],
       },
-      { y: 353, items: [{ label: "날씨경영 컨설팅" }] },
+      { y: 353, tight: true, items: [{ label: "날씨경영 컨설팅" }] },
     ],
   },
   {
@@ -60,15 +66,15 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
           { label: "공기 빅데이터 플랫폼" },
         ],
       },
-      { y: 353, items: [{ label: "체감온도계" }, { label: "기상장비" }] },
+      { y: 353, tight: true, items: [{ label: "체감온도계" }, { label: "기상장비" }] },
     ],
   },
   {
     key: "solution",
     x: 762,
     blocks: [
-      { y: 32, items: [{ label: "AI 환기청정 솔루션" }, { label: "조리실 자동 제어" }] },
-      { y: 358, items: [{ label: "기후위험 관리", small: "(폭염·건설·해양·ESG)" }] },
+      { y: 32, items: [{ label: "AI 환기청정 솔루션" }, { label: "조리실 자동제어" }] },
+      { y: 358, tight: true, items: [{ label: "기후위험 관리", small: "(폭염·건설·해양·ESG)" }] },
     ],
   },
   {
@@ -76,7 +82,7 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
     x: 922,
     blocks: [
       { y: 32, items: [{ label: "공기지능 사례" }, { label: "공기지능 인증" }] },
-      { y: 353, items: [{ label: "날씨경영 사례" }] },
+      { y: 353, tight: true, items: [{ label: "날씨경영 사례" }] },
     ],
   },
   {
@@ -277,7 +283,7 @@ export default function Header() {
                 key={`${col.key}-${bi}`}
                 className={`mega__list ${
                   col.key === "product" ? "mega__list--tight" : ""
-                }`}
+                } ${block.tight ? "mega__list--tight-rows" : ""}`}
                 style={{ left: col.x, top: block.y }}
               >
                 {block.items.map((it) => (

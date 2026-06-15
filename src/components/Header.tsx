@@ -14,7 +14,7 @@ const NAV = [
 
 /* ===== 메가메뉴 — Figma navi(211:164) 좌표 그대로 (1920 기준, 프레임 x−240 보정)
    패널 상대 y = Figma y − 90(상단바 높이) ===== */
-type MegaItem = { label: string; small?: string };
+type MegaItem = { label: string; small?: string; href?: string };
 type MegaBlock = { y: number; items: MegaItem[]; tight?: boolean };
 
 const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
@@ -22,19 +22,23 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
     key: "data",
     x: 282,
     blocks: [
-      { y: 38, items: [{ label: "공기 측정", small: "(국가관측/IoT측정)" }] },
+      { y: 38, items: [{ label: "공기 측정", small: "(국가관측/IoT측정)", href: "/data/measure" }] },
       {
         y: 102,
-        items: [{ label: "공기 예보" }, { label: "동별 미세먼지" }, { label: "Air365" }],
+        items: [
+          { label: "공기 예보", href: "/data/air" },
+          { label: "동별 미세먼지", href: "/data/dong" },
+          { label: "Air365" },
+        ],
       },
       {
         y: 349,
         tight: true,
         items: [
-          { label: "기상 데이터" },
-          { label: "AI 기상예보" },
-          { label: "방송 컨텐츠" },
-          { label: "모바일 정보" },
+          { label: "기상 데이터", href: "/data/weather" },
+          { label: "AI 기상예보", href: "/data/ai" },
+          { label: "방송 컨텐츠", href: "/data/broadcast" },
+          { label: "모바일 정보", href: "/data/mobile" },
         ],
       },
     ],
@@ -92,12 +96,12 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
       {
         y: 32,
         items: [
-          { label: "기업소개" },
-          { label: "연혁" },
-          { label: "IR · 주식정보" },
-          { label: "홍보센터" },
-          { label: "E-카탈로그" },
-          { label: "인재채용" },
+          { label: "기업소개", href: "/company" },
+          { label: "연혁", href: "/company/history" },
+          { label: "IR · 주식정보", href: "/company/ir" },
+          { label: "홍보센터", href: "/company/prcenter" },
+          { label: "E-카탈로그", href: "/company/catalog" },
+          { label: "인재채용", href: "/company/recruit" },
         ],
       },
     ],
@@ -137,7 +141,8 @@ function Logo({ light = false }: { light?: boolean }) {
   );
 }
 
-export default function Header() {
+/* solid: 서브 페이지처럼 최상단에서도 흰 배경/어두운 텍스트를 유지해야 할 때 */
+export default function Header({ solid = false }: { solid?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState<string | null>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -158,7 +163,7 @@ export default function Header() {
   };
 
   const isOpenAny = open != null;
-  const useDarkText = scrolled || isOpenAny;
+  const useDarkText = solid || scrolled || isOpenAny;
 
   return (
     <header
@@ -168,7 +173,7 @@ export default function Header() {
       onMouseLeave={leave}
     >
       <div className="gnb__inner">
-        <a href="#top" className="gnb__logo" aria-label="K-WEATHER home">
+        <a href="/#top" className="gnb__logo" aria-label="K-WEATHER home">
           <Logo light={!useDarkText} />
         </a>
 
@@ -176,7 +181,7 @@ export default function Header() {
           {NAV.map((n) => (
             <a
               key={n.key}
-              href={`#${n.key}`}
+              href={`/#${n.key}`}
               className={`gnb__link ${open === n.key ? "is-active" : ""}`}
               onMouseEnter={() => enter(n.key)}
               onFocus={() => enter(n.key)}
@@ -288,7 +293,7 @@ export default function Header() {
               >
                 {block.items.map((it) => (
                   <li key={it.label} className={it.small ? "has-small" : ""}>
-                    <a href="#">
+                    <a href={it.href ?? "#"}>
                       {it.label}
                       {it.small && (
                         <span className="mega__small">{it.small}</span>

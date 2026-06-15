@@ -34,6 +34,18 @@ const COLS: { title: string; groups: string[][] }[] = [
   },
 ];
 
+/* 서브 페이지 라우트가 생긴 메뉴만 연결 — 나머지는 "#" 유지 */
+const MENU_LINKS: Record<string, string> = {
+  공기예보: "/data/air",
+  동별미세먼지: "/data/dong",
+  기업소개: "/company",
+  연혁: "/company/history",
+  "IR · 주식정보": "/company/ir",
+  홍보센터: "/company/prcenter",
+  "E-카탈로그": "/company/catalog",
+  인재채용: "/company/recruit",
+};
+
 const FAMILY_SITES = [
   { label: "날씨정보", href: "https://www.kweather.co.kr" },
   { label: "날씨지도 (kweather map)", href: "https://map.kweather.co.kr" },
@@ -155,7 +167,7 @@ export default function Footer() {
                       {group.map((l) => (
                         <li key={l}>
                           <a
-                            href="#"
+                            href={MENU_LINKS[l] ?? "#"}
                             style={{ fontSize: 13, color: "rgba(255,255,255,0.6)" }}
                           >
                             {l}

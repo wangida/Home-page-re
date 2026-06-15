@@ -56,16 +56,33 @@ const SWAP_WIDTH = `width 0.5s ${EASE}`;
 
 export default function Solutions() {
   const [active, setActive] = useState<number>(0);
-  const [isMobile, setIsMobile] = useState(false);
+  const [layout, setLayout] = useState<"desktop" | "tablet" | "phone">(
+    "desktop"
+  );
 
   useEffect(() => {
-    const mq = window.matchMedia("(max-width: 900px)");
-    const update = () => setIsMobile(mq.matches);
+    // 패드(타블렛, 561~900px)는 2줄 그리드, 폰(≤560px)은 가로 스크롤
+    const tabletMq = window.matchMedia(
+      "(min-width: 561px) and (max-width: 900px)"
+    );
+    const phoneMq = window.matchMedia("(max-width: 560px)");
+    const update = () => {
+      if (phoneMq.matches) setLayout("phone");
+      else if (tabletMq.matches) setLayout("tablet");
+      else setLayout("desktop");
+    };
     update();
-    mq.addEventListener("change", update);
-    return () => mq.removeEventListener("change", update);
+    tabletMq.addEventListener("change", update);
+    phoneMq.addEventListener("change", update);
+    return () => {
+      tabletMq.removeEventListener("change", update);
+      phoneMq.removeEventListener("change", update);
+    };
   }, []);
 
+  const isTablet = layout === "tablet";
+  const isPhone = layout === "phone";
+  const isMobile = layout !== "desktop";
   const effectiveActive = isMobile ? -1 : active;
 
   return (
@@ -120,15 +137,15 @@ export default function Solutions() {
           style={{
             display: "flex",
             gap: isMobile ? 14 : GAP,
-            justifyContent: isMobile ? "flex-start" : "center",
+            justifyContent: isPhone ? "flex-start" : "center",
             alignItems: "stretch",
-            flexWrap: isMobile ? "nowrap" : "wrap",
-            overflowX: isMobile ? "auto" : "visible",
+            flexWrap: isPhone ? "nowrap" : "wrap",
+            overflowX: isPhone ? "auto" : "visible",
             overflowY: "visible",
-            scrollSnapType: isMobile ? "x mandatory" : undefined,
+            scrollSnapType: isPhone ? "x mandatory" : undefined,
             WebkitOverflowScrolling: "touch",
-            margin: isMobile ? "0 -16px" : 0,
-            padding: isMobile ? "4px 16px 8px" : 0,
+            margin: isPhone ? "0 -16px" : 0,
+            padding: isPhone ? "4px 16px 8px" : 0,
           }}
         >
           {CARDS.map((c, i) => {
@@ -141,13 +158,18 @@ export default function Solutions() {
                 aria-expanded={isActive}
                 style={{
                   position: "relative",
-                  width: isActive ? BIG_W : SMALL_W,
+                  width: isTablet
+                    ? "calc(50% - 7px)"
+                    : isActive
+                      ? BIG_W
+                      : SMALL_W,
+                  maxWidth: isTablet ? BIG_W : undefined,
                   height: CARD_H,
                   borderRadius: 20,
                   overflow: "hidden",
                   cursor: isMobile ? "default" : "pointer",
                   flexShrink: 0,
-                  scrollSnapAlign: isMobile ? "start" : undefined,
+                  scrollSnapAlign: isPhone ? "start" : undefined,
                   background: "#08153b",
                   transition: SWAP_WIDTH,
                 }}

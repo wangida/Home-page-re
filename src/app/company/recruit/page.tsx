@@ -22,7 +22,10 @@ export default function RecruitPage() {
           title="인재채용"
           subtitle={"도전과 성장의 기회가 있는 곳\n케이웨더에서 새로운 가능성을 펼쳐보세요"}
         />
-        <div className="sub-blank" aria-hidden="true" />
+        {/* 본문 확정 전 임시 여백 — 피그마(3:341) 표기대로 안내 텍스트 노출 */}
+        <div className="sub-blank">
+          <p className="sub-blank__note">기존 내용 삽입</p>
+        </div>
       </main>
       <Footer />
     </>

@@ -111,9 +111,9 @@ function ClientsSection() {
   );
 }
 
-/* 배포 게이트 — true면 기상데이터(1번째) 탭만 공개하고 민간예보·케이웨더맵은 빈 화면.
-   2·3번째 탭 작업이 끝나면 false로 바꿔 전체 노출. */
-const FIRST_TAB_ONLY = false;
+/* 배포 게이트 — true면 '민간 예보 서비스' 탭만 빈 화면으로 노출(작업 중).
+   배포 커밋엔 true, 로컬 작업 시 false로 두면 전체 내용 노출. */
+const HIDE_BIZ_TAB = true;
 
 export default function WeatherDataTabs() {
   const [active, setActive] = useState(0);
@@ -561,7 +561,7 @@ export default function WeatherDataTabs() {
             </div>
           )}
         </section>
-      ) : !FIRST_TAB_ONLY && active === 1 ? (
+      ) : !HIDE_BIZ_TAB && active === 1 ? (
         <section className="company-intro" key="biz">
           <h2 className="company-intro__title">케이웨더 민간예보 서비스</h2>
           <p className="company-intro__desc">
@@ -666,7 +666,7 @@ export default function WeatherDataTabs() {
             </div>
           </section>
         </section>
-      ) : !FIRST_TAB_ONLY && active === 2 ? (
+      ) : active === 2 ? (
         <section
           className="company-intro"
           key="map"

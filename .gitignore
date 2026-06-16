@@ -31,3 +31,6 @@ yarn-error.log*
 
 # Figma local config
 .figma/
+
+# 대용량 다운로드 PDF — 로컬 보관, 저장소 제외(미연결)
+public/assets/sub/download/*.pdf

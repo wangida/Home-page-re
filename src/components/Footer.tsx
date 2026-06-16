@@ -38,6 +38,9 @@ const COLS: { title: string; groups: string[][] }[] = [
 const MENU_LINKS: Record<string, string> = {
   공기예보: "/data/air",
   동별미세먼지: "/data/dong",
+  AI기상예보: "/data/ai",
+  방송컨텐츠: "/data/broadcast",
+  모바일정보: "/data/mobile",
   기업소개: "/company",
   연혁: "/company/history",
   "IR · 주식정보": "/company/ir",

@@ -64,6 +64,9 @@
   grid-template-columns: repeat(3, 1fr);
 }
 .sub-tabs__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 80px;
   background: #fff;
   border: 1px solid #ddd;
@@ -71,6 +74,7 @@
   font-family: "Pretendard Variable", Pretendard, sans-serif;
   font-weight: 400;
   font-size: 22px;
+  text-decoration: none;
   cursor: pointer;
   transition: background 160ms ease, color 160ms ease;
 }
@@ -364,7 +368,7 @@
   margin: 0 auto;
   text-align: center;
 }
-.ai-block:first-of-type { margin-top: 90px; }
+.sub-hero + .ai-block { margin-top: 140px; }
 .ai-block + .ai-block { margin-top: 120px; }
 .ai-block:last-of-type { margin-bottom: 240px; }
 .ai-fig {
@@ -372,9 +376,340 @@
   width: 100%;
   height: auto;
   margin-top: 50px;
+}
+
+/* ===== AI 비교표 — img_ai01 대체 마크업 ===== */
+.ai-compare {
+  margin-top: 50px;
   padding: 40px;
   background: #f7f9fe;
   border-radius: 20px;
+  display: grid;
+  grid-template-columns: 1fr 168px 1fr;
+  column-gap: 18px;
+  row-gap: 14px;
+  text-align: left;
+}
+.ai-compare__head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 62px;
+  font-weight: 700;
+  font-size: 23px;
+  border-radius: 10px;
+}
+.ai-compare__head--num { background: #e9edf2; color: #2a2f37; }
+.ai-compare__head--ai { background: #1c3fa0; color: #fff; }
+.ai-compare__axis {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ai-compare__axis svg { width: 42px; height: 42px; }
+.ai-compare__cell {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 20px 26px;
+  border-radius: 14px;
+  font-size: 19px;
+  line-height: 1.45;
+  color: #2a2f37;
+}
+.ai-compare__cell--num { background: #fff; border: 1px solid #e6e8ec; }
+.ai-compare__cell--ai { background: #e9f1ff; color: #1f2c4d; }
+.ai-compare__cell p { margin: 0; }
+.ai-compare__cell--plain { justify-content: center; text-align: center; font-weight: 700; }
+.ai-compare__icon { flex: 0 0 auto; display: flex; }
+.ai-compare__icon svg { width: 34px; height: 34px; }
+.ai-compare__cell--num .ai-compare__icon { color: #5b6470; }
+.ai-compare__cell--ai .ai-compare__icon { color: #1c3fa0; }
+.ai-compare__label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: #4a4f57;
+}
+.ai-compare .neg { color: #e23b3b; font-weight: 700; }
+.ai-compare .pos { color: #1c50d8; font-weight: 700; }
+
+/* ===== 기상데이터 — 케이웨더/기상청 정보 토글 + 카드 ===== */
+.wd-toggle {
+  width: max-content;
+  margin: 48px auto 0;
+  display: flex;
+  gap: 4px;
+  padding: 6px;
+  background: #fff;
+  border: 1px solid #e2e2e2;
+  border-radius: 999px;
+}
+.wd-toggle button {
+  min-width: 188px;
+  height: 56px;
+  padding: 0 36px;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: #8a8a8a;
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 160ms ease, color 160ms ease;
+}
+.wd-toggle button.is-on {
+  background: #333;
+  color: #fff;
+  font-weight: 700;
+}
+.wd-panel__lead {
+  margin: 64px 0 0;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  color: #222;
+}
+.wd-cards {
+  width: min(1200px, calc(100% - 64px));
+  margin: 44px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+.wd-card { text-align: center; }
+.wd-card__thumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 26px;
+  background: #f5f6f8;
+  border: 1px solid #e8eaed;
+  border-radius: 16px;
+}
+.wd-card__thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+.wd-card__title {
+  margin: 28px 0 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #222;
+}
+.wd-card__desc {
+  margin: 16px auto 0;
+  max-width: 340px;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #666;
+}
+
+/* ----- 제공 기상정보 상세 — 2단 표 ----- */
+.wd-spec {
+  width: min(1440px, calc(100% - 64px));
+  margin: 120px auto 140px;
+}
+.wd-spec__title {
+  margin: 0 0 48px;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  color: #222;
+}
+.wd-spec__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+.wd-spec__table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 15px;
+}
+.wd-spec__table th,
+.wd-spec__table td {
+  border: 1px solid #b3d9e9;
+  padding: 9px 6px;
+  text-align: center;
+  line-height: 1.3;
+  color: #2a2f37;
+  word-break: keep-all;
+}
+.wd-spec__table th {
+  height: 48px;
+  background: #76c5e3;
+  color: #143a4c;
+  font-weight: 700;
+}
+.wd-spec__table .c1 { background: #d2eaf4; font-weight: 700; }
+.wd-spec__table .c2 { background: #eaf6fb; }
+.wd-spec__table .c3 { background: #f4fafd; }
+
+/* 기상청 정보 표 — 라벤더 계열 */
+.wd-spec--kma { margin-bottom: 180px; }
+.wd-spec--kma .wd-spec__table th,
+.wd-spec--kma .wd-spec__table td { border-color: #bcc6e3; }
+.wd-spec--kma .wd-spec__table th { background: #8093cf; color: #1f2a44; }
+.wd-spec--kma .wd-spec__table .c1 { background: #dde3f2; }
+.wd-spec--kma .wd-spec__table .c2 { background: #e9edf7; }
+.wd-spec--kma .wd-spec__table .c3 { background: #f2f5fb; }
+
+/* ----- 케이웨더 데이터가 특별한 이유 — 풀블리드 밴드 ----- */
+.wd-why {
+  width: 100%;
+  padding: 80px 0;
+  background: #f4f6fc;
+}
+.wd-why__inner {
+  width: min(1200px, calc(100% - 64px));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+  text-align: left;
+}
+.wd-why__title {
+  margin: 0;
+  font-size: 38px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: #222;
+}
+.wd-why__title b { font-weight: 700; }
+.wd-why__body p {
+  margin: 0;
+  font-size: 19px;
+  line-height: 1.65;
+  color: #333;
+}
+.wd-why__body p + p { margin-top: 28px; }
+
+/* ----- 민간예보 — 케이웨더 만의 독자적 예보 ----- */
+.biz-own {
+  width: 100%;
+  margin-top: 100px;
+  padding: 72px 0 96px;
+  background: #f4f6fc;
+  text-align: left;
+}
+.biz-own__title {
+  margin: 0 0 44px;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 500;
+  color: #222;
+}
+.biz-own__title b { font-weight: 700; }
+.biz-own__card {
+  width: min(1320px, calc(100% - 64px));
+  margin: 0 auto;
+  padding: 12px 72px;
+  background: #fff;
+  border-radius: 24px;
+}
+.biz-own__row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 24px;
+  align-items: center;
+  padding: 64px 0;
+}
+.biz-own__row + .biz-own__row { border-top: 1px solid #eef0f3; }
+.biz-own__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2f6fe0;
+}
+.biz-own__icon svg { width: 88px; height: 88px; }
+.biz-own__heading {
+  margin: 0 0 22px;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #222;
+}
+.biz-own__heading b { font-weight: 700; }
+.biz-own__list { margin: 0; padding: 0; list-style: none; }
+.biz-own__list li {
+  position: relative;
+  padding-left: 15px;
+  font-size: 19px;
+  line-height: 1.6;
+  color: #555;
+}
+.biz-own__list li + li { margin-top: 12px; }
+.biz-own__list li::before {
+  content: "·";
+  position: absolute;
+  left: 2px;
+  color: #555;
+}
+.biz-own__lead {
+  margin-top: 96px;
+  text-align: center;
+}
+.biz-own__lead-title {
+  margin: 0 0 26px;
+  font-size: 38px;
+  font-weight: 700;
+  color: #222;
+}
+.biz-own__lead-desc {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.6;
+  color: #444;
+  white-space: pre-line;
+}
+
+/* ----- 케이웨더 데이터 에코시스템 ----- */
+.wd-eco {
+  width: min(1200px, calc(100% - 64px));
+  margin: 110px auto 130px;
+  text-align: center;
+}
+.wd-eco__lead {
+  margin: 0 0 52px;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #222;
+}
+.wd-eco__lead b { font-weight: 700; }
+.wd-eco__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* ----- 활용 기업(고객사 로고) ----- */
+.wd-clients {
+  width: min(1100px, calc(100% - 64px));
+  margin: 0 auto 300px;
+  text-align: center;
+}
+.wd-clients__lead {
+  margin: 0 0 56px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #222;
+}
+.wd-clients__img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 /* ===== E-카탈로그 — Figma 카탈로그(10:857), 카드 420×450 ×3 (간격 46) ===== */
@@ -508,7 +843,55 @@
   .fc-grid { grid-template-columns: 1fr; gap: 24px; }
   .fc-grid__item { padding: 24px; }
   .ai-block { width: calc(100% - 40px); }
+  .sub-hero + .ai-block { margin-top: 80px; }
   .ai-block + .ai-block { margin-top: 70px; }
   .ai-block:last-of-type { margin-bottom: 140px; }
-  .ai-fig { padding: 16px; margin-top: 30px; }
+  .ai-fig { margin-top: 30px; }
+  .ai-compare {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    column-gap: 0;
+    row-gap: 10px;
+    margin-top: 30px;
+  }
+  .ai-compare__axis { display: none; }
+  .ai-compare__head { height: 52px; font-size: 19px; }
+  .ai-compare__cell { padding: 16px 18px; font-size: 16px; gap: 14px; }
+  .ai-compare__icon svg { width: 28px; height: 28px; }
+  .ai-compare__label { padding: 2px 0; font-size: 15px; }
+  .wd-toggle { width: calc(100% - 40px); }
+  .wd-toggle button { flex: 1; min-width: 0; padding: 0 12px; font-size: 16px; height: 48px; }
+  .wd-panel__lead { font-size: 18px; padding: 0 20px; line-height: 1.4; }
+  .wd-cards {
+    grid-template-columns: 1fr;
+    width: calc(100% - 40px);
+    gap: 36px;
+  }
+  .wd-card__title { font-size: 20px; }
+  .wd-card__desc { font-size: 16px; }
+  .wd-spec { width: calc(100% - 40px); margin: 80px auto 90px; }
+  .wd-spec__title { font-size: 22px; margin-bottom: 32px; }
+  .wd-spec__grid { grid-template-columns: 1fr; gap: 32px; }
+  .wd-spec--kma { margin-bottom: 100px; }
+  .wd-why { padding: 56px 0; }
+  .wd-why__inner { grid-template-columns: 1fr; gap: 28px; width: calc(100% - 40px); }
+  .wd-why__title { font-size: 28px; }
+  .wd-why__body p { font-size: 16px; }
+  .biz-own { margin-top: 60px; padding: 48px 0 60px; }
+  .biz-own__title { font-size: 24px; margin-bottom: 32px; }
+  .biz-own__card { width: calc(100% - 40px); padding: 4px 24px; }
+  .biz-own__row { grid-template-columns: 1fr; gap: 16px; padding: 40px 0; }
+  .biz-own__icon { justify-content: flex-start; }
+  .biz-own__icon svg { width: 64px; height: 64px; }
+  .biz-own__heading { font-size: 20px; }
+  .biz-own__list li { font-size: 16px; }
+  .biz-own__lead { margin-top: 60px; }
+  .biz-own__lead-title { font-size: 26px; margin-bottom: 18px; }
+  .biz-own__lead-desc { font-size: 16px; padding: 0 4px; }
+  .wd-spec__table { font-size: 13px; }
+  .wd-spec__table th, .wd-spec__table td { padding: 7px 4px; }
+  .wd-eco { width: calc(100% - 40px); margin: 70px auto 80px; }
+  .wd-eco__lead { font-size: 19px; margin-bottom: 36px; padding: 0 4px; }
+  .wd-clients { width: calc(100% - 40px); margin-bottom: 160px; }
+  .wd-clients__lead { font-size: 19px; margin-bottom: 36px; padding: 0 4px; }
 }

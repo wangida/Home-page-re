@@ -36,9 +36,9 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
         tight: true,
         items: [
           { label: "기상 데이터" },
-          { label: "AI 기상예보" },
-          { label: "방송 컨텐츠" },
-          { label: "모바일 정보" },
+          { label: "AI 기상예보", href: "/data/ai" },
+          { label: "방송 컨텐츠", href: "/data/broadcast" },
+          { label: "모바일 정보", href: "/data/mobile" },
         ],
       },
     ],

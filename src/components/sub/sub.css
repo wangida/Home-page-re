@@ -705,6 +705,51 @@
   border-radius: 10px;
 }
 
+/* ----- 방송 콘텐츠 — 본문 섹션 ----- */
+.broad-sec {
+  width: min(1320px, calc(100% - 64px));
+  margin: 120px auto 0;
+  text-align: center;
+}
+.broad-sec__title {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #222;
+}
+.broad-sec__desc {
+  margin: 20px 0 0;
+  font-size: 20px;
+  line-height: 1.6;
+  color: #333;
+}
+.broad-figs {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-top: 40px;
+}
+.broad-figs__item--a { flex: 1.34 1 0; }
+.broad-figs__item--b { flex: 2.37 1 0; }
+.broad-figs__item--eq { flex: 1 1 0; }
+.broad-figs__item--c { flex: 1.493 1 0; }
+.broad-figs__item--d { flex: 1.768 1 0; }
+.broad-figs__item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+.broad-single {
+  display: block;
+  width: 100%;
+  max-width: 820px;
+  height: auto;
+  margin: 40px auto 0;
+  border-radius: 12px;
+}
+
 /* ----- 케이웨더 데이터 에코시스템 ----- */
 .wd-eco {
   width: min(1200px, calc(100% - 64px));
@@ -924,6 +969,11 @@
   .map-block__title { font-size: 22px; }
   .map-block__desc { font-size: 16px; padding: 0 4px; }
   .map-block__figure { padding: 8px; border-radius: 14px; }
+  .broad-sec { width: calc(100% - 40px); margin-top: 70px; }
+  .broad-sec__title { font-size: 20px; }
+  .broad-sec__desc { font-size: 16px; }
+  .broad-figs { flex-direction: column; gap: 12px; }
+  .broad-figs__item--a, .broad-figs__item--b, .broad-figs__item--eq, .broad-figs__item--c, .broad-figs__item--d { flex: none; width: 100%; }
   .wd-spec__table { font-size: 13px; }
   .wd-spec__table th, .wd-spec__table td { padding: 7px 4px; }
   .wd-eco { width: calc(100% - 40px); margin: 70px auto 80px; }

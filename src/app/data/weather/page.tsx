@@ -21,7 +21,7 @@ export default function WeatherDataPage() {
         <SubHero
           image="/assets/sub/data_weather.jpg"
           title="기상 데이터"
-          subtitle={"케이웨더는 기상데이터를 기반으로한 경영컨설팅과\n일기예보, 각종지수 등을 활용한 다양한 컨텐츠를 보유하고 있습니다."}
+          subtitle={"기상데이터를 기반으로 한 경영컨설팅과 일기예보,\n각종지수를 활용한 케이웨더의 다양한 기상 콘텐츠"}
         />
 
         <WeatherDataTabs />

@@ -177,7 +177,7 @@
 .company-intro__title {
   font-family: "Pretendard Variable", Pretendard, sans-serif;
   font-weight: 700;
-  font-size: 42px;
+  font-size: 40px;
   line-height: normal;
   color: #222;
 }
@@ -673,6 +673,38 @@
   white-space: pre-line;
 }
 
+/* ----- 케이웨더 맵 — 본문 블록(제목+설명+이미지) ----- */
+.map-block {
+  width: min(1320px, calc(100% - 64px));
+  margin: 120px auto 0;
+  text-align: center;
+}
+.map-block__title {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+  color: #222;
+}
+.map-block__desc {
+  margin: 16px auto 0;
+  max-width: 1180px;
+  font-size: 20px;
+  line-height: 1.45;
+  color: #333;
+}
+.map-block__figure {
+  margin: 48px auto 0;
+  padding: 16px;
+  background: #f5f7fb;
+  border-radius: 20px;
+}
+.map-block__figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
 /* ----- 케이웨더 데이터 에코시스템 ----- */
 .wd-eco {
   width: min(1200px, calc(100% - 64px));
@@ -888,6 +920,10 @@
   .biz-own__lead { margin-top: 60px; }
   .biz-own__lead-title { font-size: 26px; margin-bottom: 18px; }
   .biz-own__lead-desc { font-size: 16px; padding: 0 4px; }
+  .map-block { width: calc(100% - 40px); margin-top: 70px; }
+  .map-block__title { font-size: 22px; }
+  .map-block__desc { font-size: 16px; padding: 0 4px; }
+  .map-block__figure { padding: 8px; border-radius: 14px; }
   .wd-spec__table { font-size: 13px; }
   .wd-spec__table th, .wd-spec__table td { padding: 7px 4px; }
   .wd-eco { width: calc(100% - 40px); margin: 70px auto 80px; }

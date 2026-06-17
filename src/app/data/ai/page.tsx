@@ -132,9 +132,12 @@ export default function AiForecastPage() {
               "기상 예측의 불확실성을 해소하기 위해 수십~수백 가지의 예측 시나리오를 동시에 생성하며,\n최대 60일까지의 장기 예측장을 안정적으로 산출하여 기상 관련 리스크 관리를 지원합니다."
             }
           </p>
+          <p className="ai-fig__cap">
+            다양한 데이터를 학습·융합하여 한반도 특성이 반영된 장기 예보 생성
+          </p>
           <img
             className="ai-fig"
-            src="/assets/sub/img_ai02.jpg"
+            src="/assets/sub/data_ai02_re.jpg"
             width={1280}
             height={512}
             alt="입력 데이터(수치예보 초기장·위성·레이더·IoT·기상 관측)를 AI 기상예측 모델로 학습·융합하여 60일 장기 예보를 생산하는 과정"
@@ -152,12 +155,15 @@ export default function AiForecastPage() {
           </p>
           <img
             className="ai-fig"
-            src="/assets/sub/img_ai03.jpg"
+            src="/assets/sub/data_ai03_re.jpg"
             width={1309}
             height={672}
             alt="KIM 전지구 초기장 재격자화 → FourCastNet-3 전지구 예측 → AI Interpolation → CorrDiff로 이어지는 하이브리드 AI 기상예보 처리 과정"
           />
         </section>
+
+        {/* 푸터 앞 하단 여백 */}
+        <div aria-hidden="true" style={{ height: 100 }} />
       </main>
       <Footer />
     </>

@@ -368,6 +368,8 @@
   margin: 0 auto;
   text-align: center;
 }
+/* AI 기상예보 섹션 타이틀은 방송 컨텐츠와 동일하게 32px로 통일 */
+.ai-block .company-intro__title { font-size: 32px; }
 .sub-hero + .ai-block { margin-top: 140px; }
 .ai-block + .ai-block { margin-top: 120px; }
 .ai-block:last-of-type { margin-bottom: 240px; }
@@ -377,6 +379,14 @@
   height: auto;
   margin-top: 50px;
 }
+.ai-fig__cap {
+  margin-top: 50px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #1a1a1a;
+}
+.ai-fig__cap + .ai-fig { margin-top: 24px; }
 
 /* ===== AI 비교표 — img_ai01 대체 마크업 ===== */
 .ai-compare {
@@ -410,6 +420,7 @@
 .ai-compare__cell {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 18px;
   padding: 20px 26px;
   border-radius: 14px;
@@ -470,7 +481,7 @@
 .wd-panel__lead {
   margin: 64px 0 0;
   text-align: center;
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 700;
   color: #222;
 }
@@ -713,7 +724,7 @@
 }
 .broad-sec__title {
   margin: 0;
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 700;
   line-height: 1.3;
   color: #222;
@@ -924,6 +935,8 @@
   .ai-block + .ai-block { margin-top: 70px; }
   .ai-block:last-of-type { margin-bottom: 140px; }
   .ai-fig { margin-top: 30px; }
+  .ai-fig__cap { margin-top: 30px; font-size: 18px; }
+  .ai-fig__cap + .ai-fig { margin-top: 16px; }
   .ai-compare {
     grid-template-columns: 1fr;
     padding: 20px;
@@ -938,7 +951,7 @@
   .ai-compare__label { padding: 2px 0; font-size: 15px; }
   .wd-toggle { width: calc(100% - 40px); }
   .wd-toggle button { flex: 1; min-width: 0; padding: 0 12px; font-size: 16px; height: 48px; }
-  .wd-panel__lead { font-size: 18px; padding: 0 20px; line-height: 1.4; }
+  .wd-panel__lead { font-size: 24px; padding: 0 20px; line-height: 1.4; }
   .wd-cards {
     grid-template-columns: 1fr;
     width: calc(100% - 40px);
@@ -970,7 +983,8 @@
   .map-block__desc { font-size: 16px; padding: 0 4px; }
   .map-block__figure { padding: 8px; border-radius: 14px; }
   .broad-sec { width: calc(100% - 40px); margin-top: 70px; }
-  .broad-sec__title { font-size: 20px; }
+  .broad-sec__title { font-size: 24px; }
+  .ai-block .company-intro__title { font-size: 24px; }
   .broad-sec__desc { font-size: 16px; }
   .broad-figs { flex-direction: column; gap: 12px; }
   .broad-figs__item--a, .broad-figs__item--b, .broad-figs__item--eq, .broad-figs__item--c, .broad-figs__item--d { flex: none; width: 100%; }

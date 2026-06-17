@@ -42,9 +42,9 @@ export default function DongDustPage() {
           </p>
           <img
             className="fd-box__img"
-            src="/assets/sub/fd_img01.jpg"
-            width={900}
-            height={487}
+            src="/assets/sub/fd_img01_re.jpg"
+            width={1440}
+            height={924}
             alt="국가관측망(590지역)과 케이웨더 측정정보(3,000지역), 기상관측·오염배출·인구밀도·지역적 특성을 융복합해 행정동별 미세먼지 실황 데이터를 산출하는 과정"
           />
         </div>

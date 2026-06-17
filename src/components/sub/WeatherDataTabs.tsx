@@ -113,7 +113,7 @@ function ClientsSection() {
 
 /* 배포 게이트 — true면 '민간 예보 서비스' 탭만 빈 화면으로 노출(작업 중).
    배포 커밋엔 true, 로컬 작업 시 false로 두면 전체 내용 노출. */
-const HIDE_BIZ_TAB = true;
+const HIDE_BIZ_TAB = false;
 
 export default function WeatherDataTabs() {
   const [active, setActive] = useState(0);
@@ -663,6 +663,25 @@ export default function WeatherDataTabs() {
                   "나만의 전담 예보관을 갖는 신개념 서비스\n365일 24시간 특정 업체만을 위해 날씨정보를 생산하고 제공하는 전담예보 서비스"
                 }
               </p>
+              <div className="biz-own__fig biz-own__fig--plain">
+                <img
+                  src="/assets/sub/data_service03.jpg"
+                  width={1856}
+                  height={2266}
+                  alt="전담 예보관이 특정 업체만을 위해 생산·제공하는 맞춤 날씨정보 예시 화면"
+                />
+              </div>
+            </div>
+
+            <div className="biz-own__lead">
+              <h3 className="biz-own__lead-title">장기 기상 전망</h3>
+              <p className="biz-own__lead-desc">
+                {
+                  "지속적인 날씨 변동의 경향을 파악하여 장기적인 계획 수립에 도움을 주며.\n다음 계절의 기후를 예측하여 유통, 패션, 에너지 등에 접목시켜 수요 예측이 가능"
+                }
+              </p>
+              {/* 이미지 교체 예정 — 예보관 확인 후 새 이미지 삽입 */}
+              <div className="biz-own__fig biz-own__fig--empty" aria-hidden="true" />
             </div>
           </section>
         </section>

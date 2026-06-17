@@ -701,8 +701,10 @@
 /* 흰 배경 이미지(전담 예보관 서비스)는 박스 배경도 흰색으로 자연스럽게 */
 .biz-own__fig--plain {
   background: #fff;
-  padding: 0;
+  padding: 56px 0;
+  border: 1px solid #ececec;
 }
+.biz-own__fig--plain img { max-width: 78%; }
 /* 이미지 미정 — 빈 박스 자리표시(예보관 확인 후 교체) */
 .biz-own__fig--empty {
   min-height: 480px;

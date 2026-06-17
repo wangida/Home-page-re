@@ -331,7 +331,7 @@
   display: block;
   margin: 45px auto 0;
   width: 100%;
-  max-width: 1300px;
+  max-width: 1150px;
   height: auto;
 }
 
@@ -708,6 +708,7 @@
 /* 이미지 미정 — 빈 박스 자리표시(예보관 확인 후 교체) */
 .biz-own__fig--empty {
   min-height: 480px;
+  margin-bottom: 150px;
 }
 
 /* ----- 케이웨더 맵 — 본문 블록(제목+설명+이미지) ----- */

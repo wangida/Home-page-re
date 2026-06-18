@@ -549,7 +549,7 @@
 }
 .wd-spec__table th,
 .wd-spec__table td {
-  border: 1px solid #b3d9e9;
+  border: 1px solid #c4cdec;
   padding: 9px 6px;
   text-align: center;
   line-height: 1.3;
@@ -558,19 +558,19 @@
 }
 .wd-spec__table th {
   height: 48px;
-  background: #76c5e3;
-  color: #143a4c;
+  background: #4762c5;
+  color: #fff;
   font-weight: 700;
 }
-.wd-spec__table .c1 { background: #d2eaf4; font-weight: 700; }
-.wd-spec__table .c2 { background: #eaf6fb; }
-.wd-spec__table .c3 { background: #f4fafd; }
+.wd-spec__table .c1 { background: #d4dcf3; font-weight: 700; }
+.wd-spec__table .c2 { background: #e8edf9; }
+.wd-spec__table .c3 { background: #f3f6fc; }
 
 /* 기상청 정보 표 — 라벤더 계열 */
 .wd-spec--kma { margin-bottom: 180px; }
 .wd-spec--kma .wd-spec__table th,
 .wd-spec--kma .wd-spec__table td { border-color: #bcc6e3; }
-.wd-spec--kma .wd-spec__table th { background: #8093cf; color: #1f2a44; }
+.wd-spec--kma .wd-spec__table th { background: #8093cf; color: #fff; }
 .wd-spec--kma .wd-spec__table .c1 { background: #dde3f2; }
 .wd-spec--kma .wd-spec__table .c2 { background: #e9edf7; }
 .wd-spec--kma .wd-spec__table .c3 { background: #f2f5fb; }
@@ -1081,4 +1081,212 @@
   .mobile-point__title { font-size: 22px; margin-top: 12px; }
   .mobile-point__desc { font-size: 16px; }
   .mobile-point__shot { margin-top: 28px; }
+}
+
+/* ── 공기 측정: 실외공기측정기(OAQ) 섹션 ── */
+.oaq {
+  width: min(1440px, calc(100% - 64px));
+  margin: 90px auto 0;
+  text-align: center;
+}
+/* 본문 타이틀·서브카피 — AI 기상예보(.ai-block) 규격에 통일: 타이틀 32px / 서브카피 20px·30px */
+.oaq__title {
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: normal;
+  color: #222;
+  margin: 0;
+}
+.oaq__desc {
+  max-width: 980px;
+  margin: 21px auto 0;
+}
+.oaq__desc p {
+  margin: 0;
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-size: 20px;
+  line-height: 30px;
+  color: #222;
+}
+.oaq__box {
+  margin-top: 72px;
+  padding: 56px;
+  background: #eef1fb;
+  border-radius: 24px;
+}
+.oaq__banner {
+  border-radius: 12px;
+  background: #4762c5;
+  padding: 30px 24px;
+  text-align: center;
+}
+.oaq__banner-title {
+  margin: 0;
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.3;
+  color: #fff;
+}
+.oaq__banner-ex {
+  margin: 10px 0 0;
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-size: 20px;
+  line-height: 1.4;
+  color: #fff;
+}
+.oaq__grid {
+  list-style: none;
+  margin: 28px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+}
+.oaq__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.oaq__thumb {
+  width: 100%;
+  aspect-ratio: 5 / 4;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.oaq__thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.oaq__cap {
+  margin-top: 14px;
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-size: 18px;
+  line-height: 1.4;
+  color: #222;
+  text-align: center;
+  white-space: pre-line;
+}
+@media (max-width: 1100px) {
+  .oaq__title { font-size: 32px; }
+  .oaq__desc p { font-size: 17px; line-height: 27px; }
+  .oaq__box { padding: 40px; }
+  .oaq__banner-title { font-size: 22px; }
+  .oaq__banner-ex { font-size: 17px; }
+}
+@media (max-width: 920px) {
+  .oaq__grid { grid-template-columns: repeat(3, 1fr); gap: 20px 16px; }
+}
+@media (max-width: 640px) {
+  .oaq { width: calc(100% - 40px); margin-top: 60px; }
+  .oaq__title { font-size: 24px; }
+  .oaq__box { padding: 24px; border-radius: 18px; }
+  .oaq__banner { padding: 22px 16px; }
+  .oaq__grid { grid-template-columns: repeat(2, 1fr); }
+  .oaq__cap { font-size: 15px; }
+}
+
+/* ── 공기 측정: AI 정확도 데이터 / Airmap 섹션 ── */
+.oaq-ai,
+.oaq-airmap {
+  width: min(1440px, calc(100% - 64px));
+  margin: 120px auto 0;
+  text-align: center;
+}
+.oaq-ai__desc {
+  margin: 21px 0 0;
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-size: 20px;
+  line-height: 30px;
+  color: #222;
+}
+.oaq-ai__box {
+  margin-top: 36px;
+  padding: 40px;
+  border: 1px solid #c4d2f3;
+  border-radius: 24px;
+}
+.oaq-ai__box img {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1400px;
+  height: auto;
+}
+.oaq-airmap__body {
+  max-width: 1300px;
+  margin: 30px auto 0;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+.oaq-airmap__body p {
+  margin: 0;
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-size: 20px;
+  line-height: 1.7;
+  color: #333;
+  white-space: pre-line;
+  word-break: keep-all;
+}
+@media (max-width: 1100px) {
+  .oaq-ai,
+  .oaq-airmap { margin-top: 90px; }
+  .oaq-ai__desc,
+  .oaq-airmap__body p { font-size: 17px; }
+  .oaq-ai__box { padding: 24px; }
+}
+@media (max-width: 640px) {
+  .oaq-ai,
+  .oaq-airmap { width: calc(100% - 40px); margin-top: 64px; }
+  .oaq-ai__box { padding: 16px; border-radius: 18px; }
+  .oaq-airmap__body { gap: 20px; }
+}
+
+/* ── 공기 측정: Airmap 시각화 서비스 (마지막) ── */
+.oaq-air2 {
+  width: min(1440px, calc(100% - 64px));
+  margin: 120px auto 350px;
+  text-align: center;
+}
+.oaq-air2__box {
+  margin-top: 44px;
+  padding: 56px;
+  border-radius: 24px;
+  background: #eef1fb;
+}
+.oaq-air2__box img {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1500px;
+  height: auto;
+  border-radius: 8px;
+}
+.oaq-air2__body {
+  max-width: 1300px;
+  margin: 40px auto 0;
+  text-align: left;
+}
+.oaq-air2__body p {
+  margin: 0;
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-size: 20px;
+  line-height: 1.7;
+  color: #333;
+  white-space: pre-line;
+  word-break: keep-all;
+}
+@media (max-width: 1100px) {
+  .oaq-air2 { margin-top: 90px; }
+  .oaq-air2__box { padding: 28px; }
+  .oaq-air2__body p { font-size: 17px; }
+}
+@media (max-width: 640px) {
+  .oaq-air2 { width: calc(100% - 40px); margin-top: 64px; margin-bottom: 120px; }
+  .oaq-air2__box { padding: 16px; border-radius: 18px; }
 }

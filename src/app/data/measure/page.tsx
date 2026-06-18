@@ -26,7 +26,7 @@ export default function AirMeasurePage() {
       <Header solid />
       <main>
         <SubHero
-          image="/assets/sub/data_air.jpg"
+          image="/assets/sub/data_air.jpg?v=4"
           title="공기 측정"
           subtitle={"국가관측망과 IoT 측정 데이터를 기반으로\n신뢰도 높은 공기질 측정 데이터 제공"}
         />

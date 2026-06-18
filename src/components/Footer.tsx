@@ -36,8 +36,10 @@ const COLS: { title: string; groups: string[][] }[] = [
 
 /* 서브 페이지 라우트가 생긴 메뉴만 연결 — 나머지는 "#" 유지 */
 const MENU_LINKS: Record<string, string> = {
+  공기측정: "/data/measure",
   공기예보: "/data/air",
   동별미세먼지: "/data/dong",
+  Air365: "/data/air365",
   기상데이터: "/data/weather",
   AI기상예보: "/data/ai",
   방송컨텐츠: "/data/broadcast",

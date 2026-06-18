@@ -155,9 +155,9 @@ export default function AiForecastPage() {
           </p>
           <img
             className="ai-fig"
-            src="/assets/sub/data_ai03_re.jpg"
-            width={1309}
-            height={672}
+            src="/assets/sub/data_ai03_re.jpg?v=2"
+            width={1440}
+            height={753}
             alt="KIM 전지구 초기장 재격자화 → FourCastNet-3 전지구 예측 → AI Interpolation → CorrDiff로 이어지는 하이브리드 AI 기상예보 처리 과정"
           />
         </section>

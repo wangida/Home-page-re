@@ -1289,3 +1289,27 @@
   .oaq-air2 { width: calc(100% - 40px); margin-top: 64px; margin-bottom: 120px; }
   .oaq-air2__box { padding: 16px; border-radius: 18px; }
 }
+
+/* ── Air365 본문 — 타이틀 중앙, 서브카피 좌측정렬 ── */
+.air365-desc {
+  max-width: min(1320px, calc(100% - 64px));
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  word-break: keep-all;
+}
+
+.air365-box {
+  width: min(1400px, calc(100% - 64px));
+  margin: 56px auto 0;
+  padding: 48px 40px;
+  border: 1px solid #c4d2f3;
+  border-radius: 24px;
+}
+.air365-img {
+  display: block;
+  width: 100%;
+  max-width: 1250px;
+  height: auto;
+  margin: 0 auto;
+}

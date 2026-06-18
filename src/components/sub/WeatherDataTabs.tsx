@@ -579,17 +579,7 @@ export default function WeatherDataTabs() {
               {/* 1. 독자적 수치예보모델 */}
               <div className="biz-own__row">
                 <div className="biz-own__icon" aria-hidden>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="13" width="3.2" height="7" rx="0.6" />
-                    <rect x="8.4" y="10" width="3.2" height="10" rx="0.6" />
-                    <rect x="13.8" y="12" width="3.2" height="8" rx="0.6" />
-                    <rect x="19.2" y="8" width="3.2" height="12" rx="0.6" />
-                    <polyline points="4.6 8.5 10 5.5 15.4 7.5 20.8 3.5" />
-                    <circle cx="4.6" cy="8.5" r="1.1" fill="currentColor" stroke="none" />
-                    <circle cx="10" cy="5.5" r="1.1" fill="currentColor" stroke="none" />
-                    <circle cx="15.4" cy="7.5" r="1.1" fill="currentColor" stroke="none" />
-                    <circle cx="20.8" cy="3.5" r="1.1" fill="currentColor" stroke="none" />
-                  </svg>
+                  <img src="/assets/sub/data_w_icon_01.svg?v=2" width={186} height={155} alt="" />
                 </div>
                 <div className="biz-own__body">
                   <h4 className="biz-own__heading">
@@ -610,11 +600,7 @@ export default function WeatherDataTabs() {
               {/* 2. 24시간 실시간 예보 */}
               <div className="biz-own__row">
                 <div className="biz-own__icon" aria-hidden>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="10" r="7.5" />
-                    <polyline points="12 5.5 12 10 15 12" />
-                    <text x="12" y="22.2" textAnchor="middle" fontSize="5.4" fontWeight="700" fill="currentColor" stroke="none">24</text>
-                  </svg>
+                  <img src="/assets/sub/data_w_icon_02.svg?v=2" width={186} height={150} alt="" />
                 </div>
                 <div className="biz-own__body">
                   <h4 className="biz-own__heading">
@@ -634,14 +620,7 @@ export default function WeatherDataTabs() {
               {/* 3. 단기·중기·장기예보 */}
               <div className="biz-own__row">
                 <div className="biz-own__icon" aria-hidden>
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M8 3v1.5" />
-                    <path d="M3.6 4.8 4.7 5.9" />
-                    <path d="M3 9h1.5" />
-                    <path d="M12.4 4.8 11.3 5.9" />
-                    <path d="M11.2 9.7a3.2 3.2 0 1 0-5.2 2.3" />
-                    <path d="M16.5 19H8a3.5 3.5 0 1 1 .7-6.93A5 5 0 1 1 17 14.5a3.25 3.25 0 0 1-.5 4.5Z" />
-                  </svg>
+                  <img src="/assets/sub/data_w_icon_03.svg?v=2" width={186} height={157} alt="" />
                 </div>
                 <div className="biz-own__body">
                   <h4 className="biz-own__heading">

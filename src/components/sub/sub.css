@@ -624,7 +624,7 @@
 .biz-own__card {
   width: min(1320px, calc(100% - 64px));
   margin: 0 auto;
-  padding: 12px 72px;
+  padding: 12px 72px 12px 110px;
   background: #f5f7fb;
   border-radius: 24px;
 }
@@ -640,9 +640,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #2f6fe0;
 }
-.biz-own__icon svg { width: 88px; height: 88px; }
+.biz-own__icon img { width: 145px; height: auto; }
 .biz-own__heading {
   margin: 0 0 22px;
   font-size: 26px;
@@ -659,7 +658,7 @@
   line-height: 1.6;
   color: #555;
 }
-.biz-own__list li + li { margin-top: 12px; }
+.biz-own__list li + li { margin-top: 6px; }
 .biz-own__list li::before {
   content: "·";
   position: absolute;
@@ -702,13 +701,13 @@
 .biz-own__fig--plain {
   background: #fff;
   padding: 56px 0;
-  border: 1px solid #ececec;
+  border: 1px solid #c4d2f3;
 }
 .biz-own__fig--plain img { max-width: 78%; }
 /* 이미지 미정 — 빈 박스 자리표시(예보관 확인 후 교체) */
 .biz-own__fig--empty {
   min-height: 480px;
-  margin-bottom: 150px;
+  margin-bottom: 350px;
 }
 
 /* ----- 케이웨더 맵 — 본문 블록(제목+설명+이미지) ----- */

@@ -67,7 +67,7 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
         items: [
           { label: "공기 측정기" },
           { label: "환기 청정기" },
-          { label: "공기 빅데이터 플랫폼" },
+          { label: "공기 빅데이터 플랫폼", href: "/product/air365" },
         ],
       },
       { y: 349, tight: true, items: [{ label: "체감온도계" }, { label: "기상장비" }] },

@@ -44,6 +44,7 @@ const MENU_LINKS: Record<string, string> = {
   AI기상예보: "/data/ai",
   방송컨텐츠: "/data/broadcast",
   모바일정보: "/data/mobile",
+  공기빅데이터플랫폼: "/product/air365",
   기업소개: "/company",
   연혁: "/company/history",
   "IR · 주식정보": "/company/ir",

@@ -659,8 +659,14 @@ export default function WeatherDataTabs() {
                   "지속적인 날씨 변동의 경향을 파악하여 장기적인 계획 수립에 도움을 주며.\n다음 계절의 기후를 예측하여 유통, 패션, 에너지 등에 접목시켜 수요 예측이 가능"
                 }
               </p>
-              {/* 이미지 교체 예정 — 예보관 확인 후 새 이미지 삽입 */}
-              <div className="biz-own__fig biz-own__fig--empty" aria-hidden="true" />
+              <div className="biz-own__fig biz-own__fig--plain biz-own__fig--long">
+                <img
+                  src="/assets/sub/data_long.jpg"
+                  width={1385}
+                  height={814}
+                  alt="장기 기상 전망 — 계절별 기후 변동 경향을 분석한 장기 예보 자료 예시 화면"
+                />
+              </div>
             </div>
           </section>
         </section>

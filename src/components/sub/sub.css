@@ -1409,7 +1409,7 @@
 }
 
 .air365-box {
-  width: min(1400px, calc(100% - 64px));
+  width: min(1320px, calc(100% - 64px));
   margin: 56px auto 0;
   padding: 48px 40px;
   border: 1px solid #c4d2f3;

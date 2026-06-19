@@ -810,6 +810,55 @@
   border-radius: 12px;
 }
 
+/* ----- 날씨의 아이돌 — 상단 사진+텍스트 2단, 하단 카드 전체 ----- */
+.broad-idol {
+  text-align: left;
+}
+.broad-idol__top {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 40px;
+}
+.broad-idol__photo {
+  flex: 0 1 560px;
+}
+.broad-idol__photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.broad-idol__text {
+  flex: 1 1 0;
+}
+.broad-idol__eyebrow {
+  margin: 0 0 3px;
+  font-family: var(--font-display), sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: #6e6e6e;
+}
+.broad-idol__title {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #222;
+}
+.broad-idol__desc {
+  margin: 24px 0 0;
+  font-size: 18px;
+  line-height: 1.75;
+  color: #333;
+}
+.broad-idol__cards {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 12px auto 0;
+}
+
 /* ----- 케이웨더 데이터 에코시스템 ----- */
 .wd-eco {
   width: min(1200px, calc(100% - 64px));
@@ -1091,6 +1140,10 @@
   .broad-sec__desc { font-size: 16px; }
   .broad-figs { flex-direction: column; gap: 12px; }
   .broad-figs__item--a, .broad-figs__item--b, .broad-figs__item--eq, .broad-figs__item--c, .broad-figs__item--d { flex: none; width: 100%; }
+  .broad-idol__top { flex-direction: column; gap: 24px; }
+  .broad-idol__title { font-size: 22px; }
+  .broad-idol__desc { font-size: 16px; }
+  .broad-idol__cards { margin-top: 36px; }
   .wd-spec__table { font-size: 13px; }
   .wd-spec__table th, .wd-spec__table td { padding: 7px 4px; }
   .wd-eco { width: calc(100% - 40px); margin: 70px auto 80px; }

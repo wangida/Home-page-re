@@ -23,32 +23,36 @@ export default function BroadcastPage() {
           subtitle={"전문 기상 분석을 바탕으로\n방송·언론에 최적화된 기상 콘텐츠 제공"}
         />
         {/* 날씨의 아이돌 */}
-        <section className="broad-sec">
-          <h2 className="broad-sec__title">
-            세계 최초 날씨예보 AI 아이돌 그룹, 날씨의 아이돌
-          </h2>
-          <p className="broad-sec__desc">
-            케이웨더 날씨의 아이돌은 정밀 기상 데이터와 생성형 AI 음원 기술이
-            결합된 데이터 기반 아티스트 그룹입니다. 매일 아침 기온, 습도,
-            미세먼지 등 기상 상황
-            <br />및 예보를 실시간으로 분석해 그날에 맞는 ‘날씨 송’을 쇼츠, 틱톡
-            등에 숏폼 영상으로 전달함으로써 수치중심 예보에서 벗어나 대중적 접점을
-            확대하고 있습니다.
-          </p>
-          <div className="broad-figs">
-            <div className="broad-figs__item broad-figs__item--a">
+        <section className="broad-sec broad-idol">
+          <div className="broad-idol__top">
+            <div className="broad-idol__photo">
               <img
-                src="/assets/sub/data_broad01.jpg"
+                src="/assets/sub/data_song01.jpg"
+                width={638}
+                height={565}
                 alt="케이웨더 AI 아이돌 그룹 ‘날씨의 아이돌’ 단체 사진"
               />
             </div>
-            <div className="broad-figs__item broad-figs__item--b">
-              <img
-                src="/assets/sub/data_broad02.jpg"
-                alt="날짜별 날씨를 ‘날씨 송’ 가사로 표현한 멤버별 숏폼 카드 4종"
-              />
+            <div className="broad-idol__text">
+              <p className="broad-idol__eyebrow">케이웨더 세계 최초 날씨예보</p>
+              <h2 className="broad-idol__title">
+                AI 아이돌 그룹, 날씨의 아이돌
+              </h2>
+              <p className="broad-idol__desc">
+                케이웨더 날씨의 아이돌은 정밀 기상 데이터와 생성형 AI 음원 기술이 결합된 데이터
+                <br />기반 아티스트 그룹입니다. 매일 아침 기온, 습도, 미세먼지 등 기상 상황 및 예보를
+                <br />실시간으로 분석해 그날에 맞는 ‘날씨 송’을 쇼츠, 틱톡 등에 숏폼 영상으로 전달함으로써
+                <br />수치중심 예보에서 벗어나 대중적 접점을 확대하고 있습니다.
+              </p>
             </div>
           </div>
+          <img
+            className="broad-idol__cards"
+            src="/assets/sub/data_song02.jpg"
+            width={1237}
+            height={424}
+            alt="날짜별 날씨를 ‘날씨 송’ 콘셉트로 표현한 멤버별 숏폼 카드 4종 (Thunder·Cloudy·Rain·Sunny)"
+          />
         </section>
 
         {/* AI 기상캐스터 */}

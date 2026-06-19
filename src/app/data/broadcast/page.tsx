@@ -86,11 +86,30 @@ export default function BroadcastPage() {
             <br />데이터를 제공하고 있으며 직접 방송을 제작하기 어려운 방송사를
             위해서는 직접 기상방송 컨텐츠를 제작하여 VOD형태로 제공하고 있습니다.
           </p>
-          <img
-            className="broad-single"
-            src="/assets/sub/data_broad05.jpg"
-            alt="맞춤형 기상 VOD 제작 사례와 케이웨더 예보를 방송하는 언론사 날씨방송 화면 모음"
-          />
+          <div className="broad-vod">
+            <div className="broad-vod__group">
+              <p className="broad-bar broad-bar--navy">맞춤형 기상 VOD 제작</p>
+              <img
+                className="broad-vod__img"
+                src="/assets/sub/data_vod01.jpg"
+                width={1400}
+                height={950}
+                alt="기온·강수 그래픽과 함께 진행하는 맞춤형 기상 VOD 제작 사례 화면 모음"
+              />
+            </div>
+            <div className="broad-vod__group">
+              <p className="broad-bar broad-bar--sky">
+                케이웨더 예보를 방송하는 언론사 날씨방송
+              </p>
+              <img
+                className="broad-vod__img"
+                src="/assets/sub/data_vod02.jpg"
+                width={1440}
+                height={506}
+                alt="케이웨더 예보를 방송하는 언론사 날씨방송 화면 모음"
+              />
+            </div>
+          </div>
         </section>
 
         {/* 날씨환경청 */}

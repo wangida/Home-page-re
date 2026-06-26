@@ -31,7 +31,7 @@ export default function ReferenceAirOsongPage() {
           <div className="refd-titlebar">
             <p className="refd-titlebar__cat">공기지능 / 교육기관</p>
             <p className="refd-titlebar__name">오송솔미초등학교</p>
-            <p className="refd-titlebar__date">2026. 06. 16</p>
+            <p className="refd-titlebar__date">2025. 02. 23</p>
             <span className="refd-titlebar__line" aria-hidden="true" />
           </div>
 
@@ -85,6 +85,13 @@ export default function ReferenceAirOsongPage() {
             className="refd-img refd-img--2"
             src="/assets/sub/reference02_02.jpg"
             alt="오송솔미초등학교 전경"
+          />
+
+          {/* 이미지 3 */}
+          <img
+            className="refd-img refd-img--stack"
+            src="/assets/sub/reference02_03.jpg"
+            alt="오송솔미초등학교 AI 환기청정기 적용 현장"
           />
 
           {/* 구분선 + 목록 버튼 */}

@@ -31,7 +31,7 @@ export default function ReferenceAirPoscoPage() {
           <div className="refd-titlebar">
             <p className="refd-titlebar__cat">공기지능 / 주거공간</p>
             <p className="refd-titlebar__name">포스코이앤씨 고양풍동 2지구</p>
-            <p className="refd-titlebar__date">2026. 06. 16</p>
+            <p className="refd-titlebar__date">2025. 03. 05</p>
             <span className="refd-titlebar__line" aria-hidden="true" />
           </div>
 

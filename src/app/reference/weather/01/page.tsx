@@ -31,7 +31,7 @@ export default function ReferenceWeatherUlsanPage() {
           <div className="refd-titlebar">
             <p className="refd-titlebar__cat">날씨경영 / 울산항 방재기상서비스</p>
             <p className="refd-titlebar__name">울산항만공사</p>
-            <p className="refd-titlebar__date">2026. 06. 16</p>
+            <p className="refd-titlebar__date">2025. 06. 30</p>
             <span className="refd-titlebar__line" aria-hidden="true" />
           </div>
 

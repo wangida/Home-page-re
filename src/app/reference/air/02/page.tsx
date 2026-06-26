@@ -31,7 +31,7 @@ export default function ReferenceAirKpgaPage() {
           <div className="refd-titlebar">
             <p className="refd-titlebar__cat">공기지능 / 기상정보사업</p>
             <p className="refd-titlebar__name">KPGA 맞춤형 기상정보</p>
-            <p className="refd-titlebar__date">2026. 06. 16</p>
+            <p className="refd-titlebar__date">2025. 04. 21</p>
             <span className="refd-titlebar__line" aria-hidden="true" />
           </div>
 

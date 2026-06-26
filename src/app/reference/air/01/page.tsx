@@ -31,7 +31,7 @@ export default function ReferenceAir01Page() {
           <div className="refd-titlebar">
             <p className="refd-titlebar__cat">공기지능 / 복지 ∙ 의료시설</p>
             <p className="refd-titlebar__name">양산시 시나브로 복지관</p>
-            <p className="refd-titlebar__date">2026. 06. 16</p>
+            <p className="refd-titlebar__date">2024. 10. 12</p>
             <span className="refd-titlebar__line" aria-hidden="true" />
           </div>
 

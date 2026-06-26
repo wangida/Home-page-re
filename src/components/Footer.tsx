@@ -262,7 +262,7 @@ export default function Footer() {
               </a>
             </div>
             <a
-              href="#"
+              href="/location"
               style={{ color: "rgba(255,255,255,0.6)", fontWeight: 600 }}
             >
               오시는길

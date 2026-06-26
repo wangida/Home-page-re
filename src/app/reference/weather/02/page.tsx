@@ -31,7 +31,7 @@ export default function ReferenceWeatherHyundaiPage() {
           <div className="refd-titlebar">
             <p className="refd-titlebar__cat">날씨경영 / 폭염관리 솔루션</p>
             <p className="refd-titlebar__name">현대자동차 (CRMaaS)</p>
-            <p className="refd-titlebar__date">2026. 06. 16</p>
+            <p className="refd-titlebar__date">2025. 08. 12</p>
             <span className="refd-titlebar__line" aria-hidden="true" />
           </div>
 

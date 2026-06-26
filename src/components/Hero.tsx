@@ -28,7 +28,7 @@ const HERO_SLIDES: Slide[] = [
   {
     key: "ai",
     eyebrow: "산업·공간 맞춤 AI 환기청정 솔루션",
-    title: "케이웨더는 Ai로 공기와\n환기를 관리합니다",
+    title: "케이웨더는 AI로 공기와\n환기를 관리합니다",
     bg: "/assets/hero_02.jpg",
     cta: { label: "바로가기", href: "#solutions" },
   },

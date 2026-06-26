@@ -65,12 +65,12 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
       {
         y: 32,
         items: [
-          { label: "공기 측정기" },
-          { label: "환기 청정기" },
+          { label: "공기 측정기", href: "/product/airmeter" },
+          { label: "환기 청정기", href: "/product/circulation" },
           { label: "공기 빅데이터 플랫폼", href: "/product/air365" },
         ],
       },
-      { y: 349, tight: true, items: [{ label: "체감온도계" }, { label: "기상장비" }] },
+      { y: 349, tight: true, items: [{ label: "체감온도계", href: "/product/heat_re" }, { label: "기상장비", href: "/product/apuipment" }] },
     ],
   },
   {
@@ -85,8 +85,8 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
     key: "ref",
     x: 922,
     blocks: [
-      { y: 32, items: [{ label: "공기지능 사례" }, { label: "공기지능 인증" }] },
-      { y: 349, tight: true, items: [{ label: "날씨경영 사례" }] },
+      { y: 32, items: [{ label: "공기지능 사례", href: "/reference/air" }, { label: "공기지능 인증", href: "/reference/airizone" }] },
+      { y: 349, tight: true, items: [{ label: "날씨경영 사례", href: "/reference/weather" }] },
     ],
   },
   {
@@ -126,6 +126,14 @@ const FAMILY_APPS = [
   { label: "Android", left: 153, btnLeft: 218 },
 ] as const;
 
+/* 모바일 드로어 하단 패밀리 사이트 — 데스크탑 family 4개 + 실제 링크(Footer 기준) */
+const MNAV_FAMILY = [
+  { label: "날씨지도", thumb: "/assets/ia_s_thum01.png", href: "https://map.kweather.co.kr" },
+  { label: "Air365", thumb: "/assets/ia_s_thum02.png", href: "https://www.air365.co.kr" },
+  { label: "날씨환경청", thumb: "/assets/ia_s_thum03.png", href: "https://www.kweather.co.kr" },
+  { label: "날씨앱", thumb: "/assets/ia_s_thum04.png", href: "https://www.kweather.co.kr" },
+] as const;
+
 function Logo({ light = false }: { light?: boolean }) {
   return (
     <div className="gnb__logo">
@@ -145,6 +153,8 @@ function Logo({ light = false }: { light?: boolean }) {
 export default function Header({ solid = false }: { solid?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState<string | null>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileSec, setMobileSec] = useState<string | null>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
@@ -152,6 +162,47 @@ export default function Header({ solid = false }: { solid?: boolean }) {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  /* 모바일 메뉴 열림 동안 본문 스크롤 잠금 + ESC 닫기 */
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMobileOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = prev;
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [mobileOpen]);
+
+  const closeMobile = () => {
+    setMobileOpen(false);
+    setMobileSec(null);
+  };
+
+  /* 햄버거 클릭: 웹/아이패드(>820)는 풀 메가메뉴 토글, 모바일(≤820)은 드로어 */
+  const MOBILE_BP = 820;
+  const onHamburger = () => {
+    if (typeof window !== "undefined" && window.innerWidth <= MOBILE_BP) {
+      setMobileOpen(true);
+      setMobileSec(NAV[0].key); // 열릴 때 첫 메뉴(데이터) 기본 펼침
+    } else {
+      setOpen((prev) => (prev ? null : "all"));
+    }
+  };
+
+  /* 데스크탑으로 넓어지면 드로어 닫고, 모바일로 좁아지면 메가 닫기 */
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth > MOBILE_BP) setMobileOpen(false);
+      else setOpen(null);
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
   }, []);
 
   const enter = (k: string) => {
@@ -166,6 +217,7 @@ export default function Header({ solid = false }: { solid?: boolean }) {
   const useDarkText = solid || scrolled || isOpenAny;
 
   return (
+    <>
     <header
       className={`gnb ${useDarkText ? "gnb--scrolled" : "gnb--top"} ${
         isOpenAny ? "is-mega-open" : ""
@@ -242,6 +294,8 @@ export default function Header({ solid = false }: { solid?: boolean }) {
             type="button"
             className="gnb__hamburger"
             aria-label="전체 메뉴"
+            aria-expanded={mobileOpen || isOpenAny}
+            onClick={onHamburger}
           >
             <span />
             <span />
@@ -376,5 +430,148 @@ export default function Header({ solid = false }: { solid?: boolean }) {
         </div>
       </div>
     </header>
+
+      {/* ===== 모바일 전체메뉴 — 메인 IA(MEGA_COLS) 1·2depth 그대로 반영.
+           header(fixed+backdrop-filter) 밖에 두어야 fixed가 뷰포트 기준으로 동작 ===== */}
+      <div
+        className={`mnav ${mobileOpen ? "is-open" : ""}`}
+        role="dialog"
+        aria-modal="true"
+        aria-label="전체 메뉴"
+        aria-hidden={!mobileOpen}
+      >
+        <div className="mnav__scrim" onClick={closeMobile} />
+        <div className="mnav__panel">
+          <div className="mnav__bar">
+            <a href="/#top" className="mnav__logo" aria-label="K-WEATHER home" onClick={closeMobile}>
+              <Image
+                src="/assets/logo_blue.svg"
+                alt="K-WEATHER"
+                width={218}
+                height={30}
+                style={{ height: "24px", width: "auto", display: "block" }}
+              />
+            </a>
+            <button
+              type="button"
+              className="mnav__close"
+              aria-label="메뉴 닫기"
+              onClick={closeMobile}
+            >
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+                <line x1="6" y1="6" x2="18" y2="18" />
+                <line x1="18" y1="6" x2="6" y2="18" />
+              </svg>
+            </button>
+          </div>
+
+          <div className="mnav__scroll" data-lenis-prevent>
+          {/* 모바일에선 상단바에서 빠진 쇼핑몰·날씨정보를 드로어 상단에 */}
+          <div className="mnav__util">
+            <a
+              href="https://www.kweather.co.kr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mnav__util-btn"
+              onClick={closeMobile}
+            >
+              <span>쇼핑몰</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <line x1="7" y1="17" x2="17" y2="7" />
+                <polyline points="7 7 17 7 17 17" />
+              </svg>
+            </a>
+            <a
+              href="https://www.kweather.co.kr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mnav__util-btn"
+              onClick={closeMobile}
+            >
+              <span>날씨정보</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <line x1="7" y1="17" x2="17" y2="7" />
+                <polyline points="7 7 17 7 17 17" />
+              </svg>
+            </a>
+          </div>
+          <nav className="mnav__list">
+            {NAV.map((n) => {
+              const col = MEGA_COLS.find((c) => c.key === n.key);
+              const expanded = mobileSec === n.key;
+              return (
+                <div key={n.key} className={`mnav__sec ${expanded ? "is-open" : ""}`}>
+                  <button
+                    type="button"
+                    className="mnav__d1"
+                    aria-expanded={expanded}
+                    onClick={() => setMobileSec(expanded ? null : n.key)}
+                  >
+                    <span>{n.label}</span>
+                    <svg className="mnav__chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  </button>
+                  <div className="mnav__sub">
+                    <div className="mnav__sub-inner">
+                      {col?.blocks.map((block, bi) => (
+                        <ul
+                          key={bi}
+                          className={`mnav__d2 ${block.tight ? "mnav__d2--break" : ""}`}
+                        >
+                          {block.items.map((it) => (
+                            <li key={it.label}>
+                              <a href={it.href ?? "#"} onClick={closeMobile}>
+                                {it.label}
+                                {it.small && <em className="mnav__d2-small">{it.small}</em>}
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </nav>
+
+          {/* 하단 패밀리 사이트 — 데스크탑 family 리스트의 컴팩트 버전(썸네일+이름+버튼) */}
+          <div className="mnav__family-m">
+            <ul className="mnav__family-m-list">
+              {MNAV_FAMILY.map((f) => (
+                <li key={f.label}>
+                  <a
+                    href={f.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mnav__family-m-item"
+                    onClick={closeMobile}
+                  >
+                    <img
+                      src={f.thumb}
+                      alt=""
+                      aria-hidden="true"
+                      className="mnav__family-m-thumb"
+                      loading="lazy"
+                    />
+                    <span className="mnav__family-m-meta">
+                      <span className="mnav__family-m-name">{f.label}</span>
+                      <img
+                        src="/assets/btn_sgo.svg"
+                        alt=""
+                        aria-hidden="true"
+                        className="mnav__family-m-go"
+                      />
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }

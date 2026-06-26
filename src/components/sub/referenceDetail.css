@@ -1,0 +1,196 @@
+/* ===== 레퍼런스 상세 (Figma sub_레퍼런스 > reference_air01, 80:446) =====
+   컬럼 폭 1100px(상·하단 라인도 컬럼 100% → 1100).
+   폰트·이미지·간격은 0.75배 축소(사용자 요청). 폰트 2종: Paperlogy(='Paperozi') / Pretendard.
+   ※ 히어로(SubHero)는 사이트 공용 1:1 컴포넌트라 축소 대상 아님. */
+
+.refd {
+  width: min(1100px, calc(100% - 64px));
+  margin: 0 auto;
+  /* 히어로 하단 → title 시작: 90 × .75 = 68 */
+  padding-top: 68px;
+  padding-bottom: 120px;
+  color: #222;
+}
+
+/* ----- 타이틀바 (107 × .75 = 80) ----- */
+.refd-titlebar {
+  position: relative;
+  height: 80px;
+}
+.refd-titlebar__cat {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  font-family: "Paperozi", sans-serif;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 1;
+  color: #bc604f;
+}
+.refd-titlebar__name {
+  position: absolute;
+  top: 27px;
+  left: 0;
+  margin: 0;
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-weight: 600;
+  font-size: 29px;
+  line-height: 1;
+  color: #222;
+}
+.refd-titlebar__date {
+  position: absolute;
+  top: 46px;
+  right: 8px;
+  margin: 0;
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1;
+  color: #848484;
+}
+.refd-titlebar__line {
+  position: absolute;
+  top: 79px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #2a4a97;
+}
+
+/* ----- 본문 제목 (42 → 32, gap 130 → 98) ----- */
+.refd-heading {
+  margin: 98px 0 0;
+  text-align: center;
+  font-family: "Paperozi", sans-serif;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.2;
+  color: #4660c9;
+}
+
+/* ----- 이미지 (1000×633 → 750 폭, 비율 유지) ----- */
+.refd-img {
+  display: block;
+  width: 750px;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  object-fit: cover;
+}
+.refd-img--1 { margin-top: 60px; }  /* 80 → 60 */
+.refd-img--2 { margin-top: 36px; }  /* 48 → 36 */
+.refd-img--stack { margin-top: 40px; }  /* 같은 위치에 이미지 추가 스택 시 */
+
+/* ----- 강조 단락 1 (32 → 24, lh55 → 41, gap 100 → 75) ----- */
+.refd-lead {
+  margin: 75px 0 0;
+  text-align: center;
+  font-family: "Paperozi", sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 41px;
+  color: #222;
+}
+
+/* ----- 강조 단락 2 (32 → 24, gap 64 → 48) ----- */
+.refd-lead-sub {
+  margin: 48px 0 0;
+  text-align: center;
+  font-family: "Paperozi", sans-serif;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 1.2;
+  color: #bc604f;
+}
+
+/* ----- 본문 단락 (25 → 19, lh42 → 32, gap 68 → 51) -----
+   좌측 정렬 본문이 컬럼 끝에 붙어 왼쪽으로 쏠려 보여, 좌우 여백을 줘 안쪽으로 모음 */
+.refd-body {
+  margin: 51px 0 0;
+  padding: 0 64px;
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-weight: 300;
+  font-size: 19px;
+  line-height: 32px;
+  color: #222;
+}
+.refd-body p { margin: 0; }
+.refd-body strong { font-weight: 600; }
+.refd-body .em-blue { color: #4660c9; }
+.refd-body .em-blue2 { color: #5d74cf; }
+
+/* 강조 색상/굵기 — 모든 블록(.refd-lead 등)에서 재사용 */
+.refd strong { font-weight: 600; }
+.refd .em-blue { color: #4660c9; }
+.refd .em-blue2 { color: #5d74cf; }
+.refd .em-orange { color: #bc604f; }
+
+/* 각주 — 본문 바로 아래 붙음 */
+.refd-note {
+  margin: 0;
+  padding: 0 64px;
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-weight: 300;
+  font-size: 19px;
+  line-height: 32px;
+  color: #222;
+}
+
+/* note → body4 사이 40 → 30 */
+.refd-body--gap40 { margin-top: 30px; }
+
+/* ----- 마무리 문구 (35 → 26, lh50 → 38, gap 90 → 68) ----- */
+.refd-closing {
+  margin: 68px 0 0;
+  text-align: center;
+  font-family: "Paperozi", sans-serif;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 38px;
+  color: #222;
+}
+
+/* ----- 하단 구분선 (gap 130 → 98) ----- */
+.refd-divider {
+  width: 100%;
+  height: 2px;
+  margin-top: 98px;
+  background: #2a4a97;
+}
+
+/* ----- 목록 버튼 (135×68 → 101×51, font 24 → 18, gap 43 → 32) ----- */
+.refd-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 32px;
+}
+.refd-btn-list {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 101px;
+  height: 51px;
+  border-radius: 8px;
+  background: #4660c9;
+  color: #fff;
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1;
+  text-decoration: none;
+  transition: background 160ms ease;
+}
+.refd-btn-list:hover { background: #3a52b3; }
+
+/* ----- 반응형 ----- */
+@media (max-width: 760px) {
+  .refd-titlebar__name { font-size: 23px; top: 24px; }
+  .refd-titlebar__cat { font-size: 16px; }
+  .refd-heading { font-size: 24px; }
+  .refd-lead { font-size: 19px; line-height: 30px; }
+  .refd-lead-sub { font-size: 18px; }
+  .refd-body, .refd-note { font-size: 16px; line-height: 26px; }
+  .refd-closing { font-size: 20px; line-height: 30px; }
+}

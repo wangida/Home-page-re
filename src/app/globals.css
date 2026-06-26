@@ -228,6 +228,11 @@ img, svg { display: block; max-width: 100%; }
   #trust .container > div:last-child { grid-template-columns: repeat(3, 1fr) !important; gap: 14px !important; }
   #news .container > div:last-child { grid-template-columns: 1fr !important; }
   #news .container > div:last-child > div:first-child > a > div { grid-template-columns: 1fr !important; }
+  /* 화살표만 우상단으로: 나머지 레이아웃은 원본 유지 */
+  #news .container > div:last-child > div:first-child > a { position: relative !important; }
+  #news .container > div:last-child > div:first-child > a > div > span {
+    position: absolute !important; top: 14px; right: 28px;
+  }
   footer .footer-menus { gap: 28px 40px !important; }
 }
 
@@ -239,8 +244,9 @@ img, svg { display: block; max-width: 100%; }
   #proof .container > div:nth-child(2) > div { border-left: none !important; }
   #trust .container > div:last-child { grid-template-columns: repeat(2, 1fr) !important; gap: 12px !important; }
   #top.hero .hero__inner { padding-left: 20px !important; padding-right: 20px !important; }
-  footer .footer-menus { gap: 24px 28px !important; }
-  footer .footer-menus > div { min-width: 124px; }
+  footer .footer-menus { display: none !important; }
+  footer .footer-copy-full { display: none; }
+  footer .footer-copy-short { display: inline; }
 }
 
 /* Solutions: mobile horizontal scroll */
@@ -311,7 +317,10 @@ img, svg { display: block; max-width: 100%; }
   .hero { height: 780px; min-height: 780px; max-height: none; }
 }
 @media (max-width: 768px) {
-  .hero { min-height: 620px; }
+  .hero { height: 78vh; min-height: 500px; max-height: 640px; }
+}
+@media (max-width: 480px) {
+  .hero { height: 72vh; min-height: 440px; }
 }
 .hero__bg {
   position: absolute; inset: 0;
@@ -877,8 +886,10 @@ img, svg { display: block; max-width: 100%; }
 }
 @media (max-width: 820px) {
   .gnb__nav { display: none !important; }
-  .gnb__family { display: none; }
-  .gnb__shop { display: none; }
+  /* 모바일: 쇼핑몰·날씨정보·패밀리는 상단바에서 숨기고 드로어 안으로 이동
+     ( 기본 .gnb__shop 규칙이 소스상 뒤라 !important 필요 ) */
+  .gnb__family { display: none !important; }
+  .gnb__shop { display: none !important; }
 }
 
 /* === GNB utils (family-site dropdown + hamburger) === */
@@ -974,6 +985,17 @@ img, svg { display: block; max-width: 100%; }
   white-space: nowrap;
 }
 .gnb__family-list a:hover { background: var(--ink-50); color: var(--brand-600); }
+
+/* Footer copyright: full on desktop/pad, abbreviated on mobile (≤640px) */
+.footer-copy-short { display: none; }
+
+/* Footer info: forced line breaks on desktop collapse into one line on mobile (≤640px) */
+.foot-br { display: block; }
+.foot-sep { display: none; }
+@media (max-width: 640px) {
+  .foot-br { display: none; }
+  .foot-sep { display: inline; }
+}
 
 /* Footer social icons */
 .footer-social {
@@ -1700,13 +1722,13 @@ img, svg { display: block; max-width: 100%; }
 
 @media (max-width: 900px) {
   .trust-boxes { grid-template-columns: repeat(2, 1fr); }
-  .trust-facts { grid-template-columns: repeat(2, 1fr); gap: 14px 0; }
-  .trust-facts__item--divided:nth-child(odd)::before { display: none; }
+  /* 통계: 모바일/태블릿에선 1열 4줄 + 폰트 18px (좁은 칸 넘침 방지) */
+  .trust-facts { grid-template-columns: 1fr; gap: 14px 0; }
+  .trust-facts__item--divided::before { display: none; }
+  .trust-facts__item { font-size: 18px !important; }
   .trust-awards { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 520px) {
-  .trust-facts { grid-template-columns: 1fr; }
-  .trust-facts__item--divided::before { display: none; }
   .trust-awards { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -1761,4 +1783,237 @@ img, svg { display: block; max-width: 100%; }
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* ===== 모바일 전체메뉴 드로어 — 메인 IA 1·2depth ===== */
+.mnav {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  visibility: hidden;
+  pointer-events: none;
+}
+.mnav.is-open {
+  visibility: visible;
+  pointer-events: auto;
+}
+.mnav__scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 20, 30, 0.5);
+  opacity: 0;
+  transition: opacity 320ms ease;
+}
+.mnav.is-open .mnav__scrim { opacity: 1; }
+
+.mnav__panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: min(420px, 88vw);
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  box-shadow: -16px 0 48px rgba(15, 20, 30, 0.18);
+  transform: translateX(100%);
+  transition: transform 360ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: transform;
+}
+.mnav.is-open .mnav__panel { transform: translateX(0); }
+
+.mnav__bar {
+  flex: 0 0 auto;
+  height: 64px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--ink-100, #eceef2);
+}
+.mnav__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin-right: -8px;
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-800, #2b3240);
+  cursor: pointer;
+  transition: background 160ms ease, color 160ms ease;
+}
+.mnav__close:hover { background: var(--ink-50, #f4f6f9); color: var(--brand-600, #3f5abb); }
+
+/* 스크롤 영역: 메뉴+패밀리를 함께 담고, 넘치면 스크롤(min-height:0 필수) */
+.mnav__scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+  flex-direction: column;
+}
+.mnav__list {
+  flex: 0 0 auto;
+  padding: 4px 0 0;
+}
+/* 드로어 상단 유틸(쇼핑몰·날씨정보) */
+.mnav__util {
+  flex: 0 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 14px 24px 4px;
+}
+.mnav__util-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 42px;
+  border: 1px solid var(--ink-200, #dde1e8);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-700, #3a4252);
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+.mnav__util-btn:hover,
+.mnav__util-btn:active {
+  background: var(--ink-50, #f6f8fb);
+  border-color: var(--brand-300, #b9c4ec);
+  color: var(--brand-600, #3f5abb);
+}
+
+/* 1depth — 항목마다 하단 경계라인 */
+.mnav__sec { border-bottom: 1px solid var(--ink-100, #eceef2); }
+.mnav__d1 {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 19px 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ink-900, #1c2330);
+  transition: color 160ms ease;
+}
+.mnav__d1:hover,
+.mnav__d1:active { color: var(--brand-600, #3f5abb); }
+.mnav__d1:active { background: var(--ink-50, #f6f8fb); } /* 탭 시 눌린 느낌 */
+.mnav__sec.is-open .mnav__d1 { color: var(--brand-600, #3f5abb); }
+.mnav__chev {
+  flex: 0 0 auto;
+  color: var(--ink-400, #98a1b0);
+  transition: transform 300ms ease, color 160ms ease;
+}
+.mnav__sec.is-open .mnav__chev { transform: rotate(180deg); color: var(--brand-600, #3f5abb); }
+
+/* 2depth — grid-rows 트랜지션으로 부드럽게 펼침 */
+.mnav__sub {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 300ms ease;
+}
+.mnav__sec.is-open .mnav__sub { grid-template-rows: 1fr; }
+.mnav__sub-inner {
+  overflow: hidden;
+  background: var(--ink-50, #f6f8fb);
+}
+.mnav__d2 {
+  list-style: none;
+  margin: 0;
+  padding: 0; /* ul 패딩 제거 → 블록 분할(공기측정 별도)이 행간을 벌리지 않도록 통일 */
+}
+/* 그룹 외곽 여백 — 접힐 때 함께 사라지도록 sub-inner가 아닌 안쪽 항목에 부여 */
+.mnav__sub-inner > .mnav__d2:first-child { padding-top: 6px; }
+.mnav__sub-inner > .mnav__d2:last-child { padding-bottom: 6px; }
+/* 공기 / 기상(하단) 그룹 경계선 — 위아래 동일 여백(8px+항목 8px=16px)으로 가운데 정렬 */
+.mnav__d2--break {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--ink-200, #dde1e8);
+}
+.mnav__d2 li { margin: 0; }
+.mnav__d2 a {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 8px 24px 8px 36px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--ink-600, #4a5365);
+  transition: color 160ms ease;
+}
+.mnav__d2 a:hover,
+.mnav__d2 a:active { color: var(--brand-600, #3f5abb); }
+.mnav__d2 a:active { background: rgba(63, 90, 187, 0.06); } /* 탭 시 눌린 느낌 */
+.mnav__d2-small {
+  font-size: 14px;
+  font-style: normal;
+  color: var(--ink-400, #98a1b0);
+}
+
+/* 하단 패밀리 사이트 — 데스크탑 family 리스트의 컴팩트형(썸네일+이름+버튼) */
+.mnav__family-m {
+  flex: 0 0 auto;
+  margin-top: auto; /* 콘텐츠가 짧으면 바닥에 붙고, 길면 스크롤 흐름에 합류 */
+  padding: 14px 24px 20px 35px; /* 앞(좌측) 여백 */
+  background: #fff;
+}
+.mnav__family-m-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, max-content); /* 썸네일 폭(82px)으로 묶어 간격 좁힘 */
+  justify-content: start;
+  column-gap: 30px;
+  row-gap: 16px;
+}
+.mnav__family-m-list li { margin: 0; }
+.mnav__family-m-item {     /* 전체는 좌측 정렬: 썸네일(위) + 이름·버튼(아래) */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+.mnav__family-m-thumb {
+  flex: 0 0 auto;
+  width: 82px;
+  height: auto;
+  aspect-ratio: 75 / 55;
+  border-radius: 8px;
+  object-fit: cover;
+  background: var(--ink-50, #f6f8fb);
+}
+.mnav__family-m-meta {     /* 이름+버튼: 썸네일 폭(82px) 안에서 중앙정렬 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 82px;
+}
+.mnav__family-m-name {
+  font-size: 15px;
+  font-weight: 400;
+  white-space: nowrap;
+  color: var(--ink-800, #2b3240);
+  transition: color 160ms ease;
+}
+.mnav__family-m-item:hover .mnav__family-m-name,
+.mnav__family-m-item:active .mnav__family-m-name { color: var(--brand-600, #3f5abb); }
+.mnav__family-m-go {
+  flex: 0 0 auto;
+  width: 14px;
+  height: 14px;
+  opacity: 0.45;
 }

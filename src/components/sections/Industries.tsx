@@ -1,6 +1,7 @@
 "use client";
 
 import { MouseEvent } from "react";
+import Link from "next/link";
 import { motion } from "motion/react";
 import {
   cardReveal,
@@ -9,13 +10,13 @@ import {
   VIEWPORT_DEFAULT,
 } from "@/lib/motion-variants";
 
-const REFERENCES: { key: string; label: string; img: string }[] = [
-  { key: "biz",    label: "[ 기업 · 현대자동차 환경측정망 ]",      img: "/assets/thum_01_re.png" },
-  { key: "gov",    label: "[ 공공기관 · 울산항만공사 방재기상 ]",       img: "/assets/thum_02_re.png" },
-  { key: "med",    label: "[ 병원 · 양산시 시나브로 복지관 ]",          img: "/assets/thum_03_re.png" },
-  { key: "house",  label: "[ 주거공간 · 포스코이앤씨 더샵 리오몬트 ]",  img: "/assets/thum_04_re.png" },
-  { key: "edu",    label: "[ 학교 · 충북 오송2 초등학교 ]",             img: "/assets/thum_05_re.png" },
-  { key: "sports", label: "[ 스포츠&레저 · KPGA ]",                     img: "/assets/thum_06_re.png" },
+const REFERENCES: { key: string; label: string; img: string; href?: string }[] = [
+  { key: "biz",    label: "[ 기업 · 현대자동차 환경측정망 ]",      img: "/assets/thum_01_re.png", href: "/reference/weather/02" },
+  { key: "gov",    label: "[ 공공기관 · 울산항만공사 방재기상 ]",       img: "/assets/thum_02_re.png", href: "/reference/weather/01" },
+  { key: "med",    label: "[ 병원 · 양산시 시나브로 복지관 ]",          img: "/assets/thum_03_re.png", href: "/reference/air/01" },
+  { key: "house",  label: "[ 주거공간 · 포스코이앤씨 고양풍동 2지구 ]",  img: "/assets/thum_04_re.png", href: "/reference/air/04" },
+  { key: "edu",    label: "[ 학교 · 오송솔미초등학교 ]",                  img: "/assets/thum_05_re.png", href: "/reference/air/03" },
+  { key: "sports", label: "[ 스포츠&레저 · KPGA ]",                     img: "/assets/thum_06_re.png", href: "/reference/air/02" },
 ];
 
 const PUBLIC_LOGOS = [
@@ -153,14 +154,31 @@ export default function Industries() {
           whileInView="visible"
           viewport={VIEWPORT_DEFAULT}
         >
-          {REFERENCES.map((ref) => (
-            <motion.div key={ref.key} className="references-card" variants={cardReveal}>
-              <div className="references-card__label">{ref.label}</div>
-              <div className="references-card__thumb">
-                <img src={ref.img} alt="" loading="lazy" decoding="async" />
-              </div>
-            </motion.div>
-          ))}
+          {REFERENCES.map((ref) => {
+            const card = (
+              <>
+                <div className="references-card__label">{ref.label}</div>
+                <div className="references-card__thumb">
+                  <img src={ref.img} alt="" loading="lazy" decoding="async" />
+                </div>
+              </>
+            );
+            return ref.href ? (
+              <motion.div key={ref.key} variants={cardReveal}>
+                <Link
+                  href={ref.href}
+                  className="references-card references-card--link"
+                  style={{ display: "block", textDecoration: "none", color: "inherit" }}
+                >
+                  {card}
+                </Link>
+              </motion.div>
+            ) : (
+              <motion.div key={ref.key} className="references-card" variants={cardReveal}>
+                {card}
+              </motion.div>
+            );
+          })}
         </motion.div>
 
         <motion.div

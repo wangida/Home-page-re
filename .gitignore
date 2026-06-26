@@ -34,3 +34,5 @@ yarn-error.log*
 
 # 대용량 다운로드 PDF — 로컬 보관, 저장소 제외(미연결)
 public/assets/sub/download/*.pdf
+# 대용량 다운로드 zip(191MB) — 로컬 보관, 저장소 제외
+public/assets/sub/download.zip

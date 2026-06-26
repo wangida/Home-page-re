@@ -45,6 +45,13 @@ const MENU_LINKS: Record<string, string> = {
   방송컨텐츠: "/data/broadcast",
   모바일정보: "/data/mobile",
   공기빅데이터플랫폼: "/product/air365",
+  공기측정기: "/product/airmeter",
+  환기청정기: "/product/circulation",
+  체감온도계: "/product/heat_re",
+  기상장비: "/product/apuipment",
+  "공기지능 사례": "/reference/air",
+  "공기지능 인증": "/reference/airizone",
+  "날씨경영 사례": "/reference/weather",
   기업소개: "/company",
   연혁: "/company/history",
   "IR · 주식정보": "/company/ir",
@@ -121,11 +128,13 @@ export default function Footer() {
               케이웨더(주) · 대표이사 김동식
               <br />
               서울특별시 구로구 디지털로26길 5, 에이스하이엔드타워
-              <br />
+              <span className="foot-br" />
+              <span className="foot-sep"> </span>
               1차 401호 (우)08389
               <div style={{ marginTop: 12 }}>
                 대표전화 1644-0902 · 팩스 02-360-2288
-                <br />
+                <span className="foot-br" />
+                <span className="foot-sep"> · </span>
                 사업자등록번호 110-81-37628
                 <br />
                 대표메일{" "}
@@ -199,7 +208,12 @@ export default function Footer() {
             color: "rgba(255,255,255,0.4)",
           }}
         >
-          <div>© {new Date().getFullYear()} K-WEATHER Co., Ltd. All rights reserved.</div>
+          <div>
+            <span className="footer-copy-full">
+              © {new Date().getFullYear()} K-WEATHER Co., Ltd. All rights reserved.
+            </span>
+            <span className="footer-copy-short">© {new Date().getFullYear()} K-WEATHER</span>
+          </div>
           <div style={{ display: "flex", gap: 18, alignItems: "center" }}>
             <div className="footer-social">
               <a
@@ -253,14 +267,6 @@ export default function Footer() {
             >
               오시는길
             </a>
-            <a
-              href="#"
-              style={{ color: "rgba(255,255,255,0.6)", fontWeight: 600 }}
-            >
-              개인정보처리방침
-            </a>
-            <a href="#">이용약관</a>
-            <a href="#">사이트맵</a>
             <div className="footer-family" ref={familyRef}>
               <button
                 type="button"

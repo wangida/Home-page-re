@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import SmoothScroll from "@/components/SmoothScroll";
+import SubHero from "@/components/sub/SubHero";
+import "@/components/sub/sub.css";
 import "@/components/sub/location.css";
 
 export const metadata: Metadata = {
@@ -18,9 +20,13 @@ export default function LocationPage() {
       <SmoothScroll />
       <Header solid />
       <main>
-        <article className="loc">
-          <h1 className="loc__title">오시는길</h1>
+        <SubHero
+          image="/assets/sub/subtop_location.jpg"
+          title="오시는길"
+          subtitle={"대중교통부터 자가용까지, 가장 빠른 방문 경로\n주차 · 노선 · 위치 정보 모두 확인"}
+        />
 
+        <article className="loc">
           {/* 상단 지도 — 구글지도 인터랙티브 임베드 */}
           <div className="loc__map">
             <iframe

@@ -1969,51 +1969,69 @@ img, svg { display: block; max-width: 100%; }
   padding: 14px 24px 20px 35px; /* 앞(좌측) 여백 */
   background: #fff;
 }
+/* Figma 개편 컨셉(85:662) 세로 리스트 — Figma 기준 90% 축소(썸네일 72×54, 라벨 16px, 행 간격 18px) */
 .mnav__family-m-list {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(2, max-content); /* 썸네일 폭(82px)으로 묶어 간격 좁힘 */
-  justify-content: start;
-  column-gap: 30px;
-  row-gap: 16px;
-}
-.mnav__family-m-list li { margin: 0; }
-.mnav__family-m-item {     /* 전체는 좌측 정렬: 썸네일(위) + 이름·버튼(아래) */
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: 8px;
+}
+.mnav__family-m-item {     /* 썸네일(좌) + 라벨·버튼(우) 가로 정렬 */
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0;
 }
 .mnav__family-m-thumb {
   flex: 0 0 auto;
-  width: 82px;
-  height: auto;
-  aspect-ratio: 75 / 55;
-  border-radius: 8px;
+  width: 72px;
+  height: 54px;
+  border-radius: 7px;
   object-fit: cover;
   background: var(--ink-50, #f6f8fb);
 }
-.mnav__family-m-meta {     /* 이름+버튼: 썸네일 폭(82px) 안에서 중앙정렬 */
+.mnav__family-m-link {     /* 라벨 + 화살표 한 줄 */
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.mnav__family-m-meta--app {  /* 날씨앱: 라벨(위) + IOS/Android(아래) 세로 */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+.mnav__family-m-apps {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 6px;
-  width: 82px;
+  gap: 20px;
 }
-.mnav__family-m-name {
-  font-size: 15px;
-  font-weight: 400;
+.mnav__family-m-app {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #515151;
   white-space: nowrap;
-  color: var(--ink-800, #2b3240);
   transition: color 160ms ease;
 }
-.mnav__family-m-item:hover .mnav__family-m-name,
-.mnav__family-m-item:active .mnav__family-m-name { color: var(--brand-600, #3f5abb); }
+.mnav__family-m-name {
+  font-size: 16px;
+  font-weight: 500;
+  white-space: nowrap;
+  color: #515151;
+  transition: color 160ms ease;
+}
+.mnav__family-m-link:hover .mnav__family-m-name,
+.mnav__family-m-link:active .mnav__family-m-name,
+.mnav__family-m-app:hover,
+.mnav__family-m-app:active { color: var(--brand-600, #3f5abb); }
 .mnav__family-m-go {
   flex: 0 0 auto;
-  width: 14px;
-  height: 14px;
-  opacity: 0.45;
+  width: 18px;
+  height: 18px;
+  opacity: 0.7;
 }

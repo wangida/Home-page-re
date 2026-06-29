@@ -126,12 +126,20 @@ const FAMILY_APPS = [
   { label: "Android", left: 153, btnLeft: 218 },
 ] as const;
 
-/* 모바일 드로어 하단 패밀리 사이트 — 데스크탑 family 4개 + 실제 링크(Footer 기준) */
+/* 모바일 드로어 하단 패밀리 사이트 — Figma 개편 컨셉(85:662) 세로 리스트.
+   썸네일 80×60, 라벨 18px #515151, 행 간격 20px. 날씨앱은 IOS/Android 2개 링크 */
 const MNAV_FAMILY = [
   { label: "날씨지도", thumb: "/assets/ia_s_thum01.png", href: "https://map.kweather.co.kr" },
   { label: "Air365", thumb: "/assets/ia_s_thum02.png", href: "https://www.air365.co.kr" },
   { label: "날씨환경청", thumb: "/assets/ia_s_thum03.png", href: "https://www.kweather.co.kr" },
-  { label: "날씨앱", thumb: "/assets/ia_s_thum04.png", href: "https://www.kweather.co.kr" },
+  {
+    label: "날씨앱",
+    thumb: "/assets/ia_s_thum04.png",
+    apps: [
+      { label: "IOS", href: "https://www.kweather.co.kr" },
+      { label: "Android", href: "https://www.kweather.co.kr" },
+    ],
+  },
 ] as const;
 
 function Logo({ light = false }: { light?: boolean }) {
@@ -536,26 +544,52 @@ export default function Header({ solid = false }: { solid?: boolean }) {
             })}
           </nav>
 
-          {/* 하단 패밀리 사이트 — 데스크탑 family 리스트의 컴팩트 버전(썸네일+이름+버튼) */}
+          {/* 하단 패밀리 사이트 — Figma 개편 컨셉(85:662) 세로 리스트 */}
           <div className="mnav__family-m">
             <ul className="mnav__family-m-list">
               {MNAV_FAMILY.map((f) => (
-                <li key={f.label}>
-                  <a
-                    href={f.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mnav__family-m-item"
-                    onClick={closeMobile}
-                  >
-                    <img
-                      src={f.thumb}
-                      alt=""
-                      aria-hidden="true"
-                      className="mnav__family-m-thumb"
-                      loading="lazy"
-                    />
-                    <span className="mnav__family-m-meta">
+                <li key={f.label} className="mnav__family-m-item">
+                  <img
+                    src={f.thumb}
+                    alt=""
+                    aria-hidden="true"
+                    className="mnav__family-m-thumb"
+                    loading="lazy"
+                  />
+                  {"apps" in f ? (
+                    <span className="mnav__family-m-meta mnav__family-m-meta--app">
+                      <span className="mnav__family-m-name">{f.label}</span>
+                      <span className="mnav__family-m-apps">
+                        {f.apps.map((a) => (
+                          <a
+                            key={a.label}
+                            href={a.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="mnav__family-m-app"
+                            onClick={closeMobile}
+                            aria-label={`날씨앱 ${a.label} 바로가기`}
+                          >
+                            {a.label}
+                            <img
+                              src="/assets/btn_sgo.svg"
+                              alt=""
+                              aria-hidden="true"
+                              className="mnav__family-m-go"
+                            />
+                          </a>
+                        ))}
+                      </span>
+                    </span>
+                  ) : (
+                    <a
+                      href={f.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mnav__family-m-link"
+                      onClick={closeMobile}
+                      aria-label={`${f.label} 바로가기`}
+                    >
                       <span className="mnav__family-m-name">{f.label}</span>
                       <img
                         src="/assets/btn_sgo.svg"
@@ -563,8 +597,8 @@ export default function Header({ solid = false }: { solid?: boolean }) {
                         aria-hidden="true"
                         className="mnav__family-m-go"
                       />
-                    </span>
-                  </a>
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>

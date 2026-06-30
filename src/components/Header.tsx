@@ -450,6 +450,7 @@ export default function Header({ solid = false }: { solid?: boolean }) {
       >
         <div className="mnav__scrim" onClick={closeMobile} />
         <div className="mnav__panel">
+          {/* ===== 상단바 — 워드마크 로고 + 닫기 ===== */}
           <div className="mnav__bar">
             <a href="/#top" className="mnav__logo" aria-label="K-WEATHER home" onClick={closeMobile}>
               <Image
@@ -457,7 +458,7 @@ export default function Header({ solid = false }: { solid?: boolean }) {
                 alt="K-WEATHER"
                 width={218}
                 height={30}
-                style={{ height: "24px", width: "auto", display: "block" }}
+                style={{ height: "21.6px", width: "auto", display: "block" }}
               />
             </a>
             <button
@@ -474,7 +475,7 @@ export default function Header({ solid = false }: { solid?: boolean }) {
           </div>
 
           <div className="mnav__scroll" data-lenis-prevent>
-          {/* 모바일에선 상단바에서 빠진 쇼핑몰·날씨정보를 드로어 상단에 */}
+          {/* 쇼핑몰·날씨정보 — 원형 아이콘 + 라벨 + btn_sgo (Figma 개편 컨셉 UI) */}
           <div className="mnav__util">
             <a
               href="https://www.kweather.co.kr"
@@ -483,11 +484,9 @@ export default function Header({ solid = false }: { solid?: boolean }) {
               className="mnav__util-btn"
               onClick={closeMobile}
             >
+              <Image className="mnav__util-ico" src="/assets/sub/mobile_navi_icon01.svg" alt="" aria-hidden width={36} height={36} />
               <span>쇼핑몰</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <line x1="7" y1="17" x2="17" y2="7" />
-                <polyline points="7 7 17 7 17 17" />
-              </svg>
+              <Image className="mnav__util-go" src="/assets/btn_sgo.svg" alt="" aria-hidden width={20} height={20} />
             </a>
             <a
               href="https://www.kweather.co.kr"
@@ -496,11 +495,9 @@ export default function Header({ solid = false }: { solid?: boolean }) {
               className="mnav__util-btn"
               onClick={closeMobile}
             >
+              <Image className="mnav__util-ico" src="/assets/sub/mobile_navi_icon02.svg" alt="" aria-hidden width={36} height={36} />
               <span>날씨정보</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <line x1="7" y1="17" x2="17" y2="7" />
-                <polyline points="7 7 17 7 17 17" />
-              </svg>
+              <Image className="mnav__util-go" src="/assets/btn_sgo.svg" alt="" aria-hidden width={20} height={20} />
             </a>
           </div>
           <nav className="mnav__list">
@@ -516,9 +513,14 @@ export default function Header({ solid = false }: { solid?: boolean }) {
                     onClick={() => setMobileSec(expanded ? null : n.key)}
                   >
                     <span>{n.label}</span>
-                    <svg className="mnav__chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                      <polyline points="6 9 12 15 18 9" />
-                    </svg>
+                    <Image
+                      className="mnav__chev"
+                      src={expanded ? "/assets/sub/mobile_navi_up.svg" : "/assets/sub/mobile_navi_down.svg"}
+                      alt=""
+                      aria-hidden
+                      width={24}
+                      height={24}
+                    />
                   </button>
                   <div className="mnav__sub">
                     <div className="mnav__sub-inner">

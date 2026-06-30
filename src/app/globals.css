@@ -1800,7 +1800,7 @@ img, svg { display: block; max-width: 100%; }
 .mnav__scrim {
   position: absolute;
   inset: 0;
-  background: rgba(15, 20, 30, 0.5);
+  background: rgba(15, 20, 30, 0.8);
   opacity: 0;
   transition: opacity 320ms ease;
 }
@@ -1811,7 +1811,7 @@ img, svg { display: block; max-width: 100%; }
   top: 0;
   right: 0;
   height: 100%;
-  width: min(420px, 88vw);
+  width: min(440px, 88vw);
   display: flex;
   flex-direction: column;
   background: #fff;
@@ -1822,6 +1822,7 @@ img, svg { display: block; max-width: 100%; }
 }
 .mnav.is-open .mnav__panel { transform: translateX(0); }
 
+/* ===== 상단바 — 워드마크 로고 + 닫기 ===== */
 .mnav__bar {
   flex: 0 0 auto;
   height: 64px;
@@ -1830,6 +1831,10 @@ img, svg { display: block; max-width: 100%; }
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid var(--ink-100, #eceef2);
+}
+.mnav__logo {
+  flex: 0 0 auto;
+  display: inline-flex;
 }
 .mnav__close {
   display: inline-flex;
@@ -1847,6 +1852,29 @@ img, svg { display: block; max-width: 100%; }
 }
 .mnav__close:hover { background: var(--ink-50, #f4f6f9); color: var(--brand-600, #3f5abb); }
 
+/* 쇼핑몰·날씨정보 — 원형 아이콘 + 라벨 + btn_sgo (Figma 개편 컨셉 UI) */
+.mnav__util {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 16px 24px 4px 25px;
+}
+.mnav__util-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #222;
+  white-space: nowrap;
+  transition: color 160ms ease;
+}
+.mnav__util-ico { flex: 0 0 auto; width: 36px; height: 36px; }
+.mnav__util-go { flex: 0 0 auto; width: 20px; height: 20px; }
+.mnav__util-btn:hover,
+.mnav__util-btn:active { color: var(--brand-600, #3f5abb); }
+
 /* 스크롤 영역: 메뉴+패밀리를 함께 담고, 넘치면 스크롤(min-height:0 필수) */
 .mnav__scroll {
   flex: 1 1 auto;
@@ -1861,61 +1889,34 @@ img, svg { display: block; max-width: 100%; }
   flex: 0 0 auto;
   padding: 4px 0 0;
 }
-/* 드로어 상단 유틸(쇼핑몰·날씨정보) */
-.mnav__util {
-  flex: 0 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  padding: 14px 24px 4px;
-}
-.mnav__util-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  height: 42px;
-  border: 1px solid var(--ink-200, #dde1e8);
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--ink-700, #3a4252);
-  transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
-}
-.mnav__util-btn:hover,
-.mnav__util-btn:active {
-  background: var(--ink-50, #f6f8fb);
-  border-color: var(--brand-300, #b9c4ec);
-  color: var(--brand-600, #3f5abb);
-}
 
-/* 1depth — 항목마다 하단 경계라인 */
+/* 1depth — 항목마다 하단 경계라인 (어제 커밋 원본: var(--ink-100)=#EFF1F4) */
 .mnav__sec { border-bottom: 1px solid var(--ink-100, #eceef2); }
 .mnav__d1 {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 19px 24px;
+  padding: 19px 24px 19px 28px;
   background: transparent;
   border: none;
   cursor: pointer;
   font-size: 17px;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: -0.01em;
-  color: var(--ink-900, #1c2330);
+  color: #222;
   transition: color 160ms ease;
 }
 .mnav__d1:hover,
-.mnav__d1:active { color: var(--brand-600, #3f5abb); }
+.mnav__d1:active { color: #2b44bd; }
 .mnav__d1:active { background: var(--ink-50, #f6f8fb); } /* 탭 시 눌린 느낌 */
-.mnav__sec.is-open .mnav__d1 { color: var(--brand-600, #3f5abb); }
+/* 펼친 메뉴 — Bold #2b44bd */
+.mnav__sec.is-open .mnav__d1 { font-size: 18px; color: #2b44bd; }
 .mnav__chev {
   flex: 0 0 auto;
-  color: var(--ink-400, #98a1b0);
-  transition: transform 300ms ease, color 160ms ease;
+  width: 24px;
+  height: 24px;
 }
-.mnav__sec.is-open .mnav__chev { transform: rotate(180deg); color: var(--brand-600, #3f5abb); }
 
 /* 2depth — grid-rows 트랜지션으로 부드럽게 펼침 */
 .mnav__sub {
@@ -1924,9 +1925,10 @@ img, svg { display: block; max-width: 100%; }
   transition: grid-template-rows 300ms ease;
 }
 .mnav__sec.is-open .mnav__sub { grid-template-rows: 1fr; }
+/* 펼친 영역 하이라이트 블록 — Figma Rectangle 56(85:695): #f7f8fa, 상·하 경계선 #edeff1 */
 .mnav__sub-inner {
   overflow: hidden;
-  background: var(--ink-50, #f6f8fb);
+  background: #f7f8fa;
 }
 .mnav__d2 {
   list-style: none;
@@ -1934,39 +1936,40 @@ img, svg { display: block; max-width: 100%; }
   padding: 0; /* ul 패딩 제거 → 블록 분할(공기측정 별도)이 행간을 벌리지 않도록 통일 */
 }
 /* 그룹 외곽 여백 — 접힐 때 함께 사라지도록 sub-inner가 아닌 안쪽 항목에 부여 */
-.mnav__sub-inner > .mnav__d2:first-child { padding-top: 6px; }
-.mnav__sub-inner > .mnav__d2:last-child { padding-bottom: 6px; }
-/* 공기 / 기상(하단) 그룹 경계선 — 위아래 동일 여백(8px+항목 8px=16px)으로 가운데 정렬 */
+.mnav__sub-inner > .mnav__d2:first-child { padding-top: 10px; }
+.mnav__sub-inner > .mnav__d2:last-child { padding-bottom: 10px; }
+/* 공기 / 기상(하단) 그룹 경계선 — mobile_navi_line.png 점선(410×4) 원본크기 중앙정렬 */
 .mnav__d2--break {
-  margin-top: 8px;
-  padding-top: 8px;
-  border-top: 1px solid var(--ink-200, #dde1e8);
+  margin-top: 11px;
+  padding-top: 11px;
+  background: url(/assets/sub/mobile_navi_line.png) no-repeat center top;
 }
 .mnav__d2 li { margin: 0; }
 .mnav__d2 a {
   display: flex;
   align-items: baseline;
   gap: 8px;
-  padding: 8px 24px 8px 36px;
+  padding: 10px 24px 10px 36px;
   font-size: 16px;
-  font-weight: 500;
-  color: var(--ink-600, #4a5365);
+  line-height: 1.3;
+  font-weight: 400;
+  color: #222;
   transition: color 160ms ease;
 }
 .mnav__d2 a:hover,
-.mnav__d2 a:active { color: var(--brand-600, #3f5abb); }
-.mnav__d2 a:active { background: rgba(63, 90, 187, 0.06); } /* 탭 시 눌린 느낌 */
+.mnav__d2 a:active { color: #2b44bd; }
+.mnav__d2 a:active { background: rgba(43, 68, 189, 0.06); } /* 탭 시 눌린 느낌 */
 .mnav__d2-small {
-  font-size: 14px;
+  font-size: 13px;
   font-style: normal;
-  color: var(--ink-400, #98a1b0);
+  color: #515151;
 }
 
 /* 하단 패밀리 사이트 — 데스크탑 family 리스트의 컴팩트형(썸네일+이름+버튼) */
 .mnav__family-m {
   flex: 0 0 auto;
   margin-top: auto; /* 콘텐츠가 짧으면 바닥에 붙고, 길면 스크롤 흐름에 합류 */
-  padding: 14px 24px 20px 35px; /* 앞(좌측) 여백 */
+  padding: 18px 24px 20px 35px; /* 앞(좌측) 여백 */
   background: #fff;
 }
 /* Figma 개편 컨셉(85:662) 세로 리스트 — Figma 기준 90% 축소(썸네일 72×54, 라벨 16px, 행 간격 18px) */
@@ -1976,7 +1979,7 @@ img, svg { display: block; max-width: 100%; }
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 14px;
 }
 .mnav__family-m-item {     /* 썸네일(좌) + 라벨·버튼(우) 가로 정렬 */
   display: flex;

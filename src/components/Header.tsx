@@ -50,12 +50,12 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
       {
         y: 32,
         items: [
-          { label: "공기질 측정·진단" },
-          { label: "공기개선 서비스" },
-          { label: "유지관리 서비스" },
+          { label: "공기질 측정·진단", href: "/service/diagnosis" },
+          { label: "공기개선 서비스", href: "/service/improvement" },
+          { label: "유지관리 서비스", href: "/service/maintenance" },
         ],
       },
-      { y: 349, tight: true, items: [{ label: "날씨경영 컨설팅" }] },
+      { y: 349, tight: true, items: [{ label: "날씨경영 컨설팅", href: "/service/consulting" }] },
     ],
   },
   {

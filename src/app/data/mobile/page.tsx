@@ -22,6 +22,58 @@ export default function MobilePage() {
           title="모바일 정보"
           subtitle={"동별 맞춤 날씨와 미세먼지 정보를 실시간으로 제공하는\n케이웨더 대표 기상 애플리케이션"}
         />
+        <section className="mobile-intro">
+          <figure className="mobile-intro__figure">
+            <img
+              src="/assets/sub/mobile_info_top.png"
+              width={524}
+              height={528}
+              alt="동별 맞춤 날씨와 미세먼지 정보를 제공하는 케이웨더 모바일 앱 화면"
+            />
+          </figure>
+          <div className="mobile-intro__body">
+            <h2 className="mobile-intro__title">
+              우리 동네 날씨, 동 단위로 정확하게
+            </h2>
+            <p className="mobile-intro__desc">
+              실시간 날씨와 동별 미세먼지를 가장 먼저 확인하세요.
+              <br />비 오기 전 강수 알림, 폭염·한파 특보, 자유롭게 배치하는 날씨
+              카드까지!
+            </p>
+            <div className="mobile-intro__stores">
+              <a
+                className="mobile-store"
+                href="https://play.google.com/store/apps/details?id=kr.co.kweather"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  className="mobile-store__ico"
+                  src="/assets/sub/mobile_info_google.svg"
+                  width={42}
+                  height={46}
+                  alt=""
+                />
+                Google Play
+              </a>
+              <a
+                className="mobile-store"
+                href="https://apps.apple.com/kr/app/%EC%BC%80%EC%9D%B4%EC%9B%A8%EB%8D%94-%EB%82%A0%EC%94%A8/id372326740"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  className="mobile-store__ico"
+                  src="/assets/sub/mobile_info_apple.svg"
+                  width={40}
+                  height={48}
+                  alt=""
+                />
+                App Store
+              </a>
+            </div>
+          </div>
+        </section>
         <section className="mobile-points">
           <article className="mobile-point">
             <p className="mobile-point__no">Point 01</p>

@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import SmoothScroll from "@/components/SmoothScroll";
 import SubHero from "@/components/sub/SubHero";
+import PrivateForecast from "@/components/sub/PrivateForecast";
 import "@/components/sub/sub.css";
 
 export const metadata: Metadata = {
@@ -150,7 +151,7 @@ export default function AiForecastPage() {
           </h2>
           <p className="company-intro__desc">
             {
-              "케이웨더 AI 기상예보는 전통적 수치모델과 딥러닝 기술을 결합하여 정확도를 더욱 극대화합니다.\n\n또한 전세계를 100만 개 이상의 격자로 세분화하여 정밀한 날씨를 예측할 뿐만 아니라, 한반도의 복잡한 지형과 기후 특성을 반영하여\n최대 1.5km 격자 단위까지 분석하는 국내에 최적화된 초고해상도 다운스케일링을 제공합니다."
+              "케이웨더 AI 기상예보는 전통적 수치모델과 딥러닝 기술을 결합하여 정확도를 더욱 극대화합니다.\n\n또한 전세계를 100만 개 이상의 격자로 세분화하여 정밀한 날씨를 예측할 뿐만 아니라, 한반도의 복잡한 지형과 기후 특성을 반영하여\n최대 1.5km 격자 단위까지 분석하는 국내에 최적화된 초고해상도 예측장을 제공합니다."
             }
           </p>
           <img
@@ -161,6 +162,9 @@ export default function AiForecastPage() {
             alt="KIM 전지구 초기장 재격자화 → FourCastNet-3 전지구 예측 → AI Interpolation → CorrDiff로 이어지는 하이브리드 AI 기상예보 처리 과정"
           />
         </section>
+
+        {/* 민간예보 서비스 — 기존 기상 데이터 탭에서 이관 */}
+        <PrivateForecast />
 
         {/* 푸터 앞 하단 여백 */}
         <div aria-hidden="true" style={{ height: 100 }} />

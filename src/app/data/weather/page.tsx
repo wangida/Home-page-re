@@ -3,11 +3,11 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import SmoothScroll from "@/components/SmoothScroll";
 import SubHero from "@/components/sub/SubHero";
-import WeatherDataTabs from "@/components/sub/WeatherDataTabs";
+import ObservationData from "@/components/sub/ObservationData";
 import "@/components/sub/sub.css";
 
 export const metadata: Metadata = {
-  title: "기상 데이터 | K-WEATHER",
+  title: "관측 데이터 | K-WEATHER",
   description: "케이웨더 기상 데이터 — 관측·예측 기반의 정밀 기상 데이터 서비스.",
 };
 
@@ -20,11 +20,11 @@ export default function WeatherDataPage() {
       <main>
         <SubHero
           image="/assets/sub/data_weather.jpg"
-          title="기상 데이터"
+          title="관측 데이터"
           subtitle={"기상데이터를 기반으로 한 경영컨설팅과 일기예보,\n각종지수를 활용한 케이웨더의 다양한 기상 콘텐츠"}
         />
 
-        <WeatherDataTabs />
+        <ObservationData />
       </main>
       <Footer />
     </>

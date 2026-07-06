@@ -22,21 +22,22 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
     key: "data",
     x: 282,
     blocks: [
-      { y: 38, items: [{ label: "공기 측정", small: "(국가관측/IoT측정)", href: "/data/measure" }] },
       {
-        y: 102,
+        y: 16,
         items: [
           { label: "공기 예보", href: "/data/air" },
+          { label: "공기 측정 데이터", href: "/data/measure" },
           { label: "동별 미세먼지", href: "/data/dong" },
-          { label: "Air365", href: "/data/air365" },
+          { label: "공기관리 소프트웨어", href: "/data/air365" },
         ],
       },
       {
-        y: 349,
+        y: 319,
         tight: true,
         items: [
-          { label: "기상 데이터", href: "/data/weather" },
           { label: "AI 기상예보", href: "/data/ai" },
+          { label: "관측 데이터", href: "/data/weather" },
+          { label: "웨더 맵", href: "/data/weathermap" },
           { label: "방송 컨텐츠", href: "/data/broadcast" },
           { label: "모바일 정보", href: "/data/mobile" },
         ],
@@ -48,14 +49,14 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
     x: 442,
     blocks: [
       {
-        y: 32,
+        y: 16,
         items: [
           { label: "공기질 측정·진단", href: "/service/diagnosis" },
           { label: "공기개선 서비스", href: "/service/improvement" },
           { label: "유지관리 서비스", href: "/service/maintenance" },
         ],
       },
-      { y: 349, tight: true, items: [{ label: "날씨경영 컨설팅", href: "/service/consulting" }] },
+      { y: 319, tight: true, items: [{ label: "날씨경영 컨설팅", href: "/service/consulting" }] },
     ],
   },
   {
@@ -63,30 +64,30 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
     x: 602,
     blocks: [
       {
-        y: 32,
+        y: 16,
         items: [
           { label: "공기 측정기", href: "/product/airmeter" },
           { label: "환기 청정기", href: "/product/circulation" },
           { label: "공기 빅데이터 플랫폼", href: "/product/air365" },
         ],
       },
-      { y: 349, tight: true, items: [{ label: "체감온도계", href: "/product/heat_re" }, { label: "기상장비", href: "/product/apuipment" }] },
+      { y: 319, tight: true, items: [{ label: "체감온도계", href: "/product/heat_re" }, { label: "기상장비", href: "/product/apuipment" }] },
     ],
   },
   {
     key: "solution",
     x: 762,
     blocks: [
-      { y: 32, items: [{ label: "AI 환기청정 솔루션" }, { label: "조리실 자동제어" }] },
-      { y: 354, tight: true, items: [{ label: "기후위험 관리", small: "(폭염·건설·해양·ESG)" }] },
+      { y: 16, items: [{ label: "AI 환기청정" }, { label: "조리실 자동제어" }, { label: "공기질 통합관리" }, { label: "에어로봇" }] },
+      { y: 324, tight: true, items: [{ label: "기후위험 관리", small: "(폭염·건설·해양·ESG)" }] },
     ],
   },
   {
     key: "ref",
     x: 922,
     blocks: [
-      { y: 32, items: [{ label: "공기지능 사례", href: "/reference/air" }, { label: "공기지능 인증", href: "/reference/airizone" }] },
-      { y: 349, tight: true, items: [{ label: "날씨경영 사례", href: "/reference/weather" }] },
+      { y: 16, items: [{ label: "공기지능 사례", href: "/reference/air" }, { label: "공기지능 인증", href: "/reference/airizone" }] },
+      { y: 319, tight: true, items: [{ label: "날씨경영 사례", href: "/reference/weather" }] },
     ],
   },
   {
@@ -94,7 +95,7 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
     x: 1082,
     blocks: [
       {
-        y: 32,
+        y: 16,
         items: [
           { label: "기업소개", href: "/company" },
           { label: "연혁", href: "/company/history" },
@@ -115,9 +116,9 @@ const MEGA_LINES_X = [282, 442, 602, 762, 922, 1082, 1242];
    썸네일 75×55 r10, 라벨 17px #515151 x=96, 버튼 btn_sgo 20×20 (라벨별 위치 상이) */
 const FAMILY_ITEMS = [
   { label: "날씨지도", thumb: "/assets/ia_s_thum01.png", thumbTop: 0, textTop: 5, btnLeft: 145, btnTop: 16 },
-  { label: "Air365", thumb: "/assets/ia_s_thum02.png", thumbTop: 70, textTop: 75, btnLeft: 138, btnTop: 86 },
-  { label: "날씨환경청", thumb: "/assets/ia_s_thum03.png", thumbTop: 139, textTop: 144, btnLeft: 160, btnTop: 155 },
-  { label: "날씨앱", thumb: "/assets/ia_s_thum04.png", thumbTop: 210, textTop: 201 },
+  { label: "Air365", thumb: "/assets/ia_s_thum02.png", thumbTop: 65, textTop: 70, btnLeft: 138, btnTop: 81 },
+  { label: "날씨환경청", thumb: "/assets/ia_s_thum03.png", thumbTop: 130, textTop: 135, btnLeft: 160, btnTop: 146 },
+  { label: "날씨앱", thumb: "/assets/ia_s_thum04.png", thumbTop: 195, textTop: 186 },
 ] as const;
 
 /* 날씨앱 하위 스토어 링크 — Figma: IOS x=97 / Android x=167, y=233, 16px #222 */
@@ -403,14 +404,14 @@ export default function Header({ solid = false }: { solid?: boolean }) {
                 <a
                   href="#"
                   className="mega__family-label mega__family-label--app"
-                  style={{ left: a.left, top: 225 }}
+                  style={{ left: a.left, top: 210 }}
                 >
                   {a.label}
                 </a>
                 <a
                   href="#"
                   className="mega__family-btn"
-                  style={{ left: a.btnLeft, top: 236 }}
+                  style={{ left: a.btnLeft, top: 221 }}
                   aria-label={`날씨앱 ${a.label} 바로가기`}
                 >
                   <img src="/assets/btn_sgo.svg" alt="" />

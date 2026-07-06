@@ -209,8 +209,8 @@ export default function Hero() {
             onClick={prev}
           >
             <svg
-              width="26"
-              height="26"
+              width="30"
+              height="30"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -230,8 +230,8 @@ export default function Hero() {
           >
             {paused ? (
               <svg
-                width="22"
-                height="22"
+                width="26"
+                height="26"
                 viewBox="0 0 24 24"
                 fill="currentColor"
                 aria-hidden="true"
@@ -240,8 +240,8 @@ export default function Hero() {
               </svg>
             ) : (
               <svg
-                width="22"
-                height="22"
+                width="26"
+                height="26"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -261,8 +261,8 @@ export default function Hero() {
             onClick={next}
           >
             <svg
-              width="26"
-              height="26"
+              width="30"
+              height="30"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"

@@ -4,12 +4,13 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 /* GNB 메가메뉴 IA와 동일 구조 — 컬럼 내 공기/기상 그룹을 행간으로 구분 */
-const COLS: { title: string; groups: string[][] }[] = [
+const COLS: { title: string; groups: string[][]; groupGap?: number }[] = [
   {
     title: "데이터",
+    groupGap: 14, /* 웨더맵 추가로 기상 그룹이 5개 → 공기/기상 그룹 간격 축소 */
     groups: [
-      ["공기측정", "공기예보", "동별미세먼지", "Air365"],
-      ["기상데이터", "AI기상예보", "방송컨텐츠", "모바일정보"],
+      ["공기예보", "공기측정데이터", "동별미세먼지", "공기관리소프트웨어"],
+      ["AI 기상예보", "관측데이터", "웨더맵", "방송컨텐츠", "모바일정보"],
     ],
   },
   {
@@ -26,7 +27,7 @@ const COLS: { title: string; groups: string[][] }[] = [
       ["체감온도계", "기상장비"],
     ],
   },
-  { title: "솔루션", groups: [["AI 환기청정 솔루션", "조리실 자동제어"], ["기후위험관리"]] },
+  { title: "솔루션", groups: [["AI 환기청정", "조리실 자동제어", "공기질 통합관리", "에어로봇"], ["기후위험관리"]] },
   { title: "레퍼런스", groups: [["공기지능 사례", "공기지능 인증"], ["날씨경영 사례"]] },
   {
     title: "회사소개",
@@ -36,12 +37,13 @@ const COLS: { title: string; groups: string[][] }[] = [
 
 /* 서브 페이지 라우트가 생긴 메뉴만 연결 — 나머지는 "#" 유지 */
 const MENU_LINKS: Record<string, string> = {
-  공기측정: "/data/measure",
+  공기측정데이터: "/data/measure",
   공기예보: "/data/air",
   동별미세먼지: "/data/dong",
-  Air365: "/data/air365",
-  기상데이터: "/data/weather",
-  AI기상예보: "/data/ai",
+  공기관리소프트웨어: "/data/air365",
+  관측데이터: "/data/weather",
+  웨더맵: "/data/weathermap",
+  "AI 기상예보": "/data/ai",
   방송컨텐츠: "/data/broadcast",
   모바일정보: "/data/mobile",
   공기빅데이터플랫폼: "/product/air365",
@@ -156,7 +158,7 @@ export default function Footer() {
               marginTop: 2,
             }}
           >
-            {COLS.map(({ title, groups }) => (
+            {COLS.map(({ title, groups, groupGap }) => (
               <div key={title}>
                 <div
                   style={{
@@ -168,7 +170,7 @@ export default function Footer() {
                 >
                   {title}
                 </div>
-                <div style={{ display: "grid", gap: 24 }}>
+                <div style={{ display: "grid", gap: groupGap ?? 24 }}>
                   {groups.map((group, gi) => (
                     <ul
                       key={gi}

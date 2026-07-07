@@ -34,20 +34,17 @@ export default function DongDustPage() {
 
         <h3 className="fd-subtitle">동별 미세먼지 실황정보</h3>
 
-        <div className="fd-box">
-          <p className="fd-box__copy">
-            국가관측정보 + 케이웨더 자체측정정보 + 케이웨더 인공지능(AI) 알고리즘
-            <br />
-            &ldquo;동별 미세먼지 실황 정보&rdquo; <span className="black">생산</span>
-          </p>
-          <img
-            className="fd-box__img"
-            src="/assets/sub/fd_img01_re.jpg"
-            width={1440}
-            height={924}
-            alt="국가관측망(590지역)과 케이웨더 측정정보(3,000지역), 기상관측·오염배출·인구밀도·지역적 특성을 융복합해 행정동별 미세먼지 실황 데이터를 산출하는 과정"
-          />
-        </div>
+        <p className="fd-box__copy fd-copy">
+          국가관측정보 + 케이웨더 자체측정정보 + 케이웨더 인공지능(AI) 알고리즘, <span className="black">동별 미세먼지 실황 정보 생산</span>
+        </p>
+
+        <img
+          className="fd-img"
+          src="/assets/sub/img_dong_re.jpg"
+          width={1300}
+          height={1478}
+          alt="국가관측망(590지역)과 케이웨더 측정정보(3,000지역), 기상관측·오염배출·인구밀도·지역적 특성을 융복합해 행정동별 미세먼지 실황 데이터를 산출하는 과정"
+        />
       </main>
       <Footer />
     </>

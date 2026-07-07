@@ -337,6 +337,16 @@
   max-width: 1150px;
   height: auto;
 }
+.fd-copy {
+  margin-top: 18px;
+  font-weight: 600;
+}
+.fd-img {
+  display: block;
+  margin: 45px auto 260px;
+  width: min(1300px, calc(100% - 64px));
+  height: auto;
+}
 
 /* ===== 공기 예보(data/air) — 언론사·포털사이트 사례 ===== */
 .fc-case {

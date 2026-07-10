@@ -622,7 +622,7 @@
 /* ----- 민간예보 — 케이웨더 만의 독자적 예보 ----- */
 .biz-own {
   width: 100%;
-  margin-top: 100px;
+  margin-top: 60px;
   padding: 0 0 24px;
   text-align: left;
 }
@@ -1818,4 +1818,245 @@
 .air365-comfort__range {
   font-size: 16px;
   color: #555;
+}
+
+/* ----- 유지관리 서비스 본문 ----- */
+.mnt-intro {
+  width: min(1320px, calc(100% - 64px));
+  margin: 90px auto 0;
+  text-align: center;
+}
+.mnt-intro__title {
+  margin: 0;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #222;
+}
+.mnt-intro__title .accent { color: #2c54d4; }
+.mnt-intro__desc {
+  margin: 20px auto 0;
+  max-width: 960px;
+  font-size: 20px;
+  line-height: 1.6;
+  color: #333;
+  white-space: pre-line;
+}
+.mnt-step-head {
+  width: min(1320px, calc(100% - 64px));
+  margin: 76px auto 0;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.45;
+  color: #222;
+}
+.mnt-step-head .accent { color: #2c54d4; }
+.mnt-steps {
+  width: min(1320px, calc(100% - 64px));
+  margin: 40px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.mnt-steps__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 84px;
+  background: #fff;
+  border: 1px solid #e2e2e2;
+  color: #444;
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+.mnt-steps__btn + .mnt-steps__btn { margin-left: -1px; }
+.mnt-steps__btn.is-on {
+  position: relative;
+  z-index: 1;
+  background: #eef2fd;
+  border-color: #3b5bdb;
+  border-radius: 6px;
+  color: #2c54d4;
+  font-weight: 700;
+}
+
+/* 단계별 콘텐츠 패널 — 1단계: 타이틀 + 사진 4장 */
+.mnt-panel {
+  width: min(1320px, calc(100% - 64px));
+  margin: 64px auto 120px;
+  text-align: center;
+}
+/* 인증/시험성적 — 공통 하단 섹션 */
+.mnt-award {
+  width: min(1320px, calc(100% - 64px));
+  margin: -50px auto 220px;
+  text-align: center;
+}
+.mnt-award__title {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #222;
+}
+.mnt-award__title .accent { color: #2c54d4; }
+.mnt-award__strip {
+  display: block;
+  width: min(760px, 100%);
+  height: auto;
+  margin: 20px auto 0;
+}
+.mnt-award__copy {
+  margin: 60px auto 0;
+  max-width: 1000px;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #222;
+  word-break: keep-all;
+}
+.mnt-award__copy .accent { color: #2c54d4; }
+.mnt-award__proof {
+  margin-top: 20px;
+}
+.mnt-award__proof-top {
+  display: block;
+  width: min(820px, 100%);
+  height: auto;
+  margin: 0 auto;
+}
+.mnt-award__proof-bottom {
+  display: flex;
+  gap: 0;
+  width: 100%;
+  margin: 16px auto 0;
+}
+.mnt-award__proof-bottom img {
+  display: block;
+  width: 50%;
+  height: auto;
+}
+.mnt-award__stats {
+  list-style: none;
+  margin: 28px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.mnt-award__stat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #2c54d4;
+}
+.mnt-award__check {
+  flex: none;
+}
+.mnt-panel__title {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #222;
+}
+.mnt-panel__grid {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  margin-top: 48px;
+}
+.mnt-panel__item {
+  flex: 1 1 0;
+  min-width: 0;
+}
+.mnt-panel__thumb {
+  display: block;
+  width: 100%;
+  height: 260px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+.mnt-panel__cap {
+  margin: 20px 0 0;
+  font-size: 19px;
+  font-weight: 500;
+  color: #222;
+}
+
+/* 필터 기술력 — 2단 구성 */
+.mnt-tech {
+  width: min(1320px, calc(100% - 64px));
+  margin: -56px auto 120px;
+}
+.mnt-tech__title {
+  margin: 0;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #222;
+}
+.mnt-tech__title .accent { color: #2c54d4; }
+.mnt-tech__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 26px;
+  margin-top: 56px;
+}
+.mnt-tech__col {
+  text-align: center;
+}
+.mnt-tech__img {
+  display: block;
+  width: 95%;
+  height: 570px;
+  object-fit: contain;
+  object-position: center bottom;
+  margin: 0 auto;
+}
+.mnt-tech__head {
+  margin: 32px 0 0;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #2c54d4;
+}
+.mnt-tech__desc {
+  margin: 20px auto 0;
+  max-width: 580px;
+  font-size: 19px;
+  line-height: 1.6;
+  color: #333;
+  word-break: keep-all;
+}
+@media (max-width: 920px) {
+  .mnt-panel__grid { flex-wrap: wrap; row-gap: 32px; }
+  .mnt-panel__item { flex: 1 1 calc(50% - 20px); }
+  .mnt-tech__grid { grid-template-columns: 1fr; gap: 48px; }
+  .mnt-tech__img { height: auto; }
+  .mnt-award__copy { font-size: 20px; }
+  .mnt-award__stats { grid-template-columns: repeat(2, 1fr); row-gap: 14px; }
+}
+@media (max-width: 640px) {
+  .mnt-panel { margin: 48px auto 80px; }
+  .mnt-panel__title { font-size: 22px; }
+  .mnt-panel__grid { margin-top: 32px; gap: 20px; }
+  .mnt-panel__item { flex: 1 1 100%; }
+  .mnt-panel__thumb { height: 220px; }
+  .mnt-panel__cap { font-size: 16px; margin-top: 14px; }
+  .mnt-tech { margin-bottom: 80px; }
+  .mnt-tech__title { font-size: 22px; }
+  .mnt-tech__head { font-size: 20px; }
+  .mnt-tech__desc { font-size: 16px; }
+  .mnt-award { margin-bottom: 80px; }
+  .mnt-award__title { font-size: 22px; }
+  .mnt-award__copy { font-size: 17px; }
+  .mnt-award__stat { font-size: 15px; }
 }

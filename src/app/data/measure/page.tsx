@@ -19,6 +19,14 @@ const OAQ_PLACES = [
   { img: "ad_img06", cap: "도서관" },
 ];
 
+/* 실내 공간 수집 사례 — 썸네일은 임시 플레이스홀더(indoor0X.jpg), 추후 실제 이미지로 교체 예정 */
+const INDOOR_PLACES = [
+  { img: "indoor01", cap: "국공립/민간 어린이집" },
+  { img: "indoor02", cap: "도서관, 카페, 문화시설" },
+  { img: "indoor03", cap: "고속도로 휴게소" },
+  { img: "indoor04", cap: "공연장" },
+];
+
 export default function AirMeasurePage() {
   return (
     <>
@@ -33,21 +41,19 @@ export default function AirMeasurePage() {
 
         <section className="oaq">
           <h2 className="oaq__title">
-            실외공기측정기(OAQ)를 활용한 생활권 공기질 서비스
+            건물부터 어린이집까지, 고객이 머무는 바로 그 자리의 실외공기 정보
           </h2>
           <div className="oaq__desc">
             <p>
-              국가 관측망으로 확인하기 어려운 생활권 단위의 실외공기 상태를 실시간으로 측정합니다.
-              건물·아파트·학교·병원 등 실제 생활 공간의 공기질 정보를 제공하고, 실내·실외 공기 비교를
-              통한 스마트 환기 정보까지 확인할 수 있습니다.
+              케이웨더는 고객이 실제로 머무는 곳마다 측정기를 직접 설치해 데이터를 수집합니다.
             </p>
           </div>
 
           <div className="oaq__box">
+            {/* '내 집 앞마당' 예시 — 블루톤 박스 안 배너로 배치 */}
             <div className="oaq__banner">
-              <p className="oaq__banner-title">내가 사는 지점의 실외공기 정보</p>
-              <p className="oaq__banner-ex">
-                ex) ‘내집 앞 마당’, ‘우리 아파트놀이터’, ‘우리 학교 운동장’
+              <p className="oaq__banner-title">
+                “내 집 앞마당”, “우리 아파트 놀이터”, “우리 학교 운동장”
               </p>
             </div>
 
@@ -68,10 +74,10 @@ export default function AirMeasurePage() {
         </section>
 
         <section className="oaq-ai">
-          <h2 className="oaq__title">AI기술을 활용한 정확도 높은 데이터</h2>
           <p className="oaq-ai__desc">
-            국가관측망 데이터와 AI(Deep learning) 기법을 활용하여 실외공기측정기(OAQ)를 지속적으로
-            보정, 보다 정확한 데이터를 만들고 있습니다.
+            국가관측망 데이터와 AI(딥러닝) 보정 기법을 결합해,
+            <br />
+            실외공기측정기(OAQ)의 정확도를 지속적으로 검증합니다.
           </p>
           <div className="oaq-ai__box">
             <img
@@ -83,28 +89,44 @@ export default function AirMeasurePage() {
           </div>
         </section>
 
-        <section className="oaq-airmap">
-          <h2 className="oaq__title">실내/외 공기질 빅데이터 시각화 서비스</h2>
-          <div className="oaq-airmap__body">
+        <section className="oaq-indoor">
+          <h2 className="oaq__title">
+            실외를 넘어, 고객이 머무는 바로 그 실내 공간까지
+          </h2>
+          <div className="oaq__desc">
             <p>
-              동사는 30,000여 개의 실외/실내공기질 데이터를 비롯하여 다양한 목적으로 설치가 증가되는
-              모든 실외, 실내 공기측정기 데이터를 GIS 개념으로 통합적으로 관리하여야 합니다. 이를 위해서
-              대기오염물질, 풍향, 온도, 습도 등의 모든 공기요소를 Point Map, Flow Map, Heat Map으로
-              나타내는 시각화 기술을 통하여 고도화하여야 합니다. 해당 기술을 고도화하기 위해서는
-              실외/실내공기질 데이터를 수집, 가공 분석할 수 있는 빅데이터 플랫폼이 대용량의 시계열
-              데이터의 처리가 용이한 하둡 기반으로 안정적으로 확대 운영될 수 있는 기술과 다양한 시각화
-              기술이 적용된 공기지도(Airmap)이 필수적입니다.
-            </p>
-            <p>
-              {
-                "공기지도 중 Point Map은 대기오염물질의 측정값이 수치화되고, 그래프화되어 표출됩니다. Flow Map은 GIS를 기반으로 풍향/풍속에 대한 정보를 500m×500m 격자화한 데이터 레이어를 기반으로 산출하며, 데이터 미확보지역은 ’이중 선형 보간법‘을 통해 도출한 값을 실시간으로 시각화합니다.\nHeat Map은 GIS를 기반으로 미세먼지, 초미세먼지, 온도, 습도에 대한 정보를 500m×500m 격자화한 데이터 레이어를 기반으로 산출하며, 데이터 미확보 지역은 'IDW 보간법(Inverse Distance Weighted)' 또는 '크리깅 보간법(Kriging Interpolation)'을 통해 산출된 데이터를 실시간으로 시각화합니다."
-              }
+              케이웨더는 다양한 분야 3만여 개 공간의 실내 공기질 데이터를 수집하고 있으며,
+              <br />
+              국가 환경빅데이터 전문센터로 지정되어 데이터의 공공성과 신뢰성을 인정받았습니다.
             </p>
           </div>
+
+          <ul className="oaq-indoor__grid">
+            {INDOOR_PLACES.map((p, i) => (
+              <li className="oaq-indoor__item" key={i}>
+                <div className="oaq-indoor__thumb">
+                  <img
+                    src={`/assets/sub/${p.img}.jpg`}
+                    alt={`${p.cap} 실내 공기질 측정 사례`}
+                  />
+                </div>
+                <span className="oaq-indoor__cap">{p.cap}</span>
+              </li>
+            ))}
+          </ul>
         </section>
 
         <section className="oaq-air2">
-          <h2 className="oaq__title">실내외 공기질 시각화 Airmap 서비스</h2>
+          <h2 className="oaq__title">
+            실내외 공기질을 하나의 화면으로, 케이웨더 공기지도(Airmap)
+          </h2>
+          <div className="oaq__desc">
+            <p>
+              실외·실내에서 수집한 공기질 데이터를 GIS 기반으로 통합하고,
+              <br />
+              지역·시설 단위로 실시간 시각화합니다.
+            </p>
+          </div>
           <div className="oaq-air2__box">
             <img
               src="/assets/sub/ad_subvisual.jpg?v=2"
@@ -112,13 +134,6 @@ export default function AirMeasurePage() {
               height={673}
               alt="케이웨더 Airmap — 실내외 공기질 빅데이터 시각화 서비스 화면 (Heat Map·Flow Map·측정소 현황)"
             />
-          </div>
-          <div className="oaq-air2__body">
-            <p>
-              {
-                "이렇게 Point Map, Flow Map, Heat Map 격자화된 데이터 레이어 기반으로 저장된 모든 GIS 기반의 모든 데이터들은 레이어별, 측정요소별로 시공간에 따라 자유자재로 효과적으로 시각화되어 표출됨으로써 공간의 공기상태를 시계열로 분석, 예측하는데 효과적인 도구로 활용될 것입니다. 실외·실내 공기질 빅데이터 시각화 서비스를 통해 동사는 세계 유일의 전문 공기데이터플랫폼 기술 보유기업으로써 시장의 우위를 점하고 고부가가치의 공기데이터 유통시장을 창출할 것입니다.\n현재 빅데이터 시각화 서비스(Airmap)는 개발이 완료되었으며, 고객의 프로그램 사용 편의성 증대 및 데이터의 정확성 등을 높이기 위한 고도화 작업과정에 있습니다.\n이 서비스는 동사가 사업을 영위하면서 추가적으로 확보되는 공기질 데이터를 바탕으로 끊임없이 개선되어 향후 다양한 고객들의 니즈를 충족시킬 것으로 기대하고 있습니다."
-              }
-            </p>
           </div>
         </section>
       </main>

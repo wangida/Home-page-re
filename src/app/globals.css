@@ -370,6 +370,12 @@ img, svg { display: block; max-width: 100%; }
     linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0) 28%),
     linear-gradient(90deg, rgba(40,10,0,0.35) 0%, rgba(40,10,0,0) 45%);
 }
+/* 신설(에어로봇) — 우측 텍스트 가독용으로 상단·우측을 살짝 어둡게 */
+.hero__bg-image-veil--robot {
+  background:
+    linear-gradient(270deg, rgba(2,8,28,0.5) 0%, rgba(2,8,28,0.2) 30%, rgba(2,8,28,0) 62%, rgba(2,8,28,0) 100%),
+    linear-gradient(180deg, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0) 32%);
+}
 .hero__bg-image-veil--idol {
   background:
     linear-gradient(180deg, rgba(0, 35, 90, 0.45) 0%, rgba(0, 35, 90, 0.18) 14%, rgba(0,0,0,0) 30%);
@@ -542,19 +548,21 @@ img, svg { display: block; max-width: 100%; }
   will-change: transform;
 }
 .hero__water-drop--1 {
-  left: 14.5%;
-  top: 27%;
+  /* 맑은(--2) 아이콘과 위치 교환 → 중앙 상단 (+80px 우측) */
+  left: calc(61.2% + 80px);
+  top: 14.9%;
   width: 6.92%;
   animation: hero-water-float-a 5.5s ease-in-out infinite;
 }
 .hero__water-drop--2 {
-  left: 61.2%;
-  top: 14.9%;
+  /* "오늘의 날씨를" 텍스트 오른쪽 옆 하늘 여백에 배치 (+330px 우측) */
+  left: calc(24% + 330px);
+  top: 15%;
   width: 6.33%;
   animation: hero-water-float-b 6.8s ease-in-out infinite -2s;
 }
 .hero__water-drop--3 {
-  left: 77.7%;
+  left: calc(77.7% - 80px);
   top: 77.4%;
   width: 5.71%;
   animation: hero-water-float-c 4.9s ease-in-out infinite -0.8s;
@@ -622,10 +630,14 @@ img, svg { display: block; max-width: 100%; }
 .hero__cols--ai .hero__text { justify-self: end; text-align: left; max-width: 560px; margin-top: clamp(12px, 4vh, 38px); }
 
 .hero__cols--idol { grid-template-columns: 1fr; align-items: start; }
-.hero__cols--idol .hero__text { justify-self: end; text-align: center; max-width: 540px; margin-top: clamp(20px, 6vh, 77px); }
+.hero__cols--idol .hero__text { justify-self: start; text-align: left; max-width: 540px; margin-top: clamp(4px, 1.5vh, 16px); }
 
 .hero__cols--heat { grid-template-columns: 1fr; align-items: start; }
 .hero__cols--heat .hero__text { justify-self: start; max-width: 620px; margin-top: clamp(12px, 4vh, 38px); }
+
+/* 신설(에어로봇) — 날씨 아이돌처럼 우측 상단 배치 */
+.hero__cols--robot { grid-template-columns: 1fr; align-items: start; }
+.hero__cols--robot .hero__text { justify-self: end; text-align: left; max-width: 560px; margin-top: calc(clamp(12px, 4vh, 38px) - 50px); }
 
 .hero__eyebrow {
   font-family: var(--font-display);
@@ -640,7 +652,7 @@ img, svg { display: block; max-width: 100%; }
 .hero__title {
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: clamp(34px, 3.6vw, 50px);
+  font-size: clamp(34px, 3.6vw, 48px);
   letter-spacing: -0.02em;
   line-height: 1.18;
   margin: 0;
@@ -656,6 +668,8 @@ img, svg { display: block; max-width: 100%; }
 .hero--idol .hero__title   { color: rgb(24,24,24); }
 .hero--heat .hero__eyebrow { color: #fff440; }
 .hero--heat .hero__title   { color: #fff; }
+.hero--robot .hero__eyebrow { color: #53D9FF; }
+.hero--robot .hero__title   { color: #fff; }
 
 .hero__text {
   opacity: 1;
@@ -669,6 +683,7 @@ img, svg { display: block; max-width: 100%; }
 
 @media (max-width: 920px) {
   .hero__cols--ai .hero__text,
+  .hero__cols--robot .hero__text,
   .hero__cols--idol .hero__text { justify-self: start; text-align: left; }
   .hero__inner { padding-top: 120px; padding-bottom: 100px; }
 }

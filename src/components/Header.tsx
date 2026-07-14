@@ -25,10 +25,10 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
       {
         y: 16,
         items: [
-          { label: "공기 예보", href: "/data/air" },
-          { label: "공기 측정 데이터", href: "/data/measure" },
+          { label: "공기예보", href: "/data/air" },
+          { label: "공기측정데이터", href: "/data/measure" },
           { label: "동별 미세먼지", href: "/data/dong" },
-          { label: "공기관리 소프트웨어", href: "/data/air365" },
+          { label: "공기관리 S/W", href: "/data/air365" },
         ],
       },
       {
@@ -36,7 +36,7 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
         tight: true,
         items: [
           { label: "AI 기상예보", href: "/data/ai" },
-          { label: "관측 데이터", href: "/data/weather" },
+          { label: "관측데이터", href: "/data/weather" },
           { label: "웨더 맵", href: "/data/weathermap" },
           { label: "방송 컨텐츠", href: "/data/broadcast" },
           { label: "모바일 정보", href: "/data/mobile" },
@@ -52,8 +52,8 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
         y: 16,
         items: [
           { label: "공기질 측정·진단", href: "/service/diagnosis" },
-          { label: "공기개선 서비스", href: "/service/improvement" },
-          { label: "유지관리 서비스", href: "/service/maintenance" },
+          { label: "공기개선", href: "/service/improvement" },
+          { label: "유지관리", href: "/service/maintenance" },
         ],
       },
       { y: 319, tight: true, items: [{ label: "날씨경영 컨설팅", href: "/service/consulting" }] },
@@ -78,7 +78,7 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
     key: "solution",
     x: 762,
     blocks: [
-      { y: 16, items: [{ label: "AI 환기청정" }, { label: "조리실 자동제어" }, { label: "공기질 통합관리" }, { label: "에어로봇" }] },
+      { y: 16, items: [{ label: "AI 환기청정" }, { label: "조리실 자동제어" }, { label: "공기질 통합관리" }, { label: "저온저장창고" }, { label: "에어로봇" }] },
       { y: 324, tight: true, items: [{ label: "기후위험 관리", small: "(폭염·건설·해양·ESG)" }] },
     ],
   },

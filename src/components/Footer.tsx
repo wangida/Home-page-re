@@ -9,14 +9,14 @@ const COLS: { title: string; groups: string[][]; groupGap?: number }[] = [
     title: "데이터",
     groupGap: 14, /* 웨더맵 추가로 기상 그룹이 5개 → 공기/기상 그룹 간격 축소 */
     groups: [
-      ["공기예보", "공기측정데이터", "동별미세먼지", "공기관리소프트웨어"],
+      ["공기예보", "공기측정데이터", "동별미세먼지", "공기관리 S/W"],
       ["AI 기상예보", "관측데이터", "웨더맵", "방송컨텐츠", "모바일정보"],
     ],
   },
   {
     title: "서비스",
     groups: [
-      ["공기질 측정진단", "공기개선 서비스", "유지관리 서비스"],
+      ["공기질 측정진단", "공기개선", "유지관리"],
       ["날씨경영 컨설팅"],
     ],
   },
@@ -27,7 +27,7 @@ const COLS: { title: string; groups: string[][]; groupGap?: number }[] = [
       ["체감온도계", "기상장비"],
     ],
   },
-  { title: "솔루션", groups: [["AI 환기청정", "조리실 자동제어", "공기질 통합관리", "에어로봇"], ["기후위험관리"]] },
+  { title: "솔루션", groups: [["AI 환기청정", "조리실 자동제어", "공기질 통합관리", "저온저장창고", "에어로봇"], ["기후위험관리"]] },
   { title: "레퍼런스", groups: [["공기지능 사례", "공기지능 인증"], ["날씨경영 사례"]] },
   {
     title: "회사소개",
@@ -40,7 +40,7 @@ const MENU_LINKS: Record<string, string> = {
   공기측정데이터: "/data/measure",
   공기예보: "/data/air",
   동별미세먼지: "/data/dong",
-  공기관리소프트웨어: "/data/air365",
+  "공기관리 S/W": "/data/air365",
   관측데이터: "/data/weather",
   웨더맵: "/data/weathermap",
   "AI 기상예보": "/data/ai",

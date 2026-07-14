@@ -7,7 +7,7 @@ import AnimatedText from "./AnimatedText";
 import { EASE_EXPO } from "@/lib/motion-variants";
 import { useParallax } from "@/lib/use-parallax";
 
-type SlideKey = "data" | "ai" | "heat" | "idol";
+type SlideKey = "data" | "ai" | "heat" | "robot" | "idol";
 
 type Slide = {
   key: SlideKey;
@@ -20,30 +20,38 @@ type Slide = {
 const HERO_SLIDES: Slide[] = [
   {
     key: "data",
-    eyebrow: "국가관측망이 못 보는 곳까지",
-    title: "국내 최대 공기 · 날씨\n빅데이터를 보유합니다",
+    eyebrow: "날씨 빅데이터 플랫폼",
+    title: "국내 최대 기상·공기\n빅데이터를 보유합니다",
     bg: "/assets/hero_01.jpg",
     cta: { label: "바로가기", href: "#digital" },
   },
   {
     key: "ai",
-    eyebrow: "산업·공간 맞춤 AI 환기청정 솔루션",
-    title: "케이웨더는 AI로 공기와\n환기를 관리합니다",
+    eyebrow: "AI 환기청정 솔루션",
+    title: "케이웨더는 AI로\n공기질을 관리합니다",
     bg: "/assets/hero_02.jpg",
     cta: { label: "바로가기", href: "#solutions" },
   },
   {
     key: "heat",
-    eyebrow: "리뷰로 검증된 베스트 셀러",
-    title: "폭염 대응, 온열질환 예방\n폭염관리 솔루션",
+    eyebrow: "폭염 관리 솔루션",
+    title: "새로운 산업재해 폭염,\n현장 데이터와 예보로\n통합 관리합니다",
     bg: "/assets/hero_03_re.jpg",
     cta: { label: "바로가기", href: "#solutions" },
   },
   {
+    // 신설 슬라이드 — 로봇까지 합성된 완성 배경
+    key: "robot",
+    eyebrow: "에어로봇",
+    title: "AI · 자율운행 기술로\n재난을 사전에 감지합니다",
+    bg: "/assets/hero_robot_re.jpg?v=4",
+    cta: { label: "바로가기", href: "#solutions" },
+  },
+  {
     key: "idol",
-    eyebrow: "오늘의 날씨를 음악으로 플레이하다",
-    title: "나만의 날씨 아이돌",
-    bg: "/assets/hero_04.jpg",
+    eyebrow: "날씨의 아이돌",
+    title: "오늘의 날씨를\n음악으로 전달합니다",
+    bg: "/assets/hero_04_re.jpg?v=2",
     cta: { label: "바로가기", href: "https://www.youtube.com/@weatheridols" },
   },
 ];
@@ -155,7 +163,7 @@ export default function Hero() {
                   ease: EASE_EXPO,
                 }}
                 className={`btn ${
-                  s.key === "data" || s.key === "heat"
+                  s.key === "data" || s.key === "heat" || s.key === "robot"
                     ? "btn--ondark"
                     : "btn--primary"
                 }`}

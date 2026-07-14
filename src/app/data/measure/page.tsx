@@ -94,7 +94,7 @@ export default function AirMeasurePage() {
                 <li className="oaq__item" key={i}>
                   <div className="oaq__thumb">
                     <img
-                      src={`/assets/sub/${p.img}.jpg`}
+                      src={`/assets/sub/${p.img}.jpg?v=2`}
                       alt={`${p.cap.replace("\n", " ")} 실외공기측정기 설치 사례`}
                     />
                   </div>

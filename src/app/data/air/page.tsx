@@ -20,35 +20,38 @@ export default function AirForecastPage() {
         <SubHero
           image="/assets/sub/top_air.jpg"
           title="공기 예보"
-          subtitle={"독자적인 대기환경 분석 기술 기반\n더욱 정확한 공기예보 정보 제공"}
+          subtitle={"독자적인 대기환경 분석 기술로,\n한발 더 정확하게 데이터 제공"}
         />
 
         <section className="company-intro">
-          <h2 className="company-intro__title">공기예보(미세먼지/대기오염)</h2>
+          <h2 className="company-intro__title">
+            공기 예보
+            <span className="company-intro__sub">(미세먼지·대기오염)</span>
+          </h2>
           <p className="company-intro__desc fd-desc">
             {
-              "환경부 산하 국립환경과학원에서 제공하는 미세먼지 예보보다 많은 장점과 높은 정확도의 공기예보(미세먼지/대기오염)를\n제공하고 있으며 많은 포털과 언론사에서는 환경부가 아닌 케이웨더 예보를 선택하여 제공 받고 있습니다."
+              "독자 개발한 예보 모델로 국립환경과학원보다 높은 정확도를 구현했으며,\n주요 포털과 언론사가 케이웨더의 예보를 선택해 사용하고 있습니다."
             }
           </p>
         </section>
 
         <section className="fc-case">
           <h3 className="fd-subtitle">언론사 사례</h3>
-          <div className="fc-grid">
+          <div className="fc-grid fc-grid--stack">
             <div className="fc-grid__item">
               <img
-                src="/assets/sub/fc_img01.jpg"
-                width={759}
-                height={824}
-                alt="언론사에 제공되는 케이웨더 오늘 미세먼지·초미세먼지 예보 사례"
+                src="/assets/sub/data_air01.png"
+                width={1899}
+                height={1150}
+                alt="중앙일보에 제공되는 케이웨더 대기오염 예보 사례"
               />
             </div>
             <div className="fc-grid__item">
               <img
-                src="/assets/sub/fc_img02.jpg"
-                width={730}
-                height={739}
-                alt="언론사에 제공되는 케이웨더 공기예보 지면 사례"
+                src="/assets/sub/data_air02.png?v=2"
+                width={1789}
+                height={874}
+                alt="조선일보·매일경제에 제공되는 케이웨더 미세먼지 예보 사례"
               />
             </div>
           </div>
@@ -56,21 +59,21 @@ export default function AirForecastPage() {
 
         <section className="fc-case">
           <h3 className="fd-subtitle">포털사이트 사례</h3>
-          <div className="fc-grid">
+          <div className="fc-grid fc-grid--stack">
             <div className="fc-grid__item">
               <img
-                src="/assets/sub/fc_img03.jpg"
-                width={860}
-                height={683}
-                alt="포털사이트에 제공되는 케이웨더 공기예보 서비스 사례"
+                src="/assets/sub/data_air03.png"
+                width={2122}
+                height={2006}
+                alt="네이버 날씨에 제공되는 케이웨더 미세먼지 예보 서비스 사례"
               />
             </div>
             <div className="fc-grid__item">
               <img
-                src="/assets/sub/fc_img04.jpg"
-                width={730}
-                height={939}
-                alt="포털사이트에 제공되는 케이웨더 미세먼지 예보 서비스 사례"
+                src="/assets/sub/data_air04.png?v=2"
+                width={2010}
+                height={1019}
+                alt="다음 대기정보에 제공되는 케이웨더 미세먼지 예보 서비스 사례"
               />
             </div>
           </div>

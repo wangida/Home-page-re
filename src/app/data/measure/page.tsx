@@ -10,6 +10,13 @@ export const metadata: Metadata = {
   description: "케이웨더 공기 측정 데이터 — 국가관측망과 IoT 측정 기반 공기질 데이터.",
 };
 
+/* 국가관측망 한계 — 3개 카드 (뉴스 캡쳐 이미지) */
+const LIMIT_CARDS = [
+  { img: "data_measure01_thum01", top: "대표 지점 ≠ 생활 지점", bottom: "측정장비가 크다 보니,\n잘못된 곳에 설치" },
+  { img: "data_measure01_thum02", top: "전국 592개 지점의 한계", bottom: "미세먼지 측정소 턱없이 부족" },
+  { img: "data_measure01_thum03", top: "실시간 확인의 어려움", bottom: "최소 1시간 20분의 지연" },
+];
+
 const OAQ_PLACES = [
   { img: "ad_img01", cap: "건물" },
   { img: "ad_img02", cap: "건물" },
@@ -19,12 +26,12 @@ const OAQ_PLACES = [
   { img: "ad_img06", cap: "도서관" },
 ];
 
-/* 실내 공간 수집 사례 — 썸네일은 임시 플레이스홀더(indoor0X.jpg), 추후 실제 이미지로 교체 예정 */
+/* 실내 공간 수집 사례 */
 const INDOOR_PLACES = [
-  { img: "indoor01", cap: "국공립/민간 어린이집" },
-  { img: "indoor02", cap: "도서관, 카페, 문화시설" },
-  { img: "indoor03", cap: "고속도로 휴게소" },
-  { img: "indoor04", cap: "공연장" },
+  { img: "data_measure03_thum01", cap: "국공립/민간 어린이집" },
+  { img: "data_measure03_thum02", cap: "도서관, 카페, 문화시설" },
+  { img: "data_measure03_thum03", cap: "고속도로 휴게소" },
+  { img: "data_measure03_thum04", cap: "공연장" },
 ];
 
 export default function AirMeasurePage() {
@@ -36,24 +43,49 @@ export default function AirMeasurePage() {
         <SubHero
           image="/assets/sub/data_air.jpg?v=4"
           title="공기 측정 데이터"
-          subtitle={"국가관측망과 IoT 측정 데이터를 기반으로\n신뢰도 높은 공기질 측정 데이터 제공"}
+          subtitle={"고객이 숨 쉬는 그 자리의 공기를 가장 정확하게"}
         />
+
+        <section className="oaq-limit">
+          <h2 className="oaq__title">
+            국가관측망만으로는 내 생활권의 공기를 알 수 없습니다
+          </h2>
+          <div className="oaq__desc">
+            <p>
+              국가관측망은 도시 단위의 큰 흐름을 보는 데는 강하지만,
+              <br />
+              개인이 머무는 공간을 촘촘하고 즉각적으로 보여주지는 못합니다.
+            </p>
+          </div>
+
+          <ul className="oaq-limit__grid">
+            {LIMIT_CARDS.map((c, i) => (
+              <li className="oaq-limit__item" key={i}>
+                <p className="oaq-limit__card-top">{c.top}</p>
+                <div className="oaq-limit__card">
+                  <div className="oaq-limit__thumb">
+                    <img src={`/assets/sub/${c.img}.jpg`} alt={c.top} />
+                  </div>
+                  <p className="oaq-limit__card-bottom">{c.bottom}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </section>
 
         <section className="oaq">
           <h2 className="oaq__title">
             건물부터 어린이집까지, 고객이 머무는 바로 그 자리의 실외공기 정보
           </h2>
-          <div className="oaq__desc">
-            <p>
-              케이웨더는 고객이 실제로 머무는 곳마다 측정기를 직접 설치해 데이터를 수집합니다.
-            </p>
-          </div>
 
           <div className="oaq__box">
-            {/* '내 집 앞마당' 예시 — 블루톤 박스 안 배너로 배치 */}
+            {/* 두 줄 문구를 진한 블루 배너 안에 배치 */}
             <div className="oaq__banner">
               <p className="oaq__banner-title">
                 “내 집 앞마당”, “우리 아파트 놀이터”, “우리 학교 운동장”
+              </p>
+              <p className="oaq__banner-ex">
+                케이웨더는 고객이 실제로 머무는 곳마다 측정기를 직접 설치해 데이터를 수집합니다.
               </p>
             </div>
 
@@ -104,11 +136,13 @@ export default function AirMeasurePage() {
           <ul className="oaq-indoor__grid">
             {INDOOR_PLACES.map((p, i) => (
               <li className="oaq-indoor__item" key={i}>
-                <div className="oaq-indoor__thumb">
-                  <img
-                    src={`/assets/sub/${p.img}.jpg`}
-                    alt={`${p.cap} 실내 공기질 측정 사례`}
-                  />
+                <div className="oaq-indoor__imgbox">
+                  <div className="oaq-indoor__thumb">
+                    <img
+                      src={`/assets/sub/${p.img}.jpg`}
+                      alt={`${p.cap} 실내 공기질 측정 사례`}
+                    />
+                  </div>
                 </div>
                 <span className="oaq-indoor__cap">{p.cap}</span>
               </li>

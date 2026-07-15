@@ -41,7 +41,7 @@ export default function AirMeasurePage() {
       <Header solid />
       <main>
         <SubHero
-          image="/assets/sub/data_air.jpg?v=4"
+          image="/assets/sub/data_air.jpg?v=5"
           title="공기 측정 데이터"
           subtitle={"고객이 숨 쉬는 그 자리의 공기를 가장 정확하게"}
         />

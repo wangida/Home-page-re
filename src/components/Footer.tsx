@@ -49,6 +49,8 @@ const MENU_LINKS: Record<string, string> = {
   공기빅데이터플랫폼: "/product/air365",
   "조리실 자동제어": "/solution/kitchen",
   "공기질 통합관리": "/solution/airall",
+  저온저장창고: "/solution/coldstorage",
+  에어로봇: "/solution/airrobot",
   공기측정기: "/product/airmeter",
   환기청정기: "/product/circulation",
   체감온도계: "/product/heat_re",

@@ -2381,6 +2381,126 @@
 }
 .cold-compare__col--before .cold-compare__txt { color: #a24a44; }
 .cold-compare__col--after .cold-compare__txt { color: #35774a; }
+/* 단일 라인 부제 — 제목과의 간격 축소 */
+.cold-sec--tight .cold-sec__desc { margin-top: 12px; }
+/* 창고 규모 2가지 모델 — 원형 라인아이콘 배지 카드(airall 카드 UI 차용) */
+.cold-feats {
+  margin: 84px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 64px 32px;
+}
+.cold-feat {
+  position: relative;
+  padding: 52px 30px 34px;
+  background: #fff;
+  border: 1px solid #d9e1f2;
+  border-radius: 18px;
+  text-align: center;
+}
+.cold-feat__icon {
+  position: absolute;
+  top: -32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #4f62bd;
+  color: #fff;
+}
+.cold-feat__icon svg {
+  width: 30px;
+  height: 30px;
+}
+.cold-feat__title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: #1a1f2b;
+  word-break: keep-all;
+}
+.cold-feat__desc {
+  margin: 12px 0 0;
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: #5a616e;
+  word-break: keep-all;
+}
+/* 옵션 라벨 + 2개 제품 카드(이미지 + 하단 라벨바) */
+.cold-opt-label {
+  margin: 20px 0 0;
+  padding-left: 10px;
+  text-align: left;
+  font-size: 18px;
+  font-weight: 400;
+  color: #1a1f2b;
+  word-break: keep-all;
+}
+.cold-prod {
+  margin-top: 44px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 627px));
+  justify-content: space-between;
+}
+.cold-prod__card {
+  margin: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #c4d2f3;
+  box-shadow: 0 10px 28px rgba(22, 35, 60, 0.08);
+}
+.cold-prod__img {
+  height: 380px;
+  padding: 28px;
+  background: #fff;
+}
+.cold-prod__img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+/* 25평형 이미지 축소 — 패딩을 키워 안쪽 이미지를 줄임 */
+.cold-prod__img--sm {
+  padding: 36px;
+}
+.cold-prod__foot {
+  padding: 22px 32px 24px 34px;
+  background: #eef0fa;
+  text-align: left;
+}
+.cold-prod__tag {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 5px;
+  background: #4f62bd;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+}
+.cold-prod__namerow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 12px;
+}
+.cold-prod__name {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1f2b;
+}
+.cold-prod__desc {
+  font-size: 18px;
+  color: #222222;
+  word-break: keep-all;
+}
 /* 검증 정확도 — 3개 스탯 카드 */
 .cold-stats {
   margin: 32px 0 0;
@@ -2389,13 +2509,13 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
-  background: #f0f7f1;
+  background: #eef0fa;
   border-radius: 14px;
 }
 .cold-stats__card {
   padding: 40px 24px;
   background: #fff;
-  border: 1px solid #dfeae0;
+  border: 1px solid #dfe3f3;
   border-radius: 12px;
 }
 .cold-stats__num {
@@ -2403,13 +2523,13 @@
   font-family: ui-monospace, "SF Mono", Menlo, monospace;
   font-size: 34px;
   font-weight: 700;
-  color: #2e7d43;
+  color: #3b55cb;
 }
 .cold-stats__cap {
   display: block;
   margin-top: 12px;
-  font-size: 16px;
-  color: #4b6653;
+  font-size: 18px;
+  color: #5a6494;
 }
 
 /* ----- 에어로봇(solution/airrobot) — 로봇과 AI의 결합 ----- */
@@ -2436,13 +2556,146 @@
 }
 .robot-sec__fig {
   margin-top: 48px;
+  padding: 28px 32px;
+  background: #f8f8f8;
+  border-radius: 24px;
 }
 .robot-sec__fig img {
   display: block;
   width: 100%;
-  max-width: 1200px;
+  max-width: none;
   height: auto;
   margin: 0 auto;
+}
+
+/* 감시→판단→대응 — 이미지(좌) + 넘버링 스텝(우) */
+.robot-nn {
+  width: min(1320px, calc(100% - 64px));
+  margin: 110px auto 0;
+  text-align: center;
+}
+.robot-nn__title {
+  margin: 0;
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.3;
+  color: #222;
+}
+.robot-nn__lead {
+  margin: 20px 0 0;
+  font-size: 20px;
+  line-height: 1.7;
+  color: #333;
+  word-break: keep-all;
+}
+.robot-nn__body {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  align-items: center;
+  text-align: left;
+  padding: 10px 48px;
+  border: 1px solid #c4d2f3;
+  border-radius: 24px;
+}
+.robot-nn__media img {
+  display: block;
+  width: 90%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 16px;
+}
+.robot-steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+.robot-step {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+}
+.robot-step__num {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #4f62bd;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+}
+.robot-step__title {
+  margin: 0;
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-size: 23px;
+  font-weight: 700;
+  color: #222;
+}
+.robot-step__desc {
+  margin: 10px 0 0;
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-size: 18px;
+  line-height: 1.7;
+  color: #333;
+  word-break: keep-all;
+}
+
+/* 적용 현장 — 3개 썸네일 */
+.robot-sites {
+  width: min(1320px, calc(100% - 64px));
+  margin: 110px auto 0;
+  text-align: center;
+}
+.robot-sites__title {
+  margin: 0;
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.3;
+  color: #222;
+}
+.robot-sites__lead {
+  margin: 20px 0 0;
+  font-size: 20px;
+  line-height: 1.7;
+  color: #333;
+  word-break: keep-all;
+}
+.robot-sites__grid {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+.robot-site {
+  margin: 0;
+}
+.robot-site__thumb {
+  display: block;
+  aspect-ratio: 469 / 315;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(22, 35, 60, 0.1);
+}
+.robot-site__thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.robot-site__cap {
+  margin-top: 22px;
+  font-size: 19px;
+  font-weight: 400;
+  color: #222;
 }
 
 /* ----- 조리실 자동제어(solution/kitchen) — 탭 패널 ----- */

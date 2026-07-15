@@ -2158,6 +2158,477 @@
   color: #2c54d4;
   font-weight: 700;
 }
+/* 조리실 자동제어 — 4열 탭 변형 */
+.mnt-steps--4 { grid-template-columns: repeat(4, 1fr); }
+/* 활성 탭 사각 처리(라운딩 제거) */
+.mnt-steps--4 .mnt-steps__btn.is-on { border-radius: 0; }
+
+/* ----- 공기질 통합관리(solution/airall) — 4단계 프로세스 ----- */
+.airall-sec {
+  width: min(1320px, calc(100% - 64px));
+  margin: 110px auto 0;
+  text-align: center;
+}
+.airall-sec__title {
+  margin: 0;
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.3;
+  color: #16233c;
+}
+.airall-sec__lead {
+  margin: 24px 0 0;
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-size: 20px;
+  line-height: 1.7;
+  color: #333;
+  word-break: keep-all;
+}
+.airall-sec__desc {
+  margin: 56px 0 0;
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-size: 20px;
+  line-height: 1.7;
+  color: #333;
+  word-break: keep-all;
+}
+.airall-flow {
+  margin: 64px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 44px;
+  align-items: stretch;
+}
+/* 단계 카드 — 상단 네이비 헤더 탭 + 화이트 박스 */
+.airall-flow__item {
+  position: relative;
+  padding: 52px 24px 36px;
+  background: #fff;
+  border: 1px solid #e9edf4;
+  border-radius: 16px;
+  box-shadow: 0 10px 28px rgba(22, 35, 60, 0.08);
+  text-align: center;
+}
+/* 단계 사이 삼중 화살표 */
+.airall-flow__item + .airall-flow__item::before {
+  content: "❯❯❯";
+  position: absolute;
+  left: -41px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 38px;
+  text-align: center;
+  color: #4762c5;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -3px;
+  line-height: 1;
+}
+.airall-flow__badge {
+  position: absolute;
+  top: -26px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-block;
+  padding: 14px 30px;
+  border-radius: 12px;
+  background: #4762c5; /* 공기측정데이터 밴드 컬러 */
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-size: 19px;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+}
+.airall-flow__name {
+  display: block;
+  font-size: 24px;
+  font-weight: 700;
+  color: #16233c;
+}
+.airall-flow__txt {
+  margin: 14px 0 0;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #4a5d7a;
+  word-break: keep-all;
+}
+.airall-sec__fig {
+  margin: 96px 0 0; /* 위 4개 카드 줄과 동일한 섹션 풀폭 */
+  padding: 48px 56px;
+  border: 1px solid #c4d2f3; /* 캡쳐처럼 연블루 라운드 박스 테두리 */
+  border-radius: 24px;
+}
+.airall-sec__fig img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+/* 공공·산업 현장 — 카테고리별 썸네일(placeholder) */
+.airall-sites {
+  margin-top: 64px;
+  display: grid;
+  /* 3개 영역(파고라 2칸·쉘터·산업)을 넓은 간격으로 분리, 썸네일 폭은 동일 */
+  grid-template-columns: 2.08fr 1fr 1fr;
+  column-gap: 56px;
+  text-align: center;
+}
+.airall-sites__cat {
+  margin: 0 0 24px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #222;
+}
+.airall-sites__group--wide .airall-sites__grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+.airall-sites__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px 24px;
+}
+.airall-sites__item {
+  margin: 0;
+}
+.airall-sites__thumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  padding: 12px; /* 이미지보다 큰 박스 — 회색 프레임 노출 */
+  background: #eef1f5;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+.airall-sites__thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+.airall-sites__cap {
+  margin-top: 14px;
+  font-size: 17px;
+  font-weight: 400;
+  color: #222;
+}
+
+/* ----- 저온저장창고(solution/coldstorage) ----- */
+.cold-sec {
+  width: min(1320px, calc(100% - 64px));
+  margin: 110px auto 0;
+  text-align: center;
+}
+.cold-sec__title {
+  margin: 0;
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.3;
+  color: #222;
+}
+.cold-sec__desc {
+  margin: 24px 0 0;
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-size: 20px;
+  line-height: 1.7;
+  color: #333;
+  word-break: keep-all;
+}
+.cold-sec__fig {
+  margin-top: 32px;
+  padding: 36px 32px; /* 패딩 축소로 이미지 확대 */
+  border: 1px solid #c4d2f3; /* airall 구성도와 동일한 연블루 라인 박스 */
+  border-radius: 24px;
+}
+.cold-sec__fig img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+/* 기존 대기 조건 vs IAQ 기법 — 2열 비교 밴드 */
+.cold-compare {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-radius: 14px;
+  overflow: hidden;
+  text-align: left;
+}
+.cold-compare__col {
+  padding: 32px 40px;
+}
+.cold-compare__col--before { background: #fdf1ee; }
+.cold-compare__col--after { background: #eaf6ec; }
+.cold-compare__label {
+  display: block;
+  font-size: 17px;
+  font-weight: 700;
+}
+.cold-compare__col--before .cold-compare__label { color: #b0413e; }
+.cold-compare__col--after .cold-compare__label { color: #2e7d43; }
+.cold-compare__txt {
+  margin: 12px 0 0;
+  font-size: 18px;
+  line-height: 1.6;
+  word-break: keep-all;
+}
+.cold-compare__col--before .cold-compare__txt { color: #a24a44; }
+.cold-compare__col--after .cold-compare__txt { color: #35774a; }
+/* 검증 정확도 — 3개 스탯 카드 */
+.cold-stats {
+  margin: 32px 0 0;
+  padding: 40px;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  background: #f0f7f1;
+  border-radius: 14px;
+}
+.cold-stats__card {
+  padding: 40px 24px;
+  background: #fff;
+  border: 1px solid #dfeae0;
+  border-radius: 12px;
+}
+.cold-stats__num {
+  display: block;
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 34px;
+  font-weight: 700;
+  color: #2e7d43;
+}
+.cold-stats__cap {
+  display: block;
+  margin-top: 12px;
+  font-size: 16px;
+  color: #4b6653;
+}
+
+/* ----- 에어로봇(solution/airrobot) — 로봇과 AI의 결합 ----- */
+.robot-sec {
+  width: min(1320px, calc(100% - 64px));
+  margin: 110px auto 0;
+  text-align: center;
+}
+.robot-sec__title {
+  margin: 0;
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.3;
+  color: #222;
+}
+.robot-sec__desc {
+  margin: 24px 0 0;
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-size: 20px;
+  line-height: 1.7;
+  color: #333;
+  word-break: keep-all;
+}
+.robot-sec__fig {
+  margin-top: 48px;
+}
+.robot-sec__fig img {
+  display: block;
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* ----- 조리실 자동제어(solution/kitchen) — 탭 패널 ----- */
+.sub-hero--blank { background: #3d4654; }
+.kitchen-panel {
+  width: min(1320px, calc(100% - 64px));
+  margin: 90px auto 0;
+  text-align: center;
+}
+.kitchen-panel__title {
+  margin: 0;
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.3;
+  color: #2c54d4;
+}
+.kitchen-panel__desc {
+  margin: 36px 0 0;
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-size: 20px;
+  line-height: 1.7;
+  color: #333;
+  word-break: keep-all;
+}
+.kitchen-panel__desc .em-blue {
+  color: #2c54d4;
+  font-weight: 700;
+}
+
+/* ----- 급배기 시스템 상세(특장점·제원·시험성적서) ----- */
+.cook-detail {
+  margin-top: 40px;
+  text-align: left;
+}
+.cook-sec__head {
+  margin: 0 0 28px;
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #2c54d4;
+}
+/* 특장점 — 좌 텍스트 + 우 제품 이미지 */
+.cook-feat {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr; /* 우측 이미지 박스 가로 확대 */
+  gap: 56px;
+  align-items: center;
+}
+.cook-feat__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.cook-feat__list li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333;
+  word-break: keep-all;
+}
+.cook-feat__list li + li {
+  margin-top: 18px;
+}
+.cook-feat__list li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 11px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #333;
+}
+.cook-feat__btns {
+  display: flex;
+  gap: 16px;
+  margin-top: 36px;
+}
+.cook-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-width: 190px;
+  height: 54px;
+  padding: 0 26px;
+  border-radius: 8px;
+  font-size: 17px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 160ms ease;
+}
+.cook-btn:hover { opacity: 0.88; }
+.cook-btn--line {
+  background: #5b6ef2;
+  border: 1px solid #5b6ef2;
+  color: #fff;
+}
+.cook-btn--dark {
+  background: #141b34;
+  color: #fff;
+}
+.cook-btn__ico {
+  font-size: 16px;
+  line-height: 1;
+}
+.cook-feat__media {
+  width: 90%;
+  justify-self: center;
+  padding: 16px 28px;
+  border: 1px solid #c4d2f3;
+  border-radius: 20px;
+}
+.cook-feat__media img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: 450px; /* 세로 기준으로 키움 — 박스 높이는 특장점과 비슷하게 유지 */
+  height: auto;
+  margin: 0 auto;
+}
+/* 제원표·시험성적서 — 풀폭 이미지 블록 */
+.cook-block {
+  margin-top: 100px;
+}
+.cook-block__img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+/* 하단 협력사(퓨리솔루션) 박스 */
+.cook-partner {
+  margin-top: 56px;
+  border: 1px solid #c4d2f3; /* 위 이미지 박스와 동일한 연블루 라인 */
+  border-radius: 20px;
+  overflow: hidden;
+  background: #fff;
+}
+.cook-partner__main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 56px;
+  padding: 28px 48px;
+}
+.cook-partner__logo {
+  flex: 0 0 auto;
+  width: 170px;
+  height: auto;
+}
+.cook-partner__txt {
+  margin: 0;
+  font-size: 23px;
+  font-weight: 400;
+  line-height: 1.55;
+  color: #333;
+  text-align: center;
+  word-break: keep-all;
+}
+.cook-partner__info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px 40px;
+  margin: 0;
+  padding: 26px 48px;
+  list-style: none;
+  background: #f5f7fa;
+}
+.cook-partner__info li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  color: #4a4f57;
+  word-break: keep-all;
+}
+.cook-partner__ico {
+  flex-shrink: 0;
+  width: 19px;
+  height: 19px;
+  color: #6b7280;
+}
 
 /* 단계별 콘텐츠 패널 — 1단계: 타이틀 + 사진 4장 */
 .mnt-panel {
@@ -2313,6 +2784,45 @@
   word-break: keep-all;
 }
 @media (max-width: 920px) {
+  .mnt-steps--4 { grid-template-columns: repeat(2, 1fr); }
+  .mnt-steps--4 .mnt-steps__btn { height: 64px; font-size: 17px; }
+  .kitchen-panel { margin-top: 60px; }
+  .kitchen-panel__title { font-size: 24px; }
+  .kitchen-panel__desc { font-size: 16px; line-height: 1.65; }
+  .cook-detail { margin-top: 60px; }
+  .cook-feat { grid-template-columns: 1fr; gap: 32px; }
+  .cook-feat__media { order: -1; }
+  .cook-feat__list li { font-size: 16px; }
+  .cook-feat__btns { flex-wrap: wrap; }
+  .cook-sec__head { font-size: 20px; }
+  .cook-block { margin-top: 64px; }
+  .cook-partner { margin-top: 64px; }
+  .cook-partner__main { flex-direction: column; gap: 28px; padding: 36px 24px; }
+  .cook-partner__logo { width: 160px; }
+  .cook-partner__txt { font-size: 18px; }
+  .cook-partner__info { flex-direction: column; align-items: flex-start; gap: 12px; padding: 24px; }
+  .robot-sec { margin-top: 70px; width: calc(100% - 40px); }
+  .robot-sec__title { font-size: 24px; }
+  .robot-sec__desc { font-size: 16px; line-height: 1.65; }
+  .airall-sec { margin-top: 70px; width: calc(100% - 40px); }
+  .airall-sec__title { font-size: 24px; }
+  .airall-sec__lead { font-size: 17px; }
+  .airall-sec__desc { margin-top: 36px; font-size: 17px; }
+  .airall-sec__fig { margin-top: 56px; padding: 24px 20px; border-radius: 16px; }
+  .airall-sites { margin-top: 48px; grid-template-columns: 1fr; gap: 40px; }
+  .airall-flow { margin-top: 72px; grid-template-columns: 1fr; gap: 52px; }
+  .airall-flow__item { padding: 48px 20px 32px; }
+  .airall-flow__item + .airall-flow__item::before {
+    left: 50%; top: -37px; transform: translateX(-50%) rotate(90deg);
+  }
+  .cold-sec { margin-top: 70px; width: calc(100% - 40px); }
+  .cold-sec__title { font-size: 24px; }
+  .cold-sec__desc { font-size: 16px; line-height: 1.65; }
+  .cold-sec__fig { padding: 24px 20px; border-radius: 16px; }
+  .cold-compare { grid-template-columns: 1fr; }
+  .cold-compare__col { padding: 24px; }
+  .cold-stats { grid-template-columns: 1fr; padding: 24px; gap: 16px; }
+  .cold-stats__num { font-size: 28px; }
   .mnt-panel__grid { flex-wrap: wrap; row-gap: 32px; }
   .mnt-panel__item { flex: 1 1 calc(50% - 20px); }
   .mnt-tech__grid { grid-template-columns: 1fr; gap: 48px; }

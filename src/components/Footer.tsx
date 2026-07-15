@@ -47,6 +47,8 @@ const MENU_LINKS: Record<string, string> = {
   방송컨텐츠: "/data/broadcast",
   모바일정보: "/data/mobile",
   공기빅데이터플랫폼: "/product/air365",
+  "조리실 자동제어": "/solution/kitchen",
+  "공기질 통합관리": "/solution/airall",
   공기측정기: "/product/airmeter",
   환기청정기: "/product/circulation",
   체감온도계: "/product/heat_re",

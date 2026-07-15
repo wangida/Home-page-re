@@ -78,7 +78,7 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
     key: "solution",
     x: 762,
     blocks: [
-      { y: 16, items: [{ label: "AI 환기청정" }, { label: "조리실 자동제어" }, { label: "공기질 통합관리" }, { label: "저온저장창고" }, { label: "에어로봇" }] },
+      { y: 16, items: [{ label: "AI 환기청정" }, { label: "조리실 자동제어", href: "/solution/kitchen" }, { label: "공기질 통합관리", href: "/solution/airall" }, { label: "저온저장창고" }, { label: "에어로봇" }] },
       { y: 324, tight: true, items: [{ label: "기후위험 관리", small: "(폭염·건설·해양·ESG)" }] },
     ],
   },

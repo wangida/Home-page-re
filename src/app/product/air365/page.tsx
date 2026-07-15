@@ -135,145 +135,80 @@ export default function AirPlatformPage() {
 
         </section>
 
-        <section className="company-intro air365-intro">
-          <h2 className="company-intro__title">GS 1등급 인증 · 공공기관 도입</h2>
-          <p className="company-intro__desc">
-            Air365 V2.0은 한국정보통신기술협회(TTA) 소프트웨어 품질 1등급(Good Software) 인증을 획득했습니다.
-            <br />
-            클린서초 · 서울시설관리공단 · 인천서구시설관리공단 · 성남도시개발공사 등 공공기관에서 운영 중이며, 도입 규모와 환경에 따라 맞춤 견적을 안내합니다.
-          </p>
-        </section>
-
-        <section className="air365-cert">
-          <div className="air365-cert__inner">
-          <div className="air365-cert__media">
+        <section className="air365-bd">
+          <div className="air365-bd__box">
             <img
-              src="/assets/sub/air365_img06.png"
-              width={550}
-              height={364}
-              alt="Air365 V2.0 한국정보통신기술협회(TTA) 소프트웨어 품질 1등급(Good Software) 인증서 2종"
+              className="air365-bd__img"
+              src="/assets/sub/bigdata_img.jpg"
+              width={1088}
+              height={459}
+              alt="케이웨더 공기빅데이터플랫폼 — Air365 플랫폼·클라우드 서비스·온 프레미스 제공 화면"
             />
-          </div>
-          <div className="air365-cert__text">
-            <h3 className="air365-cert__title">
-              <span className="air365-cert__brand">Air365</span> V2.0 굿소프트웨어
-              1등급 인증
-            </h3>
-            <dl className="air365-cert__spec">
-              <div className="air365-cert__item">
-                <dt>인증기관</dt>
-                <dd>한국정보통신기술협회(TTA)</dd>
-              </div>
-              <div className="air365-cert__item">
-                <dt>시험범위</dt>
-                <dd>Air365 웹서비스</dd>
-              </div>
-              <div className="air365-cert__item">
-                <dt>기능 범위</dt>
-                <dd>
-                  모니터링 : 공기질현황조회/실외공기질현황조회
+            <ul className="air365-bd__cards">
+              <li className="air365-bd__card air365-bd__card--saas">
+                <span className="air365-bd__badge">SaaS 방식</span>
+                <strong className="air365-bd__type">임대형</strong>
+                <p className="air365-bd__desc">
+                  사용자 계정 당 월정액 환산
                   <br />
-                  분석 : 실내/실외공기질비교, 수집데이터 조회, 통계 조회, 파일 다운로드
+                  계정당 월정액(MRR) : 50,000원
+                </p>
+              </li>
+              <li className="air365-bd__card air365-bd__card--paas">
+                <span className="air365-bd__badge">PaaS 방식</span>
+                <strong className="air365-bd__type">설치형</strong>
+                <p className="air365-bd__desc">
+                  맞춤형 커스터마이징 / 운영 케이웨더
                   <br />
-                  측정기 정보 조회
+                  커스텀 및 운영비(월정액) : 별도 산정
+                </p>
+              </li>
+              <li className="air365-bd__card air365-bd__card--onp">
+                <span className="air365-bd__badge">On-premise 방식</span>
+                <strong className="air365-bd__type">구축형</strong>
+                <p className="air365-bd__desc">
+                  고객사 내부에 서버 및 서비스
                   <br />
-                  계정관리
-                </dd>
-              </div>
-            </dl>
+                  개발구축 및 운영비(월정액) : 별도산정
+                </p>
+              </li>
+            </ul>
           </div>
-          </div>
-        </section>
 
-        <section className="air365-price">
-          <h2 className="air365-measure__title">프리미엄 서비스 및 가격</h2>
-          <div className="air365-price__scroll">
-            <table className="air365-price__table">
-              <colgroup>
-                <col style={{ width: "11%" }} />
-                <col style={{ width: "13%" }} />
-                <col style={{ width: "18%" }} />
-                <col style={{ width: "43%" }} />
-                <col style={{ width: "15%" }} />
-              </colgroup>
-              <thead>
-                <tr>
-                  <th colSpan={2}>서비스명</th>
-                  <th>메뉴</th>
-                  <th>내용</th>
-                  <th>과금</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="c1" rowSpan={2}>기본<br />서비스</td>
-                  <td className="c2" rowSpan={2}>모니터링<br />서비스</td>
-                  <td className="c3">실내 실외 공기질 현황</td>
-                  <td className="c4">전광판 모드 / 리스트 모드</td>
-                  <td className="c5" rowSpan={2}>무료</td>
-                </tr>
-                <tr>
-                  <td className="c3">데이터 조회</td>
-                  <td className="c4">
-                    그래프/표<br />
-                    검색 최대 구간:1일<br />
-                    데이터 유효 구간 : 직전 월 1일 ~ 당일
-                  </td>
-                </tr>
-                <tr>
-                  <td className="c1" rowSpan={6}>프리미엄<br />서비스</td>
-                  <td className="c2" rowSpan={3}>분석<br />서비스</td>
-                  <td className="c3">그래프 분석</td>
-                  <td className="c4">
-                    그래프 구간 조회, 그래프 다운로드<br />
-                    검색 최대 구간 : 7일<br />
-                    데이터 유효기간:결제된 년월
-                  </td>
-                  <td className="c5" rowSpan={3}>옵션 1<br />+10,000원</td>
-                </tr>
-                <tr>
-                  <td className="c3">데이터 분석</td>
-                  <td className="c4">
-                    그래프 구간 조회, 그래프 다운로드<br />
-                    검색 최대 구간 : 7일<br />
-                    데이터 유효기간:결제된 년월
-                  </td>
-                </tr>
-                <tr>
-                  <td className="c3">통계 분석</td>
-                  <td className="c4">
-                    표 구간 조회, 그래프 다운로드<br />
-                    검색 최대 구간 : 7일<br />
-                    데이터 유효기간:결제된 년월
-                  </td>
-                </tr>
-                <tr>
-                  <td className="c2" rowSpan={2}>보고서 서비스</td>
-                  <td className="c3">분석 보고서(기본)</td>
-                  <td className="c4">
-                    실내, 실외 분석보고서(간소화)<br />
-                    데이터 유효구간: 결제된 년월
-                  </td>
-                  <td className="c5">옵션 2<br />+30,000원</td>
-                </tr>
-                <tr>
-                  <td className="c3">분석 보고서(고급)</td>
-                  <td className="c4">실내 · 실외 분석보고서(상세)</td>
-                  <td className="c5">옵션 3<br />상담</td>
-                </tr>
-                <tr>
-                  <td className="c2">공기가전 제어<br />서비스</td>
-                  <td className="c3">환기청정기</td>
-                  <td className="c4">
-                    공기가전 작동<br />
-                    원격제어 (전원,풍량)<br />
-                    AI 자동모드 설정
-                  </td>
-                  <td className="c5">옵션 4<br />+10,000원<br />(최초 1년 무료)</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <table className="air365-bd__table">
+            <tbody>
+              <tr>
+                <th>
+                  Cloud Service
+                  <br />
+                  (클라우드서비스)
+                </th>
+                <td>
+                  이용자의 모든 정보를 인터넷상의 서버에 저장하고, 이 정보를 각종 IT
+                  기기를 통해 언제 어디서든 이용할 수 있는 기술
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  SaaS
+                  <br />
+                  (Software as a Service)
+                </th>
+                <td>개발이 완료된 소프트웨어를 서비스로 제공하는 서비스</td>
+              </tr>
+              <tr>
+                <th>
+                  PaaS
+                  <br />
+                  (Platform as a Service)
+                </th>
+                <td>
+                  서비스를 개발할 수 있는 플랫폼과 그 플랫폼을 이용하는 응용
+                  프로그램을 개발 할 수 있는 API까지 제공하는 형태
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </section>
 
         {/* 푸터 앞 하단 여백 */}

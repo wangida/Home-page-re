@@ -24,11 +24,11 @@ export default function Air365Page() {
         />
 
         <section className="company-intro air365-intro">
-          <h2 className="company-intro__title">수집에서 제공까지, 케이웨더 공기 데이터</h2>
+          <h2 className="company-intro__title">보이지 않는 공기를 보이게 관리하는 소프트웨어</h2>
           <p className="company-intro__desc air365-desc">
-            국가관측 데이터와 전국 측정기 데이터를 실시간으로 수집·분석해, 웹·앱부터
+            공기관리 소프트웨어(S/W)는 내가 머무는 공간의 공기질을 각종 데이터를 기반으로
             <br />
-            시각화 맵·환경에너지까지 다양한 채널로 공기 데이터를 제공합니다.
+            과학적으로 분석하여 ‘보이지 않는 공기를 24시간 보이게 관리’ 할 수 있도록 돕습니다.
           </p>
           <div className="air365-box">
             <img
@@ -41,106 +41,99 @@ export default function Air365Page() {
           </div>
         </section>
 
-        <section className="air365-measure">
-          <h2 className="air365-measure__title">
-            미세먼지부터 소음까지, 측정하는 공기 데이터
-          </h2>
+        <section className="air365-measure air365-software">
+          <h2 className="air365-measure__title air365-software__title">측정 데이터</h2>
           <p className="air365-measure__desc">
-            미세먼지·초미세먼지·이산화탄소·온도·습도·휘발성유기화합물(VOC)·소음 등 8가지 기본 항목을 비롯해
+            케이웨더의 실외·실내 공기측정기를 통하여 측정된 대용량의 공기데이터를 실시간으로 수집합니다.
             <br />
-            최대 20가지 측정 정보를 제공하며, 관심 지역을 설정하면 현재 날씨까지 함께 확인할 수 있습니다.
+            미세먼지, 초미세먼지, 휘발성유기화합물(TVOCs), 온도, 습도 등 측정데이터를 한눈에 모니터링 가능합니다.
           </p>
-          <div className="air365-measure__box">
-            <span className="air365-measure__badge">기본 8종 · 최대 20종 측정</span>
-            <ul className="air365-measure__grid">
-            <li className="air365-measure__card">
-              <span className="air365-measure__name">미세먼지</span>
-              <span className="air365-measure__unit">PM10 · ㎍/㎥</span>
-            </li>
-            <li className="air365-measure__card">
-              <span className="air365-measure__name">초미세먼지</span>
-              <span className="air365-measure__unit">PM2.5 · ㎍/㎥</span>
-            </li>
-            <li className="air365-measure__card">
-              <span className="air365-measure__name">이산화탄소</span>
-              <span className="air365-measure__unit">CO2 · ppm</span>
-            </li>
-            <li className="air365-measure__card">
-              <span className="air365-measure__name">온도</span>
-              <span className="air365-measure__unit">℃</span>
-            </li>
-            <li className="air365-measure__card">
-              <span className="air365-measure__name">습도</span>
-              <span className="air365-measure__unit">RH %</span>
-            </li>
-            <li className="air365-measure__card">
-              <span className="air365-measure__name">휘발성유기화합물</span>
-              <span className="air365-measure__unit">VOC · ppb</span>
-            </li>
-            <li className="air365-measure__card">
-              <span className="air365-measure__name">소음</span>
-              <span className="air365-measure__unit">dB</span>
-            </li>
-            <li className="air365-measure__card">
-              <span className="air365-measure__name">관심지역 날씨</span>
-              <span className="air365-measure__unit">날씨 연동</span>
-            </li>
-            </ul>
-          </div>
-        </section>
-
-        <section className="air365-measure">
-          <h2 className="air365-measure__title">
-            복잡한 측정값을 한눈에 보는 통합실내쾌적지수
-          </h2>
-          <p className="air365-measure__desc">
-            케이웨더가 자체 개발한 통합실내쾌적지수는 여러 측정 요소를 종합해 누구나 쉽게 이해할 수 있는 등급으로 환산합니다.
-            <br />
-            좋음·보통·나쁨·매우 나쁨의 4단계로, 현재 공간의 공기 상태를 직관적으로 파악할 수 있습니다.
-          </p>
-          <div className="air365-comfort__fig">
-            <p className="air365-comfort__fig-title">케이웨더 통합실내쾌적지수</p>
-            <p className="air365-comfort__fig-cap">
-              여러 측정값을 종합해 한눈에 이해할 수 있는 등급으로 환산
-            </p>
-            <ul className="air365-comfort__grades">
-              <li className="air365-comfort__grade">
-                <span className="air365-comfort__bar air365-comfort__bar--good">좋음</span>
-                <span className="air365-comfort__range">100 – 90</span>
-              </li>
-              <li className="air365-comfort__grade">
-                <span className="air365-comfort__bar air365-comfort__bar--normal">보통</span>
-                <span className="air365-comfort__range">89 – 80</span>
-              </li>
-              <li className="air365-comfort__grade">
-                <span className="air365-comfort__bar air365-comfort__bar--bad">나쁨</span>
-                <span className="air365-comfort__range">79 – 50</span>
-              </li>
-              <li className="air365-comfort__grade">
-                <span className="air365-comfort__bar air365-comfort__bar--vbad">매우 나쁨</span>
-                <span className="air365-comfort__range">49 – 0</span>
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        <section className="air365-measure">
-          <h2 className="air365-measure__title">
-            실시간부터 API까지, 데이터 제공·연동
-          </h2>
-          <p className="air365-measure__desc">
-            수집·분석된 공기 데이터는 실시간 현황, 기간별 통계, 분석보고서 형태로 제공됩니다.
-            <br />
-            또한 REST·OpenAPI 연동을 통해 외부 시스템·앱에서도 데이터를 활용할 수 있어, 다양한 서비스로 확장됩니다.
-          </p>
-          <div className="air365-box air365-box--flow">
+          <div className="air365-software__fig">
             <img
-              className="air365-img"
-              src="/assets/sub/data_air365_img02.jpg"
-              width={1400}
-              height={260}
-              alt="통계분석·보고서·추적 항목별 현황 등 다양한 형태로 제공되는 공기 데이터 화면 예시"
+              src="/assets/sub/data_software03.jpg"
+              width={1711}
+              height={482}
+              alt="Air365 실내·실외 공기질 현황 및 초미세먼지 실내외 모니터링 화면 예시"
             />
+          </div>
+        </section>
+
+        <section className="air365-measure air365-software">
+          <h2 className="air365-measure__title air365-software__title">분석 데이터</h2>
+          <p className="air365-measure__desc">
+            측정된 데이터들을 요소별로 선택해 실시간 공기질 비교 분석이 가능합니다.
+            <br />
+            프리미엄 서비스를 이용하면 현재까지 축적된 모든 데이터의 조회 및 분석을 지원하며
+            <br />
+            고객 요구에 맞춘 통계별, 측정요소별, 기간별 등 공기질 분석 보고서도 제공합니다.
+          </p>
+          <div className="air365-software__fig">
+            <img
+              src="/assets/sub/data_software01.jpg"
+              width={1713}
+              height={484}
+              alt="Air365 그래프분석 화면과 실외 공기질 분석 보고서 예시"
+            />
+          </div>
+        </section>
+
+        <section className="air365-measure air365-software">
+          <h2 className="air365-measure__title air365-software__title">제어 데이터</h2>
+          <p className="air365-measure__desc">
+            각종 공기가전 제품을 측정기와 연동시켜 원격으로 제어합니다.
+            <br />
+            실외·실내 공기데이터에 따라 환기청정기 운영모드와 가동시기, 시간, 강도를 조절하여 에너지를 효율적으로 관리하고
+            <br />
+            공기를 청정하게 유지할 수 있도록 공간의 유형(사무실, 학교, 병원 등)과 목적에 따라 AI 알고리즘을 적용합니다.
+          </p>
+          <div className="air365-software__fig">
+            <img
+              src="/assets/sub/data_software02.jpg"
+              width={1711}
+              height={484}
+              alt="Air365 환기청정기 원격 제어 화면과 운전 현황 모니터링 화면 예시"
+            />
+          </div>
+        </section>
+
+        <section className="air365-cert air365-cert--sw">
+          <div className="air365-cert__inner">
+          <div className="air365-cert__media">
+            <img
+              src="/assets/sub/data_software04.png"
+              width={550}
+              height={364}
+              alt="Air365 V2.0 한국정보통신기술협회(TTA) 소프트웨어 품질 1등급(Good Software) 인증서 2종"
+            />
+          </div>
+          <div className="air365-cert__text">
+            <h3 className="air365-cert__title">
+              <span className="air365-cert__brand">Air365</span> V2.0 굿소프트웨어
+              1등급 인증
+            </h3>
+            <dl className="air365-cert__spec">
+              <div className="air365-cert__item">
+                <dt>인증기관</dt>
+                <dd>한국정보통신기술협회(TTA)</dd>
+              </div>
+              <div className="air365-cert__item">
+                <dt>시험범위</dt>
+                <dd>Air365 웹서비스</dd>
+              </div>
+              <div className="air365-cert__item">
+                <dt>기능 범위</dt>
+                <dd>
+                  모니터링 : 공기질현황조회/실외공기질현황조회
+                  <br />
+                  분석 : 실내/실외공기질비교, 수집데이터 조회, 통계 조회, 파일 다운로드
+                  <br />
+                  측정기 정보 조회
+                  <br />
+                  계정관리
+                </dd>
+              </div>
+            </dl>
+          </div>
           </div>
         </section>
 

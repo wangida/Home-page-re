@@ -48,9 +48,9 @@ export default function AirForecastPage() {
             </div>
             <div className="fc-grid__item">
               <img
-                src="/assets/sub/data_air02.png?v=2"
-                width={1789}
-                height={874}
+                src="/assets/sub/data_air02.png?v=4"
+                width={1900}
+                height={1004}
                 alt="조선일보·매일경제에 제공되는 케이웨더 미세먼지 예보 사례"
               />
             </div>

@@ -1168,6 +1168,7 @@
   .air365-feat__media { flex: none; width: 100%; max-width: 559px; }
   .air365-feat__text { width: 100%; }
   .air365-feat__row + .air365-feat__row { margin-top: 72px; }
+  .air365-bd__cards { grid-template-columns: 1fr; gap: 20px; }
   .air365-cert { padding: 56px 0; }
   .air365-cert__inner { flex-direction: column; gap: 32px; }
   .air365-cert__media { flex: none; width: 100%; max-width: 520px; }
@@ -1203,6 +1204,13 @@
   .air365-feat__label { font-size: 22px; }
   .air365-feat__head { font-size: 19px; }
   .air365-feat__desc { font-size: 15px; }
+  .air365-bd { margin-top: 70px; width: calc(100% - 40px); }
+  .air365-bd__box { padding: 28px 20px; border-radius: 18px; }
+  .air365-bd__type { font-size: 22px; }
+  .air365-bd__desc { font-size: 15px; }
+  .air365-bd__table { margin-top: 48px; }
+  .air365-bd__table th { padding: 18px 12px; font-size: 15px; }
+  .air365-bd__table td { padding: 18px 16px; font-size: 15px; }
   .air365-cert { margin-top: 40px; padding: 44px 0; }
   .air365-cert__inner { width: calc(100% - 40px); }
   .air365-cert__title { font-size: 22px; }
@@ -1812,6 +1820,8 @@
   padding: 80px 0;
   background: #f3f4fb;
 }
+/* 공기관리 S/W 페이지 — 제어 데이터 태블릿과의 간격(다른 섹션과 동일 리듬) */
+.air365-cert--sw { margin-top: 110px; }
 .air365-cert__inner {
   width: min(1320px, calc(100% - 64px));
   margin: 0 auto;
@@ -1860,6 +1870,93 @@
   word-break: keep-all;
 }
 
+/* ----- 공기빅데이터플랫폼 제공 방식(SaaS·PaaS·On-premise) ----- */
+.air365-bd {
+  width: min(1320px, calc(100% - 64px));
+  margin: 110px auto 0;
+}
+.air365-bd__box {
+  padding: 56px 48px;
+  border: 1px solid #c4d2f3; /* 위 기능 소개 박스(air365-feat)와 동일 */
+  border-radius: 28px;
+}
+.air365-bd__img {
+  display: block;
+  width: 100%;
+  max-width: 1088px;
+  height: auto;
+  margin: 0 auto;
+}
+.air365-bd__cards {
+  margin: 56px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.air365-bd__card {
+  padding: 32px 24px 36px;
+  background: #f2f4fc;
+  border: 1.5px dashed #3b6cf0;
+  border-radius: 14px;
+  text-align: center;
+}
+.air365-bd__card--paas { border-color: #17a3cc; }
+.air365-bd__card--onp { border-color: #6f63d2; }
+.air365-bd__badge {
+  display: inline-block;
+  padding: 7px 18px;
+  border-radius: 999px;
+  background: #2c54d4;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+}
+.air365-bd__card--paas .air365-bd__badge { background: #17a3cc; }
+.air365-bd__card--onp .air365-bd__badge { background: #6f63d2; }
+.air365-bd__type {
+  display: block;
+  margin-top: 18px;
+  font-size: 26px;
+  font-weight: 700;
+  color: #222;
+}
+.air365-bd__desc {
+  margin: 14px 0 0;
+  font-size: 17px;
+  line-height: 1.65;
+  color: #444;
+  word-break: keep-all;
+}
+.air365-bd__table {
+  width: 100%;
+  margin-top: 64px;
+  border-collapse: collapse;
+  border-top: 2px solid #222;
+  border-bottom: 1px solid #e0e0e6;
+}
+.air365-bd__table tr + tr {
+  border-top: 1px solid #e0e0e6;
+}
+.air365-bd__table th {
+  width: 26%;
+  padding: 20px 24px;
+  background: #f7f7fa;
+  font-size: 19px;
+  font-weight: 700;
+  color: #222;
+  text-align: center;
+  line-height: 1.5;
+}
+.air365-bd__table td {
+  padding: 20px 40px;
+  font-size: 18px;
+  line-height: 1.65;
+  color: #333;
+  word-break: keep-all;
+}
+
 /* ----- Air365 측정 항목(기본 8종·최대 20종) ----- */
 .air365-measure {
   width: min(1320px, calc(100% - 64px));
@@ -1890,6 +1987,20 @@
   border: 1px solid #c4d2f3;
   border-radius: 24px;
   text-align: left;
+}
+
+/* ----- 측정 데이터(소프트웨어) — 블루 타이틀 + 태블릿 이미지 ----- */
+.air365-software__title { color: #2c54d4; }
+.air365-software__fig {
+  margin-top: 48px;
+  text-align: center;
+}
+.air365-software__fig img {
+  display: block;
+  width: 100%;
+  max-width: 1250px;
+  height: auto;
+  margin: 0 auto;
 }
 .air365-measure__badge {
   display: inline-block;

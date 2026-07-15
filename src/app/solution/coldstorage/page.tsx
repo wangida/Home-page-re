@@ -52,7 +52,7 @@ export default function ColdStoragePage() {
           </p>
           <div className="cold-sec__fig">
             <img
-              src="/assets/sub/subtop_coldimg01.jpg"
+              src="/assets/sub/subtop_coldimg01.jpg?v=2"
               width={1595}
               height={849}
               alt="저온저장창고 내부·외부 구성도 — 핵심 측정요소(에틸렌·이산화탄소·산소·암모니아·온습도)와 AI 환기장치·환경센서·LTE 라우터·CLIMATE 플랫폼 연계"

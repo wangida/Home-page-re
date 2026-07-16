@@ -381,21 +381,6 @@ img, svg { display: block; max-width: 100%; }
     linear-gradient(180deg, rgba(0, 35, 90, 0.45) 0%, rgba(0, 35, 90, 0.18) 14%, rgba(0,0,0,0) 30%);
 }
 
-/* 모바일: 에어로봇 슬라이드는 핵심 피사체(좌측 상단 로봇 센서)가
-   중앙 정렬 크롭에 잘려 자동차만 보임 → 배경을 뷰포트 폭에 맞추고
-   왼쪽 로봇 쪽으로 프레이밍 */
-@media (max-width: 820px) {
-  .hero--robot .hero__bg-image {
-    min-width: 0;
-    width: 100%;
-    max-width: none;
-    left: 0;
-    transform: none;
-    animation: none;
-    background-position: 12% 40%;
-  }
-}
-
 /* ===== hero_01 cinematic data flow ===== */
 .hero__data-fx {
   position: absolute;

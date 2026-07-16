@@ -822,6 +822,9 @@ img, svg { display: block; max-width: 100%; }
   /* 폭염·날씨아이돌 슬라이드 텍스트를 위로 당김 */
   .hero__cols--heat .hero__text,
   .hero__cols--idol .hero__text { margin-top: -28px; }
+  /* 데이터·AI 슬라이드 텍스트도 위로 당김 */
+  .hero__cols--data .hero__text,
+  .hero__cols--ai .hero__text { margin-top: -22px; }
 }
 
 .scroll-hint { display: none; }

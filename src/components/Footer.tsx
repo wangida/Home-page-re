@@ -151,6 +151,10 @@ export default function Footer() {
                   khelp@kweather.co.kr
                 </a>
               </div>
+              {/* 모바일: 하단 행이 좁아 저작권을 대표메일 아래로 이동 */}
+              <div className="footer-copy-inline" style={{ marginTop: 16 }}>
+                © {new Date().getFullYear()} K-WEATHER
+              </div>
             </div>
           </div>
           <nav
@@ -214,7 +218,7 @@ export default function Footer() {
             color: "rgba(255,255,255,0.4)",
           }}
         >
-          <div>
+          <div className="footer-copy-cell">
             <span className="footer-copy-full">
               © {new Date().getFullYear()} K-WEATHER Co., Ltd. All rights reserved.
             </span>

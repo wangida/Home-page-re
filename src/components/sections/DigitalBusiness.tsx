@@ -44,7 +44,7 @@ const DIGITAL: Card[] = [
     key: "fume",
     name: "조리실 솔루션",
     desc: "조리실 자동제어, 통합공기\n급기, 배기, 송풍기, 환기 등",
-    descMobile: "조리실 자동제어, 통합공기\n급기, 배기 등",
+    descMobile: "조리실 자동제어,\n통합공기 급기, 배기 등",
     img: "/assets/03_img_re.png",
     icon: "/assets/icon_03.png",
     href: "#", // TODO: 링크 추후 전달 예정

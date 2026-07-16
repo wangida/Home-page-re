@@ -247,6 +247,9 @@ img, svg { display: block; max-width: 100%; }
   footer .footer-menus { display: none !important; }
   footer .footer-copy-full { display: none; }
   footer .footer-copy-short { display: inline; }
+  /* 저작권을 대표메일 아래로 이동 → 하단 행엔 오시는길·Weather Site 공간 확보 */
+  footer .footer-copy-cell { display: none; }
+  footer .footer-copy-inline { display: block; }
 }
 
 /* Solutions: mobile horizontal scroll */
@@ -1031,6 +1034,8 @@ img, svg { display: block; max-width: 100%; }
 
 /* Footer copyright: full on desktop/pad, abbreviated on mobile (≤640px) */
 .footer-copy-short { display: none; }
+/* 대표메일 아래로 옮긴 저작권 — 모바일에서만 노출 */
+.footer-copy-inline { display: none; }
 
 /* Footer info: forced line breaks on desktop collapse into one line on mobile (≤640px) */
 .foot-br { display: block; }
@@ -1657,7 +1662,7 @@ img, svg { display: block; max-width: 100%; }
   .digital-card__desc { font-size: 20px; line-height: 1.4; }
   /* 카드 폭(250px)에서 잘리는 문구 → 축약본으로 교체 */
   .digital-card__desc--wide { display: none; }
-  .digital-card__desc--narrow { display: block; }
+  .digital-card__desc--narrow { display: block; letter-spacing: -0.03em; }
   .digital-card__icon { right: -12px; bottom: -32px; }
   /* 모바일: 데스크톱 대비 0.68배 (기존 84/124 비율 유지) */
   .digital-card--weather .digital-card__icon { width: 119px; }

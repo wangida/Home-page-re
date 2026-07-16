@@ -818,7 +818,7 @@ img, svg { display: block; max-width: 100%; }
 }
 /* 폰: 제목 3줄 + 버튼과 제품 이미지가 겹쳐 → 이미지를 하단으로 크게 내림 */
 @media (max-width: 560px) {
-  .hero__product { bottom: 5%; width: min(78vw, 420px); }
+  .hero__product { bottom: 5%; width: min(90vw, 500px); }
   /* 폭염·날씨아이돌 슬라이드 텍스트를 위로 당김 */
   .hero__cols--heat .hero__text,
   .hero__cols--idol .hero__text { margin-top: -28px; }

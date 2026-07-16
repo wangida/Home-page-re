@@ -1126,6 +1126,11 @@ img, svg { display: block; max-width: 100%; }
   background: currentColor;
   border-radius: 2px;
 }
+/* 모바일(≤820px, 데스크톱 nav 대신 햄버거가 주 메뉴)에서만 크게 */
+@media (max-width: 820px) {
+  .gnb__hamburger { width: 44px; height: 44px; gap: 5px; }
+  .gnb__hamburger span { width: 26px; height: 2.5px; }
+}
 
 /* ===== 메가메뉴 — Figma navi(211:164) 1:1 (1920 기준, 패널 높이 520 = 610 − 상단바 90) ===== */
 .mega {
@@ -1880,8 +1885,8 @@ img, svg { display: block; max-width: 100%; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   margin-right: -8px;
   border: none;
   border-radius: 999px;

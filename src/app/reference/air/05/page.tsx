@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import SmoothScroll from "@/components/SmoothScroll";
 import SubHero from "@/components/sub/SubHero";
+import ReferenceNav from "@/components/sub/ReferenceNav";
 import "@/components/sub/sub.css";
 import "@/components/sub/referenceDetail.css";
 
@@ -35,26 +36,29 @@ export default function ReferenceAirSeongnamPage() {
             <span className="refd-titlebar__line" aria-hidden="true" />
           </div>
 
-          {/* 본문 제목 */}
-          <h2 className="refd-heading">
-            성남 내정초등학교 조리실 자동제어 솔루션 구축
-          </h2>
+          {/* 상단 히어로: 제목 + 첫 이미지 (라벤더 배경) */}
+          <div className="refd-hero">
+            {/* 본문 제목 */}
+            <h2 className="refd-heading">
+              성남 내정초등학교 조리실 자동제어 솔루션 구축
+            </h2>
 
-          {/* 이미지 1 */}
-          <img
-            className="refd-img refd-img--1"
-            src="/assets/sub/reference03_01.jpg"
-            alt="성남 내정초등학교 조리실 자동제어 솔루션 구축 현장"
-          />
+            {/* 이미지 1 */}
+            <img
+              className="refd-img refd-img--1"
+              src="/assets/sub/reference03_01.jpg"
+              alt="성남 내정초등학교 조리실 자동제어 솔루션 구축 현장"
+            />
 
-          {/* 인용 강조(중앙) */}
-          <p className="refd-lead">
-            <span className="em-blue">조리흄</span>이란 요리를 할 때 발생하며 장기간 노출 시 폐암을 야기하는 WHO 지정 발암물질입니다.
-            <br />
-            특히 17개 시∙도 교육청 조리원 42,077명 중 13,653명(32%)이 폐 이상 소견을 받는 등
-            <br />
-            학교 조리실이 ‘죽음의 공간’이 되어가는 실정입니다.
-          </p>
+            {/* 인용 강조(중앙) — 라벤더 박스 안 */}
+            <p className="refd-lead">
+              <span className="em-blue">조리흄</span>이란 요리를 할 때 발생하며 장기간 노출 시 폐암을 야기하는 WHO 지정 발암물질입니다.
+              <br />
+              특히 17개 시∙도 교육청 조리원 42,077명 중 13,653명(32%)이 폐 이상 소견을 받는 등
+              <br />
+              학교 조리실이 ‘죽음의 공간’이 되어가는 실정입니다.
+            </p>
+          </div>
 
           {/* 서브 강조(중앙, 주황) */}
           <p className="refd-lead-sub">하지만 이제는 걱정하지 마세요!</p>
@@ -87,9 +91,9 @@ export default function ReferenceAirSeongnamPage() {
 
           {/* 마무리 문구(중앙) */}
           <p className="refd-closing">
-            가장 효과적인 조리흄 개선 솔루션
+            [ 가장 효과적인 조리흄 개선 솔루션
             <br />
-            <span className="em-blue">케이웨더 조리실 자동제어 솔루션</span>으로 조리실 종사자들의 건강을 지키세요!
+            <span className="em-blue">케이웨더 조리실 자동제어 솔루션</span>으로 조리실 종사자들의 건강을 지키세요! ]
           </p>
 
           {/* 이미지 2 */}
@@ -103,7 +107,8 @@ export default function ReferenceAirSeongnamPage() {
             </figure>
           </div>
 
-          {/* 구분선 + 목록 버튼 */}
+          {/* 하단 네비게이션(이전/다음 + 썸네일) + 구분선 + 목록 버튼 */}
+          <ReferenceNav current="/reference/air/05" />
           <div className="refd-divider" aria-hidden="true" />
           <div className="refd-actions">
             <Link className="refd-btn-list" href="/reference/air">

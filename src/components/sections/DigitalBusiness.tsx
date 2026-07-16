@@ -55,7 +55,7 @@ const DIGITAL: Card[] = [
     desc: "AI 캐스터를 활용하여\n날씨 방송 콘텐츠 제작",
     img: "/assets/man.png",
     icon: "/assets/icon_04.png",
-    href: "https://www.kweather.co.kr/audition/index.html",
+    href: "https://www.youtube.com/playlist?list=PLRI06Uh5cBHHRdAN9HjD-o_PZmQX3EQIN",
   },
   {
     key: "model",

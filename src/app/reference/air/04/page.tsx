@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import SmoothScroll from "@/components/SmoothScroll";
 import SubHero from "@/components/sub/SubHero";
+import ReferenceNav from "@/components/sub/ReferenceNav";
 import "@/components/sub/sub.css";
 import "@/components/sub/referenceDetail.css";
 
@@ -35,24 +36,27 @@ export default function ReferenceAirPoscoPage() {
             <span className="refd-titlebar__line" aria-hidden="true" />
           </div>
 
-          {/* 본문 제목 */}
-          <h2 className="refd-heading">
-            포스코이앤씨 고양풍동 2지구, AI 환기청정기 도입
-          </h2>
+          {/* 상단 히어로: 제목 + 첫 이미지 (라벤더 배경) */}
+          <div className="refd-hero">
+            {/* 본문 제목 */}
+            <h2 className="refd-heading">
+              포스코이앤씨 고양풍동 2지구, AI 환기청정기 도입
+            </h2>
 
-          {/* 이미지 1 */}
-          <img
-            className="refd-img refd-img--1"
-            src="/assets/sub/reference05_01.jpg"
-            alt="포스코이앤씨 고양풍동 2지구 AI 환기청정기 설치 모습"
-          />
+            {/* 이미지 1 */}
+            <img
+              className="refd-img refd-img--1"
+              src="/assets/sub/reference05_01.jpg"
+              alt="포스코이앤씨 고양풍동 2지구 AI 환기청정기 설치 모습"
+            />
 
-          {/* 강조 단락(중앙) */}
-          <p className="refd-lead">
-            케이웨더가 4,000세대가 넘는 대단지 신축아파트 및 오피스텔에
-            <br />
-            AI 환기청정기를 구축했습니다.
-          </p>
+            {/* 강조 단락(중앙) — 라벤더 박스 안 */}
+            <p className="refd-lead">
+              케이웨더가 4,000세대가 넘는 대단지 신축아파트 및 오피스텔에
+              <br />
+              <span className="em-orange">AI 환기청정기를 구축</span>했습니다.
+            </p>
+          </div>
 
           {/* 본문 단락 1 */}
           <p className="refd-body">
@@ -72,9 +76,10 @@ export default function ReferenceAirPoscoPage() {
 
           {/* 마무리 문구(중앙) */}
           <p className="refd-closing">
-            초미세먼지는 물론 부유 세균 및 바이러스까지 살균하는 필터는
+            [ 초미세먼지는 물론{" "}
+            <span className="em-orange">부유 세균 및 바이러스까지 살균하는 필터</span>는
             <br />
-            룸 컨트롤러가 교체시기를 알려주는 등 아파트 입주민들에게 딱 맞는 편의성을 자랑합니다.
+            <span className="em-orange">룸 컨트롤러가 교체시기</span>를 알려주는 등 아파트 입주민들에게 딱 맞는 편의성을 자랑합니다. ]
           </p>
 
           {/* 이미지 2 */}
@@ -91,7 +96,8 @@ export default function ReferenceAirPoscoPage() {
             alt="포스코이앤씨 고양풍동 2지구 AI 환기청정기 적용 현장"
           />
 
-          {/* 구분선 + 목록 버튼 */}
+          {/* 하단 네비게이션(이전/다음 + 썸네일) + 구분선 + 목록 버튼 */}
+          <ReferenceNav current="/reference/air/04" />
           <div className="refd-divider" aria-hidden="true" />
           <div className="refd-actions">
             <Link className="refd-btn-list" href="/reference/air">

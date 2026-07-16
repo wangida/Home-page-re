@@ -35,25 +35,28 @@ export default function ReferenceWeatherHyundaiPage() {
             <span className="refd-titlebar__line" aria-hidden="true" />
           </div>
 
-          {/* 본문 제목 */}
-          <h2 className="refd-heading">
-            전국 현대자동차 주요시설에 ‘폭염 관리솔루션’ 구축
-          </h2>
+          {/* 상단 히어로: 제목 + 첫 이미지 + 리드문구 (라벤더 배경) */}
+          <div className="refd-hero">
+            {/* 본문 제목 */}
+            <h2 className="refd-heading">
+              전국 현대자동차 주요시설에 ‘폭염 관리솔루션’ 구축
+            </h2>
 
-          {/* 이미지 1 */}
-          <img
-            className="refd-img refd-img--1"
-            src="/assets/sub/02reference01_01.jpg"
-            alt="현대자동차 주요시설 폭염 관리솔루션 구축 현장"
-          />
+            {/* 이미지 1 */}
+            <img
+              className="refd-img refd-img--1"
+              src="/assets/sub/02reference01_01.jpg"
+              alt="현대자동차 주요시설 폭염 관리솔루션 구축 현장"
+            />
 
-          {/* 강조 단락 1(중앙, 파랑) */}
-          <p className="refd-lead">
-            케이웨더가{" "}
-            <strong className="em-blue">현대자동차의 하이테크센터, 연구소 등 전국 38개 주요 시설</strong>에
-            <br />
-            폭염 관리솔루션을 구축했습니다.
-          </p>
+            {/* 강조 단락 1(중앙, 파랑) — 라벤더 박스 안 */}
+            <p className="refd-lead">
+              케이웨더가{" "}
+              <strong className="em-blue">현대자동차의 하이테크센터, 연구소 등 전국 38개 주요 시설</strong>에
+              <br />
+              폭염 관리솔루션을 구축했습니다.
+            </p>
+          </div>
 
           {/* 강조 단락 2(중앙, 주황) */}
           <p className="refd-lead" style={{ marginTop: 48 }}>
@@ -64,10 +67,9 @@ export default function ReferenceWeatherHyundaiPage() {
           </p>
 
           {/* 본문 단락 1 */}
-          <div className="refd-body">
-            <p>케이웨더의 폭염 관리솔루션은 태양 복사열 등 기상측정 데이터와 AI 알고리즘 분석을 통해 체감온도 실황을 신속하게</p>
-            <p>알려주며, 근로자들의 체감온도가 기준치 이상으로 올라가는 경우 푸쉬 알람도 제공합니다.</p>
-          </div>
+          <p className="refd-body">
+            케이웨더의 폭염 관리솔루션은 태양 복사열 등 기상측정 데이터와 AI 알고리즘 분석을 통해 체감온도 실황을 신속하게 알려주며, 근로자들의 체감온도가 기준치 이상으로 올라가는 경우 푸쉬 알람도 제공합니다.
+          </p>
 
           {/* 본문 단락 2 */}
           <p className="refd-body refd-body--gap40">
@@ -76,9 +78,9 @@ export default function ReferenceWeatherHyundaiPage() {
 
           {/* 마무리 문구(중앙) */}
           <p className="refd-closing">
-            심각한 기상 재난이 된 폭염,
+            [ 심각한 기상 재난이 된 폭염,
             <br />
-            케이웨더의 폭염 관리솔루션으로 근로자들의 건강을 지키세요!
+            <span className="em-orange">케이웨더의 폭염 관리솔루션</span>으로 근로자들의 건강을 지키세요! ]
           </p>
 
           {/* 이미지 2 */}

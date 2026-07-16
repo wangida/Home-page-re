@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import SmoothScroll from "@/components/SmoothScroll";
 import SubHero from "@/components/sub/SubHero";
+import ReferenceNav from "@/components/sub/ReferenceNav";
 import "@/components/sub/sub.css";
 import "@/components/sub/referenceDetail.css";
 
@@ -35,28 +36,31 @@ export default function ReferenceAirAppleStoragePage() {
             <span className="refd-titlebar__line" aria-hidden="true" />
           </div>
 
-          {/* 본문 제목 */}
-          <h2 className="refd-heading">
-            케이웨더의 저온사과창고 CA 저장관리 솔루션
-          </h2>
+          {/* 상단 히어로: 제목 + 첫 이미지 (라벤더 배경) */}
+          <div className="refd-hero">
+            {/* 본문 제목 */}
+            <h2 className="refd-heading">
+              케이웨더의 저온사과창고 CA 저장관리 솔루션
+            </h2>
 
-          {/* 이미지 1 */}
-          <img
-            className="refd-img refd-img--1"
-            src="/assets/sub/reference08_01.jpg"
-            alt="케이웨더 저온사과창고 CA 저장관리 솔루션 현장"
-          />
+            {/* 이미지 1 */}
+            <img
+              className="refd-img refd-img--1"
+              src="/assets/sub/reference08_01.jpg"
+              alt="케이웨더 저온사과창고 CA 저장관리 솔루션 현장"
+            />
 
-          {/* 강조 단락(중앙, 주황) */}
-          <p className="refd-lead">
-            케이웨더가 탑프레쉬와 공동으로{" "}
-            <span className="em-orange">
-              환경센서와 AI 환기장치를 이용한
-              <br />
-              농작물 저장장치 솔루션 구축
-            </span>
-            에 나섰습니다.
-          </p>
+            {/* 강조 단락(중앙, 주황) — 라벤더 박스 안 */}
+            <p className="refd-lead">
+              케이웨더가 탑프레쉬와 공동으로{" "}
+              <span className="em-orange">
+                환경센서와 AI 환기장치를 이용한
+                <br />
+                농작물 저장장치 솔루션 구축
+              </span>
+              에 나섰습니다.
+            </p>
+          </div>
 
           {/* 본문 단락 1 */}
           <p className="refd-body">
@@ -76,9 +80,9 @@ export default function ReferenceAirAppleStoragePage() {
 
           {/* 마무리 문구(중앙) */}
           <p className="refd-closing">
-            케이웨더의 공기지능 기술력은 사람 뿐만 아니라
+            [ 케이웨더의 공기지능 기술력은 사람 뿐만 아니라
             <br />
-            농작물도 쾌적의 상태로 케어합니다.
+            <span className="em-orange">농작물도 쾌적의 상태로 케어</span>합니다. ]
           </p>
 
           {/* 2단 이미지 + 캡션 */}
@@ -93,14 +97,16 @@ export default function ReferenceAirAppleStoragePage() {
             </figure>
           </div>
 
-          {/* 와이드 이미지 */}
-          <img
-            className="refd-img refd-img--stack"
-            src="/assets/sub/reference08_04.jpg"
-            alt="저온사과창고 CA 저장관리 솔루션 적용 현장"
-          />
+          {/* 와이드 구성도 — 저온저장창고 솔루션의 최신 이미지, 라인 박스 안에 확대 배치 */}
+          <div className="refd-figbox">
+            <img
+              src="/assets/sub/subtop_coldimg01.jpg?v=2"
+              alt="환경센서를 이용한 CA 저장관리 솔루션 구성도 — 저온저장창고 내부·외부 핵심 측정요소(에틸렌·이산화탄소·산소·암모니아·온습도)와 AI 환기장치·환경센서·LTE 라우터·플랫폼 연계"
+            />
+          </div>
 
-          {/* 구분선 + 목록 버튼 */}
+          {/* 하단 네비게이션(이전/다음 + 썸네일) + 구분선 + 목록 버튼 */}
+          <ReferenceNav current="/reference/air/08" />
           <div className="refd-divider" aria-hidden="true" />
           <div className="refd-actions">
             <Link className="refd-btn-list" href="/reference/air">

@@ -35,49 +35,45 @@ export default function ReferenceWeatherUlsanPage() {
             <span className="refd-titlebar__line" aria-hidden="true" />
           </div>
 
-          {/* 본문 제목 */}
-          <h2 className="refd-heading">울산항 스마트 방재기상정보 서비스</h2>
+          {/* 상단 히어로: 제목 + 첫 이미지 + 리드문구 (라벤더 배경) */}
+          <div className="refd-hero">
+            {/* 본문 제목 */}
+            <h2 className="refd-heading">울산항 스마트 방재기상정보 서비스</h2>
 
-          {/* 이미지 1 */}
-          <img
-            className="refd-img refd-img--1"
-            src="/assets/sub/02reference02_01.jpg"
-            alt="울산항 스마트 방재기상정보 서비스 현장"
-          />
+            {/* 이미지 1 */}
+            <img
+              className="refd-img refd-img--1"
+              src="/assets/sub/02reference02_01.jpg"
+              alt="울산항 스마트 방재기상정보 서비스 현장"
+            />
 
-          {/* 강조 단락(중앙) */}
-          <p className="refd-lead">
-            바다와 인접한 해양/항만시설은 해륙풍과 높은 습도 등으로
-            <br />
-            대기가 불안정해 <span className="em-orange">다양한 기상환경 리스크에 노출</span>되어 있습니다
-          </p>
+            {/* 강조 단락(중앙) — 라벤더 박스 안 */}
+            <p className="refd-lead">
+              바다와 인접한 해양/항만시설은 해륙풍과 높은 습도 등으로
+              <br />
+              대기가 불안정해 <span className="em-orange">다양한 기상환경 리스크에 노출</span>되어 있습니다
+            </p>
+          </div>
 
           {/* 본문 단락 1 */}
-          <div className="refd-body">
-            <p>
-              케이웨더의{" "}
-              <strong className="em-blue">울산항 스마트 방재기상정보 서비스</strong>는 IoT 기반 관측장비와 AI 해양예보를 통합하여 입출항 선박의 안전 운항,
-            </p>
-            <p>해양사고 예방, 시설물 보호를 지원합니다.</p>
-          </div>
+          <p className="refd-body">
+            케이웨더의{" "}
+            <strong className="em-blue">울산항 스마트 방재기상정보 서비스</strong>는 IoT 기반 관측장비와 AI 해양예보를 통합하여 입출항 선박의 안전 운항, 해양사고 예방, 시설물 보호를 지원합니다.
+          </p>
 
           {/* 본문 단락 2 */}
-          <div className="refd-body refd-body--gap40">
-            <p>
-              또한{" "}
-              <strong>구역별 미세먼지 및 선박 매연 농도, 파고, 시정 등 측정 및 예보</strong>를 통해 항만 지역의 전체적인 환경관리를 아우르며,
-            </p>
-            <p>
-              문제상황 발생 시{" "}
-              <strong>웹, SMS, 카카오톡 등 다채널 알림 시스템</strong>으로 상황별 신속한 대응이 가능토록 합니다.
-            </p>
-          </div>
+          <p className="refd-body refd-body--gap40">
+            또한{" "}
+            <strong>구역별 미세먼지 및 선박 매연 농도, 파고, 시정 등 측정 및 예보</strong>를 통해 항만 지역의 전체적인 환경관리를 아우르며, 문제상황 발생 시{" "}
+            <strong>웹, SMS, 카카오톡 등 다채널 알림 시스템</strong>으로 상황별 신속한 대응이 가능토록 합니다.
+          </p>
 
           {/* 마무리 문구(중앙) */}
           <p className="refd-closing">
-            케이웨더는 울산항만공사와 협업해 울산항 스마트 방재기상정보
+            [ 케이웨더는 울산항만공사와 협업해{" "}
+            <span className="em-orange">울산항 스마트 방재기상정보</span>
             <br />
-            서비스를 성공적으로 운영하며 서비스 완성도를 점차 고도화시키고 있습니다.
+            서비스를 성공적으로 운영하며 서비스 완성도를 점차 고도화시키고 있습니다. ]
           </p>
 
           {/* 이미지 2 */}

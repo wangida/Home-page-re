@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import SmoothScroll from "@/components/SmoothScroll";
 import SubHero from "@/components/sub/SubHero";
+import ReferenceNav from "@/components/sub/ReferenceNav";
 import "@/components/sub/sub.css";
 import "@/components/sub/referenceDetail.css";
 
@@ -35,22 +36,25 @@ export default function ReferenceAirOsongPage() {
             <span className="refd-titlebar__line" aria-hidden="true" />
           </div>
 
-          {/* 본문 제목 */}
-          <h2 className="refd-heading">
-            오송솔미초등학교 학생들의 건강 지키는 AI 환기청정기
-          </h2>
+          {/* 상단 히어로: 제목 + 첫 이미지 (라벤더 배경) */}
+          <div className="refd-hero">
+            {/* 본문 제목 */}
+            <h2 className="refd-heading">
+              오송솔미초등학교 학생들의 건강 지키는 AI 환기청정기
+            </h2>
 
-          {/* 이미지 1 */}
-          <img
-            className="refd-img refd-img--1"
-            src="/assets/sub/reference02_01.jpg"
-            alt="오송솔미초등학교 AI 환기청정기 설치 모습"
-          />
+            {/* 이미지 1 */}
+            <img
+              className="refd-img refd-img--1"
+              src="/assets/sub/reference02_01.jpg"
+              alt="오송솔미초등학교 AI 환기청정기 설치 모습"
+            />
 
-          {/* 강조 단락(중앙) */}
-          <p className="refd-lead">
-            케이웨더 AI 환기청정기가 새롭게 문을 연 오송솔미초등학교 학생들의 건강을 위해 설치됐습니다.
-          </p>
+            {/* 강조 단락(중앙) — 라벤더 박스 안 */}
+            <p className="refd-lead">
+              케이웨더 AI 환기청정기가 새롭게 문을 연 오송솔미초등학교 학생들의 건강을 위해 설치됐습니다.
+            </p>
+          </div>
 
           {/* 서브 강조(중앙, 주황) */}
           <p className="refd-lead-sub">
@@ -77,7 +81,7 @@ export default function ReferenceAirOsongPage() {
 
           {/* 마무리 문구(중앙) */}
           <p className="refd-closing">
-            케이웨더 AI 환기청정기로 학생들의 학습능력과 건강을 모두 챙기세요.
+            [ <span className="em-orange">케이웨더 AI 환기청정기</span>로 학생들의 학습능력과 건강을 모두 챙기세요. ]
           </p>
 
           {/* 이미지 2 */}
@@ -94,7 +98,8 @@ export default function ReferenceAirOsongPage() {
             alt="오송솔미초등학교 AI 환기청정기 적용 현장"
           />
 
-          {/* 구분선 + 목록 버튼 */}
+          {/* 하단 네비게이션(이전/다음 + 썸네일) + 구분선 + 목록 버튼 */}
+          <ReferenceNav current="/reference/air/03" />
           <div className="refd-divider" aria-hidden="true" />
           <div className="refd-actions">
             <Link className="refd-btn-list" href="/reference/air">

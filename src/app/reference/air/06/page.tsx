@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import SmoothScroll from "@/components/SmoothScroll";
 import SubHero from "@/components/sub/SubHero";
+import ReferenceNav from "@/components/sub/ReferenceNav";
 import "@/components/sub/sub.css";
 import "@/components/sub/referenceDetail.css";
 
@@ -35,22 +36,25 @@ export default function ReferenceAirEunpyeongPage() {
             <span className="refd-titlebar__line" aria-hidden="true" />
           </div>
 
-          {/* 본문 제목 */}
-          <h2 className="refd-heading">
-            은평구립도서관, 케이웨더 AI 환기청정솔루션으로 리모델링
-          </h2>
+          {/* 상단 히어로: 제목 + 첫 이미지 (라벤더 배경) */}
+          <div className="refd-hero">
+            {/* 본문 제목 */}
+            <h2 className="refd-heading">
+              은평구립도서관, 케이웨더 AI 환기청정솔루션으로 리모델링
+            </h2>
 
-          {/* 이미지 1 */}
-          <img
-            className="refd-img refd-img--1"
-            src="/assets/sub/reference04_01.jpg"
-            alt="은평구립도서관 AI 환기청정솔루션 도입 현장"
-          />
+            {/* 이미지 1 */}
+            <img
+              className="refd-img refd-img--1"
+              src="/assets/sub/reference04_01.jpg"
+              alt="은평구립도서관 AI 환기청정솔루션 도입 현장"
+            />
 
-          {/* 강조 단락 1(중앙) */}
-          <p className="refd-lead">
-            새롭게 그린리모델링을 마친 은평구립도서관에 케이웨더의 AI 환기청정솔루션이 도입됐습니다.
-          </p>
+            {/* 강조 단락 1(중앙) — 라벤더 박스 안 */}
+            <p className="refd-lead">
+              새롭게 그린리모델링을 마친 은평구립도서관에 케이웨더의 AI 환기청정솔루션이 도입됐습니다.
+            </p>
+          </div>
 
           {/* 강조 단락 2(중앙, 주황) */}
           <p className="refd-lead" style={{ marginTop: 48 }}>
@@ -84,9 +88,9 @@ export default function ReferenceAirEunpyeongPage() {
 
           {/* 마무리 문구(중앙) */}
           <p className="refd-closing">
-            기후위기와 에너지 가격 상승이 일상이 된 지금,
+            [ 기후위기와 에너지 가격 상승이 일상이 된 지금,
             <br />
-            케이웨더 AI 환기청정솔루션을 통해 에너지는 아끼고 쾌적함은 올려보세요.
+            <span className="em-orange">케이웨더 AI 환기청정솔루션</span>을 통해 에너지는 아끼고 쾌적함은 올려보세요. ]
           </p>
 
           {/* 이미지 2 */}
@@ -103,7 +107,8 @@ export default function ReferenceAirEunpyeongPage() {
             alt="은평구립도서관 AI 환기청정솔루션 적용 현장"
           />
 
-          {/* 구분선 + 목록 버튼 */}
+          {/* 하단 네비게이션(이전/다음 + 썸네일) + 구분선 + 목록 버튼 */}
+          <ReferenceNav current="/reference/air/06" />
           <div className="refd-divider" aria-hidden="true" />
           <div className="refd-actions">
             <Link className="refd-btn-list" href="/reference/air">

@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import SmoothScroll from "@/components/SmoothScroll";
 import SubHero from "@/components/sub/SubHero";
+import ReferenceNav from "@/components/sub/ReferenceNav";
 import "@/components/sub/sub.css";
 import "@/components/sub/referenceDetail.css";
 
@@ -35,24 +36,27 @@ export default function ReferenceAir01Page() {
             <span className="refd-titlebar__line" aria-hidden="true" />
           </div>
 
-          {/* 본문 제목 */}
-          <h2 className="refd-heading">
-            양산시 시나브로 복지관 AI 환기청정솔루션 공급
-          </h2>
+          {/* 상단 히어로: 제목 + 첫 이미지 (라벤더 배경) */}
+          <div className="refd-hero">
+            {/* 본문 제목 */}
+            <h2 className="refd-heading">
+              양산시 시나브로 복지관 AI 환기청정솔루션 공급
+            </h2>
 
-          {/* 이미지 1 */}
-          <img
-            className="refd-img refd-img--1"
-            src="/assets/sub/reference01_01.jpg"
-            alt="양산시 시나브로 복지관 AI 환기청정기 설치 모습"
-          />
+            {/* 이미지 1 */}
+            <img
+              className="refd-img refd-img--1"
+              src="/assets/sub/reference01_01.jpg"
+              alt="양산시 시나브로 복지관 AI 환기청정기 설치 모습"
+            />
 
-          {/* 강조 단락 1 */}
-          <p className="refd-lead">
-            케이웨더가 미세먼지, 휘발성유기화합물 등 오염 물질에 취약한
-            <br />
-            장애인들을 위해 양산시 시나브로 복지관에 AI 환기청정솔루션을 제공했습니다.
-          </p>
+            {/* 강조 단락 1 (라벤더 박스 안) */}
+            <p className="refd-lead">
+              케이웨더가 미세먼지, 휘발성유기화합물 등 오염 물질에 취약한
+              <br />
+              장애인들을 위해 양산시 시나브로 복지관에 AI 환기청정솔루션을 제공했습니다.
+            </p>
+          </div>
 
           {/* 강조 단락 2 */}
           <p className="refd-lead-sub">
@@ -94,7 +98,8 @@ export default function ReferenceAir01Page() {
             alt="양산시 시나브로 복지관 전경"
           />
 
-          {/* 구분선 + 목록 버튼 */}
+          {/* 하단 네비게이션(이전/다음 + 썸네일) + 구분선 + 목록 버튼 */}
+          <ReferenceNav current="/reference/air/01" />
           <div className="refd-divider" aria-hidden="true" />
           <div className="refd-actions">
             <Link className="refd-btn-list" href="/reference/air">

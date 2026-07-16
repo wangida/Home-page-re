@@ -252,10 +252,9 @@ img, svg { display: block; max-width: 100%; }
   footer .footer-copy-inline { display: block; }
   /* SNS는 왼쪽, 오시는길·Weather Site는 오른쪽으로 밀착 */
   footer .footer-actions { flex: 1; }
-  footer .footer-location { margin-left: auto; font-size: 14px; }
+  footer .footer-location { margin-left: auto; font-size: 14px; white-space: nowrap; }
   /* SNS 아이콘 간격 확대 — 손가락 터치 여유 */
-  footer .footer-social { gap: 22px; }
-  footer .footer-social-link { padding: 4px; }
+  footer .footer-social { gap: 16px; }
 }
 
 /* Solutions: mobile horizontal scroll */
@@ -1073,6 +1072,7 @@ img, svg { display: block; max-width: 100%; }
   gap: 7px;
   height: 32px;
   padding: 0 14px;
+  white-space: nowrap;
   border-radius: 999px;
   background: transparent;
   font-size: 12px;

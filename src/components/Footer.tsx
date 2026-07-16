@@ -153,7 +153,7 @@ export default function Footer() {
               </div>
               {/* 모바일: 하단 행이 좁아 저작권을 대표메일 아래로 이동 */}
               <div className="footer-copy-inline" style={{ marginTop: 16 }}>
-                © {new Date().getFullYear()} K-WEATHER
+                © {new Date().getFullYear()} Kweather
               </div>
             </div>
           </div>
@@ -220,9 +220,9 @@ export default function Footer() {
         >
           <div className="footer-copy-cell">
             <span className="footer-copy-full">
-              © {new Date().getFullYear()} K-WEATHER Co., Ltd. All rights reserved.
+              © {new Date().getFullYear()} Kweather Co., Ltd. All rights reserved.
             </span>
-            <span className="footer-copy-short">© {new Date().getFullYear()} K-WEATHER</span>
+            <span className="footer-copy-short">© {new Date().getFullYear()} Kweather</span>
           </div>
           <div className="footer-actions" style={{ display: "flex", gap: 18, alignItems: "center" }}>
             <div className="footer-social">

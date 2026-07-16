@@ -584,9 +584,9 @@ img, svg { display: block; max-width: 100%; }
   70%      { transform: translate(-6px, -26px) rotate(-3deg); }
 }
 @media (max-width: 768px) {
-  .hero__water-drop--1 { width: 11%; }
-  .hero__water-drop--2 { width: 10%; }
-  .hero__water-drop--3 { width: 9%; }
+  .hero__water-drop--1 { width: 18%; }
+  .hero__water-drop--2 { width: 17%; }
+  .hero__water-drop--3 { width: 15%; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero__water-drop { animation: none; }

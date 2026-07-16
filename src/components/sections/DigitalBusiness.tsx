@@ -15,6 +15,7 @@ type Card = {
   key: string;
   name: string;
   desc: string;
+  descMobile?: string; // 모바일 카드 폭에서 잘리는 카드용 축약 문구
   img: string;
   imgExtra?: string;
   icon: string;
@@ -34,6 +35,7 @@ const DIGITAL: Card[] = [
     key: "thermo",
     name: "체감 온도계",
     desc: "리뷰로 검증된 베스트 셀러\n실내 · 실외 온도를 한눈에",
+    descMobile: "실내 · 실외 온도를\n한눈에",
     img: "/assets/02_img_re.png",
     icon: "/assets/icon_02.png",
     href: "#", // TODO: 링크 추후 전달 예정
@@ -42,6 +44,7 @@ const DIGITAL: Card[] = [
     key: "fume",
     name: "조리실 솔루션",
     desc: "조리실 자동제어, 통합공기\n급기, 배기, 송풍기, 환기 등",
+    descMobile: "조리실 자동제어, 통합공기\n급기, 배기 등",
     img: "/assets/03_img_re.png",
     icon: "/assets/icon_03.png",
     href: "#", // TODO: 링크 추후 전달 예정
@@ -169,7 +172,18 @@ export default function DigitalBusiness() {
                   </span>
                   <div className="digital-card__head">
                     <h3 className="digital-card__name">{d.name}</h3>
-                    <p className="digital-card__desc">{d.desc}</p>
+                    {d.descMobile ? (
+                      <>
+                        <p className="digital-card__desc digital-card__desc--wide">
+                          {d.desc}
+                        </p>
+                        <p className="digital-card__desc digital-card__desc--narrow">
+                          {d.descMobile}
+                        </p>
+                      </>
+                    ) : (
+                      <p className="digital-card__desc">{d.desc}</p>
+                    )}
                   </div>
 
                   <div className="digital-card__image">

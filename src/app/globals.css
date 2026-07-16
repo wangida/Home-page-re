@@ -1473,6 +1473,8 @@ img, svg { display: block; max-width: 100%; }
   white-space: pre-line;
   word-break: keep-all;
 }
+/* 기본(데스크톱): 전체 문구, 모바일 축약본 숨김 */
+.digital-card__desc--narrow { display: none; }
 
 /* Internal image — clipped to card, centered via absolute positioning */
 .digital-card__image {
@@ -1653,6 +1655,9 @@ img, svg { display: block; max-width: 100%; }
   .digital-card__head { padding: 24px 22px 0; }
   .digital-card__name { font-size: 22px; }
   .digital-card__desc { font-size: 20px; line-height: 1.4; }
+  /* 카드 폭(250px)에서 잘리는 문구 → 축약본으로 교체 */
+  .digital-card__desc--wide { display: none; }
+  .digital-card__desc--narrow { display: block; }
   .digital-card__icon { right: -12px; bottom: -32px; }
   /* 모바일: 데스크톱 대비 0.68배 (기존 84/124 비율 유지) */
   .digital-card--weather .digital-card__icon { width: 119px; }

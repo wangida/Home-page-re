@@ -1131,7 +1131,7 @@ img, svg { display: block; max-width: 100%; }
 }
 /* 모바일(≤820px, 데스크톱 nav 대신 햄버거가 주 메뉴)에서만 크게 */
 @media (max-width: 820px) {
-  .gnb__hamburger { width: 44px; height: 44px; gap: 5px; }
+  .gnb__hamburger { width: 44px; height: 44px; gap: 5px; margin-top: -4px; }
   .gnb__hamburger span { width: 26px; height: 2.5px; }
 }
 

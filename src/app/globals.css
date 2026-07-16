@@ -816,6 +816,10 @@ img, svg { display: block; max-width: 100%; }
 @media (max-width: 768px) {
   .hero__product { bottom: 18%; width: min(92vw, 560px); }
 }
+/* 폰: 제목 3줄 + 버튼과 제품 이미지가 겹쳐 → 이미지를 하단으로 더 내림 */
+@media (max-width: 560px) {
+  .hero__product { bottom: 8%; width: min(88vw, 480px); }
+}
 
 .scroll-hint { display: none; }
 

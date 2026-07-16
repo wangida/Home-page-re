@@ -224,7 +224,7 @@ export default function Footer() {
             </span>
             <span className="footer-copy-short">© {new Date().getFullYear()} K-WEATHER</span>
           </div>
-          <div style={{ display: "flex", gap: 18, alignItems: "center" }}>
+          <div className="footer-actions" style={{ display: "flex", gap: 18, alignItems: "center" }}>
             <div className="footer-social">
               <a
                 href="#"
@@ -273,6 +273,7 @@ export default function Footer() {
             </div>
             <a
               href="/location"
+              className="footer-location"
               style={{ color: "rgba(255,255,255,0.6)", fontWeight: 600 }}
             >
               오시는길

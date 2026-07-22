@@ -3,7 +3,9 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import SmoothScroll from "@/components/SmoothScroll";
 import SubHero from "@/components/sub/SubHero";
+import AirZoneGrid from "@/components/sub/AirZoneGrid";
 import "@/components/sub/sub.css";
+import "@/components/sub/referenceDetail.css";
 
 export const metadata: Metadata = {
   title: "Air I Zone 공기지능 인증 | K-WEATHER",
@@ -26,8 +28,7 @@ export default function ReferenceAirIZonePage() {
           }
         />
 
-        {/* 본문 준비 중 — 푸터와 붙지 않도록 하단 여백 */}
-        <div aria-hidden="true" style={{ height: 1000 }} />
+        <AirZoneGrid />
       </main>
       <Footer />
     </>

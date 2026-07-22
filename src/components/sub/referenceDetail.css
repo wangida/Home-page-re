@@ -776,13 +776,16 @@
 .refw {
   /* 공기지능 사례 그리드(.ref-cards)와 동일 폭 → 썸네일 가로 크기 통일 */
   width: min(1296px, calc(100% - 208px));
-  margin: 72px auto 160px;
+  /* 페이저 ↔ 푸터 간격 +40px(160 → 200) */
+  margin: 72px auto 200px;
 }
 .refw-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 48px 40px;
 }
+/* 공기지능 인증: 그리드 상단 헤더(날씨경영 대표 사례 헤더와 동일 형식) ↔ 그리드 간격 */
+.refw > .wmedia__head { margin-bottom: 54px; }
 .refw-card {
   overflow: hidden;
   border-radius: 20px;
@@ -792,6 +795,9 @@
   transition: border-color 160ms ease;
 }
 .refw-card:hover { border-color: #4b5aad; }
+/* 공기지능 인증: 썸네일만 — 호버/클릭 상호작용 없음 */
+.refw--static .refw-card { transition: none; }
+.refw--static .refw-card:hover { border-color: #e4e4e4; }
 .refw-card__img {
   display: block;
   width: 100%;
@@ -810,14 +816,14 @@
   box-sizing: border-box;
   font-family: "Pretendard Variable", Pretendard, sans-serif;
   font-weight: 500;
-  font-size: 25px;
+  font-size: 24px;
   line-height: 1.3;
   color: #222;
   text-align: center;
 }
 /* 페이지네이션 */
 .refw-pager {
-  margin-top: 56px;
+  margin-top: 96px; /* 리스트 ↔ 페이저 간격 +40px(56 → 96) */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -863,7 +869,7 @@
 @media (max-width: 900px) {
   .refw { width: min(1296px, calc(100% - 104px)); }
   .refw-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 24px; }
-  .refw-card__label { font-size: 19px; padding: 13px 16px; }
+  .refw-card__label { font-size: 18px; padding: 13px 16px; }
 }
 @media (max-width: 620px) {
   .refw { margin: 48px auto 100px; }

@@ -18,7 +18,7 @@ type Feature = {
 const FEATURES: Feature[] = [
   {
     eyebrow: "도서관",
-    subtitle: "케이웨더 AI 환기청정솔루션으로 리모델링",
+    subtitle: "AI 환기청정솔루션으로 리모델링",
     title: "은평구립도서관",
     body: "새롭게 그린리모델링을 마친 은평구립도서관에 케이웨더의 AI 환기청정솔루션이 도입됐습니다. 창문을 열어 환기하는 경우에 비해 최대 30%의 냉난방 에너지 절감효과를 내는 KW-S800CB1·KW-S1000CB1 AI 환기청정기를 적용했습니다.",
     image: "/assets/sub/reference04_01.jpg",

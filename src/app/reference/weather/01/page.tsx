@@ -45,7 +45,7 @@ export default function ReferenceWeatherUlsanPage() {
             {/* 이미지 1 */}
             <img
               className="refd-img refd-img--1"
-              src="/assets/sub/02reference02_01.jpg"
+              src="/assets/sub/02reference02_01.png"
               alt="울산항 스마트 방재기상정보 서비스 현장"
             />
 

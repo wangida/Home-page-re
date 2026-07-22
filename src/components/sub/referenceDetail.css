@@ -488,6 +488,13 @@
   .ref-feature__inner { grid-template-columns: 1fr; gap: 24px; padding: 24px 20px; }
   .ref-feature__media { order: -1; }
   .ref-feature__arrow { top: auto; bottom: 14px; transform: none; }
+  /* 모바일: 카드가 너무 길어지지 않게 본문은 첫 한 줄만 노출 + 줄임표 */
+  .ref-feature__body {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 }
 
 /* ===== 사례 카테고리 필터(썸네일 위 가로형) =====
@@ -744,8 +751,24 @@
 .wmedia__arrow:hover { border-color: #4b5aad; color: #4b5aad; }
 .wmedia__arrow:disabled { opacity: 0.35; pointer-events: none; }
 @media (max-width: 640px) {
-  .wmedia__card { min-width: 240px; }
-  .wmedia__title { font-size: 22px; }
+  /* 헤더: 가로 → 세로로 쌓고, 제목·부제 모두 키움 */
+  .wmedia__head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding-bottom: 16px;
+  }
+  .wmedia__title { font-size: 28px; }
+  .wmedia__sub { font-size: 16px; line-height: 1.45; }
+
+  /* 메인 카드를 크게(한 번에 한 개씩) — 살짝만 작게 해 양옆 peek 소량 */
+  .wmedia__track { gap: 14px; }
+  .wmedia__card { flex: 0 0 90%; min-width: 0; }
+  /* 카드 폭이 넓어져 텍스트 눌림이 없으므로 본문은 가로 배치 유지
+     → "자세히 보기"는 타이틀 옆 우측 하단에 위치 */
+  .wmedia__name { font-size: 26px; margin-top: 1px; }
+  /* 자세히 보기 버튼은 더 작게 */
+  .wmedia__btn { height: 34px; padding: 0 13px; font-size: 12px; }
 }
 
 /* ===== 날씨경영 사례 목록(썸네일 그리드) — 1차 =====
@@ -787,7 +810,7 @@
   box-sizing: border-box;
   font-family: "Pretendard Variable", Pretendard, sans-serif;
   font-weight: 500;
-  font-size: 22px;
+  font-size: 25px;
   line-height: 1.3;
   color: #222;
   text-align: center;
@@ -840,9 +863,10 @@
 @media (max-width: 900px) {
   .refw { width: min(1296px, calc(100% - 104px)); }
   .refw-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 24px; }
-  .refw-card__label { font-size: 16px; padding: 13px 16px; }
+  .refw-card__label { font-size: 19px; padding: 13px 16px; }
 }
 @media (max-width: 620px) {
   .refw { margin: 48px auto 100px; }
-  .refw-grid { grid-template-columns: minmax(0, 420px); justify-content: center; }
+  /* 썸네일 카드 크기 조금 축소(420 → 360) */
+  .refw-grid { grid-template-columns: minmax(0, 360px); justify-content: center; }
 }

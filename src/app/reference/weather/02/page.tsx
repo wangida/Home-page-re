@@ -47,7 +47,7 @@ export default function ReferenceWeatherHyundaiPage() {
             {/* 이미지 1 */}
             <img
               className="refd-img refd-img--1"
-              src="/assets/sub/02reference01_01.jpg"
+              src="/assets/sub/02reference01_01.png"
               alt="현대자동차 주요시설 폭염 관리솔루션 구축 현장"
             />
 

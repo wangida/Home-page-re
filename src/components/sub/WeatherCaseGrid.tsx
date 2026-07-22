@@ -9,7 +9,7 @@ type WeatherCase = { name: string; thumb?: string };
 
 const PAGES: WeatherCase[][] = [
   [
-    // 울산항만공사·현대자동차·경기도시공사는 상단 갤러리에 노출 → 그리드에서 제외
+    // 울산항만공사·현대자동차·경기주택도시공사는 상단 갤러리에 노출 → 그리드에서 제외
     { name: "카카오", thumb: "/assets/sub/reference_wthumsmall01.jpg?v=5" },
     { name: "네이버", thumb: "/assets/sub/reference_wthumsmall02.jpg?v=4" },
     { name: "SK커뮤니케이션즈 - 네이트", thumb: "/assets/sub/reference_wthumsmall03.jpg?v=4" },

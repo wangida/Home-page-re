@@ -30,7 +30,7 @@ const ITEMS: Item[] = [
   },
   {
     cat: "날씨경영",
-    name: "경기도시공사",
+    name: "경기주택도시공사",
     meta: "날씨경영 컨설팅 적용 사례",
     image: "/assets/sub/reference_wthumsmall04.jpg",
   },

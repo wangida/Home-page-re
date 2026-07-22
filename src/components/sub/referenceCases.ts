@@ -35,7 +35,7 @@ export const WEATHER_NAV_CASES: ReferenceCase[] = [
   { href: "/reference/weather/03", cat: "날씨경영", name: "포스코이앤씨", thumb: "/assets/sub/reference_wthumbig01.png" },
   { href: "/reference/weather/01", cat: "기상정보사업", name: "울산항만공사", thumb: "/assets/sub/reference_wthumbig02.png" },
   { href: "/reference/weather/02", cat: "날씨경영", name: "현대자동차 (CRMaaS)", thumb: "/assets/sub/02reference01_01.jpg" },
-  { href: "#", cat: "날씨경영", name: "경기도시공사", thumb: "/assets/sub/reference_wthumsmall04.jpg" },
+  { href: "#", cat: "날씨경영", name: "경기주택도시공사", thumb: "/assets/sub/reference_wthumsmall04.jpg" },
   { href: "#", cat: "날씨경영", name: "카카오", thumb: "/assets/sub/reference_wthumsmall01.jpg?v=5" },
   { href: "#", cat: "날씨경영", name: "네이버", thumb: "/assets/sub/reference_wthumsmall02.jpg?v=4" },
   { href: "#", cat: "날씨경영", name: "SK커뮤니케이션즈 - 네이트", thumb: "/assets/sub/reference_wthumsmall03.jpg?v=4" },

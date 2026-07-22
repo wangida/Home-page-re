@@ -27,3 +27,20 @@ export const FEATURED_HREFS = [
   "/reference/air/08", // 탑프레쉬 저온사과창고
   "/reference/air/07", // LH 해남해리 2BL 공공주택
 ];
+
+/* 날씨경영 사례 상세 하단 네비 — 전체 사례를 순서대로 나열.
+   상세 페이지가 아직 없는 사례는 href "#"(플레이스홀더) → 썸네일만 표시, 이동 불가.
+   페이지 제작 후 "#"를 실제 경로(/reference/weather/NN)로 바꾸면 자동 연결됨. */
+export const WEATHER_NAV_CASES: ReferenceCase[] = [
+  { href: "/reference/weather/03", cat: "날씨경영", name: "포스코이앤씨", thumb: "/assets/sub/reference_wthumbig01.png" },
+  { href: "/reference/weather/01", cat: "기상정보사업", name: "울산항만공사", thumb: "/assets/sub/reference_wthumbig02.png" },
+  { href: "/reference/weather/02", cat: "날씨경영", name: "현대자동차 (CRMaaS)", thumb: "/assets/sub/02reference01_01.jpg" },
+  { href: "#", cat: "날씨경영", name: "경기도시공사", thumb: "/assets/sub/reference_wthumsmall04.jpg" },
+  { href: "#", cat: "날씨경영", name: "카카오", thumb: "/assets/sub/reference_wthumsmall03.jpg" },
+  { href: "#", cat: "날씨경영", name: "네이버", thumb: "/assets/sub/reference_wthumsmall02.jpg" },
+  { href: "#", cat: "날씨경영", name: "SK커뮤니케이션즈 - 네이트", thumb: "/assets/sub/reference_wthumsmall01.jpg" },
+  { href: "#", cat: "날씨경영", name: "날씨 달력", thumb: "/assets/sub/reference_wthumsmall05.jpg" },
+  { href: "#", cat: "날씨경영", name: "날씨판매지수", thumb: "/assets/sub/reference_wthumsmall06.jpg" },
+  { href: "#", cat: "날씨경영", name: "날씨수요예측", thumb: "/assets/sub/reference_wthumsmall07.jpg" },
+  { href: "#", cat: "날씨경영", name: "날씨영향분석", thumb: "/assets/sub/reference_wthumsmall08.jpg" },
+];

@@ -4,6 +4,8 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import SmoothScroll from "@/components/SmoothScroll";
 import SubHero from "@/components/sub/SubHero";
+import ReferenceNav from "@/components/sub/ReferenceNav";
+import { WEATHER_NAV_CASES } from "@/components/sub/referenceCases";
 import "@/components/sub/sub.css";
 import "@/components/sub/referenceDetail.css";
 
@@ -97,7 +99,8 @@ export default function ReferenceWeatherHyundaiPage() {
             alt="현대자동차 폭염 관리솔루션 모니터링 플랫폼"
           />
 
-          {/* 구분선 + 목록 버튼 */}
+          {/* 하단 네비게이션(이전/다음 + 썸네일) + 구분선 + 목록 버튼 */}
+          <ReferenceNav current="/reference/weather/02" items={WEATHER_NAV_CASES} />
           <div className="refd-divider" aria-hidden="true" />
           <div className="refd-actions">
             <Link className="refd-btn-list" href="/reference/weather">

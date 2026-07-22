@@ -9,9 +9,16 @@ type Item = { cat: string; name: string; meta: string; image: string; href?: str
 const ITEMS: Item[] = [
   {
     cat: "날씨경영",
+    name: "포스코이앤씨",
+    meta: "건설관리 솔루션",
+    image: "/assets/sub/reference_wthumbig01.png",
+    href: "/reference/weather/03",
+  },
+  {
+    cat: "날씨경영",
     name: "울산항만공사",
     meta: "울산항 스마트 방재기상정보 서비스",
-    image: "/assets/sub/02reference02_01.jpg",
+    image: "/assets/sub/reference_wthumbig02.png",
     href: "/reference/weather/01",
   },
   {
@@ -25,13 +32,7 @@ const ITEMS: Item[] = [
     cat: "날씨경영",
     name: "경기도시공사",
     meta: "날씨경영 컨설팅 적용 사례",
-    image: "/assets/sub/reference_rethum04.jpg",
-  },
-  {
-    cat: "날씨경영",
-    name: "카카오",
-    meta: "날씨 데이터 기반 서비스 협업",
-    image: "/assets/sub/reference_rethum03.jpg",
+    image: "/assets/sub/reference_wthumsmall04.jpg",
   },
 ];
 
@@ -72,7 +73,7 @@ export default function WeatherGallery() {
     if (!el) return;
     const card = el.querySelector(".wmedia__card");
     const step = card
-      ? (card as HTMLElement).getBoundingClientRect().width + 24
+      ? (card as HTMLElement).getBoundingClientRect().width + 50 /* gap과 동일 */
       : el.clientWidth * 0.6;
     el.scrollBy({ left: dir * step, behavior: "smooth" });
   };
@@ -84,7 +85,9 @@ export default function WeatherGallery() {
         <p className="wmedia__sub">케이웨더와 함께한 주요 기관·기업의 날씨경영 이야기</p>
       </div>
 
-      <div className="wmedia__track" ref={trackRef}>
+      {/* data-lenis-prevent-wheel: Lenis가 휠을 가로채 페이지 세로 스크롤로 바꾸는 것을 막아
+          트랙 위에서는 네이티브 가로 스크롤이 동작하게 함 */}
+      <div className="wmedia__track" ref={trackRef} data-lenis-prevent-wheel>
         {ITEMS.map((it) => (
           <div key={it.name} className="wmedia__card">
             {it.href ? (

@@ -15,33 +15,33 @@ const CARDS: Card[] = [
   {
     id: "01",
     title: "AI 환기청정 솔루션",
-    subSmall: "실내 공기질을 예측·분석\n환기와 청정을 자동 제어",
-    subBig: "AI 기반 실내 공기질 예측, 공간 맞춤 환기·청정 제어,\n에너지 절감 및 운영 최적화",
-    bullets: ["AI 환기청정기", "공간 맞춤 제어", "공기질 예측 운영", "에너지 절감 관리"],
+    subSmall: "공기질을 분석 · 예측해\n환기와 청정을 자동 제어",
+    subBig: "AI 기반 공기질 분석 · 예측, 공간 맞춤형 자동 환기제어\n에너지 절감 및 운영 최적화",
+    bullets: ["AI 환기청정", "공기질 분석 및 예측", "공간 맞춤 환기 제어", "냉난방 에너지 절감"],
     bigImg: "/assets/big_box01.png",
   },
   {
     id: "02",
     title: "공기 빅데이터 플랫폼",
-    subSmall: "실외공기 빅데이터를\n실시간으로 수집·분석·시각화",
-    subBig: "30,000만 여개의 공기 측정망 운영,\n실시간 동별 데이터 제공, Air365 기반 통합 관제",
-    bullets: ["Air365 플랫폼", "동별 미세먼지 정보", "실시간 공기 모니터링", "데이터 분석 리포트"],
+    subSmall: "실내외 공기 빅데이터를\n실시간 측정 · 수집 · 분석",
+    subBig: "30,000만 여개의 공기 측정망 운영, 동별 미세먼지\n데이터 제공, Air365 기반 통합 관리",
+    bullets: ["Air365 공기관리 S/W", "동별 미세먼지 정보", "실시간 공기 모니터링", "데이터 통계 분석"],
     bigImg: "/assets/big_box03.png",
   },
   {
     id: "03",
-    title: "기후리스크 솔루션",
-    subSmall: "기후변화와 ESG 대응을 위한\n기업 맞춤 리스크 관리 솔루션",
-    subBig: "폭염 · 건설 · 해양/항만 · ESG 대응,\n기업 맞춤 리스크 분석, CRMaaS 기반 통합 관리",
-    bullets: ["CRMaaS 플랫폼", "ESG 대응", "폭염·재난 관리", "산업 안전 솔루션"],
+    title: "기후리스크 관리솔루션",
+    subSmall: "기상이변과 ESG 대응을 위한\n기업 맞춤 리스크 관리 솔루션",
+    subBig: "폭염 · 건설 · 해양/항만 · ESG 대응\n기업 맞춤형 기후리스크 분석 및 관리 지원",
+    bullets: ["폭염·재난 대응", "산업 안전 관리", "ESG 대응", "공급망 리스크 분석"],
     bigImg: "/assets/big_box02.png",
   },
   {
     id: "04",
-    title: "날씨 데이터 플랫폼",
-    subSmall: "정밀 기상 데이터와 예측 기술로\n산업 운영과 의사결정을 지원",
-    subBig: "국내 최대 민간 기상 데이터, 4,000여 기업 고객 운영,\n산업별 수요예측 지원",
-    bullets: ["민간 기상예보", "산업별 맞춤 예보", "수요예측 시스템", "날씨경영 컨설팅"],
+    title: "기상 빅데이터 플랫폼",
+    subSmall: "기상 관측데이터와 산업별 맞춤형\n예보 기술로 경영의사결정 지원",
+    subBig: "국내 최대 민간 기상 빅데이터 운용\n4,000여 기업 고객별 날씨경영 지원",
+    bullets: ["독자 민간예보", "산업별 전담 예보", "재고관리 및 수요예측", "날씨경영 컨설팅"],
     bigImg: "/assets/big_box04.png",
   },
 ];
@@ -116,7 +116,7 @@ export default function Solutions() {
               margin: 0,
             }}
           >
-            Solutions &amp; Products
+            Platforms &amp; Solutions
           </h2>
           <p
             style={{
@@ -127,7 +127,7 @@ export default function Solutions() {
               margin: "6px 0 0",
             }}
           >
-            Weather &amp; Air Intelligence 기반의 AI 솔루션과 데이터 플랫폼
+            빅데이터 기반의 날씨 플랫폼과 솔루션
           </p>
         </header>
 

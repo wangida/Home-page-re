@@ -6,7 +6,7 @@ import SubHero from "@/components/sub/SubHero";
 import "@/components/sub/sub.css";
 
 export const metadata: Metadata = {
-  title: "방송 컨텐츠 | K-WEATHER",
+  title: "방송 컨텐츠",
   description: "케이웨더 방송 컨텐츠 — 방송·언론사에 제공하는 기상 콘텐츠.",
 };
 

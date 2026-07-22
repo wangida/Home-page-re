@@ -6,7 +6,7 @@ import SubHero from "@/components/sub/SubHero";
 import "@/components/sub/sub.css";
 
 export const metadata: Metadata = {
-  title: "공기 예보 | K-WEATHER",
+  title: "공기 예보",
   description: "케이웨더 공기 예보 — 미세먼지·오존 등 대기질 예보 정보.",
 };
 

@@ -9,7 +9,7 @@ import "@/components/sub/sub.css";
 import "@/components/sub/referenceDetail.css";
 
 export const metadata: Metadata = {
-  title: "양산시 시나브로 복지관 AI 환기청정솔루션 공급 | K-WEATHER",
+  title: "양산시 시나브로 복지관 AI 환기청정솔루션 공급",
   description:
     "케이웨더가 미세먼지·휘발성유기화합물 등 오염 물질에 취약한 장애인들을 위해 양산시 시나브로 복지관에 AI 환기청정솔루션을 제공했습니다.",
 };

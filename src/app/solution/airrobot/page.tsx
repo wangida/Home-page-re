@@ -6,7 +6,7 @@ import SubHero from "@/components/sub/SubHero";
 import "@/components/sub/sub.css";
 
 export const metadata: Metadata = {
-  title: "에어로봇 | K-WEATHER",
+  title: "에어로봇",
   description: "케이웨더 에어로봇 — 레일형 재난 사전감지 로봇.",
 };
 

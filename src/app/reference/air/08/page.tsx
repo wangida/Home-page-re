@@ -9,7 +9,7 @@ import "@/components/sub/sub.css";
 import "@/components/sub/referenceDetail.css";
 
 export const metadata: Metadata = {
-  title: "케이웨더의 저온사과창고 CA 저장관리 솔루션 | K-WEATHER",
+  title: "케이웨더의 저온사과창고 CA 저장관리 솔루션",
   description:
     "케이웨더가 탑프레쉬와 공동으로 환경센서와 AI 환기장치를 이용한 농작물 저장장치 솔루션을 구축했습니다.",
 };

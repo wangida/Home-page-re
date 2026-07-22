@@ -6,7 +6,7 @@ import SubHero from "@/components/sub/SubHero";
 import "@/components/sub/sub.css";
 
 export const metadata: Metadata = {
-  title: "모바일 정보 | K-WEATHER",
+  title: "모바일 정보",
   description: "케이웨더 모바일 정보 — 모바일 환경에 최적화된 기상·공기 정보 서비스.",
 };
 

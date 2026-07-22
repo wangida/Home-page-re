@@ -7,7 +7,7 @@ import SubHero from "@/components/sub/SubHero";
 import "@/components/sub/sub.css";
 
 export const metadata: Metadata = {
-  title: "기업소개 | K-WEATHER",
+  title: "기업소개",
   description:
     "케이웨더 기업소개 — 기상 & 공기 빅데이터플랫폼 기업, AI 시대 기후테크 기업으로 도약합니다.",
 };

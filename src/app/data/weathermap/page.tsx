@@ -7,7 +7,7 @@ import WeatherMap from "@/components/sub/WeatherMap";
 import "@/components/sub/sub.css";
 
 export const metadata: Metadata = {
-  title: "웨더 맵 | K-WEATHER",
+  title: "웨더 맵",
   description: "케이웨더 웨더 맵 — 전세계 기상 정보를 한눈에 보는 글로벌 실시간 기상 시각화 플랫폼.",
 };
 

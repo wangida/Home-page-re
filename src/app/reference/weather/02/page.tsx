@@ -10,7 +10,7 @@ import "@/components/sub/sub.css";
 import "@/components/sub/referenceDetail.css";
 
 export const metadata: Metadata = {
-  title: "전국 현대자동차 주요시설에 ‘폭염 관리솔루션’ 구축 | K-WEATHER",
+  title: "전국 현대자동차 주요시설에 ‘폭염 관리솔루션’ 구축",
   description:
     "케이웨더가 현대자동차의 하이테크센터, 연구소 등 전국 38개 주요 시설에 폭염 관리솔루션을 구축했습니다.",
 };

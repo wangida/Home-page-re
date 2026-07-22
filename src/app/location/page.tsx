@@ -7,7 +7,7 @@ import "@/components/sub/sub.css";
 import "@/components/sub/location.css";
 
 export const metadata: Metadata = {
-  title: "오시는길 | K-WEATHER",
+  title: "오시는길",
   description:
     "케이웨더(주) 오시는길 — 서울특별시 구로구 디지털로26길 5 에이스하이엔드타워 1차 4층. 대중교통·자가용 안내.",
 };

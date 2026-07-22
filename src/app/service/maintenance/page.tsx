@@ -7,7 +7,7 @@ import MaintenanceSteps from "@/components/sub/MaintenanceSteps";
 import "@/components/sub/sub.css";
 
 export const metadata: Metadata = {
-  title: "유지관리 서비스 | K-WEATHER",
+  title: "유지관리 서비스",
   description: "쾌적한 실내 공기질을 지속적으로 관리하는 케이웨더 유지관리 서비스.",
 };
 

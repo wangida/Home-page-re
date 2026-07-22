@@ -9,7 +9,7 @@ import "@/components/sub/sub.css";
 import "@/components/sub/referenceDetail.css";
 
 export const metadata: Metadata = {
-  title: "포스코이앤씨 고양풍동 2지구, AI 환기청정기 도입 | K-WEATHER",
+  title: "포스코이앤씨 고양풍동 2지구, AI 환기청정기 도입",
   description:
     "케이웨더가 4000세대가 넘는 대단지 신축아파트 및 오피스텔에 AI 환기청정기를 구축했습니다.",
 };

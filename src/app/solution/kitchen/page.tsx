@@ -6,7 +6,7 @@ import KitchenTabs from "@/components/sub/KitchenTabs";
 import "@/components/sub/sub.css";
 
 export const metadata: Metadata = {
-  title: "조리실 자동제어 | K-WEATHER",
+  title: "조리실 자동제어",
   description:
     "케이웨더 조리실 자동제어 솔루션 — 조리흄 측정·중앙제어·자동제어와 급배기 시스템으로 조리실 공기를 관리합니다.",
 };

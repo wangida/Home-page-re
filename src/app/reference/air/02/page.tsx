@@ -9,7 +9,7 @@ import "@/components/sub/sub.css";
 import "@/components/sub/referenceDetail.css";
 
 export const metadata: Metadata = {
-  title: "KPGA(한국프로골프협회) 맞춤형 기상정보 제공 | K-WEATHER",
+  title: "KPGA(한국프로골프협회) 맞춤형 기상정보 제공",
   description:
     "케이웨더가 KPGA가 주최·주관하는 전체 대회에서 대회 전/중/후 3단계 맞춤형 기상정보와 예보관 현장 파견, 사후 기상분석 보고서를 제공합니다.",
 };

@@ -7,7 +7,7 @@ import PrivateForecast from "@/components/sub/PrivateForecast";
 import "@/components/sub/sub.css";
 
 export const metadata: Metadata = {
-  title: "AI 기상예보 | K-WEATHER",
+  title: "AI 기상예보",
   description: "케이웨더 AI 기상예보 — 인공지능 기반의 고정밀 기상 예측 서비스.",
 };
 

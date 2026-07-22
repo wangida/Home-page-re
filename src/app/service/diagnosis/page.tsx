@@ -7,7 +7,7 @@ import DiagnosisTabs from "@/components/sub/DiagnosisTabs";
 import "@/components/sub/sub.css";
 
 export const metadata: Metadata = {
-  title: "공기질 측정·진단 | K-WEATHER",
+  title: "공기질 측정·진단",
   description: "실내외 공기질을 정밀하게 측정하고 오염 원인을 진단하는 케이웨더 공기질 측정·진단 서비스.",
 };
 

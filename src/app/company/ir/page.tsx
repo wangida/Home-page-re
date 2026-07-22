@@ -6,7 +6,7 @@ import SubHero from "@/components/sub/SubHero";
 import "@/components/sub/sub.css";
 
 export const metadata: Metadata = {
-  title: "IR · 주식정보 | K-WEATHER",
+  title: "IR · 주식정보",
   description:
     "케이웨더 IR · 주식정보 — 주주의 이익증대에 기여하는 기상 & 공기 빅데이터플랫폼 기업.",
 };

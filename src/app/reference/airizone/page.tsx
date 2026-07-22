@@ -8,7 +8,7 @@ import "@/components/sub/sub.css";
 import "@/components/sub/referenceDetail.css";
 
 export const metadata: Metadata = {
-  title: "Air I Zone 공기지능 인증 | K-WEATHER",
+  title: "Air I Zone 공기지능 인증",
   description:
     "미세먼지부터 이산화탄소·VOCs까지 종합 관리하는 IoT·인공지능 기반 공기지능 관리 구역.",
 };

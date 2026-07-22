@@ -6,7 +6,7 @@ import SubHero from "@/components/sub/SubHero";
 import "@/components/sub/sub.css";
 
 export const metadata: Metadata = {
-  title: "인재채용 | K-WEATHER",
+  title: "인재채용",
   description: "케이웨더 인재채용 — 케이웨더와 함께 성장할 인재를 기다립니다.",
 };
 

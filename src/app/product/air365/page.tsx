@@ -6,7 +6,7 @@ import SubHero from "@/components/sub/SubHero";
 import "@/components/sub/sub.css";
 
 export const metadata: Metadata = {
-  title: "공기 빅데이터 플랫폼 | K-WEATHER",
+  title: "공기 빅데이터 플랫폼",
   description:
     "케이웨더 공기 빅데이터 플랫폼 — 실내외 공기질 데이터를 통합 수집·분석하는 Air365 플랫폼.",
 };

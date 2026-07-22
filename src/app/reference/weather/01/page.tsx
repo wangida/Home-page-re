@@ -10,7 +10,7 @@ import "@/components/sub/sub.css";
 import "@/components/sub/referenceDetail.css";
 
 export const metadata: Metadata = {
-  title: "울산항 스마트 방재기상정보 서비스 | K-WEATHER",
+  title: "울산항 스마트 방재기상정보 서비스",
   description:
     "케이웨더는 울산항만공사와 협업해 IoT 기반 관측장비와 AI 해양예보를 통합한 울산항 스마트 방재기상정보 서비스를 운영합니다.",
 };

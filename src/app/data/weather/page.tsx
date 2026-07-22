@@ -7,7 +7,7 @@ import ObservationData from "@/components/sub/ObservationData";
 import "@/components/sub/sub.css";
 
 export const metadata: Metadata = {
-  title: "관측 데이터 | K-WEATHER",
+  title: "관측 데이터",
   description: "케이웨더 기상 데이터 — 관측·예측 기반의 정밀 기상 데이터 서비스.",
 };
 

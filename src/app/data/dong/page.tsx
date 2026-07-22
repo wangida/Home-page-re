@@ -6,7 +6,7 @@ import SubHero from "@/components/sub/SubHero";
 import "@/components/sub/sub.css";
 
 export const metadata: Metadata = {
-  title: "동별 미세먼지 | K-WEATHER",
+  title: "동별 미세먼지",
   description: "케이웨더 동별 미세먼지 — 우리 동네 단위의 상세 미세먼지 정보.",
 };
 

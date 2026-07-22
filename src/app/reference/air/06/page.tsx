@@ -9,7 +9,7 @@ import "@/components/sub/sub.css";
 import "@/components/sub/referenceDetail.css";
 
 export const metadata: Metadata = {
-  title: "은평구립도서관, 케이웨더 AI 환기청정솔루션으로 리모델링 | K-WEATHER",
+  title: "은평구립도서관, 케이웨더 AI 환기청정솔루션으로 리모델링",
   description:
     "새롭게 그린리모델링을 마친 은평구립도서관에 케이웨더의 AI 환기청정솔루션이 도입됐습니다.",
 };

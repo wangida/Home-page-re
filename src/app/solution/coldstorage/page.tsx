@@ -6,7 +6,7 @@ import SubHero from "@/components/sub/SubHero";
 import "@/components/sub/sub.css";
 
 export const metadata: Metadata = {
-  title: "저온저장창고 스마트 환기 솔루션 | K-WEATHER",
+  title: "저온저장창고 스마트 환기 솔루션",
   description:
     "케이웨더 저온저장창고 스마트 환기 솔루션 — 가스 농도까지 통제하는 한 단계 진화한 공기케어.",
 };

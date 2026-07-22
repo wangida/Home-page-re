@@ -9,7 +9,7 @@ import "@/components/sub/sub.css";
 import "@/components/sub/referenceDetail.css";
 
 export const metadata: Metadata = {
-  title: "오송솔미초등학교 학생들의 건강 지키는 AI 환기청정기 | K-WEATHER",
+  title: "오송솔미초등학교 학생들의 건강 지키는 AI 환기청정기",
   description:
     "케이웨더 AI 환기청정기가 새롭게 문을 연 오송솔미초등학교 학생들의 건강을 위해 설치됐습니다.",
 };

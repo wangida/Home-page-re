@@ -10,7 +10,7 @@ import "@/components/sub/sub.css";
 import "@/components/sub/referenceDetail.css";
 
 export const metadata: Metadata = {
-  title: "포스코이앤씨 건설관리 솔루션 구축 | K-WEATHER",
+  title: "포스코이앤씨 건설관리 솔루션 구축",
   description:
     "케이웨더가 포스코이앤씨와 함께 IoT 센서와 AI 기상예보 기반 건설 관리솔루션을 구축해 건설현장의 안전사고·시설물 피해를 예방합니다.",
 };

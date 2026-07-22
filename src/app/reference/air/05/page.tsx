@@ -9,7 +9,7 @@ import "@/components/sub/sub.css";
 import "@/components/sub/referenceDetail.css";
 
 export const metadata: Metadata = {
-  title: "성남 내정초등학교 조리실 자동제어 솔루션 구축 | K-WEATHER",
+  title: "성남 내정초등학교 조리실 자동제어 솔루션 구축",
   description:
     "케이웨더 조리실 자동제어 솔루션으로 조리흄을 관리해 조리실 종사자의 건강을 지킵니다. 성남 내정초등학교 구축 사례.",
 };

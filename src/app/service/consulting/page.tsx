@@ -6,7 +6,7 @@ import SubHero from "@/components/sub/SubHero";
 import "@/components/sub/sub.css";
 
 export const metadata: Metadata = {
-  title: "날씨경영 컨설팅 | K-WEATHER",
+  title: "날씨경영 컨설팅",
   description: "날씨 데이터로 리스크를 줄이고 새로운 기회를 만드는 케이웨더 날씨경영 컨설팅.",
 };
 

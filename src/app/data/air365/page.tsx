@@ -6,7 +6,7 @@ import SubHero from "@/components/sub/SubHero";
 import "@/components/sub/sub.css";
 
 export const metadata: Metadata = {
-  title: "공기관리 소프트웨어 | K-WEATHER",
+  title: "공기관리 소프트웨어",
   description: "케이웨더 Air365 — 실내외 공기질을 365일 관리하는 공기관리 서비스.",
 };
 

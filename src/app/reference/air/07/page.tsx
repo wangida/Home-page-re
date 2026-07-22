@@ -9,7 +9,7 @@ import "@/components/sub/sub.css";
 import "@/components/sub/referenceDetail.css";
 
 export const metadata: Metadata = {
-  title: "LH 신축 아파트에 환기청정기 대규모 공급 | K-WEATHER",
+  title: "LH 신축 아파트에 환기청정기 대규모 공급",
   description:
     "케이웨더가 LH(한국토지주택공사) 전남 해남해리 공공주택 400세대에 천장형 환기청정기를 납품했습니다.",
 };

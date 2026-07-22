@@ -6,7 +6,7 @@ import SubHero from "@/components/sub/SubHero";
 import "@/components/sub/sub.css";
 
 export const metadata: Metadata = {
-  title: "환기청정기 | K-WEATHER",
+  title: "환기청정기",
   description: "케이웨더 환기청정기 제품 소개.",
 };
 

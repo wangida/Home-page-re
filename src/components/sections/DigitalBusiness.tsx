@@ -29,7 +29,7 @@ const DIGITAL: Card[] = [
     desc: "국내 최대 날씨와 공기\n정보 서비스 제공",
     img: "/assets/01_img_re.png",
     icon: "/assets/icon_01.png",
-    href: "#", // TODO: 링크 추후 전달 예정
+    href: "/data/mobile",
   },
   {
     key: "thermo",
@@ -38,7 +38,7 @@ const DIGITAL: Card[] = [
     descMobile: "실내 · 실외 온도를\n한눈에",
     img: "/assets/02_img_re.png",
     icon: "/assets/icon_02.png",
-    href: "#", // TODO: 링크 추후 전달 예정
+    href: "/product/heat_re",
   },
   {
     key: "fume",
@@ -47,7 +47,7 @@ const DIGITAL: Card[] = [
     descMobile: "조리실 자동제어,\n통합공기 급기, 배기 등",
     img: "/assets/03_img_re.png",
     icon: "/assets/icon_03.png",
-    href: "#", // TODO: 링크 추후 전달 예정
+    href: "/solution/kitchen",
   },
   {
     key: "caster",

@@ -11,29 +11,36 @@ import {
 
 const NEWS = [
   {
-    date: "2026.05.28",
+    date: "2026.07.15",
     cat: "보도자료",
-    title: "케이웨더, 산업현장 온열질환 예방 ‘폭염 관리솔루션’ 구축 확대",
+    title: "케이웨더, 날씨데이터 위변조 불가능하도록 블록체인에 기록한다",
     excerpt:
-      "고용노동부에 체감온도계 4만3천여 대 공급계약을 체결했습니다.",
+      "케이웨더와 플레어가 기후리스크 관리 위한 날씨금융 시장 개발에 나섭니다.",
+    href: "https://www.kweather.co.kr/sub/news/view.php?id=769&page=1&tp=3&c=3",
   },
   {
-    date: "2026.05.21",
-    cat: "보도자료",
-    title: "케이웨더, AI 기술로 60일 일별 기상예보 도전한다",
-    excerpt: "AI 모델 기반 차세대 기상예보 서비스로 예보기간을 60일까지 확장합니다.",
-  },
-  {
-    date: "2026.05.20",
+    date: "2026.07.16",
     cat: "K-STORY",
-    title: "올해 역대급 폭염, 근로자 안전관리 준비되셨나요?",
-    excerpt: "AI 체감온도 분석과 실시간 모니터링으로 산업현장 온열질환을 예방합니다.",
+    title: "케이웨더, 폭염대비 전국 온열지수 예보 및 실황서비스 확대",
+    excerpt:
+      "케이웨더가 체감온도에 이어 전국 온열지수 서비스 확대를 통해 폭염 대응을 지원합니다.",
+    href: "https://www.instagram.com/p/Da150G2k0HU/?hl=ko&img_index=1",
   },
   {
-    date: "2026.05.08",
+    date: "2026.07.06",
     cat: "뉴스레터",
-    title: "세균·바이러스 99.8% 박멸, 구리 항균 기술의 원리",
-    excerpt: "구리 이온이 세균 세포막을 파괴해 강력한 항균 작용을 제공합니다.",
+    title: "저장형 체감온도계 KW-STS 출시",
+    excerpt:
+      "체감온도 측정부터 기록 및 분석까지 한번에! 데이터 분석 프로그램을 무료 제공합니다.",
+    href: "https://www.kweather.co.kr/sub/news/view.php?id=763&page=1&tp=1&c=1",
+  },
+  {
+    date: "2026.06.30",
+    cat: "보도자료",
+    title: "케이웨더, 세계 최초로 AI 에이전트 위한 기상데이터 마켓플레이스 구축",
+    excerpt:
+      "케이웨더가 세계 최초로 AI 에이전트용 기상데이터 마켓플레이스를 구축했습니다.",
+    href: "https://www.kweather.co.kr/sub/news/view.php?id=762&page=1&tp=3&c=3",
   },
 ];
 
@@ -109,7 +116,9 @@ export default function NewsAndContact() {
             {NEWS.map((n) => (
               <motion.a
                 key={n.title}
-                href="#"
+                href={n.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="card lift"
                 variants={cardReveal}
                 style={{ flex: 1, padding: "14px 28px" }}

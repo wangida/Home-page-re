@@ -23,21 +23,21 @@ const HERO_SLIDES: Slide[] = [
     eyebrow: "날씨 빅데이터 플랫폼",
     title: "국내 최대 기상·공기\n빅데이터를 보유합니다",
     bg: "/assets/hero_01.jpg",
-    cta: { label: "바로가기", href: "#digital" },
+    cta: { label: "바로가기", href: "/data/weather" },
   },
   {
     key: "ai",
     eyebrow: "AI 환기청정 솔루션",
     title: "케이웨더는 AI로\n공기질을 관리합니다",
     bg: "/assets/hero_02.jpg",
-    cta: { label: "바로가기", href: "#solutions" },
+    cta: { label: "바로가기", href: "/product/circulation" },
   },
   {
     key: "heat",
     eyebrow: "폭염 관리 솔루션",
     title: "새로운 산업재해 폭염,\n현장 데이터와 예보로\n통합 관리합니다",
     bg: "/assets/hero_03_re.jpg",
-    cta: { label: "바로가기", href: "#solutions" },
+    cta: { label: "바로가기", href: "/product/heat_re" },
   },
   {
     // 신설 슬라이드 — 로봇까지 합성된 완성 배경
@@ -45,14 +45,14 @@ const HERO_SLIDES: Slide[] = [
     eyebrow: "에어로봇",
     title: "AI · 자율운행 기술로\n재난을 사전에 감지합니다",
     bg: "/assets/hero_robot_re.jpg?v=4",
-    cta: { label: "바로가기", href: "#solutions" },
+    cta: { label: "바로가기", href: "/solution/airrobot" },
   },
   {
     key: "idol",
     eyebrow: "날씨의 아이돌",
     title: "오늘의 날씨를\n음악으로 전달합니다",
     bg: "/assets/hero_04_re.jpg?v=2",
-    cta: { label: "바로가기", href: "https://www.youtube.com/@weatheridols" },
+    cta: { label: "바로가기", href: "https://weatheridols.ai/" },
   },
 ];
 

@@ -4,7 +4,7 @@ import { useState } from "react";
 
 /* 공기지능 인증(Air I Zone) 썸네일 그리드 + 페이지네이션.
    날씨경영 사례 그리드(.refw)와 동일한 카드(이미지 + 라벨) 형식·크기·간격 재사용.
-   1페이지 = 실제 썸네일 9개(reference_zonethum01~09), 2~4페이지는 이미지 확정 후 교체 예정. */
+   1페이지 = reference_zonethum01~09, 2페이지 = reference_zonethum10~17(라벨 확정 후 교체 예정). */
 type Zone = { name: string; thumb: string };
 
 const PAGE1: Zone[] = [
@@ -19,7 +19,20 @@ const PAGE1: Zone[] = [
   { name: "성지 어린이집", thumb: "/assets/sub/reference_zonethum09.jpg" },
 ];
 
-const PAGES: Zone[][] = [PAGE1, [], [], []];
+/* 2페이지 — 이미지 9개(zonethum10~18), 성일 어린이집 ~ 비인청정 어린이집 */
+const PAGE2: Zone[] = [
+  { name: "성일 어린이집", thumb: "/assets/sub/reference_zonethum10.jpg" },
+  { name: "청솔 창의 어린이집", thumb: "/assets/sub/reference_zonethum11.jpg" },
+  { name: "곡수 초등학교", thumb: "/assets/sub/reference_zonethum12.jpg" },
+  { name: "원덕 초등학교", thumb: "/assets/sub/reference_zonethum13.jpg" },
+  { name: "개군 초등학교", thumb: "/assets/sub/reference_zonethum14.jpg" },
+  { name: "양평동 초등학교", thumb: "/assets/sub/reference_zonethum15.jpg" },
+  { name: "해솔 어린이집", thumb: "/assets/sub/reference_zonethum16.jpg" },
+  { name: "서면 어린이집", thumb: "/assets/sub/reference_zonethum17.jpg" },
+  { name: "비인청정 어린이집", thumb: "/assets/sub/reference_zonethum18.jpg" },
+];
+
+const PAGES: Zone[][] = [PAGE1, PAGE2, [], []];
 
 /* 그리드 세로 높이를 페이지 간 동일하게 유지하기 위한 슬롯 수 */
 const SLOTS = Math.max(...PAGES.map((p) => p.length));

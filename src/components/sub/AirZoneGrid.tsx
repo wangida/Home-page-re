@@ -4,7 +4,7 @@ import { useState } from "react";
 
 /* 공기지능 인증(Air I Zone) 썸네일 그리드 + 페이지네이션.
    날씨경영 사례 그리드(.refw)와 동일한 카드(이미지 + 라벨) 형식·크기·간격 재사용.
-   1페이지 = reference_zonethum01~09, 2페이지 = reference_zonethum10~17(라벨 확정 후 교체 예정). */
+   1페이지 = zonethum01~09, 2페이지 = 10~18, 3페이지 = 19~27, 4페이지 = 28~36. */
 type Zone = { name: string; thumb: string };
 
 const PAGE1: Zone[] = [
@@ -32,7 +32,33 @@ const PAGE2: Zone[] = [
   { name: "비인청정 어린이집", thumb: "/assets/sub/reference_zonethum18.jpg" },
 ];
 
-const PAGES: Zone[][] = [PAGE1, PAGE2, [], []];
+/* 3페이지 — 이미지 9개(zonethum19~27), 딸기 어린이집 ~ 노량진 어린이집 */
+const PAGE3: Zone[] = [
+  { name: "딸기 어린이집", thumb: "/assets/sub/reference_zonethum19.jpg" },
+  { name: "구립 초롱별 어린이집", thumb: "/assets/sub/reference_zonethum20.jpg" },
+  { name: "한빛 어린이집", thumb: "/assets/sub/reference_zonethum21.jpg" },
+  { name: "탑키즈 어린이집", thumb: "/assets/sub/reference_zonethum22.jpg" },
+  { name: "모태 산후조리원", thumb: "/assets/sub/reference_zonethum23.jpg" },
+  { name: "샛별 어린이집", thumb: "/assets/sub/reference_zonethum24.jpg" },
+  { name: "이수 어린이집", thumb: "/assets/sub/reference_zonethum25.jpg" },
+  { name: "큰나무 어린이집", thumb: "/assets/sub/reference_zonethum26.jpg" },
+  { name: "노량진 어린이집", thumb: "/assets/sub/reference_zonethum27.jpg" },
+];
+
+/* 4페이지 — 이미지 9개(zonethum28~36), 이솔 어린이집 ~ 엔젤숲유치원 */
+const PAGE4: Zone[] = [
+  { name: "이솔어린이집", thumb: "/assets/sub/reference_zonethum28.jpg" },
+  { name: "푸른솔어린이집", thumb: "/assets/sub/reference_zonethum29.jpg" },
+  { name: "노블어린이집", thumb: "/assets/sub/reference_zonethum30.jpg" },
+  { name: "대아초등학교", thumb: "/assets/sub/reference_zonethum31.jpg" },
+  { name: "세인트요양병원", thumb: "/assets/sub/reference_zonethum32.jpg" },
+  { name: "워커힐 카지노", thumb: "/assets/sub/reference_zonethum33.jpg" },
+  { name: "시립갈현어린이집", thumb: "/assets/sub/reference_zonethum34.jpg" },
+  { name: "에이스하이엔드타워 1차", thumb: "/assets/sub/reference_zonethum35.jpg" },
+  { name: "엔젤숲유치원", thumb: "/assets/sub/reference_zonethum36.jpg" },
+];
+
+const PAGES: Zone[][] = [PAGE1, PAGE2, PAGE3, PAGE4];
 
 /* 그리드 세로 높이를 페이지 간 동일하게 유지하기 위한 슬롯 수 */
 const SLOTS = Math.max(...PAGES.map((p) => p.length));

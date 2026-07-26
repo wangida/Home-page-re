@@ -71,7 +71,7 @@ export default function ColdStoragePage() {
               <span className="cold-stats__cap">미만 측정 오차율</span>
             </li>
             <li className="cold-stats__card">
-              <strong className="cold-stats__num">0℃ / 90%</strong>
+              <strong className="cold-stats__num">0°C / 90%</strong>
               <span className="cold-stats__cap">저온다습(RH) 실증 환경</span>
             </li>
             <li className="cold-stats__card">

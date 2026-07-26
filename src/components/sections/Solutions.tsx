@@ -9,6 +9,7 @@ type Card = {
   subBig: string;
   bullets: string[];
   bigImg: string;
+  href?: string; // 미지정 카드는 '자세히 보기'가 링크 없이 표시됨
 };
 
 const CARDS: Card[] = [
@@ -27,6 +28,7 @@ const CARDS: Card[] = [
     subBig: "30,000만 여개의 공기 측정망 운영, 동별 미세먼지\n데이터 제공, Air365 기반 통합 관리",
     bullets: ["Air365 공기관리 S/W", "동별 미세먼지 정보", "실시간 공기 모니터링", "데이터 통계 분석"],
     bigImg: "/assets/big_box03.png",
+    href: "/product/air365",
   },
   {
     id: "03",
@@ -43,6 +45,7 @@ const CARDS: Card[] = [
     subBig: "국내 최대 민간 기상 빅데이터 운용\n4,000여 기업 고객별 날씨경영 지원",
     bullets: ["독자 민간예보", "산업별 전담 예보", "재고관리 및 수요예측", "날씨경영 컨설팅"],
     bigImg: "/assets/big_box04.png",
+    href: "/service/consulting",
   },
 ];
 
@@ -325,13 +328,29 @@ export default function Solutions() {
                     ))}
                   </ul>
                   <div style={{ marginTop: "auto" }}>
-                    <img
-                      src="/assets/btn_product.svg"
-                      alt="자세히 보기"
-                      width={215}
-                      height={80}
-                      style={{ display: "block" }}
-                    />
+                    {c.href ? (
+                      <a
+                        href={c.href}
+                        aria-label={`${c.title} 자세히 보기`}
+                        style={{ display: "block", width: 215 }}
+                      >
+                        <img
+                          src="/assets/btn_product.svg"
+                          alt="자세히 보기"
+                          width={215}
+                          height={80}
+                          style={{ display: "block" }}
+                        />
+                      </a>
+                    ) : (
+                      <img
+                        src="/assets/btn_product.svg"
+                        alt="자세히 보기"
+                        width={215}
+                        height={80}
+                        style={{ display: "block" }}
+                      />
+                    )}
                   </div>
                 </div>
               </article>

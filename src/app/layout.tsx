@@ -8,9 +8,6 @@ export const metadata: Metadata = {
   },
   description:
     "케이웨더 — 국내 최대 공기·날씨 빅데이터, AI 환기청정, 기후 리스크 관리솔루션.",
-  icons: {
-    icon: "/assets/re_favicon.svg",
-  },
 };
 
 export const viewport: Viewport = {

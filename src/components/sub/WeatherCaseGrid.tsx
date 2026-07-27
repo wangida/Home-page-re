@@ -1,24 +1,26 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 /* 날씨경영 사례 그리드 + 페이지네이션.
    상단 갤러리(WeatherGallery)는 페이지와 무관하게 항상 노출되고,
-   여기 그리드만 페이지(1·2)에 따라 교체된다. */
-type WeatherCase = { name: string; thumb?: string };
+   여기 그리드만 페이지(1·2)에 따라 교체된다.
+   href가 있는 카드는 상세 페이지로 이동, 없으면 썸네일만(준비중). */
+type WeatherCase = { name: string; thumb?: string; href?: string };
 
 const PAGES: WeatherCase[][] = [
   [
     // 울산항만공사·현대자동차·경기주택도시공사는 상단 갤러리에 노출 → 그리드에서 제외
-    { name: "카카오", thumb: "/assets/sub/reference_wthumsmall01.jpg?v=5" },
-    { name: "네이버", thumb: "/assets/sub/reference_wthumsmall02.jpg?v=4" },
-    { name: "SK커뮤니케이션즈 - 네이트", thumb: "/assets/sub/reference_wthumsmall03.jpg?v=4" },
-    { name: "날씨 달력", thumb: "/assets/sub/reference_wthumsmall05.jpg" },
-    { name: "날씨판매지수", thumb: "/assets/sub/reference_wthumsmall06.jpg" },
-    { name: "날씨수요예측", thumb: "/assets/sub/reference_wthumsmall07.jpg" },
+    { name: "카카오", thumb: "/assets/sub/reference_wthumsmall01.jpg?v=5", href: "/reference/weather/09" },
+    { name: "네이버", thumb: "/assets/sub/reference_wthumsmall02.jpg?v=4", href: "/reference/weather/10" },
+    { name: "SK커뮤니케이션즈 - 네이트", thumb: "/assets/sub/reference_wthumsmall03.jpg?v=4", href: "/reference/weather/11" },
+    { name: "날씨 달력", thumb: "/assets/sub/reference_wthumsmall05.jpg", href: "/reference/weather/04" },
+    { name: "날씨판매지수", thumb: "/assets/sub/reference_wthumsmall06.jpg", href: "/reference/weather/05" },
+    { name: "날씨수요예측", thumb: "/assets/sub/reference_wthumsmall07.jpg", href: "/reference/weather/06" },
   ],
   [
-    { name: "날씨영향분석", thumb: "/assets/sub/reference_wthumsmall08.jpg" },
+    { name: "날씨영향분석", thumb: "/assets/sub/reference_wthumsmall08.jpg", href: "/reference/weather/07" },
   ],
 ];
 
@@ -39,16 +41,27 @@ export default function WeatherCaseGrid() {
   return (
     <section className="refw" aria-label="날씨경영 사례 목록">
       <div className="refw-grid">
-        {cases.map((c) => (
-          <div key={c.name} className="refw-card">
-            {c.thumb ? (
-              <img className="refw-card__img" src={c.thumb} alt="" loading="lazy" />
-            ) : (
-              <span className="refw-card__img refw-card__img--empty" aria-hidden="true" />
-            )}
-            <span className="refw-card__label">{c.name}</span>
-          </div>
-        ))}
+        {cases.map((c) => {
+          const inner = (
+            <>
+              {c.thumb ? (
+                <img className="refw-card__img" src={c.thumb} alt="" loading="lazy" />
+              ) : (
+                <span className="refw-card__img refw-card__img--empty" aria-hidden="true" />
+              )}
+              <span className="refw-card__label">{c.name}</span>
+            </>
+          );
+          return c.href ? (
+            <Link key={c.name} className="refw-card refw-card--link" href={c.href}>
+              {inner}
+            </Link>
+          ) : (
+            <div key={c.name} className="refw-card">
+              {inner}
+            </div>
+          );
+        })}
         {Array.from({ length: ghosts }, (_, i) => (
           <div key={`ghost-${i}`} className="refw-card" aria-hidden="true">
             <img

@@ -31,8 +31,9 @@ const ITEMS: Item[] = [
   {
     cat: "날씨경영",
     name: "경기주택도시공사",
-    meta: "날씨경영 컨설팅 적용 사례",
+    meta: "미세먼지 저감 시스템, 방재시스템 제공",
     image: "/assets/sub/reference_wthumsmall04.jpg",
+    href: "/reference/weather/08",
   },
 ];
 

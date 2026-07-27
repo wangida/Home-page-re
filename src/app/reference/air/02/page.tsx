@@ -46,7 +46,7 @@ export default function ReferenceAirKpgaPage() {
             {/* 이미지 1 */}
             <img
               className="refd-img refd-img--1"
-              src="/assets/sub/reference07_01.jpg"
+              src="/assets/sub/reference07_01.png"
               alt="KPGA 대회 현장 기상정보 제공 모습"
             />
 

@@ -46,7 +46,7 @@ export default function ReferenceAirAppleStoragePage() {
             {/* 이미지 1 */}
             <img
               className="refd-img refd-img--1"
-              src="/assets/sub/reference08_01.jpg"
+              src="/assets/sub/reference08_01.png"
               alt="케이웨더 저온사과창고 CA 저장관리 솔루션 현장"
             />
 

@@ -46,7 +46,7 @@ export default function ReferenceAirPoscoPage() {
             {/* 이미지 1 */}
             <img
               className="refd-img refd-img--1"
-              src="/assets/sub/reference05_01.jpg"
+              src="/assets/sub/reference05_01.png"
               alt="포스코이앤씨 고양풍동 2지구 AI 환기청정기 설치 모습"
             />
 

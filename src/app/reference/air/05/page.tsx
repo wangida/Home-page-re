@@ -46,7 +46,7 @@ export default function ReferenceAirSeongnamPage() {
             {/* 이미지 1 */}
             <img
               className="refd-img refd-img--1"
-              src="/assets/sub/reference03_01.jpg"
+              src="/assets/sub/reference03_01.png"
               alt="성남 내정초등학교 조리실 자동제어 솔루션 구축 현장"
             />
 

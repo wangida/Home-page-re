@@ -46,7 +46,7 @@ export default function ReferenceAirEunpyeongPage() {
             {/* 이미지 1 */}
             <img
               className="refd-img refd-img--1"
-              src="/assets/sub/reference04_01.jpg"
+              src="/assets/sub/reference04_01.png"
               alt="은평구립도서관 AI 환기청정솔루션 도입 현장"
             />
 

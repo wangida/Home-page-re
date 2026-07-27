@@ -46,7 +46,7 @@ export default function ReferenceAirOsongPage() {
             {/* 이미지 1 */}
             <img
               className="refd-img refd-img--1"
-              src="/assets/sub/reference02_01.jpg"
+              src="/assets/sub/reference02_01.png"
               alt="오송솔미초등학교 AI 환기청정기 설치 모습"
             />
 

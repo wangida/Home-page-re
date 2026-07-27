@@ -44,7 +44,7 @@ export default function ReferenceAirLhHaenamPage() {
             {/* 이미지 1 */}
             <img
               className="refd-img refd-img--1"
-              src="/assets/sub/reference06_01.jpg"
+              src="/assets/sub/reference06_01.png"
               alt="LH 전남 해남해리 공공주택 천장형 환기청정기 설치 현장"
             />
 

@@ -46,7 +46,7 @@ export default function ReferenceAir01Page() {
             {/* 이미지 1 */}
             <img
               className="refd-img refd-img--1"
-              src="/assets/sub/reference01_01.jpg"
+              src="/assets/sub/reference01_01.png?v=3"
               alt="양산시 시나브로 복지관 AI 환기청정기 설치 모습"
             />
 

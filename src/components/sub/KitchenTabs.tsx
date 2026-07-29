@@ -28,10 +28,10 @@ export default function KitchenTabs() {
       <div className="kitchen-panel" role="tabpanel" key={active}>
         {active === 3 ? (
           <>
-            <h2 className="kitchen-panel__title">퓨리솔루션 급배기 시스템</h2>
+            <h2 className="kitchen-panel__title">급배기 시스템</h2>
             <p className="kitchen-panel__desc">
               <strong className="em-blue">조리실 자동제어 솔루션과 완벽 호환</strong>되는
-              퓨리솔루션의 급배기 시스템은 고효율 EC 모터 및 팬과
+              급배기 시스템은 고효율 EC 모터 및 팬과
               <br />
               프리필터, 집진필터, 데미스터 필터 등이 탑재돼{" "}
               <strong className="em-blue">실내 조리흄 배출과 신선한 외기 공급을 동시에</strong>{" "}
@@ -43,7 +43,7 @@ export default function KitchenTabs() {
                 <div className="cook-feat__text">
                   <h3 className="cook-sec__head">특장점</h3>
                   <ul className="cook-feat__list">
-                    <li>케이웨더 조리실 자동제어 솔루션과 완벽 호환을 통한 AI 자동운전 가능</li>
+                    <li>조리실 자동제어 솔루션과 완벽 호환을 통한 AI 자동운전 가능</li>
                     <li>고효율 EC 모터 및 FAN을 적용하여 저소음·고정압·고풍량 성능 확보</li>
                     <li>Body on Frame 설계를 통한 우수한 강성 및 기밀성으로 진동과 소음을 크게 저감</li>
                     <li>프리필터, 집진필터, 데미스터 필터 내장으로 유해물질 배출 및 유입차단에 효과적</li>
@@ -76,7 +76,7 @@ export default function KitchenTabs() {
                     src="/assets/sub/subtop_cookimg01.png"
                     width={531}
                     height={632}
-                    alt="퓨리솔루션 급배기 시스템 제품 이미지"
+                    alt="급배기 시스템 제품 이미지"
                   />
                 </div>
               </section>

@@ -33,7 +33,7 @@ export default function ReferenceWeatherPoscoPage() {
           <div className="refd-titlebar">
             <p className="refd-titlebar__cat">날씨경영 / 건설관리 솔루션</p>
             <p className="refd-titlebar__name">포스코이앤씨</p>
-            <p className="refd-titlebar__date">2026. 06. 16</p>
+            <p className="refd-titlebar__date">2025. 07. 16</p>
             <span className="refd-titlebar__line" aria-hidden="true" />
           </div>
 

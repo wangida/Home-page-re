@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import SmoothScroll from "@/components/SmoothScroll";
+import AirRobotVideo from "@/components/sub/AirRobotVideo";
 import SubHero from "@/components/sub/SubHero";
 import "@/components/sub/sub.css";
 
@@ -111,6 +112,11 @@ export default function AirRobotPage() {
               <figcaption className="robot-site__cap">[ 국방시설 ]</figcaption>
             </figure>
           </div>
+        </section>
+
+        <section className="robot-movie">
+          <h2 className="robot-movie__title">에어로봇 소개 영상</h2>
+          <AirRobotVideo />
         </section>
 
         {/* 푸터 앞 하단 여백 */}

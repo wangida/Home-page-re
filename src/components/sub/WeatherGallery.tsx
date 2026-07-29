@@ -6,34 +6,35 @@ import Link from "next/link";
 /* 날씨경영 상단 미디어 갤러리 — 헤더 + 가로 스크롤 카드 3개 + 하단 진행바/화살표(이미지 #27 형태). */
 type Item = { cat: string; name: string; meta: string; image: string; href?: string };
 
+/* 최신순(좌 → 우) — 하이트진로 26.6.22 · 삼성물산 26.6.12 · BGF로지스 26.6.11 · 포스코이앤씨 25.7.16 */
 const ITEMS: Item[] = [
+  {
+    cat: "날씨경영",
+    name: "하이트진로",
+    meta: "폭염관리 솔루션",
+    image: "/assets/sub/reference_wthumbig05.jpg",
+    href: "/reference/weather/12",
+  },
+  {
+    cat: "날씨경영",
+    name: "삼성물산",
+    meta: "폭염관리 솔루션",
+    image: "/assets/sub/reference_wthumbig03.jpg",
+    href: "/reference/weather/13",
+  },
+  {
+    cat: "날씨경영",
+    name: "BGF로지스",
+    meta: "폭염관리 솔루션",
+    image: "/assets/sub/reference_wthumbig04.jpg",
+    href: "/reference/weather/14",
+  },
   {
     cat: "날씨경영",
     name: "포스코이앤씨",
     meta: "건설관리 솔루션",
     image: "/assets/sub/reference_wthumbig01.png",
     href: "/reference/weather/03",
-  },
-  {
-    cat: "날씨경영",
-    name: "울산항만공사",
-    meta: "울산항 스마트 방재기상정보 서비스",
-    image: "/assets/sub/reference_wthumbig02.png",
-    href: "/reference/weather/01",
-  },
-  {
-    cat: "날씨경영",
-    name: "현대자동차 (CRMaaS)",
-    meta: "전국 주요시설 폭염 관리솔루션 구축",
-    image: "/assets/sub/02reference01_01.jpg",
-    href: "/reference/weather/02",
-  },
-  {
-    cat: "날씨경영",
-    name: "경기주택도시공사",
-    meta: "미세먼지 저감 시스템, 방재시스템 제공",
-    image: "/assets/sub/reference_wthumsmall04.jpg",
-    href: "/reference/weather/08",
   },
 ];
 

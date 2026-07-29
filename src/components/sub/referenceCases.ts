@@ -32,6 +32,9 @@ export const FEATURED_HREFS = [
    상세 페이지가 아직 없는 사례는 href "#"(플레이스홀더) → 썸네일만 표시, 이동 불가.
    페이지 제작 후 "#"를 실제 경로(/reference/weather/NN)로 바꾸면 자동 연결됨. */
 export const WEATHER_NAV_CASES: ReferenceCase[] = [
+  { href: "/reference/weather/12", cat: "날씨경영", name: "하이트진로", thumb: "/assets/sub/reference_wthumbig05.jpg" },
+  { href: "/reference/weather/13", cat: "날씨경영", name: "삼성물산", thumb: "/assets/sub/reference_wthumbig03.jpg" },
+  { href: "/reference/weather/14", cat: "날씨경영", name: "BGF로지스", thumb: "/assets/sub/reference_wthumbig04.jpg" },
   { href: "/reference/weather/03", cat: "날씨경영", name: "포스코이앤씨", thumb: "/assets/sub/reference_wthumbig01.png" },
   { href: "/reference/weather/01", cat: "기상정보사업", name: "울산항만공사", thumb: "/assets/sub/reference_wthumbig02.png" },
   { href: "/reference/weather/02", cat: "날씨경영", name: "현대자동차 (CRMaaS)", thumb: "/assets/sub/02reference01_01.jpg" },

@@ -307,10 +307,13 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  /* 사례가 늘어도 썸네일은 고정 크기 — 넘치면 가로 스크롤(스크롤바 숨김) */
+  overflow-x: auto;
+  scrollbar-width: none;
 }
+.refd-nav__thumbs::-webkit-scrollbar { display: none; }
 .refd-nav__thumb {
-  flex: 1 1 0;
-  min-width: 0;
+  flex: 0 0 110px; /* 1440px 기준 10개 노출 */
   aspect-ratio: 368 / 230;
   border-radius: 10px;
   overflow: hidden;

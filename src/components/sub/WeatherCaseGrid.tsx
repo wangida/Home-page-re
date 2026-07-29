@@ -11,15 +11,19 @@ type WeatherCase = { name: string; thumb?: string; href?: string };
 
 const PAGES: WeatherCase[][] = [
   [
-    // 울산항만공사·현대자동차·경기주택도시공사는 상단 갤러리에 노출 → 그리드에서 제외
+    // 상단 갤러리는 포스코이앤씨 + 신규 3사(삼성물산·BGF리테일·하이트진로)로 교체 →
+    // 기존 갤러리 3건(울산항만공사·현대자동차·경기주택도시공사)은 여기 그리드로 이동
+    { name: "울산항만공사", thumb: "/assets/sub/reference_wthumbig02.png", href: "/reference/weather/01" },
+    { name: "현대자동차 (CRMaaS)", thumb: "/assets/sub/02reference01_01.jpg", href: "/reference/weather/02" },
+    { name: "경기주택도시공사", thumb: "/assets/sub/reference_wthumsmall04.jpg", href: "/reference/weather/08" },
     { name: "카카오", thumb: "/assets/sub/reference_wthumsmall01.jpg?v=5", href: "/reference/weather/09" },
     { name: "네이버", thumb: "/assets/sub/reference_wthumsmall02.jpg?v=4", href: "/reference/weather/10" },
     { name: "SK커뮤니케이션즈 - 네이트", thumb: "/assets/sub/reference_wthumsmall03.jpg?v=4", href: "/reference/weather/11" },
+  ],
+  [
     { name: "날씨 달력", thumb: "/assets/sub/reference_wthumsmall05.jpg", href: "/reference/weather/04" },
     { name: "날씨판매지수", thumb: "/assets/sub/reference_wthumsmall06.jpg", href: "/reference/weather/05" },
     { name: "날씨수요예측", thumb: "/assets/sub/reference_wthumsmall07.jpg", href: "/reference/weather/06" },
-  ],
-  [
     { name: "날씨영향분석", thumb: "/assets/sub/reference_wthumsmall08.jpg", href: "/reference/weather/07" },
   ],
 ];

@@ -69,9 +69,9 @@ export default function AirAllPage() {
 
           <div className="airall-sec__fig">
             <img
-              src="/assets/sub/solution_airall01.jpg?v=2"
-              width={1642}
-              height={1074}
+              src="/assets/sub/solution_airall01_re.jpg?v=1"
+              width={2752}
+              height={1593}
               alt="공기질 통합관리 구성도 — 공기측정기·냉난방기·루프시스템·공기정화기·자동문·LED조명을 중앙제어장치로 통합하고 빅데이터 플랫폼 센터·통합제어관리서비스와 연계"
             />
           </div>

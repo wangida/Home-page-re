@@ -144,7 +144,16 @@ export default function Hero() {
                 ease: EASE_EXPO,
               }}
             >
-              {s.eyebrow}
+              {s.eyebrow.includes("ㅣ")
+                ? s.eyebrow.split("ㅣ").map((part, i, arr) => (
+                    <span key={i}>
+                      {part}
+                      {i < arr.length - 1 && (
+                        <span className="hero__eyebrow-divider">ㅣ</span>
+                      )}
+                    </span>
+                  ))
+                : s.eyebrow}
             </motion.span>
             <AnimatedText
               as="h1"

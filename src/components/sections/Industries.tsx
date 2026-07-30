@@ -49,10 +49,12 @@ function LogoMarquee({
   items,
   reverse = false,
   image = false,
+  duration = 90,
 }: {
   items: string[];
   reverse?: boolean;
   image?: boolean;
+  duration?: number;
 }) {
   const doubled = [...items, ...items];
   const onEnter = (e: MouseEvent<HTMLDivElement>) => {
@@ -70,7 +72,7 @@ function LogoMarquee({
       <div
         className="marquee__track"
         style={{
-          animation: "marquee 300s linear infinite",
+          animation: `marquee ${duration}s linear infinite`,
           animationDirection: reverse ? "reverse" : "normal",
         }}
       >
@@ -188,8 +190,8 @@ export default function Industries() {
           viewport={VIEWPORT_DEFAULT}
           style={{ display: "flex", flexDirection: "column", gap: 16 }}
         >
-          <LogoMarquee items={PUBLIC_LOGOS} image />
-          <LogoMarquee items={PRIVATE_LOGOS} reverse image />
+          <LogoMarquee items={PUBLIC_LOGOS} image duration={90} />
+          <LogoMarquee items={PRIVATE_LOGOS} reverse image duration={110} />
         </motion.div>
       </div>
     </section>

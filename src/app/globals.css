@@ -673,7 +673,7 @@ img, svg { display: block; max-width: 100%; }
 
 .hero--data .hero__eyebrow { color: #53D9FF; }
 .hero--data .hero__title   { color: #fff; }
-.hero--ai .hero__eyebrow { color: rgb(5,16,50); }
+.hero--ai .hero__eyebrow { color: #0047BA; font-weight: 500; }
 .hero--ai .hero__title   { color: rgb(5,16,50); font-size: clamp(31px, 3.6vw, 45px); }
 .hero--idol .hero__eyebrow { color: rgb(24,24,24); }
 .hero--idol .hero__title   { color: rgb(24,24,24); }

@@ -7,13 +7,24 @@ type SubHeroProps = {
   subtitle?: string;
   /** 영문 서브타이틀(Roboto Light 40px) — 기업소개처럼 영문 카피일 때 */
   subEn?: boolean;
+  /** 이미지 내 피사체가 상단/하단으로 치우쳐 잘릴 때 배경 위치 보정(기본: center) */
+  imagePosition?: string;
 };
 
-export default function SubHero({ image, title, subtitle, subEn }: SubHeroProps) {
+export default function SubHero({
+  image,
+  title,
+  subtitle,
+  subEn,
+  imagePosition,
+}: SubHeroProps) {
   return (
     <section
       className="sub-hero"
-      style={{ backgroundImage: `url(${image})` }}
+      style={{
+        backgroundImage: `url(${image})`,
+        ...(imagePosition ? { backgroundPosition: imagePosition } : {}),
+      }}
     >
       <h1 className="sub-hero__title">{title}</h1>
       {subtitle && (

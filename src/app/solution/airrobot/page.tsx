@@ -19,7 +19,7 @@ export default function AirRobotPage() {
       <Header solid />
       <main>
         <SubHero
-          image="/assets/sub/subtop_airrobot.jpg?v=4"
+          image="/assets/sub/subtop_airrobot_re.jpg?v=4"
           title="재난 사전감지 로봇, 에어로봇"
           subtitle={"레일형 재난 사전감지 로봇\n에어로봇"}
         />

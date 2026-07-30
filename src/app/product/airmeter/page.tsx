@@ -18,7 +18,8 @@ export default function AirMeterPage() {
       <Header solid />
       <main>
         <SubHero
-          image="/assets/sub/subtop_airmeter.jpg"
+          image="/assets/sub/subtop_airmeter_re.jpg?v=4"
+          imagePosition="center bottom"
           title="공기측정기"
           subtitle={"보이지 않는 공기를 데이터로 관리하는\n정확한 날씨 · 미세먼지 정보 제공"}
         />

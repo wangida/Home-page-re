@@ -22,7 +22,8 @@ export default function ReferenceAirPoscoPage() {
       <Header solid />
       <main>
         <SubHero
-          image="/assets/sub/subtop_airmeter.jpg"
+          image="/assets/sub/subtop_airmeter_re.jpg?v=4"
+          imagePosition="center bottom"
           title="공기지능 사례"
           subtitle={"현장에서 증명한 공기 관리\n케이웨더 공기지능 컨설팅 적용 사례"}
         />

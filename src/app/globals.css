@@ -312,6 +312,10 @@ img, svg { display: block; max-width: 100%; }
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
+@media (max-width: 768px) {
+  .logo-chip { height: 96px !important; }
+  .logo-chip img { max-width: 195px !important; }
+}
 
 /* ===== HERO ===== */
 .hero {
@@ -674,7 +678,8 @@ img, svg { display: block; max-width: 100%; }
 .hero--data .hero__eyebrow { color: #53D9FF; }
 .hero--data .hero__title   { color: #fff; }
 .hero--ai .hero__eyebrow { color: #0047BA; font-weight: 500; }
-.hero__eyebrow-divider { font-weight: 400; }
+.hero--ai .hero__eyebrow-en { font-size: 25px; vertical-align: top; }
+.hero__eyebrow-divider { font-weight: 300; margin: 0 2px; font-size: 24px; }
 .hero--ai .hero__eyebrow-divider { color: #003375; }
 .hero--ai .hero__title   { color: rgb(5,16,50); font-size: clamp(31px, 3.6vw, 45px); }
 .hero--idol .hero__eyebrow { color: rgb(24,24,24); }
@@ -1411,6 +1416,7 @@ img, svg { display: block; max-width: 100%; }
   margin: 0;
   word-break: keep-all;
 }
+.digital-header__sub--narrow { display: none; }
 
 .digital-scroller {
   position: relative;
@@ -1672,6 +1678,9 @@ img, svg { display: block; max-width: 100%; }
   .digital-layout { grid-template-columns: 1fr; gap: 36px; }
 }
 @media (max-width: 768px) {
+  .digital-header__sub--wide { display: none; }
+  .digital-header__sub--narrow { display: block; }
+  .digital-header__sub { font-size: 24px; }
   .digital-card { width: 250px; height: 340px; }
   .digital-track { grid-auto-columns: 250px; gap: 16px; }
   .digital-card__head { padding: 24px 22px 0; }
@@ -1688,6 +1697,7 @@ img, svg { display: block; max-width: 100%; }
   .digital-card--caster  .digital-card__icon { width: 143px; }
   .digital-card--model   .digital-card__icon { width: 123px; }
   .digital-progress__fill { width: 40%; transform: translateX(calc((100% / 0.40 - 100%) * var(--p, 0))); }
+  .digital-controls { margin-top: 40px; }
 }
 @media (max-width: 520px) {
   .digital-card { width: 220px; height: 320px; }
@@ -1712,6 +1722,25 @@ img, svg { display: block; max-width: 100%; }
   border-color: transparent;
   padding: 28px;
   flex: 1;
+}
+.news-header__title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.news-header__cta-icon { display: none; }
+@media (max-width: 768px) {
+  .news-header__cta-full { display: none; }
+  .news-header__cta-icon {
+    display: inline-grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    background: var(--ink-100);
+    color: var(--ink-600);
+    flex-shrink: 0;
+  }
 }
 
 /* ===== Trust ===== */
@@ -1798,9 +1827,9 @@ img, svg { display: block; max-width: 100%; }
 @media (max-width: 900px) {
   .trust-boxes { grid-template-columns: repeat(2, 1fr); }
   /* 통계: 모바일/태블릿에선 1열 4줄 + 폰트 18px (좁은 칸 넘침 방지) */
-  .trust-facts { grid-template-columns: 1fr; gap: 14px 0; }
+  .trust-facts { grid-template-columns: 1fr; gap: 4px 0; }
   .trust-facts__item--divided::before { display: none; }
-  .trust-facts__item { font-size: 18px !important; }
+  .trust-facts__item { font-size: 19px !important; line-height: 1.2; }
   .trust-awards { grid-template-columns: repeat(3, 1fr); }
 }
 @media (max-width: 520px) {

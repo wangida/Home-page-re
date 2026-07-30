@@ -146,8 +146,11 @@ export default function Hero() {
             >
               {s.eyebrow.includes("ㅣ")
                 ? s.eyebrow.split("ㅣ").map((part, i, arr) => (
-                    <span key={i}>
-                      {part}
+                    <span
+                      key={i}
+                      className={i > 0 ? "hero__eyebrow-en" : undefined}
+                    >
+                      {part.trim()}
                       {i < arr.length - 1 && (
                         <span className="hero__eyebrow-divider">ㅣ</span>
                       )}

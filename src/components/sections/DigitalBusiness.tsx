@@ -120,12 +120,23 @@ export default function DigitalBusiness() {
             stagger={0.08}
             className="digital-header__title"
           />
-          <motion.p className="digital-header__sub" variants={fadeUpSm}>
+          <motion.p
+            className="digital-header__sub digital-header__sub--wide"
+            variants={fadeUpSm}
+          >
             기상과 환경 데이터를 활용한
             <br />
             생활과 산업 현장 전반에 제공되는
             <br />
             다양한 서비스와 솔루션
+          </motion.p>
+          <motion.p
+            className="digital-header__sub digital-header__sub--narrow"
+            variants={fadeUpSm}
+          >
+            기상·환경 데이터를 활용한
+            <br />
+            생활과 산업을 위한 서비스와 솔루션
           </motion.p>
         </motion.div>
 

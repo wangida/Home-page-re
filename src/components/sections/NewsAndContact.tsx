@@ -63,18 +63,29 @@ export default function NewsAndContact() {
           viewport={VIEWPORT_DEFAULT}
         >
           <div>
-            <h2
-              style={{
-                fontFamily: "Roboto, sans-serif",
-                fontWeight: 700,
-                fontSize: 36,
-                color: "var(--ink-900)",
-                margin: 0,
-                letterSpacing: "-0.02em",
-              }}
-            >
-              News &amp; Insights
-            </h2>
+            <div className="news-header__title-row">
+              <h2
+                style={{
+                  fontFamily: "Roboto, sans-serif",
+                  fontWeight: 700,
+                  fontSize: 36,
+                  color: "var(--ink-900)",
+                  margin: 0,
+                  letterSpacing: "-0.02em",
+                }}
+              >
+                News &amp; Insights
+              </h2>
+              <a
+                href="https://www.kweather.co.kr/sub/news/?page=1&tp=4&c=4"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="news-header__cta-icon"
+                aria-label="전체 보기"
+              >
+                <Icon name="arrow" size={18} />
+              </a>
+            </div>
             <p
               style={{
                 fontFamily: "var(--font-display), sans-serif",
@@ -91,7 +102,7 @@ export default function NewsAndContact() {
             href="https://www.kweather.co.kr/sub/news/?page=1&tp=4&c=4"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn--ghost"
+            className="btn btn--ghost news-header__cta-full"
             style={{ flexShrink: 0 }}
           >
             전체 보기 <Icon name="arrow" size={16} />

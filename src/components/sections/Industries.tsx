@@ -72,8 +72,7 @@ function LogoMarquee({
       <div
         className="marquee__track"
         style={{
-          animation: `marquee ${duration}s linear infinite`,
-          animationDirection: reverse ? "reverse" : "normal",
+          animation: `marquee ${duration}s linear infinite ${reverse ? "reverse" : "normal"}`,
         }}
       >
         {doubled.map((name, i) => (

@@ -27,24 +27,24 @@ const HERO_SLIDES: Slide[] = [
   },
   {
     key: "ai",
-    eyebrow: "AI 환기청정 솔루션",
-    title: "케이웨더는 AI로\n공기질을 관리합니다",
+    eyebrow: "AI 환기청정 솔루션 ㅣ We Air You",
+    title: "보이지 않는 공기를\n보이게 측정하여\nAI로 공기질을 관리합니다",
     bg: "/assets/hero_02.jpg",
     cta: { label: "바로가기", href: "/product/circulation" },
   },
   {
     key: "heat",
     eyebrow: "폭염 관리 솔루션",
-    title: "새로운 산업재해 폭염,\n현장 데이터와 예보로\n통합 관리합니다",
-    bg: "/assets/hero_03_re.jpg",
+    title: '<span class="hero__title-thin hero__title-muted">새로운 산업재해</span> <strong>폭염</strong>\n<span class="hero__title-muted hero__title-sm">현장별 체감온도 데이터와</span>\n<span class="hero__title-muted hero__title-sm">예보로 통합 관리합니다</span>',
+    bg: "/assets/hero_03.jpg?v=3",
     cta: { label: "바로가기", href: "/product/heat_re" },
   },
   {
     // 신설 슬라이드 — 로봇까지 합성된 완성 배경
     key: "robot",
     eyebrow: "에어로봇",
-    title: "AI · 자율운행 기술로\n재난을 사전에 감지합니다",
-    bg: "/assets/hero_robot_re.jpg?v=4",
+    title: "환경+영상 데이터와\nAI·온디바이스 기술로\n재난을 사전에 감지합니다",
+    bg: "/assets/hero_robot.jpg?v=6",
     cta: { label: "바로가기", href: "/solution/airrobot" },
   },
   {
@@ -112,7 +112,7 @@ export default function Hero() {
       {s.key === "heat" && (
         <motion.img
           key={`heat-${idx}`}
-          src="/assets/hero_03_img.png"
+          src="/assets/hero_03_img02.png"
           alt="폭염관리 솔루션 — 온습지수측정계와 Air365 모니터링 대시보드"
           className="hero__product"
           initial={{ opacity: 0, y: 28 }}

@@ -41,11 +41,14 @@ export default function ReferenceWeatherBgfLogisPage() {
             <h2 className="refd-heading">BGF로지스 물류센터에 폭염 관리 솔루션 도입</h2>
 
             {/* 이미지 1 */}
-            <img
-              className="refd-img refd-img--1"
-              src="/assets/sub/reference_wview13.png"
-              alt="BGF로지스 물류센터 컨베이어 라인에 설치된 케이웨더 IoT 체감온도계"
-            />
+            <div className="refd-img-wrap">
+              <img
+                className="refd-img refd-img--1"
+                src="/assets/sub/reference_wview13.png"
+                alt="BGF로지스 물류센터 컨베이어 라인에 설치된 케이웨더 IoT 체감온도계"
+              />
+              <span className="refd-img-badge">AI 생성이미지</span>
+            </div>
 
             {/* 강조 단락(중앙, 파랑) — 라벤더 박스 안 */}
             <p className="refd-lead">
@@ -101,11 +104,14 @@ export default function ReferenceWeatherBgfLogisPage() {
           </p>
 
           {/* 이미지 2 */}
-          <img
-            className="refd-img refd-img--1"
-            src="/assets/sub/reference_wview13_02.jpg"
-            alt="BGF로지스 물류센터 작업 현장과 기둥에 설치된 케이웨더 IoT 체감온도계"
-          />
+          <div className="refd-img-wrap">
+            <img
+              className="refd-img refd-img--1"
+              src="/assets/sub/reference_wview13_02.jpg"
+              alt="BGF로지스 물류센터 작업 현장과 기둥에 설치된 케이웨더 IoT 체감온도계"
+            />
+            <span className="refd-img-badge">AI 생성이미지</span>
+          </div>
 
           {/* 하단 네비게이션 + 구분선 + 목록 버튼 */}
           <ReferenceNav current="/reference/weather/14" items={WEATHER_NAV_CASES} />

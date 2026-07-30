@@ -112,9 +112,8 @@ export default function AnimatedText({
             <motion.span
               variants={item}
               style={{ display: "inline-block", willChange: "transform" }}
-            >
-              {part}
-            </motion.span>
+              dangerouslySetInnerHTML={{ __html: part }}
+            />
           </span>
         );
       })}

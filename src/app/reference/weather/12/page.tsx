@@ -43,11 +43,14 @@ export default function ReferenceWeatherHiteJinroPage() {
             </h2>
 
             {/* 이미지 1 */}
-            <img
-              className="refd-img refd-img--1"
-              src="/assets/sub/reference_wview11.png"
-              alt="하이트진로 공장 생산라인에 설치된 케이웨더 IoT 체감온도계"
-            />
+            <div className="refd-img-wrap">
+              <img
+                className="refd-img refd-img--1"
+                src="/assets/sub/reference_wview11.png"
+                alt="하이트진로 공장 생산라인에 설치된 케이웨더 IoT 체감온도계"
+              />
+              <span className="refd-img-badge">AI 생성이미지</span>
+            </div>
 
             {/* 강조 단락(중앙, 파랑) — 라벤더 박스 안 */}
             <p className="refd-lead">
@@ -93,11 +96,14 @@ export default function ReferenceWeatherHiteJinroPage() {
           </p>
 
           {/* 이미지 2 */}
-          <img
-            className="refd-img refd-img--1"
-            src="/assets/sub/reference_wview11_02.jpg"
-            alt="하이트진로 물류센터 병입 라인에 설치된 케이웨더 IoT 체감온도계"
-          />
+          <div className="refd-img-wrap">
+            <img
+              className="refd-img refd-img--1"
+              src="/assets/sub/reference_wview11_02.jpg"
+              alt="하이트진로 물류센터 병입 라인에 설치된 케이웨더 IoT 체감온도계"
+            />
+            <span className="refd-img-badge">AI 생성이미지</span>
+          </div>
 
           {/* 하단 네비게이션 + 구분선 + 목록 버튼 */}
           <ReferenceNav current="/reference/weather/12" items={WEATHER_NAV_CASES} />

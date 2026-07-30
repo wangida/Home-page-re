@@ -104,6 +104,22 @@
 .refd-img--2 { margin-top: 36px; }  /* 48 → 36 */
 .refd-img--stack { margin-top: 40px; }  /* 같은 위치에 이미지 추가 스택 시 */
 
+/* 이미지 하단 우측 AI 생성이미지 표기 */
+.refd-img-wrap { position: relative; width: 1000px; max-width: 100%; margin: 0 auto; }
+.refd-img-wrap .refd-img { width: 100%; }
+.refd-img-badge {
+  position: absolute;
+  right: 14px;
+  bottom: 10px;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.75);
+  background: rgba(0, 0, 0, 0.35);
+  padding: 2px 7px;
+  border-radius: 5px;
+  letter-spacing: -0.01em;
+  pointer-events: none;
+}
+
 /* 구성도용 라인 박스 — 저온저장창고(.cold-sec__fig)와 동일 스펙, 이미지 확대 */
 .refd-figbox {
   width: 1200px;

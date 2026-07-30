@@ -28,15 +28,15 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
           { label: "공기예보", href: "/data/air" },
           { label: "공기측정데이터", href: "/data/measure" },
           { label: "동별 미세먼지", href: "/data/dong" },
-          { label: "공기관리 S/W", href: "/data/air365" },
+          { label: "air365", href: "/data/air365" },
         ],
       },
       {
         y: 319,
         tight: true,
         items: [
-          { label: "AI 기상예보", href: "/data/ai" },
-          { label: "관측데이터", href: "/data/weather" },
+          { label: "기상예보", href: "/data/ai" },
+          { label: "기상데이터", href: "/data/weather" },
           { label: "웨더 맵", href: "/data/weathermap" },
           { label: "방송 컨텐츠", href: "/data/broadcast" },
           { label: "모바일 정보", href: "/data/mobile" },
@@ -66,8 +66,8 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
       {
         y: 16,
         items: [
-          { label: "공기 측정기", href: "/product/airmeter" },
-          { label: "환기 청정기", href: "/product/circulation" },
+          { label: "공기측정기", href: "/product/airmeter" },
+          { label: "환기청정기", href: "/product/circulation" },
           { label: "공기 빅데이터 플랫폼", href: "/product/air365" },
         ],
       },

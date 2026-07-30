@@ -9,8 +9,8 @@ const COLS: { title: string; groups: string[][]; groupGap?: number }[] = [
     title: "데이터",
     groupGap: 14, /* 웨더맵 추가로 기상 그룹이 5개 → 공기/기상 그룹 간격 축소 */
     groups: [
-      ["공기예보", "공기측정데이터", "동별미세먼지", "공기관리 S/W"],
-      ["AI 기상예보", "관측데이터", "웨더맵", "방송컨텐츠", "모바일정보"],
+      ["공기예보", "공기측정데이터", "동별미세먼지", "air365"],
+      ["기상예보", "기상데이터", "웨더맵", "방송컨텐츠", "모바일정보"],
     ],
   },
   {
@@ -40,10 +40,10 @@ const MENU_LINKS: Record<string, string> = {
   공기측정데이터: "/data/measure",
   공기예보: "/data/air",
   동별미세먼지: "/data/dong",
-  "공기관리 S/W": "/data/air365",
-  관측데이터: "/data/weather",
+  air365: "/data/air365",
+  기상데이터: "/data/weather",
   웨더맵: "/data/weathermap",
-  "AI 기상예보": "/data/ai",
+  기상예보: "/data/ai",
   방송컨텐츠: "/data/broadcast",
   모바일정보: "/data/mobile",
   공기빅데이터플랫폼: "/product/air365",

@@ -20,7 +20,7 @@ export default function AiForecastPage() {
       <main>
         <SubHero
           image="/assets/sub/data_AI03.jpg"
-          title="AI 기상예보"
+          title="기상예보"
           subtitle={"인공지능이 여는 기상예측의 미래,\n케이웨더의 딥러닝 기반 차세대 AI 기상예보"}
         />
 

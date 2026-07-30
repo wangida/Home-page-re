@@ -830,13 +830,17 @@ img, svg { display: block; max-width: 100%; }
 }
 /* 폰: 제목 3줄 + 버튼과 제품 이미지가 겹쳐 → 이미지를 하단으로 크게 내림 */
 @media (max-width: 560px) {
-  .hero__product { bottom: 5%; width: min(90vw, 500px); }
+  .hero__product { bottom: 2%; width: min(90vw, 500px); }
   /* 폭염·날씨아이돌 슬라이드 텍스트를 위로 당김 */
   .hero__cols--heat .hero__text,
   .hero__cols--idol .hero__text { margin-top: -28px; }
   /* 데이터·AI 슬라이드 텍스트도 위로 당김 */
   .hero__cols--data .hero__text,
   .hero__cols--ai .hero__text { margin-top: -18px; }
+  /* AI 슬라이드 eyebrow "We Air You"가 줄바꿈되지 않도록 자간·크기 축소 */
+  .hero--ai .hero__eyebrow { font-size: 25px; letter-spacing: -0.04em; white-space: nowrap; }
+  /* 에어로봇 슬라이드 "재난을 사전에 감지합니다"가 줄바꿈되지 않도록 자간·크기 축소 */
+  .hero--robot .hero__title { font-size: 26px; letter-spacing: -0.03em; }
 }
 
 .scroll-hint { display: none; }

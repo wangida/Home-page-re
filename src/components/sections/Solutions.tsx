@@ -95,8 +95,8 @@ export default function Solutions() {
         position: "relative",
         background: "#10225a",
         color: "#fff",
-        paddingTop: 120,
-        paddingBottom: 160,
+        paddingTop: isMobile ? 64 : 120,
+        paddingBottom: isMobile ? 90 : 160,
         overflow: "hidden",
       }}
     >
@@ -109,7 +109,7 @@ export default function Solutions() {
           padding: "0 32px",
         }}
       >
-        <header style={{ textAlign: "center", marginBottom: 56 }}>
+        <header style={{ textAlign: "center", marginBottom: isMobile ? 32 : 56 }}>
           <h2
             style={{
               fontFamily: "Roboto, sans-serif",

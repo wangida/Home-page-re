@@ -6,7 +6,7 @@ import SubHero from "@/components/sub/SubHero";
 import "@/components/sub/sub.css";
 
 export const metadata: Metadata = {
-  title: "공기관리 소프트웨어",
+  title: "Air365",
   description: "케이웨더 Air365 — 실내외 공기질을 365일 관리하는 공기관리 서비스.",
 };
 
@@ -19,14 +19,14 @@ export default function Air365Page() {
       <main>
         <SubHero
           image="/assets/sub/data_air365.jpg"
-          title="공기관리 소프트웨어"
+          title="Air365"
           subtitle={"실내외 공기질을 실시간으로 측정·수집하는\n케이웨더 공기 빅데이터 서비스"}
         />
 
         <section className="company-intro air365-intro">
           <h2 className="company-intro__title">보이지 않는 공기를 보이게 관리하는 소프트웨어</h2>
           <p className="company-intro__desc air365-desc">
-            공기관리 소프트웨어(S/W)는 내가 머무는 공간의 공기질을 각종 데이터를 기반으로
+            Air365는 내가 머무는 공간의 공기질을 각종 데이터를 기반으로
             <br />
             과학적으로 분석하여 ‘보이지 않는 공기를 24시간 보이게 관리’ 할 수 있도록 돕습니다.
           </p>

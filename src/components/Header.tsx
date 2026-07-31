@@ -28,7 +28,7 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
           { label: "공기예보", href: "/data/air" },
           { label: "공기측정데이터", href: "/data/measure" },
           { label: "동별 미세먼지", href: "/data/dong" },
-          { label: "air365", href: "/data/air365" },
+          { label: "Air365", href: "/data/air365" },
         ],
       },
       {

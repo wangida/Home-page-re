@@ -49,6 +49,7 @@ export default function NewsAndContact() {
     <section id="news" className="sec sec--gray">
       <div className="container">
         <motion.header
+          className="news-header"
           style={{
             display: "flex",
             justifyContent: "space-between",

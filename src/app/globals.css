@@ -1678,6 +1678,7 @@ img, svg { display: block; max-width: 100%; }
   .digital-layout { grid-template-columns: 1fr; gap: 36px; }
 }
 @media (max-width: 768px) {
+  .digital-header__title { margin-bottom: 14px; }
   .digital-header__sub--wide { display: none; }
   .digital-header__sub--narrow { display: block; }
   .digital-header__sub { font-size: 24px; }
@@ -1730,6 +1731,8 @@ img, svg { display: block; max-width: 100%; }
 }
 .news-header__cta-icon { display: none; }
 @media (max-width: 768px) {
+  .news-header { margin-bottom: 30px !important; }
+  .news-header__title-row { gap: 20px; }
   .news-header__cta-full { display: none; }
   .news-header__cta-icon {
     display: inline-grid;

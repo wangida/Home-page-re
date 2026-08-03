@@ -358,6 +358,9 @@ img, svg { display: block; max-width: 100%; }
   background-position: center center;
   background-repeat: no-repeat;
   opacity: 1;
+  /* ⚠️ 이 키프레임이 transform 을 소유한다 = 인라인 transform 과 공존 불가.
+     CSS 애니메이션이 인라인 스타일보다 캐스케이드 우선이라, Hero.tsx 가 넘기는
+     패럴랙스 y 는 여기서 영구히 덮인다. 패럴랙스를 살리려면 이 규칙부터 재설계할 것. */
   animation: hero-bg-enter 1100ms cubic-bezier(.2,.7,.2,1) forwards;
 }
 @keyframes hero-bg-enter {
@@ -520,31 +523,15 @@ img, svg { display: block; max-width: 100%; }
   animation-iteration-count: infinite;
   animation-timing-function: ease-in-out;
 }
-.hero__node-ring {
-  position: absolute;
-  inset: -4px;
-  border-radius: 50%;
-  border: 1px solid rgba(83, 217, 255, 0.75);
-  opacity: 0;
-  animation-name: hero-node-ring;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-out;
-}
 @keyframes hero-node-pulse {
   0%, 100% { opacity: 0.12; transform: scale(0.4); }
   50%      { opacity: 1;    transform: scale(1.75); }
-}
-@keyframes hero-node-ring {
-  0%   { opacity: 0.9; transform: scale(0.4); }
-  90%  { opacity: 0; transform: scale(3.2); }
-  100% { opacity: 0; transform: scale(3.2); }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .hero__star,
   .hero__riser,
   .hero__node,
-  .hero__node-ring,
   .hero__apex-pulse { animation: none; }
 }
 

@@ -57,6 +57,8 @@ const HERO_SLIDES: Slide[] = [
 ];
 
 const SLIDE_MS = 7000;
+/* 게이지는 잔여 시간 표시가 아니라 슬라이드 전환 연출이다.
+   SLIDE_MS(7초)에 맞추면 너무 느리게 차올라 답답해 보이므로 의도적으로 짧게 유지한다. */
 const GAUGE_MS = 1800;
 
 export default function Hero() {
@@ -65,8 +67,16 @@ export default function Hero() {
   const total = HERO_SLIDES.length;
   const timer = useRef<ReturnType<typeof setInterval> | null>(null);
   const sectionRef = useRef<HTMLElement | null>(null);
+  /* ⚠️ 이 값은 현재 화면에 반영되지 않는다 (의도된 현행 사양).
+     .hero__bg-image 의 CSS 애니메이션(hero-bg-enter)이 transform 을 소유하는데,
+     CSS 애니메이션은 캐스케이드에서 인라인 스타일보다 우선하므로 아래 y 가 영구히 덮인다.
+     살리려면 세로로 여유 있는 배경(현재 전부 2400×780 — 히어로 높이를 꽉 채워 여유 0)을
+     새로 뽑아야 하고, 그 전에 켜면 배경 확대 → 5개 슬라이드 구도와 GLOBE_NODES 좌표를
+     전부 다시 맞춰야 한다. globals.css 의 .hero__bg-image 주석도 함께 볼 것. */
   const bgY = useParallax(sectionRef, { strength: 0.2, mobileScale: 0.3 });
 
+  /* idx를 의존성에 두어 수동 조작(도트·화살표) 직후에도 대기 시간이 초기화되게 한다.
+     빼면 클릭 직후 남은 잔여 시간만큼만 지나고 바로 다음 슬라이드로 넘어간다. */
   useEffect(() => {
     if (paused) return;
     timer.current = setInterval(
@@ -76,7 +86,7 @@ export default function Hero() {
     return () => {
       if (timer.current) clearInterval(timer.current);
     };
-  }, [total, paused]);
+  }, [total, paused, idx]);
 
   const go = (i: number) => setIdx(((i % total) + total) % total);
   const next = () => go(idx + 1);

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 const NAV = [
@@ -234,9 +235,9 @@ export default function Header({ solid = false }: { solid?: boolean }) {
       onMouseLeave={leave}
     >
       <div className="gnb__inner">
-        <a href="/#top" className="gnb__logo" aria-label="K-WEATHER home">
+        <Link href="/#top" className="gnb__logo" aria-label="K-WEATHER home">
           <Logo light={!useDarkText} />
-        </a>
+        </Link>
 
         <nav className="gnb__nav">
           {NAV.map((n) => (
@@ -453,7 +454,7 @@ export default function Header({ solid = false }: { solid?: boolean }) {
         <div className="mnav__panel">
           {/* ===== 상단바 — 워드마크 로고 + 닫기 ===== */}
           <div className="mnav__bar">
-            <a href="/#top" className="mnav__logo" aria-label="K-WEATHER home" onClick={closeMobile}>
+            <Link href="/#top" className="mnav__logo" aria-label="K-WEATHER home" onClick={closeMobile}>
               <Image
                 src="/assets/logo_blue.svg"
                 alt="K-WEATHER"
@@ -461,7 +462,7 @@ export default function Header({ solid = false }: { solid?: boolean }) {
                 height={30}
                 style={{ height: "21.6px", width: "auto", display: "block" }}
               />
-            </a>
+            </Link>
             <button
               type="button"
               className="mnav__close"

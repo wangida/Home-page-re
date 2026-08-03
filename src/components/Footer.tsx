@@ -120,7 +120,7 @@ export default function Footer() {
               src="/assets/logo_white.svg"
               alt="K-WEATHER"
               width={160}
-              height={37}
+              height={22}
               style={{ width: 160, height: "auto", display: "block" }}
             />
             <div

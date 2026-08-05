@@ -20,7 +20,13 @@ const KW_CARDS = [
   {
     img: "wd_sec1_img03.jpg",
     title: "응용정보",
-    desc: "생활 지수, 스포츠/레저, 교통 날씨 등 다양한 환경에서 활용가능한 기상 컨텐츠",
+    desc: (
+      <>
+        생활 지수, 스포츠/레저, 교통 날씨 등
+        <br />
+        다양한 환경에서 활용가능한 기상 컨텐츠
+      </>
+    ),
   },
 ];
 
@@ -68,28 +74,6 @@ function WhySection() {
           </p>
         </div>
       </div>
-    </section>
-  );
-}
-
-/* 케이웨더 데이터 에코시스템 — 케이웨더/기상청 정보 패널 공통 */
-function EcoSection() {
-  return (
-    <section className="wd-eco">
-      <h3 className="wd-eco__lead">
-        케이웨더는 다양한 분야의{" "}
-        <b>
-          약 4천여 회원사에 특화된
-          <br />
-          맞춤 기상데이터를 제공
-        </b>
-        합니다.
-      </h3>
-      <img
-        className="wd-eco__img"
-        src="/assets/sub/wd_sec3_img01.jpg"
-        alt="기상청 자료·해외 제휴사 수치모델자료·기상관측장비를 받아 케이웨더가 관측데이터·기상예보·방송컨텐츠를 모바일·인터넷·ERP·수요예측 시스템으로 제공하고, 건설·에너지·유통·레저·방재·방송·온라인 포털 등 다양한 산업 회원사가 활용하는 데이터 에코시스템"
-      />
     </section>
   );
 }
@@ -339,7 +323,6 @@ export default function ObservationData() {
           </div>
 
           <WhySection />
-          <EcoSection />
           <ClientsSection />
         </div>
       ) : (
@@ -527,7 +510,6 @@ export default function ObservationData() {
           </div>
 
           <WhySection />
-          <EcoSection />
           <ClientsSection />
         </div>
       )}

@@ -88,6 +88,34 @@
   font-weight: 700;
 }
 
+/* ----- 탭 본문 패널 — 탭 아래 첫 블록 여백을 연혁(130px)과 동일하게 ----- */
+.sub-tabpanel > .broad-sec:first-child { margin-top: 130px; }
+/* 민간 기상예보 탭 상단 여백은 AI 기상예보 탭(.tab-lead)과 동일하게 */
+.sub-tabpanel > .tab-lead,
+.sub-tabpanel > .company-intro:first-child { margin-top: 90px; }
+/* 민간 기상예보 탭 도입부 — AI 기상예보 블록(.ai-block)과 동일한 32px 타이틀 */
+.sub-tabpanel > .company-intro > .company-intro__title { font-size: 32px; }
+/* 탭 본문 도입 카피 — 탭별 한 줄 요약 */
+.tab-lead {
+  width: min(1440px, calc(100% - 64px));
+  margin: 0 auto;
+  text-align: center;
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.35;
+  color: #333;
+  white-space: pre-line;
+}
+.tab-lead + .ai-block { margin-top: 50px; }
+
+/* ----- 기상데이터(data/weather) 상단 도입 — 카피 + 라인 박스 이미지 ----- */
+.wd-intro { margin-top: 110px; }
+/* 도입 카피는 본문 리드(.wd-panel__lead)와 동일한 28px·700으로 */
+.wd-intro .tab-lead { font-size: 28px; font-weight: 700; color: #222; }
+/* 다이어그램은 라인 박스 기본(78%)보다 크게 — 기상예보(.pf-eco)와 동일 폭 유지 */
+.wd-intro .biz-own__fig--plain img { width: 81%; max-width: 81%; }
+
 /* ----- 타임라인 ----- */
 .history {
   position: relative;
@@ -523,7 +551,8 @@
   color: #222;
 }
 .wd-cards {
-  width: min(1200px, calc(100% - 64px));
+  /* 서브 표준 컨테이너(1320px)에 맞춰 썸네일 확대 */
+  width: min(1320px, calc(100% - 64px));
   margin: 44px auto 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -534,7 +563,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 26px;
+  /* 박스 여백을 줄여 그만큼 썸네일이 커지도록 */
+  padding: 18px;
   background: #f5f6f8;
   border: 1px solid #e8eaed;
   border-radius: 16px;
@@ -552,17 +582,19 @@
   color: #222;
 }
 .wd-card__desc {
-  margin: 16px auto 0;
+  margin: 10px auto 0;
   max-width: 340px;
   font-size: 18px;
   line-height: 1.5;
   color: #666;
+  /* 한글 단어 중간에서 줄바꿈되지 않도록(여/러, 환/경) */
+  word-break: keep-all;
 }
 
 /* ----- 제공 기상정보 상세 — 2단 표 ----- */
 .wd-spec {
   width: min(1440px, calc(100% - 64px));
-  margin: 120px auto 140px;
+  margin: 80px auto 140px;
 }
 .wd-spec__title {
   margin: 0 0 48px;
@@ -583,9 +615,12 @@
   table-layout: fixed;
   font-size: 15px;
 }
+/* 표 컬러는 위 사업구조 다이어그램(2data_01re.png)에서 추출한 값 기준
+   — 채움 박스 #2E3C8F, 점선 연한 박스 #E9EFFF */
 .wd-spec__table th,
 .wd-spec__table td {
-  border: 1px solid #c4cdec;
+  /* 채도를 뺀 흐린 회청색 — 파란 셀 배경 위에서 선이 튀지 않게 */
+  border: 1px solid #d3d8e0;
   padding: 9px 6px;
   text-align: center;
   line-height: 1.3;
@@ -594,22 +629,20 @@
 }
 .wd-spec__table th {
   height: 48px;
-  background: #4762c5;
+  background: #2e3c8f;
+  /* 진한 헤더 위에서 밝은 본문 테두리가 흰 선처럼 튀지 않도록 */
+  border-color: #45539f;
   color: #fff;
-  font-weight: 700;
+  /* th 기본 bold를 명시적으로 해제 */
+  font-weight: 500;
 }
-.wd-spec__table .c1 { background: #d4dcf3; font-weight: 700; }
-.wd-spec__table .c2 { background: #e8edf9; }
-.wd-spec__table .c3 { background: #f3f6fc; }
+/* 계조를 3단계로 나누지 않고 구분 열만 한 톤 진하게, 나머지는 동일 */
+.wd-spec__table .c1 { background: #e4ecff; }
+.wd-spec__table .c2 { background: #f1f5ff; }
+.wd-spec__table .c3 { background: #f1f5ff; }
 
-/* 기상청 정보 표 — 라벤더 계열 */
+/* 기상청 정보 표 — 컬러는 케이웨더 표와 동일(별도 오버라이드 없음), 여백만 다름 */
 .wd-spec--kma { margin-bottom: 180px; }
-.wd-spec--kma .wd-spec__table th,
-.wd-spec--kma .wd-spec__table td { border-color: #bcc6e3; }
-.wd-spec--kma .wd-spec__table th { background: #8093cf; color: #fff; }
-.wd-spec--kma .wd-spec__table .c1 { background: #dde3f2; }
-.wd-spec--kma .wd-spec__table .c2 { background: #e9edf7; }
-.wd-spec--kma .wd-spec__table .c3 { background: #f2f5fb; }
 
 /* ----- 케이웨더 데이터가 특별한 이유 — 풀블리드 밴드 ----- */
 .wd-why {
@@ -749,6 +782,262 @@
   margin-bottom: 350px;
 }
 
+/* ----- 민간 기상예보 — 제도 연혁(8p) ----- */
+/* 제도 2종(8p) / 사업 구조 다이어그램(9p) — 각각 라인 박스 */
+.pf-intro {
+  width: min(1320px, calc(100% - 64px));
+  margin: 48px auto 0;
+  /* 좌우 여백 없음 — 아래 업종 타이틀 바와 가로폭을 맞춤 */
+  padding: 0;
+  border-radius: 24px;
+  background: #fff;
+}
+/* 제도 2종 — 사업 구조 박스 안 상단에 나란히 */
+.pf-law {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  text-align: left;
+}
+.pf-law__card {
+  display: flex;
+  flex-direction: column;
+  padding: 34px 36px 36px;
+  border-radius: 24px;
+  /* 다이어그램 상단 밴드와 동일한 연블루 */
+  background: #eaedf6;
+}
+.pf-law__title {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #222;
+  text-align: center;
+}
+.pf-law__date {
+  margin-left: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #666;
+}
+.pf-law__list {
+  flex: 1;
+  margin: 24px 0 0;
+  padding: 36px 28px;
+  list-style: none;
+  /* 바깥 카드가 회색 배경, 안쪽 목록은 흰색으로 비움 */
+  background: #fff;
+  border: 1px solid #e8eaed;
+  border-radius: 16px;
+}
+.pf-law__list li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 19px;
+  line-height: 1.6;
+  color: #222;
+}
+/* 자간 축소는 왼쪽 카드 첫 줄에만 — 두 줄로 접히는 지점을 늦추기 위함 */
+.pf-law__card:first-child .pf-law__list li:first-child {
+  letter-spacing: -0.02em;
+}
+.pf-law__list li + li { margin-top: 10px; }
+.pf-law__list li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 14px;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #777;
+}
+.pf-law__hl { color: #e2352c; font-weight: 700; }
+.pf-law__hl--blue { color: #1169c2; font-weight: 700; }
+
+.pf-intro + .pf-intro { margin-top: 40px; }
+
+/* 9p 사업 구조 다이어그램 — 다이어그램만 라인 박스 안에 */
+.pf-eco {
+  text-align: center;
+  padding: 44px 0;
+  border: 1px solid #c4d2f3;
+  border-radius: 24px;
+}
+.pf-law + .pf-eco { margin-top: 48px; }
+.pf-eco img {
+  display: block;
+  /* 박스 좌우 여백을 없앤 뒤에도 다이어그램 크기는 그대로 유지 — 기상데이터와 동일 폭 */
+  width: 81%;
+  height: auto;
+  margin: 0 auto;
+}
+
+/* ----- 민간 기상예보 — 업종별 활용 사례(10~13p) ----- */
+/* 업종별 사례 리드 카피 — 사업 구조 박스와 첫 사례 사이 */
+.pf-cases__lead {
+  margin: 56px 0 0;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  color: #222;
+}
+.pf-cases__lead + .pf-case { margin-top: 40px; }
+.pf-case {
+  width: min(1320px, calc(100% - 64px));
+  margin: 56px auto 0;
+  text-align: left;
+}
+/* 업종 헤더바 — 아래 본문 박스와 분리 */
+.pf-case__head {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  min-height: 72px;
+  border-radius: 14px;
+  background: #08277a;
+  color: #fff;
+}
+.pf-case__industry {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0 36px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+.pf-case__clients {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0 36px;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: right;
+}
+.pf-case__bar {
+  margin: 0 14px;
+  font-style: normal;
+  font-weight: 400;
+  color: #7f92c6;
+}
+.pf-case__body {
+  margin-top: 20px;
+  padding: 34px 36px 38px;
+  border: 1px solid #c4d2f3;
+  border-radius: 24px;
+  background: #fff;
+}
+.pf-case__figs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.pf-case__thumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 4 / 3;
+  border: 1px dashed #c4d2f3;
+  border-radius: 12px;
+  background: #f7f9fd;
+  color: #9aa7c4;
+  font-size: 16px;
+}
+.pf-case__thumb-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid #e3e5ea;
+  border-radius: 12px;
+}
+.pf-case__cap {
+  margin: 14px 0 0;
+  padding: 12px 10px;
+  /* 사업 구조 다이어그램의 입력 자료 박스와 동일한 배경·테두리·글자 */
+  border: 1px solid #b0b6dd;
+  border-radius: 10px;
+  background: #e8edfb;
+  color: #0a1638;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: center;
+}
+.pf-case__list {
+  margin: 34px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.pf-case__list > li + li { margin-top: 18px; }
+/* 효과 목록 2열 배치 */
+.pf-case__list--2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 40px;
+}
+.pf-case__list--2col > li + li { margin-top: 0; }
+.pf-case__list--2col > li.is-span { grid-column: 1 / -1; }
+.pf-case__point {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0 14px;
+  margin: 0;
+  position: relative;
+  padding-left: 18px;
+  font-size: 20px;
+  line-height: 1.5;
+  color: #222;
+}
+.pf-case__point::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 14px;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #777;
+}
+.pf-case__point b { font-weight: 700; }
+.pf-case__arrow {
+  font-style: normal;
+  font-weight: 700;
+  color: #1169c2;
+}
+/* 항목 아래 보조 문구 — 불릿 대신 하이픈 */
+.pf-case__note {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  font-size: 17px;
+  line-height: 1.5;
+  color: #555;
+}
+.pf-case__note::before {
+  content: "- ";
+}
+.pf-case:last-child { margin-bottom: 240px; }
+
+/* 예시) 파리바게뜨 — 14p */
+.pf-example {
+  width: min(1320px, calc(100% - 64px));
+  margin: 40px auto 240px;
+  padding: 34px 36px;
+  border: 1px solid #c4d2f3;
+  border-radius: 24px;
+  background: #fff;
+}
+.pf-example img {
+  display: block;
+  width: 90%;
+  height: auto;
+  margin: 0 auto;
+}
+
 /* ----- 케이웨더 맵 — 본문 블록(제목+설명+이미지) ----- */
 .map-block {
   width: min(1320px, calc(100% - 64px));
@@ -817,6 +1106,18 @@
   height: auto;
   border-radius: 12px;
 }
+/* 날씨환경청 채널 이미지 위 바로가기 버튼 — 이미지 좌측 하단 */
+.broad-figs__item--cta { position: relative; }
+.broad-go {
+  position: absolute;
+  left: 32px;
+  bottom: 32px;
+  height: 64px;
+  padding: 0 34px;
+  gap: 12px;
+  font-size: 20px;
+  font-weight: 700;
+}
 /* 기상방송 컨텐츠 — 타이틀바(코드 생성) + 이미지 2세트 */
 .broad-vod {
   width: min(1300px, 100%);
@@ -848,7 +1149,6 @@
 
 /* ----- 날씨의 아이돌 — 상단 사진+텍스트 2단, 하단 카드 전체 ----- */
 .broad-idol {
-  margin-top: 72px;
   text-align: left;
 }
 .broad-idol__top {
@@ -896,31 +1196,11 @@
   margin: 20px auto 0;
 }
 
-/* ----- 케이웨더 데이터 에코시스템 ----- */
-.wd-eco {
-  width: min(1200px, calc(100% - 64px));
-  margin: 110px auto 130px;
-  text-align: center;
-}
-.wd-eco__lead {
-  margin: 0 0 52px;
-  font-size: 28px;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #222;
-}
-.wd-eco__lead b { font-weight: 700; }
-.wd-eco__img {
-  display: block;
-  width: 100%;
-  height: auto;
-  margin: 0 auto;
-}
-
 /* ----- 활용 기업(고객사 로고) ----- */
 .wd-clients {
-  width: min(1100px, calc(100% - 64px));
-  margin: 0 auto 300px;
+  /* 서브 표준 컨테이너(1320px)에 맞춰 로고 이미지 확대 */
+  width: min(1320px, calc(100% - 64px));
+  margin: 90px auto 300px;
   text-align: center;
 }
 .wd-clients__lead {
@@ -931,8 +1211,9 @@
 }
 .wd-clients__img {
   display: block;
-  width: 100%;
+  width: 90%;
   height: auto;
+  margin: 0 auto;
 }
 
 /* ===== E-카탈로그 — Figma 카탈로그(10:857), 카드 420×450 ×3 (간격 46) ===== */
@@ -1227,6 +1508,13 @@
   .sub-tabs { width: calc(100% - 40px); grid-template-columns: 1fr; }
   .sub-tabs__btn { height: 56px; font-size: 16px; }
   .sub-tabs__btn + .sub-tabs__btn { border-top: none; }
+  .sub-tabpanel > .broad-sec:first-child { margin-top: 70px; }
+  .sub-tabpanel > .tab-lead,
+  .sub-tabpanel > .company-intro:first-child { margin-top: 50px; }
+  .tab-lead { width: calc(100% - 40px); font-size: 18px; }
+  .tab-lead + .ai-block { margin-top: 30px; }
+  .wd-intro { margin-top: 70px; }
+  .wd-intro .tab-lead { font-size: 24px; line-height: 1.4; }
   .history { width: calc(100% - 40px); margin: 80px auto 100px; }
   .history__group { padding-left: 40px; }
   .fc-case { width: calc(100% - 40px); }
@@ -1280,6 +1568,33 @@
   .biz-own__lead { margin-top: 60px; }
   .biz-own__lead-title { font-size: 26px; margin-bottom: 18px; }
   .biz-own__lead-desc { font-size: 16px; padding: 0 4px; }
+  .pf-intro { width: calc(100% - 40px); margin-top: 32px; padding: 0; border-radius: 18px; }
+  .pf-law { grid-template-columns: 1fr; gap: 20px; }
+  .pf-law__card { padding: 24px 20px 26px; border-radius: 18px; }
+  .pf-law + .pf-eco { margin-top: 28px; }
+  .pf-law__title { font-size: 21px; }
+  .pf-law__date { font-size: 16px; }
+  .pf-law__list { padding: 20px; font-size: 16px; }
+  .pf-law__list li { font-size: 16px; }
+  .pf-eco { margin-top: 32px; padding: 20px; border-radius: 18px; }
+  .pf-eco img { width: 100%; }
+  .pf-intro + .pf-intro { margin-top: 24px; }
+  .pf-cases__lead { font-size: 20px; line-height: 1.4; margin-top: 60px; padding: 0 20px; }
+  .pf-cases__lead + .pf-case { margin-top: 24px; }
+  .pf-case { width: calc(100% - 40px); margin-top: 32px; }
+  .pf-case__head { display: block; padding-bottom: 14px; border-radius: 12px; }
+  .pf-case__industry { padding: 14px 20px 0; font-size: 18px; }
+  .pf-case__clients { padding: 8px 20px 0; font-size: 16px; text-align: left; }
+  .pf-case__bar { margin: 0 8px; }
+  .pf-case__body { margin-top: 14px; padding: 22px 20px 26px; border-radius: 18px; }
+  .pf-case__figs { grid-template-columns: 1fr; gap: 18px; }
+  .pf-case__cap { font-size: 16px; padding: 10px; }
+  .pf-case__list { margin-top: 24px; }
+  .pf-case__list--2col { grid-template-columns: 1fr; gap: 14px; }
+  .pf-case__point { font-size: 16px; gap: 0 10px; }
+  .pf-case__note { font-size: 14px; padding-left: 14px; }
+  .pf-case:last-child { margin-bottom: 140px; }
+  .pf-example { width: calc(100% - 40px); margin: 24px auto 140px; padding: 20px; border-radius: 18px; }
   .biz-own__fig { width: calc(100% - 40px); padding: 20px; border-radius: 18px; }
   .biz-own__fig img { width: 100%; }
   .map-block { width: calc(100% - 40px); margin-top: 70px; }
@@ -1288,11 +1603,13 @@
   .map-block__figure { padding: 8px; border-radius: 14px; }
   .broad-sec { width: calc(100% - 40px); margin-top: 70px; }
   .broad-sec__title { font-size: 24px; }
-  .ai-block .company-intro__title { font-size: 24px; }
+  .ai-block .company-intro__title,
+  .sub-tabpanel > .company-intro > .company-intro__title { font-size: 24px; }
   .broad-sec__desc { font-size: 16px; }
   .broad-figs { flex-direction: column; gap: 12px; }
   .broad-figs__item--a, .broad-figs__item--b, .broad-figs__item--eq, .broad-figs__item--c, .broad-figs__item--d { flex: none; width: 100%; }
   /* Safari(WebKit) column-flex + 이미지 높이 버그 회피: 모바일에선 block 레이아웃 */
+  .broad-go { left: 14px; bottom: 14px; height: 44px; padding: 0 18px; font-size: 15px; gap: 8px; }
   .broad-idol__top { display: block; }
   .broad-idol__photo { width: 100%; }
   .broad-idol__text { margin-top: 24px; }
@@ -1301,9 +1618,7 @@
   .broad-idol__cards { margin-top: 36px; }
   .wd-spec__table { font-size: 13px; }
   .wd-spec__table th, .wd-spec__table td { padding: 7px 4px; }
-  .wd-eco { width: calc(100% - 40px); margin: 70px auto 80px; }
-  .wd-eco__lead { font-size: 19px; margin-bottom: 36px; padding: 0 4px; }
-  .wd-clients { width: calc(100% - 40px); margin-bottom: 160px; }
+  .wd-clients { width: calc(100% - 40px); margin: 80px auto 160px; }
   .wd-clients__lead { font-size: 19px; margin-bottom: 36px; padding: 0 4px; }
   .mobile-intro { flex-direction: column; width: calc(100% - 40px); margin: 60px auto 0; transform: none; gap: 28px; text-align: center; }
   .mobile-intro__figure { flex: none; width: 62%; max-width: 300px; margin: 0 auto; }

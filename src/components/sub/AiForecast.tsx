@@ -123,8 +123,8 @@ export default function AiForecast() {
         <img
           className="ai-fig"
           src="/assets/sub/data_ai02_re.jpg"
-          width={1280}
-          height={512}
+          width={1440}
+          height={753}
           alt="입력 데이터(수치예보 초기장·위성·레이더·IoT·기상 관측)를 AI 기상예측 모델로 학습·융합하여 60일 장기 예보를 생산하는 과정"
         />
       </section>
@@ -140,9 +140,9 @@ export default function AiForecast() {
         </p>
         <img
           className="ai-fig"
-          src="/assets/sub/img_ai03_re.jpg?v=3"
+          src="/assets/sub/img_ai03_re.jpg?v=4"
           width={1440}
-          height={753}
+          height={776}
           alt="KIM 전지구 초기장 재격자화 → FourCastNet-3 전지구 예측 → AI Interpolation → CorrDiff로 이어지는 하이브리드 AI 기상예보 처리 과정"
         />
       </section>

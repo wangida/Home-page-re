@@ -49,6 +49,26 @@ const KMA_CARDS = [
   },
 ];
 
+/* 사업 구조 도입부 — 표 다음, 「특별한 이유」 앞에 두 패널 공통으로 노출 */
+function IntroSection() {
+  return (
+    <section className="wd-intro">
+      <p className="tab-lead">
+        전국 4,000여 회원사에 날씨경영을 위한 맞춤 기상데이터 제공
+      </p>
+      <div className="biz-own__fig biz-own__fig--plain">
+        <img
+          src="/assets/sub/2data_01re.png?v=4"
+          srcSet="/assets/sub/2data_01re.png?v=4 1x, /assets/sub/2data_01re@2x.png?v=4 2x"
+          width={1100}
+          height={840}
+          alt="기상청 자료·해외 제휴사 수치모델자료·기상관측장비를 받아 케이웨더가 독자 수치모델·전문예보관·AI로 관측데이터·기상데이터·방송컨텐츠를 생산하고, 모바일·인터넷·ERP·수요예측 시스템을 통해 건설·에너지·유통·레저·방재·방송·온라인포털 회원사에 제공하는 기상데이터 사업 구조"
+        />
+      </div>
+    </section>
+  );
+}
+
 /* 케이웨더 데이터가 특별한 이유 — 케이웨더/기상청 정보 패널 공통 마감 밴드 */
 function WhySection() {
   return (
@@ -83,7 +103,7 @@ function ClientsSection() {
   return (
     <section className="wd-clients">
       <h3 className="wd-clients__lead">
-        케이웨더 기상데이터를 활용하는 기업들입니다.
+        케이웨더 기상데이터를 활용하는 기업들입니다
       </h3>
       <img
         className="wd-clients__img"
@@ -98,28 +118,26 @@ export default function ObservationData() {
   const [info, setInfo] = useState(0); // 0: 케이웨더 정보, 1: 기상청 정보
 
   return (
-    <section className="company-intro" key="weather">
+    <section className="company-intro wd-obs" key="weather">
       {/* 타이틀·서브카피는 상단 SubHero로 대체(중복 제거) */}
       {/* 케이웨더 정보 / 기상청 정보 토글 */}
-      <div className="wd-toggle" role="tablist" aria-label="정보 출처 선택">
-        <button
-          type="button"
-          role="tab"
-          aria-selected={info === 0}
-          className={info === 0 ? "is-on" : ""}
-          onClick={() => setInfo(0)}
-        >
-          케이웨더 정보
-        </button>
-        <button
-          type="button"
-          role="tab"
-          aria-selected={info === 1}
-          className={info === 1 ? "is-on" : ""}
-          onClick={() => setInfo(1)}
-        >
-          기상청 정보
-        </button>
+      <div
+        className="sub-tabs sub-tabs--two"
+        role="tablist"
+        aria-label="정보 출처 선택"
+      >
+        {["케이웨더 정보", "기상청 정보"].map((t, i) => (
+          <button
+            key={t}
+            type="button"
+            role="tab"
+            aria-selected={i === info}
+            className={`sub-tabs__btn ${i === info ? "is-on" : ""}`}
+            onClick={() => setInfo(i)}
+          >
+            {t}
+          </button>
+        ))}
       </div>
 
       {info === 0 ? (
@@ -146,10 +164,10 @@ export default function ObservationData() {
               {/* 좌측 표 */}
               <table className="wd-spec__table">
                 <colgroup>
-                  <col style={{ width: "20%" }} />
-                  <col style={{ width: "25%" }} />
-                  <col style={{ width: "27%" }} />
-                  <col style={{ width: "28%" }} />
+                  <col style={{ width: "18%" }} />
+                  <col style={{ width: "22%" }} />
+                  <col style={{ width: "23%" }} />
+                  <col style={{ width: "37%" }} />
                 </colgroup>
                 <thead>
                   <tr>
@@ -227,7 +245,7 @@ export default function ObservationData() {
                   <tr><td>읍·면·동 단위</td></tr>
                   {/* 장기전망보고서 6개월 전망 (2행) */}
                   <tr>
-                    <td className="c1" rowSpan={2}>장기전망보고서<br />6개월 전망</td>
+                    <td className="c1" rowSpan={2}>장기전망<br />보고서<br />6개월 전망</td>
                     <td className="c2">표준형</td>
                     <td className="c3" rowSpan={2}>순별 단위<br />(10일 단위)</td>
                     <td>광역 단위</td>
@@ -242,10 +260,10 @@ export default function ObservationData() {
               {/* 우측 표 */}
               <table className="wd-spec__table">
                 <colgroup>
-                  <col style={{ width: "20%" }} />
-                  <col style={{ width: "25%" }} />
-                  <col style={{ width: "27%" }} />
-                  <col style={{ width: "28%" }} />
+                  <col style={{ width: "18%" }} />
+                  <col style={{ width: "22%" }} />
+                  <col style={{ width: "23%" }} />
+                  <col style={{ width: "37%" }} />
                 </colgroup>
                 <thead>
                   <tr>
@@ -322,13 +340,14 @@ export default function ObservationData() {
             </div>
           </div>
 
+          <IntroSection />
           <WhySection />
           <ClientsSection />
         </div>
       ) : (
         <div className="wd-panel" key="kma">
           <h3 className="wd-panel__lead">
-            기상청으로부터 수집 된 데이터를 고객 니즈에 맞춰 제공합니다.
+            기상청으로부터 수집된 데이터를 고객 니즈에 맞춰 제공
           </h3>
           <div className="wd-cards">
             {KMA_CARDS.map((c) => (
@@ -349,10 +368,10 @@ export default function ObservationData() {
               {/* 좌측 표 */}
               <table className="wd-spec__table">
                 <colgroup>
-                  <col style={{ width: "20%" }} />
-                  <col style={{ width: "25%" }} />
-                  <col style={{ width: "27%" }} />
-                  <col style={{ width: "28%" }} />
+                  <col style={{ width: "18%" }} />
+                  <col style={{ width: "22%" }} />
+                  <col style={{ width: "23%" }} />
+                  <col style={{ width: "37%" }} />
                 </colgroup>
                 <thead>
                   <tr>
@@ -434,10 +453,10 @@ export default function ObservationData() {
               {/* 우측 표 */}
               <table className="wd-spec__table">
                 <colgroup>
-                  <col style={{ width: "20%" }} />
-                  <col style={{ width: "25%" }} />
-                  <col style={{ width: "27%" }} />
-                  <col style={{ width: "28%" }} />
+                  <col style={{ width: "18%" }} />
+                  <col style={{ width: "22%" }} />
+                  <col style={{ width: "23%" }} />
+                  <col style={{ width: "37%" }} />
                 </colgroup>
                 <thead>
                   <tr>
@@ -509,6 +528,7 @@ export default function ObservationData() {
             </div>
           </div>
 
+          <IntroSection />
           <WhySection />
           <ClientsSection />
         </div>

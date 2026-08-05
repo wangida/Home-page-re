@@ -109,8 +109,10 @@
 }
 .tab-lead + .ai-block { margin-top: 50px; }
 
-/* ----- 기상데이터(data/weather) 상단 도입 — 카피 + 라인 박스 이미지 ----- */
-.wd-intro { margin-top: 110px; }
+/* ----- 기상데이터(data/weather) 사업 구조 도입 — 카피 + 라인 박스 이미지 -----
+   위치: 「제공 기상정보 상세」 표 다음, 「특별한 이유」 밴드 앞
+   위쪽 간격은 .wd-spec의 margin-bottom이 담당(마진 상쇄) */
+.wd-intro { margin: 0 0 140px; }
 /* 도입 카피는 본문 리드(.wd-panel__lead)와 동일한 28px·700으로 */
 .wd-intro .tab-lead { font-size: 28px; font-weight: 700; color: #222; }
 /* 다이어그램은 라인 박스 기본(78%)보다 크게 — 기상예보(.pf-eco)와 동일 폭 유지 */
@@ -429,14 +431,15 @@
 
 /* ===== AI 기상예보(data/ai) — 처리 과정 다이어그램(주제별 블록) ===== */
 .ai-block {
-  width: min(1440px, calc(100% - 64px));
+  /* 탭(1440px)은 유지하고 본문은 다른 서브 페이지와 동일한 1320px */
+  width: min(1320px, calc(100% - 64px));
   margin: 0 auto;
   text-align: center;
 }
 /* AI 기상예보 섹션 타이틀은 방송 컨텐츠와 동일하게 32px로 통일 */
 .ai-block .company-intro__title { font-size: 32px; }
 .sub-hero + .ai-block { margin-top: 140px; }
-.ai-block + .ai-block { margin-top: 120px; }
+.ai-block + .ai-block { margin-top: 96px; }
 .ai-block:last-of-type { margin-bottom: 240px; }
 .ai-fig {
   display: block;
@@ -451,13 +454,15 @@
   line-height: 1.4;
   color: #1a1a1a;
 }
-.ai-fig__cap + .ai-fig { margin-top: 24px; }
+.ai-fig__cap + .ai-fig { margin-top: 39px; }
 
 /* ===== AI 비교표 — img_ai01 대체 마크업 ===== */
 .ai-compare {
   margin-top: 50px;
   padding: 40px;
   background: #f7f9fe;
+  /* 아래 도식 이미지의 박스처럼 바깥 라인만 추가 */
+  border: 1px solid #d5dce8;
   border-radius: 20px;
   display: grid;
   grid-template-columns: 1fr 168px 1fr;
@@ -513,45 +518,19 @@
 .ai-compare .neg { color: #e23b3b; font-weight: 700; }
 .ai-compare .pos { color: #1c50d8; font-weight: 700; }
 
-/* ===== 기상데이터 — 케이웨더/기상청 정보 토글 + 카드 ===== */
-.wd-toggle {
-  width: max-content;
-  margin: 48px auto 0;
-  display: flex;
-  gap: 4px;
-  padding: 6px;
-  background: #fff;
-  border: 1px solid #e2e2e2;
-  border-radius: 999px;
-}
-.wd-toggle button {
-  min-width: 188px;
-  height: 56px;
-  padding: 0 36px;
-  border: none;
-  border-radius: 999px;
-  background: transparent;
-  color: #8a8a8a;
-  font-family: "Pretendard Variable", Pretendard, sans-serif;
-  font-size: 20px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 160ms ease, color 160ms ease;
-}
-.wd-toggle button.is-on {
-  background: #333;
-  color: #fff;
-  font-weight: 700;
-}
+/* ===== 기상데이터 — 케이웨더/기상청 정보 탭 + 카드 =====
+   탭은 기상예보 상단 탭(.sub-tabs)과 동일한 UI를 공유 */
+/* 탭이 이 래퍼 안에 있어 .company-intro의 margin-top 90px이 히어로 겹침(-28px)을
+   무력화시킴 — 기상예보(ForecastTabs)처럼 히어로 직후에 붙도록 상단 마진 제거 */
+.wd-obs { margin-top: 0; }
 .wd-panel__lead {
-  margin: 64px 0 0;
+  margin: 90px 0 0;
   text-align: center;
   font-size: 28px;
   font-weight: 700;
   color: #222;
 }
 .wd-cards {
-  /* 서브 표준 컨테이너(1320px)에 맞춰 썸네일 확대 */
   width: min(1320px, calc(100% - 64px));
   margin: 44px auto 0;
   display: grid;
@@ -593,8 +572,8 @@
 
 /* ----- 제공 기상정보 상세 — 2단 표 ----- */
 .wd-spec {
-  width: min(1440px, calc(100% - 64px));
-  margin: 80px auto 140px;
+  width: min(1320px, calc(100% - 64px));
+  margin: 80px auto 90px;
 }
 .wd-spec__title {
   margin: 0 0 48px;
@@ -642,7 +621,8 @@
 .wd-spec__table .c3 { background: #f1f5ff; }
 
 /* 기상청 정보 표 — 컬러는 케이웨더 표와 동일(별도 오버라이드 없음), 여백만 다름 */
-.wd-spec--kma { margin-bottom: 180px; }
+/* 두 탭 모두 아래에 사업 구조 도입부가 오므로 케이웨더 표와 같은 여백 */
+.wd-spec--kma { margin-bottom: 90px; }
 
 /* ----- 케이웨더 데이터가 특별한 이유 — 풀블리드 밴드 ----- */
 .wd-why {
@@ -1198,7 +1178,6 @@
 
 /* ----- 활용 기업(고객사 로고) ----- */
 .wd-clients {
-  /* 서브 표준 컨테이너(1320px)에 맞춰 로고 이미지 확대 */
   width: min(1320px, calc(100% - 64px));
   margin: 90px auto 300px;
   text-align: center;
@@ -1513,7 +1492,7 @@
   .sub-tabpanel > .company-intro:first-child { margin-top: 50px; }
   .tab-lead { width: calc(100% - 40px); font-size: 18px; }
   .tab-lead + .ai-block { margin-top: 30px; }
-  .wd-intro { margin-top: 70px; }
+  .wd-intro { margin: 0 0 80px; }
   .wd-intro .tab-lead { font-size: 24px; line-height: 1.4; }
   .history { width: calc(100% - 40px); margin: 80px auto 100px; }
   .history__group { padding-left: 40px; }
@@ -1539,9 +1518,7 @@
   .ai-compare__cell { padding: 16px 18px; font-size: 16px; gap: 14px; }
   .ai-compare__icon svg { width: 28px; height: 28px; }
   .ai-compare__label { padding: 2px 0; font-size: 15px; }
-  .wd-toggle { width: calc(100% - 40px); }
-  .wd-toggle button { flex: 1; min-width: 0; padding: 0 12px; font-size: 16px; height: 48px; }
-  .wd-panel__lead { font-size: 24px; padding: 0 20px; line-height: 1.4; }
+  .wd-panel__lead { margin-top: 50px; font-size: 24px; padding: 0 20px; line-height: 1.4; }
   .wd-cards {
     grid-template-columns: 1fr;
     width: calc(100% - 40px);

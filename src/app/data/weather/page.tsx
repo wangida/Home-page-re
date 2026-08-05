@@ -23,22 +23,8 @@ export default function WeatherDataPage() {
           subtitle={"기상데이터를 기반으로 한 경영컨설팅과 일기예보,\n각종지수를 활용한 케이웨더의 다양한 기상 콘텐츠"}
         />
 
-        {/* 상단 도입 — Figma sub_기획_재작업 Frame 8 */}
-        <section className="wd-intro">
-          <p className="tab-lead">
-            전국 4,000여 회원사에 날씨경영을 위한 맞춤 기상데이터 제공
-          </p>
-          <div className="biz-own__fig biz-own__fig--plain">
-            <img
-              src="/assets/sub/2data_01re.png?v=4"
-              srcSet="/assets/sub/2data_01re.png?v=4 1x, /assets/sub/2data_01re@2x.png?v=4 2x"
-              width={1100}
-              height={840}
-              alt="기상청 자료·해외 제휴사 수치모델자료·기상관측장비를 받아 케이웨더가 독자 수치모델·전문예보관·AI로 관측데이터·기상데이터·방송컨텐츠를 생산하고, 모바일·인터넷·ERP·수요예측 시스템을 통해 건설·에너지·유통·레저·방재·방송·온라인포털 회원사에 제공하는 기상데이터 사업 구조"
-            />
-          </div>
-        </section>
-
+        {/* 사업 구조 도입부(.wd-intro)는 ObservationData 내부로 이동
+            — 표 다음, 「특별한 이유」 밴드 앞에서 두 탭 공통으로 노출 */}
         <ObservationData />
       </main>
       <Footer />

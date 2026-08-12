@@ -872,7 +872,9 @@ img, svg { display: block; max-width: 100%; }
   width: 100%;
   height: auto;
   transform-origin: 50% 45%;
-  animation: earth-drift 17s ease-in-out infinite alternate;
+  /* linear — ease-in-out 은 도입 2초가 거의 정지라, 슬라이드가 7초만 머무는
+     이 히어로에서는 "안 움직인다"로 보인다. 일정 속도로 처음부터 움직이게 한다. */
+  animation: earth-drift 12s linear infinite alternate;
 }
 @keyframes earth-drift {
   from { transform: rotate(-6deg) translate(-14px, 10px) scale(1); }
@@ -924,15 +926,9 @@ img, svg { display: block; max-width: 100%; }
   left: calc(50% - 745.5px);
   width: 930px;
 }
-.hero--map2 .hero__earth-img { animation: earth-drift-half 15s ease-in-out infinite alternate; }
-@keyframes earth-drift-half {
-  from { transform: rotate(-6deg) translate(-14px, 10px) scale(1); }
-  to   { transform: rotate(6deg) translate(14px, -18px) scale(1.03); }
-}
-/* 기본 .hero__earth-img 해제 규칙보다 위 선택자가 강하므로 여기서 다시 꺼 준다 */
-@media (prefers-reduced-motion: reduce) {
-  .hero--map2 .hero__earth-img { animation: none; }
-}
+/* 흔들림은 3번과 동일하게 두어 지구본 모양만 비교되게 한다 —
+   .hero__earth-img 기본 규칙을 그대로 물려받으므로 여기서 따로 덮어쓰지 않는다.
+   (prefers-reduced-motion 해제도 기본 규칙이 그대로 처리한다) */
 @media (max-width: 1100px) {
   .hero__cols--map2 .hero__text { justify-self: start; text-align: left; margin-top: clamp(12px, 4vh, 38px); }
   .hero--map2 .hero__earth {

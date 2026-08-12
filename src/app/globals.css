@@ -855,11 +855,13 @@ img, svg { display: block; max-width: 100%; }
    따라서 참고 시안의 지구본 좌표(x 276 / y 115 / w 1148, 원본 2400 기준)를
    화면 중앙 기준 px 오프셋으로 그대로 옮기면 배경과 정확히 맞물린다.
    단 크기는 시안의 90%로 축소(1148px → 1033px)하고 가로 중심은 유지한다. */
+/* 3번(원형) 기준값. 2번은 .hero--map2 .hero__earth 에서 따로 덮어쓴다.
+   폭을 키울 때 left 도 늘어난 폭의 절반만큼 밀어 가로 중심을 유지한다. */
 .hero__earth {
   position: absolute;
   top: 110px;
-  left: calc(50% - 580px);
-  width: 640px;
+  left: calc(50% - 585px);
+  width: 650px;
   height: auto;
   z-index: 1;
   pointer-events: none;

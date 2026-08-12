@@ -33,12 +33,13 @@ export default function MobilePage() {
           </figure>
           <div className="mobile-intro__body">
             <h2 className="mobile-intro__title">
-              우리 동네 날씨, 동 단위로 정확하게
+              450만이 사용하는 대표 날씨 앱 ‘케이웨더 날씨’
             </h2>
             <p className="mobile-intro__desc">
-              실시간 날씨와 동별 미세먼지를 가장 먼저 확인하세요.
-              <br />비 오기 전 강수 알림, 폭염·한파 특보, 자유롭게 배치하는 날씨
-              카드까지!
+              실시간 동별 날씨와 미세먼지, 가장 먼저 확인하세요.
+              {/* 가운뎃점 앞뒤는 좁은 붙임 공백(U+202F)으로 살짝만 띄움 */}
+              <br />비 오기 전 강수 알림부터 폭염&#8239;·&#8239;한파 특보까지,
+              <br />내게 맞는 날씨 카드로 자유롭게.
             </p>
             <div className="mobile-intro__stores">
               <a

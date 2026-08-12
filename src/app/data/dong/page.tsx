@@ -10,7 +10,17 @@ export const metadata: Metadata = {
   description: "케이웨더 동별 미세먼지 — 우리 동네 단위의 상세 미세먼지 정보.",
 };
 
-/* 본문 디자인 확정 전 — 상단 비주얼만 우선 구현 */
+/* 출처 라벨 옆 안내 아이콘 — 원본 캡처의 ⓘ 표기 */
+function InfoMark() {
+  return (
+    <svg width="17" height="17" viewBox="0 0 17 17" aria-hidden="true" focusable="false">
+      <circle cx="8.5" cy="8.5" r="7.6" fill="none" stroke="#9a9a9a" strokeWidth="1.1" />
+      <circle cx="8.5" cy="4.9" r="1" fill="#9a9a9a" />
+      <rect x="7.7" y="7" width="1.6" height="5.4" rx="0.8" fill="#9a9a9a" />
+    </svg>
+  );
+}
+
 export default function DongDustPage() {
   return (
     <>
@@ -39,12 +49,67 @@ export default function DongDustPage() {
         </p>
 
         <img
-          className="fd-img"
-          src="/assets/sub/img_dong_re.jpg"
+          className="fd-img fd-img--flow"
+          src="/assets/sub/data_dong_re00.jpg"
           width={1300}
-          height={1478}
+          height={990}
           alt="국가관측망(590지역)과 케이웨더 측정정보(3,000지역), 기상관측·오염배출·인구밀도·지역적 특성을 융복합해 행정동별 미세먼지 실황 데이터를 산출하는 과정"
         />
+
+        {/* 좌: 전국(환경부 vs 케이웨더) / 우: 서울시(환경부 vs 케이웨더) */}
+        <div className="dong-cmp">
+          <div className="dong-cmp__box">
+            <img
+              src="/assets/sub/data_dong_re01.jpg"
+              width={1037}
+              height={1164}
+              alt="환경부 전국 미세먼지 지도 — 시·도 단위로 넓은 영역이 하나의 농도로 표출"
+            />
+            <img
+              src="/assets/sub/data_dong_re02.jpg"
+              width={1037}
+              height={1164}
+              alt="케이웨더 전국 미세먼지 지도 — 행정동 단위로 세분화된 농도 표출"
+            />
+          </div>
+          <div className="dong-cmp__box">
+            {/* 캡처는 케이웨더가 먼저였지만 이미지 순서(환경부 → 케이웨더)에 맞춰 라벨을 뒤집음 */}
+            <figure className="dong-cmp__item">
+              <figcaption className="dong-cmp__cap">
+                <span className="dong-cmp__src">
+                  환경부
+                  <InfoMark />
+                </span>
+                <span className="dong-cmp__meta">
+                  기준: 2026. 08. 11 11:00 (업데이트 간격 : 1시간)
+                </span>
+              </figcaption>
+              <img
+                src="/assets/sub/data_dong_re03.jpg?v=2"
+                width={942}
+                height={1249}
+                alt="환경부 서울특별시 미세먼지 — 시 전체가 하나의 농도로 표출"
+              />
+            </figure>
+            <figure className="dong-cmp__item">
+              <figcaption className="dong-cmp__cap">
+                <span className="dong-cmp__src">
+                  케이웨더
+                  <InfoMark />
+                </span>
+                <span className="dong-cmp__meta">
+                  기준: 2026. 08. 11 11:20 (업데이트 간격 : 10분)
+                </span>
+              </figcaption>
+              <img
+                src="/assets/sub/data_dong_re04.jpg?v=2"
+                width={942}
+                height={1249}
+                alt="케이웨더 서울특별시 동별 미세먼지 — 행정동별 농도와 BEST·WORST 지역 표출"
+              />
+            </figure>
+          </div>
+        </div>
       </main>
       <Footer />
     </>

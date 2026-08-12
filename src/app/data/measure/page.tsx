@@ -17,6 +17,49 @@ const LIMIT_CARDS = [
   { img: "data_measure01_thum03", top: "실시간 확인의 어려움", bottom: "최소 1시간 20분의 지연" },
 ];
 
+/* 지자체 스마트시티 사업 설치 사례 — 1행 3컷 / 2행 3컷(마지막은 지도 와이드) */
+const SMART_TOP = [
+  { img: "data_measure_re02.png", w: 320, h: 344, cap: "주거지역" },
+  { img: "data_measure_re03.png", w: 320, h: 344, cap: "대기측정소 옆" },
+  { img: "data_measure_re04.png", w: 320, h: 344, cap: "바람길 및 공원" },
+];
+const SMART_BOTTOM = [
+  { img: "data_measure_re05.png", w: 270, h: 344, cap: "이동형 측정기" },
+  { img: "data_measure_re06.png", w: 270, h: 344, cap: "고정형 측정기" },
+  {
+    img: "data_measure_re07.jpg",
+    w: 1173,
+    h: 631,
+    cap: "제주시 주요 관광지 및 정류장에 설치된 측정기 위치",
+  },
+];
+
+/* 도입 분야 — 좌측(건설사·교육시설) / 우측(기업) */
+const ADOPT_CONSTRUCT = {
+  title: "건설사",
+  list: "현대건설, 대우건설, LH공사, 우미건설, 호반건설, 중흥건설, 삼성물산, GS건설, 포스코건설 등",
+  imgs: [
+    { img: "data_measure_re08.png", w: 340, h: 322, alt: "건설현장 인근 도로에 설치된 케이웨더 공기질 표출 측정기" },
+    { img: "data_measure_re09.png", w: 340, h: 322, alt: "건물 앞에 설치된 케이웨더 공기질 표출 측정기" },
+  ],
+};
+const ADOPT_SCHOOL = {
+  title: "교육시설",
+  list: "동아유치원, 회천어린이집, 서이초, 강하초, 신양초, 신동초, 토산초, 윤중초·중, 외식고, 숭실대, 대전대, 순천향대 등",
+  imgs: [
+    { img: "data_measure_re10.png", w: 340, h: 322, alt: "학교 옥외 폴에 설치된 케이웨더 실외공기측정기" },
+    { img: "data_measure_re11.png", w: 340, h: 322, alt: "어린이집 놀이터에 설치된 케이웨더 실외공기측정기" },
+  ],
+};
+const ADOPT_COMPANY = {
+  title: "기업",
+  list: "포항제철소, 현대자동차그룹 등",
+  imgs: [
+    { img: "data_measure_re12.png", w: 340, h: 352, alt: "포항제철소 정문 전경" },
+    { img: "data_measure_re13.png", w: 340, h: 352, alt: "현대자동차 사업장 전경" },
+  ],
+};
+
 const OAQ_PLACES = [
   { img: "ad_img01", cap: "건물" },
   { img: "ad_img02", cap: "건물" },
@@ -75,10 +118,18 @@ export default function AirMeasurePage() {
 
         <section className="oaq">
           <h2 className="oaq__title">
-            건물부터 어린이집까지, 고객이 머무는 바로 그 자리의 실외공기 정보
+            고객이 머무는 바로 그 자리의 실외공기 데이터 수집을 위한 케이웨더의 고밀도 측정망
           </h2>
 
           <div className="oaq__box">
+            <img
+              className="oaq__map"
+              src="/assets/sub/data_measure_re01.jpg?v=2"
+              width={1438}
+              height={749}
+              alt="케이웨더 공기질(미세먼지) 측정망 화면 — 수도권 지도에 케이웨더 측정소 1,848개와 환경부 측정소 323개 현황, 측정소별 공기질 상세 정보 표출"
+            />
+
             {/* 두 줄 문구를 진한 블루 배너 안에 배치 */}
             <div className="oaq__banner">
               <p className="oaq__banner-title">
@@ -102,6 +153,101 @@ export default function AirMeasurePage() {
                 </li>
               ))}
             </ul>
+          </div>
+        </section>
+
+        <section className="oaq smart">
+          <h2 className="oaq__title">전국 지자체별 스마트시티 사업</h2>
+          <div className="oaq__desc">
+            <p>
+              제주, 순천, 포항, 안양, 의정부, 시흥, 세종, 부산, 강릉, 밀양, 양주 등 지자체의
+              스마트시티 사업과
+              <br />
+              서울시 약 3,000여 지점의 도시복합센서 및 스마트폴 구축을 통해 공기 측정망을
+              지속적으로 확대하고 있습니다.
+            </p>
+          </div>
+
+          {/* 6컷 모두 하나의 블루톤 박스 안에 */}
+          <div className="oaq__box">
+            <ul className="smart__row smart__row--top">
+              {SMART_TOP.map((p, i) => (
+                <li className="smart__item" key={i}>
+                  <div className="smart__thumb">
+                    <img
+                      src={`/assets/sub/${p.img}`}
+                      width={p.w}
+                      height={p.h}
+                      alt={`${p.cap} 실외공기측정기 설치 사례`}
+                    />
+                  </div>
+                  <span className="oaq__cap">{p.cap}</span>
+                </li>
+              ))}
+            </ul>
+            <ul className="smart__row smart__row--bottom">
+              {SMART_BOTTOM.map((p, i) => (
+                <li className="smart__item" key={i}>
+                  <div className="smart__thumb">
+                    <img src={`/assets/sub/${p.img}`} width={p.w} height={p.h} alt={p.cap} />
+                  </div>
+                  <span className="oaq__cap">{p.cap}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <section className="oaq">
+          <h2 className="oaq__title">어린이집부터 학교, 아파트, 기업까지</h2>
+          <div className="oaq__desc">
+            <p>
+              실외 공기질 측정정보의 중요성이 높아지면서
+              <br />
+              어린이집 및 학교 등 교육기관부터 대기업의 산업현장까지 케이웨더의 측정기를 도입하고
+              있습니다.
+            </p>
+          </div>
+
+          {/* 좌: 건설사·교육시설 2단 / 우: 기업 1단(세로 2컷) */}
+          <div className="adopt">
+            <div className="adopt__col">
+              {[ADOPT_CONSTRUCT, ADOPT_SCHOOL].map((g) => (
+                <div className="adopt__group" key={g.title}>
+                  <h3 className="adopt__title">[{g.title}]</h3>
+                  <p className="adopt__list">{g.list}</p>
+                  <div className="adopt__box">
+                    {g.imgs.map((p) => (
+                      <img
+                        key={p.img}
+                        src={`/assets/sub/${p.img}`}
+                        width={p.w}
+                        height={p.h}
+                        alt={p.alt}
+                      />
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="adopt__col">
+              <div className="adopt__group">
+                <h3 className="adopt__title">[{ADOPT_COMPANY.title}]</h3>
+                <p className="adopt__list">{ADOPT_COMPANY.list}</p>
+                <div className="adopt__box adopt__box--stack">
+                  {ADOPT_COMPANY.imgs.map((p) => (
+                    <img
+                      key={p.img}
+                      src={`/assets/sub/${p.img}`}
+                      width={p.w}
+                      height={p.h}
+                      alt={p.alt}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 

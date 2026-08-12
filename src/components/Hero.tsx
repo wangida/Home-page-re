@@ -30,7 +30,7 @@ const HERO_SLIDES: Slide[] = [
     key: "map",
     eyebrow: "케이웨더 맵",
     title: "국내 정밀 예보부터\n글로벌 날씨까지\n한눈에 확인합니다",
-    bg: "/assets/hero_map_bg02.jpg",
+    bg: "/assets/hero_map_bg03.jpg",
     cta: { label: "바로가기", href: "https://kweathermap.com/" },
   },
   {
@@ -140,7 +140,7 @@ export default function Hero() {
           {/* 일시정지 시 지구본도 멈춘다 — 슬라이드는 섰는데 혼자 움직이면 오작동처럼 보인다 */}
           <img
             className="hero__earth-img"
-            src="/assets/hero_map_earth02.png"
+            src="/assets/hero_map_earth03.png"
             alt="전 지구 기압·기온 예보가 표출된 케이웨더 맵 지구본"
             style={{ animationPlayState: paused ? "paused" : "running" }}
           />

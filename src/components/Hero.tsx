@@ -7,7 +7,9 @@ import AnimatedText from "./AnimatedText";
 import { EASE_EXPO } from "@/lib/motion-variants";
 import { useParallax } from "@/lib/use-parallax";
 
-type SlideKey = "data" | "map" | "ai" | "heat" | "robot" | "idol";
+/* map2 는 A/B 시안 비교용 임시 슬라이드다 — 확정되면 map / map2 중 하나를 통째로 지운다.
+   관련 코드는 모두 "[A/B 임시]" 주석으로 표시해 두었다. */
+type SlideKey = "data" | "map2" | "map" | "ai" | "heat" | "robot" | "idol";
 
 type Slide = {
   key: SlideKey;
@@ -26,7 +28,16 @@ const HERO_SLIDES: Slide[] = [
     cta: { label: "바로가기", href: "/data/weather" },
   },
   {
-    /* 신설 2번 슬라이드 — 배경(우주)과 지구본을 따로 얹어 지구본만 별도 연출 */
+    /* [A/B 임시] 2번 슬라이드 — 지구본이 좌측에 반쯤 걸치는 원안(02 에셋).
+       바로 뒤 map 슬라이드(원형 03)와 도트로 번갈아 보며 비교하기 위한 것이다. */
+    key: "map2",
+    eyebrow: "케이웨더 맵",
+    title: "국내 정밀 예보부터\n글로벌 날씨까지\n한눈에 확인합니다",
+    bg: "/assets/hero_map_bg02.jpg",
+    cta: { label: "바로가기", href: "https://kweathermap.com/" },
+  },
+  {
+    /* 신설 슬라이드 — 배경(우주)과 지구본을 따로 얹어 지구본만 별도 연출 */
     key: "map",
     eyebrow: "케이웨더 맵",
     title: "국내 정밀 예보부터\n글로벌 날씨까지\n한눈에 확인합니다",
@@ -129,9 +140,9 @@ export default function Hero() {
 
       {/* 등장 연출(motion)과 상시 회전(CSS)이 같은 transform 을 다투지 않도록
           바깥 래퍼가 등장을, 안쪽 img 가 회전을 각각 소유한다. */}
-      {s.key === "map" && (
+      {(s.key === "map" || s.key === "map2") && (
         <motion.div
-          key={`map-${idx}`}
+          key={`${s.key}-${idx}`}
           className="hero__earth"
           initial={{ opacity: 0, scale: 0.82, rotate: -10, y: 90 }}
           animate={{ opacity: 1, scale: 1, rotate: 0, y: 0 }}
@@ -140,7 +151,12 @@ export default function Hero() {
           {/* 일시정지 시 지구본도 멈춘다 — 슬라이드는 섰는데 혼자 움직이면 오작동처럼 보인다 */}
           <img
             className="hero__earth-img"
-            src="/assets/hero_map_earth03.png"
+            /* [A/B 임시] map2 만 02 에셋 — 확정되면 이 삼항을 지운다 */
+            src={
+              s.key === "map2"
+                ? "/assets/hero_map_earth02.png"
+                : "/assets/hero_map_earth03.png"
+            }
             alt="전 지구 기압·기온 예보가 표출된 케이웨더 맵 지구본"
             style={{ animationPlayState: paused ? "paused" : "running" }}
           />
@@ -215,6 +231,7 @@ export default function Hero() {
                 className={`btn ${
                   s.key === "data" ||
                   s.key === "map" ||
+                  s.key === "map2" || /* [A/B 임시] */
                   s.key === "heat" ||
                   s.key === "robot"
                     ? "btn--ondark"

@@ -23,13 +23,18 @@ export default function AirForecastPage() {
           subtitle={"독자적인 대기환경 분석 기술로,\n한발 더 정확하게 데이터 제공"}
         />
 
-        {/* 히어로 타이틀과 중복이라 본문 타이틀은 두지 않음 — 설명 문구만 */}
-        <section className="company-intro">
-          <p className="company-intro__desc fd-desc">
-            {
-              "독자 개발한 예보 모델로 국립환경과학원보다 높은 정확도를 구현했으며,\n주요 포털사이트와 언론사가 케이웨더의 예보를 선택해 사용하고 있습니다."
-            }
-          </p>
+        {/* 도입부 타이틀·설명 규격은 공기 측정 데이터(.oaq)와 동일하게 */}
+        <section className="oaq">
+          <h2 className="oaq__title">
+            언론사 및 포털이 신뢰하는 정확한 미세먼지·대기질 예보
+          </h2>
+          <div className="oaq__desc">
+            <p>
+              독자 개발한 예보 모델로 국립환경과학원보다 높은 정확도를 구현했으며,
+              <br />
+              주요 포털사이트와 언론사가 케이웨더의 예보를 선택해 사용하고 있습니다.
+            </p>
+          </div>
         </section>
 
         {/* 예보 화면 2종 — 케이웨더/환경부 비교 지도, 예보 모델 산출 지도 */}

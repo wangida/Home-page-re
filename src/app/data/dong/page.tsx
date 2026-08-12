@@ -33,7 +33,7 @@ export default function DongDustPage() {
           subtitle={"국가 관측망과 자체 측정 데이터를 기반으로\n행정동 단위의 정밀 공기분석 데이터 제공"}
         />
 
-        <section className="company-intro">
+        <section className="company-intro dong-intro">
           <h2 className="company-intro__title">공기 분석 데이터</h2>
           <p className="company-intro__desc fd-desc">
             {

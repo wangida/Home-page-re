@@ -394,6 +394,12 @@ img, svg { display: block; max-width: 100%; }
     linear-gradient(270deg, rgba(2,8,28,0.15) 0%, rgba(2,8,28,0.05) 30%, rgba(2,8,28,0) 62%, rgba(2,8,28,0) 100%),
     linear-gradient(180deg, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0) 32%);
 }
+/* 신설(케이웨더 맵) — 우측 텍스트 가독용. 지구본(z-index 1)보다 아래라 지구본은 흐려지지 않는다 */
+.hero__bg-image-veil--map {
+  background:
+    linear-gradient(270deg, rgba(2,8,28,0.35) 0%, rgba(2,8,28,0.12) 32%, rgba(2,8,28,0) 55%),
+    linear-gradient(180deg, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0) 30%);
+}
 .hero__bg-image-veil--idol {
   background:
     linear-gradient(180deg, rgba(0, 35, 90, 0.45) 0%, rgba(0, 35, 90, 0.18) 14%, rgba(0,0,0,0) 30%);
@@ -641,6 +647,10 @@ img, svg { display: block; max-width: 100%; }
 .hero__cols--robot { grid-template-columns: 1fr; align-items: start; }
 .hero__cols--robot .hero__text { justify-self: end; text-align: left; max-width: 560px; margin-top: calc(clamp(12px, 4vh, 38px) - 50px); margin-right: 80px; }
 
+/* 신설(케이웨더 맵) — 지구본이 좌측을 채우므로 텍스트는 우측 상단 */
+.hero__cols--map { grid-template-columns: 1fr; align-items: start; }
+.hero__cols--map .hero__text { justify-self: end; text-align: left; max-width: 560px; margin-top: calc(clamp(30px, 8vh, 88px) - 30px); }
+
 .hero__eyebrow {
   font-family: var(--font-display);
   font-weight: 300;
@@ -664,6 +674,8 @@ img, svg { display: block; max-width: 100%; }
 
 .hero--data .hero__eyebrow { color: #53D9FF; }
 .hero--data .hero__title   { color: #fff; }
+.hero--map .hero__eyebrow { color: #53D9FF; }
+.hero--map .hero__title   { color: #fff; }
 .hero--ai .hero__eyebrow { color: #0047BA; font-weight: 500; }
 .hero--ai .hero__eyebrow-en { font-size: 25px; vertical-align: top; }
 .hero__eyebrow-divider { font-weight: 300; margin: 0 2px; font-size: 24px; }
@@ -837,6 +849,56 @@ img, svg { display: block; max-width: 100%; }
   /* AI 슬라이드 eyebrow "We Air You"가 줄바꿈되지 않도록 자간·크기 축소 */
   .hero--ai .hero__eyebrow { font-size: 25px; letter-spacing: -0.04em; white-space: nowrap; }
 }
+
+/* ===== 케이웨더 맵 슬라이드 — 배경 위에 얹는 지구본 =====
+   배경(hero_map_bg.jpg)은 2400×780 원본이 히어로 높이 780px에 1:1로 깔리고 뷰포트 중앙에 정렬된다.
+   따라서 참고 시안의 지구본 좌표(x 276 / y 115 / w 1148, 원본 2400 기준)를
+   화면 중앙 기준 px 오프셋으로 그대로 옮기면 배경과 정확히 맞물린다.
+   단 크기는 시안의 90%로 축소(1148px → 1033px)하고 가로 중심은 유지한다. */
+.hero__earth {
+  position: absolute;
+  top: 125px;
+  left: calc(50% - 797px);
+  width: 1033px;
+  height: auto;
+  z-index: 1;
+  pointer-events: none;
+  transform-origin: 50% 30%;
+}
+/* 기압 라벨·등압선이 이미지에 구워져 있어 360° 회전은 글자가 뒤집힌다.
+   대신 느린 좌우 흔들림 + 상하 부유로 '천천히 도는' 느낌만 낸다. */
+.hero__earth-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform-origin: 50% 45%;
+  animation: earth-drift 15s ease-in-out infinite alternate;
+}
+@keyframes earth-drift {
+  from { transform: rotate(-6deg) translate(-14px, 10px) scale(1); }
+  to   { transform: rotate(6deg) translate(14px, -18px) scale(1.03); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero__earth-img { animation: none; }
+}
+/* 1100px 아래로는 히어로 높이가 뷰포트에 따라 변해 배경 배율이 달라진다.
+   좌표를 맞추는 대신, 텍스트(좌측 상단)를 피해 우측 하단으로 물리고 크기를 줄인다. */
+@media (max-width: 1100px) {
+  .hero__cols--map .hero__text { justify-self: start; text-align: left; margin-top: clamp(12px, 4vh, 38px); }
+  .hero__earth {
+    top: auto;
+    left: auto;
+    right: -16%;
+    bottom: -32%;
+    width: min(88vw, 684px);
+  }
+}
+/* 폰: 지구본이 3줄 제목과 겹쳐 글자가 묻히므로 CTA 아래로 완전히 내린다 */
+@media (max-width: 640px) {
+  .hero__earth { top: 63%; right: -22%; bottom: auto; width: min(112vw, 440px); }
+}
+/* 좌측 하단 인디케이터가 밝은 지구본 위에 겹쳐 흐려지므로 이 슬라이드만 그림자로 분리 */
+.hero--map .hero__nav { filter: drop-shadow(0 2px 6px rgba(0,0,0,0.55)); }
 
 .scroll-hint { display: none; }
 

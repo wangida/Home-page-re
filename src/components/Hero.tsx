@@ -29,7 +29,7 @@ const HERO_SLIDES: Slide[] = [
     /* 신설 2번 슬라이드 — 배경(우주)과 지구본을 따로 얹어 지구본만 별도 연출 */
     key: "map",
     eyebrow: "케이웨더 맵",
-    title: "국내 예보부터 글로벌\n날씨를 날씨지도로\n제공합니다",
+    title: "국내 예보부터\n글로벌 날씨를\n날씨지도로 제공합니다",
     bg: "/assets/hero_map_bg02.jpg",
     cta: { label: "바로가기", href: "https://kweathermap.com/" },
   },
@@ -43,7 +43,7 @@ const HERO_SLIDES: Slide[] = [
   {
     key: "heat",
     eyebrow: "폭염 관리 솔루션",
-    title: '<span class="hero__title-thin hero__title-muted">산업재해</span> <strong>폭염</strong> <span class="hero__title-thin hero__title-muted">체감온도</span>\n<span class="hero__title-muted hero__title-sm">데이터와 현장별 예보로</span>\n<span class="hero__title-muted hero__title-sm">통합 관리합니다</span>',
+    title: '<span class="hero__title-thin hero__title-muted">산업재해</span> <strong>폭염</strong>\n<span class="hero__title-muted hero__title-sm">체감온도 데이터와 현장별</span>\n<span class="hero__title-muted hero__title-sm">예보로 통합 관리합니다</span>',
     bg: "/assets/hero_03.jpg?v=3",
     cta: { label: "바로가기", href: "/product/heat_re" },
   },

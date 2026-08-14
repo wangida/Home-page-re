@@ -675,7 +675,9 @@ img, svg { display: block; max-width: 100%; }
 .hero--data .hero__eyebrow { color: #53D9FF; }
 .hero--data .hero__title   { color: #fff; }
 .hero--map .hero__eyebrow { color: #53D9FF; }
-.hero--map .hero__title   { color: #fff; }
+/* 3줄 카피라 -0.02em 자간이 유독 빽빽해 보인다 — 이 슬라이드만 자간을 푼다.
+   크기는 3번째 줄이 짧아 넘칠 일이 없으므로 기본 48px 구간을 그대로 쓴다 */
+.hero--map .hero__title   { color: #fff; letter-spacing: 0; }
 .hero--ai .hero__eyebrow { color: #0047BA; font-weight: 500; }
 .hero--ai .hero__eyebrow-en { font-size: 25px; vertical-align: top; }
 .hero__eyebrow-divider { font-weight: 300; margin: 0 2px; font-size: 24px; }

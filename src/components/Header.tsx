@@ -116,7 +116,7 @@ const MEGA_LINES_X = [282, 442, 602, 762, 922, 1082, 1242];
 /* 패밀리 영역 — Figma family(371:528): 프레임 x=1477(뷰포트), y=34(패널 상대), 241×275
    썸네일 75×55 r10, 라벨 17px #515151 x=96, 버튼 btn_sgo 20×20 (라벨별 위치 상이) */
 const FAMILY_ITEMS = [
-  { label: "날씨지도", thumb: "/assets/ia_s_thum01.png", thumbTop: 0, textTop: 5, btnLeft: 145, btnTop: 16 },
+  { label: "날씨지도", thumb: "/assets/ia_s_thumre02.png", thumbTop: 0, textTop: 5, btnLeft: 145, btnTop: 16 },
   { label: "Air365", thumb: "/assets/ia_s_thum02.png", thumbTop: 65, textTop: 70, btnLeft: 138, btnTop: 81 },
   { label: "날씨환경청", thumb: "/assets/ia_s_thum03.png", thumbTop: 130, textTop: 135, btnLeft: 160, btnTop: 146 },
   { label: "날씨앱", thumb: "/assets/ia_s_thum04.png", thumbTop: 195, textTop: 186 },
@@ -131,7 +131,7 @@ const FAMILY_APPS = [
 /* 모바일 드로어 하단 패밀리 사이트 — Figma 개편 컨셉(85:662) 세로 리스트.
    썸네일 80×60, 라벨 18px #515151, 행 간격 20px. 날씨앱은 IOS/Android 2개 링크 */
 const MNAV_FAMILY = [
-  { label: "날씨지도", thumb: "/assets/ia_s_thum01.png", href: "https://map.kweather.co.kr" },
+  { label: "날씨지도", thumb: "/assets/ia_s_thumre02.png", href: "https://map.kweather.co.kr" },
   { label: "Air365", thumb: "/assets/ia_s_thum02.png", href: "https://www.air365.co.kr" },
   { label: "날씨환경청", thumb: "/assets/ia_s_thum03.png", href: "https://www.kweather.co.kr" },
   {

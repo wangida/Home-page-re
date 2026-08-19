@@ -7,7 +7,7 @@ import AnimatedText from "./AnimatedText";
 import { EASE_EXPO } from "@/lib/motion-variants";
 import { useParallax } from "@/lib/use-parallax";
 
-type SlideKey = "data" | "map" | "ai" | "heat" | "robot" | "idol";
+type SlideKey = "data" | "map" | "aif" | "ai" | "heat" | "robot" | "idol";
 
 type Slide = {
   key: SlideKey;
@@ -32,6 +32,15 @@ const HERO_SLIDES: Slide[] = [
     title: "국내 예보부터\n글로벌 날씨를\n날씨지도로 제공합니다",
     bg: "/assets/hero_map_bg02.jpg",
     cta: { label: "바로가기", href: "https://kweathermap.com/" },
+  },
+  {
+    /* 신설 3번 슬라이드 — 배경(데이터센터) 위에 모니터 뷰를 따로 얹는다.
+       바로가기는 기상데이터 페이지의 세 번째 탭(날씨 AI 팩토리)으로 보낸다. */
+    key: "aif",
+    eyebrow: "날씨 AI 팩토리",
+    title: "케이웨더의 빅데이터와\n엔비디아 AI 인프라를 결합한\n세계 최초 날씨 AI 팩토리",
+    bg: "/assets/hero_Aifactory_bg02.jpg",
+    cta: { label: "바로가기", href: "/data/weather?tab=aifactory" },
   },
   {
     key: "ai",
@@ -147,6 +156,18 @@ export default function Hero() {
         </motion.div>
       )}
 
+      {s.key === "aif" && (
+        <motion.img
+          key={`aif-${idx}`}
+          src="/assets/hero_Aifactory_view02.png"
+          alt="60일 예보 기온·강수 그래프와 기후 변화를 표현한 지구 이미지가 표출된 날씨 AI 팩토리 모니터"
+          className="hero__aif-view"
+          initial={{ opacity: 0, y: 32 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 1.1, ease: EASE_EXPO }}
+        />
+      )}
+
       {s.key === "heat" && (
         <motion.img
           key={`heat-${idx}`}
@@ -215,6 +236,7 @@ export default function Hero() {
                 className={`btn ${
                   s.key === "data" ||
                   s.key === "map" ||
+                  s.key === "aif" ||
                   s.key === "heat" ||
                   s.key === "robot"
                     ? "btn--ondark"

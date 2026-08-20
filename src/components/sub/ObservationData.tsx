@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import AiFactory from "./AiFactory";
 
 /* 관측 데이터 본문 — 기존 기상 데이터 탭(첫 번째)에서 이관.
@@ -115,18 +115,12 @@ function ClientsSection() {
   );
 }
 
-export default function ObservationData() {
-  const [info, setInfo] = useState(0); // 0: 케이웨더 정보, 1: 기상청 정보, 2: 날씨 AI 팩토리
-
-  /* 메인 히어로의 '날씨 AI 팩토리' 바로가기(/data/weather?tab=aifactory)로 들어오면
-     첫 탭이 아니라 AI 팩토리 탭이 열리게 한다.
-     useSearchParams 는 Suspense 경계를 요구해 정적 프리렌더를 깨뜨리므로,
-     마운트 후 location 을 직접 읽는다. */
-  useEffect(() => {
-    if (new URLSearchParams(window.location.search).get("tab") === "aifactory") {
-      setInfo(2);
-    }
-  }, []);
+/* initialTab: 서버(page.tsx)가 ?tab= 을 읽어 넘겨주는 첫 탭.
+   0: 케이웨더 정보, 1: 기상청 정보, 2: 날씨 AI 팩토리
+   여기서 window.location 을 읽어 마운트 후 바꾸면 첫 탭이 한 번 보였다 넘어가므로
+   초기값으로 받아 첫 렌더부터 맞는 탭을 그린다. */
+export default function ObservationData({ initialTab = 0 }: { initialTab?: number }) {
+  const [info, setInfo] = useState(initialTab);
 
   return (
     <section className="company-intro wd-obs" key="weather">

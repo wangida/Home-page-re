@@ -400,12 +400,14 @@ img, svg { display: block; max-width: 100%; }
     linear-gradient(270deg, rgba(2,8,28,0.35) 0%, rgba(2,8,28,0.12) 32%, rgba(2,8,28,0) 55%),
     linear-gradient(180deg, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0) 30%);
 }
-/* 신설(날씨 AI 팩토리) — 텍스트가 좌측이라 좌측·상단을 어둡게.
-   모니터(z-index 1)보다 아래라 모니터 화면은 흐려지지 않는다 */
+/* 신설(날씨 AI 팩토리) — 좌측·상단을 아주 옅게만 정리한다.
+   가독성의 본체는 텍스트 블록 뒤에 붙는 국소 스크림(.hero__text::before)이 맡는다.
+   좌측 전체를 어둡게 하면 배경 자체가 죽어 보여서, 여기서는 화면 가장자리
+   정리 수준(0.28)까지만 쓴다. 모니터(z-index 1)보다 아래라 화면은 안 흐려진다 */
 .hero__bg-image-veil--aif {
   background:
-    linear-gradient(90deg, rgba(2,8,28,0.45) 0%, rgba(2,8,28,0.18) 34%, rgba(2,8,28,0) 58%),
-    linear-gradient(180deg, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0) 30%);
+    linear-gradient(90deg, rgba(2,8,28,0.28) 0%, rgba(2,8,28,0.10) 26%, rgba(2,8,28,0) 46%),
+    linear-gradient(180deg, rgba(0,0,0,0.26) 0%, rgba(0,0,0,0) 28%);
 }
 .hero__bg-image-veil--idol {
   background:
@@ -660,7 +662,40 @@ img, svg { display: block; max-width: 100%; }
 
 /* 신설(날씨 AI 팩토리) — 모니터가 우측을 채우므로 텍스트는 좌측 상단 */
 .hero__cols--aif { grid-template-columns: 1fr; align-items: start; }
-.hero__cols--aif .hero__text { justify-self: start; text-align: left; max-width: 680px; margin-top: calc(clamp(30px, 8vh, 88px) - 20px); margin-left: -20px; }
+.hero__cols--aif .hero__text { justify-self: start; text-align: left; max-width: 680px; margin-top: calc(clamp(30px, 8vh, 88px) - 20px); margin-left: -20px; position: relative; z-index: 0; }
+/* 텍스트 덩어리에만 붙는 국소 스크림.
+   배경 베일과 달리 글자 박스를 따라다녀서, 좌측 전체를 어둡게 하지 않고도
+   흰 글자 뒤 서버랙 무늬만 눌러준다. z-index:0 으로 만든 이 요소의 쌓임 맥락
+   안에서 -1 이므로 글자 뒤·배경 앞에 정확히 놓인다(배경까지 내려가지 않는다).
+   inset 음수값은 글자 박스보다 넉넉히 넓혀 경계가 눈에 띄지 않게 하는 여백 */
+.hero__cols--aif .hero__text::before {
+  content: "";
+  position: absolute;
+  /* 글자 박스보다 크게 잡아야 falloff 가 길어져 경계가 안 보인다.
+     좁으면 글자 뒤에만 뭉쳐 조명 얼룩처럼 읽히므로 화면 가장자리까지 넉넉히 민다 */
+  inset: -190px -330px -160px -280px;
+  z-index: -1;
+  pointer-events: none;
+  /* ⚠️ closest-side 를 반드시 붙인다.
+     크기를 안 쓰면 기본값이 farthest-corner 라 타원이 박스보다 커지고,
+     박스 모서리에서 알파가 0.2~0.3 인 채로 잘려 사각 테두리가 보인다.
+     closest-side 는 타원이 박스 네 변에 정확히 내접해 100% 스톱(알파 0)이
+     경계와 맞아떨어지므로 잘리는 선이 생기지 않는다. */
+  /* 스톱을 촘촘히 나눠 가우시안에 가깝게 떨어뜨린다 — 스톱이 적으면 구간마다
+     기울기가 꺾여 동심원 띠(밴딩)가 눈에 띄고 '덩어리'로 읽힌다 */
+  background: radial-gradient(
+    ellipse closest-side at 50% 50%,
+    rgba(2,8,28,0.52) 0%,
+    rgba(2,8,28,0.50) 25%,
+    rgba(2,8,28,0.45) 45%,
+    rgba(2,8,28,0.38) 60%,
+    rgba(2,8,28,0.29) 72%,
+    rgba(2,8,28,0.20) 82%,
+    rgba(2,8,28,0.12) 90%,
+    rgba(2,8,28,0.05) 96%,
+    rgba(2,8,28,0) 100%
+  );
+}
 
 .hero__eyebrow {
   font-family: var(--font-display);
@@ -692,14 +727,23 @@ img, svg { display: block; max-width: 100%; }
 /* 배경이 청회색이라 하늘색은 묻히고 갈색은 튄다. 파랑에서 벗어나되 이질감이 적은
    민트를 쓴다 — 베일 합성 배경(#5D626F) 대비 4.90:1 로 그림자 없이도 잘 읽힌다.
    다른 슬라이드 하늘색(#53D9FF)과 색상각이 25° 차이라 계열은 유지된다. */
-.hero--aif .hero__eyebrow { color: #69FEE1; font-weight: 500; }
+.hero--aif .hero__eyebrow {
+  color: #69FEE1;
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(3,12,32,0.55), 0 3px 14px rgba(3,12,32,0.45);
+}
 /* 3줄 카피라 AI환기청정·폭염·에어로봇과 같은 축소 구간을 쓴다(기본 48px → 45px).
    배경이 서버랙 패턴이라 대비(3.6~6.9:1)는 충분해도 글자가 무늬에 섞여 읽힌다.
    좁은 그림자로 획을 또렷하게, 넓고 옅은 그림자로 글자 주변을 눌러 분리한다. */
 .hero--aif .hero__title {
   color: #fff;
   font-size: clamp(31px, 3.6vw, 45px);
-  text-shadow: 0 1px 2px rgba(3,12,32,0.38), 0 4px 18px rgba(3,12,32,0.42);
+  /* 3겹: 좁고 진한 그림자로 획을 세우고, 중간 그림자로 무늬를 지우고,
+     넓고 옅은 그림자로 글자 덩어리 주변을 눌러 배경에서 떼어낸다 */
+  text-shadow:
+    0 1px 2px rgba(3,12,32,0.60),
+    0 2px 9px rgba(3,12,32,0.50),
+    0 10px 32px rgba(3,12,32,0.42);
 }
 .hero--ai .hero__eyebrow { color: #0047BA; font-weight: 500; }
 .hero--ai .hero__eyebrow-en { font-size: 25px; vertical-align: top; }

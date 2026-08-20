@@ -38,7 +38,7 @@ const HERO_SLIDES: Slide[] = [
        바로가기는 기상데이터 페이지의 세 번째 탭(날씨 AI 팩토리)으로 보낸다. */
     key: "aif",
     eyebrow: "날씨 AI 팩토리",
-    title: "케이웨더의 빅데이터와\n엔비디아 AI 인프라를 결합한\n세계 최초 날씨 AI 팩토리",
+    title: "AI 인프라에 케이웨더\n빅데이터를 결합한\n세계 최초 날씨 AI 팩토리",
     bg: "/assets/hero_Aifactory_bg02.jpg",
     cta: { label: "바로가기", href: "/data/weather?tab=aifactory" },
   },
@@ -64,13 +64,20 @@ const HERO_SLIDES: Slide[] = [
     bg: "/assets/hero_robot.jpg?v=6",
     cta: { label: "바로가기", href: "/solution/airrobot" },
   },
-  {
-    key: "idol",
-    eyebrow: "날씨의 아이돌",
-    title: "오늘의 날씨를\n음악으로 전달합니다",
-    bg: "/assets/hero_04_re.jpg?v=2",
-    cta: { label: "바로가기", href: "https://weatheridols.ai/" },
-  },
+  /* ⏸ 2026-08-20 임시 비노출 (대표님 컨펌 대기) — 날씨의 아이돌 슬라이드.
+     ▶ 원복: 아래 주석만 해제하면 그대로 돌아온다. 이 블록 외에는 아무것도 지우지
+       않았다 — SlideKey 의 "idol", 물방울 연출(s.key === "idol"), globals.css 의
+       .hero--idol / .hero__bg-image-veil--idol / .hero__water*, 배경 이미지
+       (hero_04_re.jpg), water_01~03.png 전부 그대로 남아 있다.
+     ※ 슬라이드 수(도트·자동재생 순환)는 HERO_SLIDES.length 로 계산하므로
+       주석 처리만으로 7개 → 6개가 자동 반영된다. 따로 고칠 곳 없다. */
+  // {
+  //   key: "idol",
+  //   eyebrow: "날씨의 아이돌",
+  //   title: "오늘의 날씨를\n음악으로 전달합니다",
+  //   bg: "/assets/hero_04_re.jpg?v=2",
+  //   cta: { label: "바로가기", href: "https://weatheridols.ai/" },
+  // },
 ];
 
 const SLIDE_MS = 7000;

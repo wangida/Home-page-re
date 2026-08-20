@@ -39,7 +39,7 @@ const HERO_SLIDES: Slide[] = [
     key: "aif",
     eyebrow: "날씨 AI 팩토리",
     title: "AI 인프라에 케이웨더\n빅데이터를 결합한\n세계 최초 날씨 AI 팩토리",
-    bg: "/assets/hero_Aifactory_bg02.jpg",
+    bg: "/assets/hero_Aifactory_bg.jpg",
     cta: { label: "바로가기", href: "/data/weather?tab=aifactory" },
   },
   {
@@ -166,7 +166,7 @@ export default function Hero() {
       {s.key === "aif" && (
         <motion.img
           key={`aif-${idx}`}
-          src="/assets/hero_Aifactory_view02.png"
+          src="/assets/hero_Aifactory_view.png"
           alt="60일 예보 기온·강수 그래프와 기후 변화를 표현한 지구 이미지가 표출된 날씨 AI 팩토리 모니터"
           className="hero__aif-view"
           initial={{ opacity: 0, y: 32 }}

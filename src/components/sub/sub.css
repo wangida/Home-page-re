@@ -1404,6 +1404,127 @@
   margin: 0 auto;
 }
 
+/* ----- 날씨경영 컨설팅 — 기업 사례 슬라이더 ----- */
+/* 업종별 사례 카드(.pf-case)를 좌우 화살표로 넘김.
+   --cc-slide: 카드 1장 폭, --cc-gap: 카드 사이 간격 → 트랙 translateX 계산에 그대로 사용 */
+.cc-cases {
+  --cc-gap: 48px;
+  --cc-slide: 100%; /* 카드 1장이 뷰포트를 꽉 채움 — 옆 카드가 잘려 보이지 않게 */
+  --cc-gutter: 100px; /* 좌우 화살표 자리 */
+  /* 1330 = 카드 1130 + 화살표 자리 100×2
+     — 이 사례 블록은 기존 PHP 컨설팅 페이지 하단에 들어간다.
+       그쪽 .size 는 max-width 1170 + 좌우 패딩 20px(border-box) 이라
+       실제 콘텐츠가 그려지는 폭은 1130 → 카드도 1130 에 맞춘다 */
+  width: min(1330px, calc(100% - 40px));
+  margin: 100px auto 200px;
+}
+/* 본문 중간 타이틀 — 다른 서브 페이지 섹션 타이틀(.aif__title 등)과 동일한 32px */
+.cc-cases__title {
+  margin: 0;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #222;
+}
+.cc-cases__stage {
+  position: relative;
+  margin-top: 44px;
+}
+/* 다음 카드가 오른쪽 끝에서 살짝 잘려 보이도록 클리핑 */
+.cc-cases__viewport {
+  margin: 0 var(--cc-gutter);
+  overflow: hidden;
+  /* 높이는 JS가 보이는 카드 기준으로 지정 — 카드가 바뀔 때 함께 전환 */
+  transition: height 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+}
+/* 카드는 각자 내용만큼만 — 억지로 높이를 맞추면 아래 여백이 크게 남는다 */
+.cc-cases__track {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--cc-gap);
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.cc-cases__slide {
+  flex: 0 0 var(--cc-slide);
+}
+/* 업종마다 썸네일 원본 세로가 달라 카드 높이가 들쭉날쭉해지므로,
+   가장 짧은 비율(731×714 — 건설업·에너지 원본)로 박스를 통일.
+   세로가 긴 레저업·유통업 이미지는 잘리지 않게 박스 안에 맞춰 축소되고,
+   원본 배경이 모두 흰색이라 남는 여백은 눈에 띄지 않음 */
+.cc-cases .pf-case__thumb-img {
+  aspect-ratio: 731 / 714;
+  object-fit: contain;
+  background: #fff;
+}
+/* 슬라이드 안에서는 카드가 폭을 꽉 채우고 상·하 여백 없음 */
+.cc-cases .pf-case,
+.cc-cases .pf-case:last-child {
+  width: 100%;
+  margin: 0;
+}
+/* 원형 화살표 버튼 모양은 메인 .digital-arrow(globals.css) 그대로 사용하고
+   위치만 카드 좌우 중앙에 고정 */
+/* 카드마다 높이가 조금씩 달라 top:50%면 화살표가 위아래로 흔들린다.
+   썸네일 영역(모든 카드 동일) 중앙을 JS로 재서 --cc-arrow-top 에 고정 */
+.cc-cases__arrow {
+  position: absolute;
+  top: var(--cc-arrow-top, 50%);
+  margin-top: -23px; /* 버튼 높이 46 ÷ 2 — transform은 hover 효과가 쓰므로 사용하지 않음 */
+}
+.cc-cases__arrow:disabled {
+  opacity: 0.3;
+  pointer-events: none;
+}
+.cc-cases__arrow--prev { left: calc((var(--cc-gutter) - 46px) / 2); }
+.cc-cases__arrow--next { right: calc((var(--cc-gutter) - 46px) / 2); }
+.cc-cases__dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 36px;
+}
+.cc-cases__dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #c9d2e6;
+  cursor: pointer;
+  transition: background 0.2s, width 0.2s;
+}
+.cc-cases__dot.is-on {
+  width: 28px;
+  border-radius: 5px;
+  background: #08277a;
+}
+@media (max-width: 1100px) {
+  .cc-cases {
+    --cc-gap: 32px;
+    --cc-gutter: 68px;
+    margin: 80px auto 140px;
+  }
+  .cc-cases__stage { margin-top: 32px; }
+}
+@media (max-width: 640px) {
+  /* 좌우 여백을 뺄 수 없어 화살표는 카드 상단에 흰 원으로 겹침 */
+  .cc-cases {
+    --cc-gap: 20px;
+    --cc-gutter: 0px;
+    width: calc(100% - 40px);
+  }
+  .cc-cases__title { font-size: 24px; }
+  .cc-cases__arrow {
+    top: 220px;
+    margin-top: 0;
+    background: rgba(255, 255, 255, 0.92);
+  }
+  .cc-cases__arrow--prev { left: -8px; }
+  .cc-cases__arrow--next { right: -8px; }
+  .cc-cases__dots { margin-top: 24px; }
+}
+
 /* ----- 케이웨더 맵 — 본문 블록(제목+설명+이미지) ----- */
 .map-block {
   width: min(1320px, calc(100% - 64px));

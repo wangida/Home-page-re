@@ -209,7 +209,11 @@
 .history--loose .history__item { margin-bottom: 22px; }
 .history--loose .history__item:last-child { margin-bottom: 0; }
 
-/* ===== 기업소개(company) — Figma Sub_회사소개 > company(3:354), 1920 기준 콘텐츠 1440 ===== */
+/* ===== 기업소개(company) — Figma Sub_회사소개 > company(3:354)
+   원안은 1920 기준 콘텐츠 1440 이었으나, 사이트 전체 컨테이너 규약(1320)에 맞춰
+   페이지 전체를 1320 으로 통일했다. 1440 기준으로 잡혀 있던 좌측 들여쓰기
+   (.company-plat 237px / .company-ceo__img 69px)는 절대 위치가 유지되도록
+   1320 컨테이너 기준으로 환산했다. ===== */
 .company-intro {
   margin-top: 90px;
   text-align: center;
@@ -245,11 +249,13 @@
   height: auto;
 }
 
-/* 기상/공기 빅데이터플랫폼 단락 — Figma x477(컨테이너 좌측 +237) */
+/* 기상/공기 빅데이터플랫폼 단락 — Figma x477
+   1320 컨테이너는 1920 에서 좌측이 300px 이므로 들여쓰기는 477-300=177px
+   (1440 시절 240+237=477 과 같은 절대 위치를 지킨다) */
 .company-plat {
-  width: min(1440px, calc(100% - 64px));
+  width: min(1320px, calc(100% - 64px));
   margin: 26px auto 0;
-  padding-left: 237px;
+  padding-left: 177px;
 }
 .company-plat p {
   margin: 0;
@@ -261,9 +267,10 @@
 }
 .company-plat p + p { margin-top: 27px; }
 
-/* CEO 인사말 — 사진 665×561 좌 / 텍스트 559 우, 사이 52px */
+/* CEO 인사말 — 사진 665×561 좌 / 텍스트 559 우
+   사이는 Figma 52px 이었으나 사진 우측이 옅은 빌딩으로 비어 보여 24px 로 좁혔다 */
 .company-ceo {
-  width: min(1440px, calc(100% - 64px));
+  width: min(1320px, calc(100% - 64px));
   margin: 35px auto 0;
   display: flex;
   align-items: flex-start;
@@ -272,11 +279,14 @@
   width: 665px;
   height: 561px;
   object-fit: cover;
-  margin-left: 69px;
+  /* 1440 시절의 69px 을 그대로 두면 665+69+24+559=1317 로 컨테이너에 꽉 차
+     텍스트가 559 아래로 눌려 줄바꿈이 바뀐다 — 1320 기준 44px 로 환산했다.
+     남는 우측 여유(28px)는 원안(1440 시절에도 95px 남았다)과 같은 성격이다 */
+  margin-left: 44px;
   flex: none;
 }
 .company-ceo__txt {
-  margin-left: 52px;
+  margin-left: 24px;
   padding-top: 108px;
   max-width: 559px;
 }
@@ -298,9 +308,168 @@
 .company-ceo__body p { margin: 0; }
 .company-ceo__body p + p { margin-top: 30px; }
 
+/* ===== 기업 현황 — 좌: 항목 표 / 우: 사옥 사진 ===== */
+.company-stat {
+  width: min(1320px, calc(100% - 64px));
+  margin: 60px auto 0;
+  display: grid;
+  /* 사진 칼럼만 310px 로 두고 사진(300px)은 칼럼 좌측에 붙여 10px 왼쪽으로 옮겼다.
+     여백을 80→70px 로 줄여 기업 현황 박스 폭(940px)은 그대로 유지한다 */
+  grid-template-columns: minmax(0, 1fr) 310px;
+  align-items: start;
+  gap: 70px;
+}
+.company-stat__card {
+  position: relative;
+  /* 좌우 34→29px — 대시 라인(행 테두리)이 860→870px 로 10px 길어진다.
+     아래 30→16px — 마지막 행 패딩 16 과 합쳐 32px, 행 사이 간격과 같은 리듬이 된다 */
+  padding: 46px 29px 16px;
+  /* 페이지 전역 라인박스 색 — 다이어그램 박스들과 같은 #c4d2f3 */
+  border: 1px solid #c4d2f3;
+  border-radius: 16px;
+  background: #fff;
+}
+/* 카드 좌측 상단에 걸치는 탭 형태 헤더 */
+.company-stat__title {
+  position: absolute;
+  top: -22px;
+  /* 라벨과 좌측을 맞춘다 — 카드 패딩 29 + 행 들여쓰기 15 */
+  left: 44px;
+  margin: 0;
+  padding: 10px 59px;
+  border-radius: 10px;
+  /* 그라데이션 대신 우측에 쓰던 진한 블루 단색 */
+  background: #1f4aa8;
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+}
+.company-stat__list {
+  margin: 0;
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+}
+.company-stat__row {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  align-items: center;
+  gap: 16px;
+  /* 폰트를 19px 로 키운 만큼 위아래 15→16px — 행 높이 +2px, 점선 사이 32px.
+     좌우 -29px 로 카드 패딩만큼 밀어내 점선과 배경이 카드 끝에 닿게 하고,
+     같은 값을 패딩으로 되돌려(좌 15+29=44) 텍스트 위치는 그대로 둔다 */
+  margin: 0 -29px;
+  padding: 16px 29px 16px 44px;
+}
+/* 짝수행(설립일·인력현황·주요제품)에 옅은 배경 — 우측 사진 박스와 같은 #eef1fa.
+   행 자체가 카드 끝까지 넓어져 있어 배경도 그대로 끝까지 찬다 */
+.company-stat__row:nth-child(even) {
+  background: #eef1fa;
+}
+.company-stat__row + .company-stat__row {
+  /* 라인박스 색(#c4d2f3)에 맞춘 행 구분 점선 — 원래 값은 #dfe3e8 */
+  border-top: 1px dashed #c4d2f3;
+}
+.company-stat__label {
+  font-size: 19px;
+  font-weight: 700;
+  color: #1f4aa8;
+}
+.company-stat__value {
+  position: relative;
+  margin: 0;
+  padding-left: 14px;
+  font-size: 19px;
+  line-height: 1.5;
+  color: #222;
+  word-break: keep-all;
+}
+.company-stat__value::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 0.62em;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #777;
+}
+/* 상장일 옆 코스닥 상장법인 로고 (905×383 원본을 높이 30px로) */
+.company-stat__kosdaq {
+  display: inline-block;
+  margin-left: 12px;
+  width: auto;
+  height: 30px;
+  vertical-align: middle;
+}
+.company-stat__media {
+  display: flex;
+  flex-direction: column;
+  /* 칼럼(310px)보다 10px 좁게 잡아 좌측에 붙는다 — 박스 외곽이 300px */
+  width: 300px;
+  /* 칼럼 시작선보다 10px 더 좌측으로 — 카드 폭(940px)은 건드리지 않고
+     사진 칼럼만 옮긴다 (그리드 gap 을 줄이면 카드가 같이 넓어진다) */
+  margin-left: -10px;
+  /* 높이를 좌측 카드에 억지로 맞추지 않는다 — 맞추려 하면 남는 높이가
+     캡션 주변으로 흘러들어 캡션이 위아래 박스 중 어디에 붙는지 모호해진다.
+     캡션 아래(=다음 사진 박스와의 간격)는 18px — 캡션 줄 상자의 half-leading
+     4px 가 더해져 화면에서는 22px 로 보인다 */
+  gap: 18px;
+}
+/* 사진 박스 + 그 아래 캡션을 묶는 단위 — 테두리는 안쪽 박스에만 있다 */
+.company-stat__fig {
+  display: flex;
+  /* 내용 높이만 차지한다 — 남는 높이는 __media 가 간격으로 나눈다 */
+  flex: 0 0 auto;
+  flex-direction: column;
+  margin: 0;
+}
+/* 사진만 담는 박스 — 테두리 없이 DSP 다이어그램 박스(.company-sol__box)와 같은
+   배경색으로 면 처리한다. 사진을 위에 붙여 남는 높이가 하단에 배경색 띠로 남는다.
+   캡션은 이 박스 밖에 있다 */
+.company-stat__frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* 사방 14px — 배경색이 사진 네 변에 같은 폭으로 보인다 */
+  padding: 14px;
+  /* 배경(#eef1fa)과 전역 라인색(#c4d2f3) 중간값 — 윤곽만 잡히게 흐리게 */
+  border: 1px solid #dbe3f7;
+  border-radius: 16px;
+  background: #eef1fa;
+}
+/* 사진 자리 — 실제 이미지로 교체 전 임시 박스 */
+.company-stat__ph {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border: 1px dashed #c6cdd8;
+  border-radius: 8px;
+  background: #f4f6f9;
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-size: 15px;
+  color: #98a2b3;
+}
+/* 본사·인천검단공장 사진 — 원본 600×400(3:2) */
+.company-stat__photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+.company-stat__cap {
+  /* 사진 박스와 캡션 사이 10px */
+  margin-top: 10px;
+  text-align: center;
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  font-size: 16px;
+  color: #222;
+}
+
 /* 솔루션 다이어그램 */
 .company-sol {
-  margin-top: 56px;
+  /* DSP 카피 위 여백 56→66px */
+  margin-top: 66px;
   text-align: center;
 }
 .company-sol__title {
@@ -310,21 +479,52 @@
   line-height: 47px;
   color: #000;
 }
+/* DSP 사업모델 카피 — 굵은 2줄 */
+.company-sol__title--dsp {
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+  /* 본문 리드 카피 — 두 줄 전체 같은 두께(500) */
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 44px;
+  color: #222;
+  word-break: keep-all;
+}
+/* 다이어그램을 감싸는 배경박스 — 날씨 AI 팩토리 다이어그램 박스(.aif__bgbox)와
+   같은 연한 라벤더·라운드를 쓴다(테두리 없음). 폭은 1200px 규약을 여기서 잡고,
+   이미지는 박스를 채운다 — 원본 1346px 를 그대로 두면 다른 섹션보다 넓어진다 */
+.company-sol__box {
+  width: min(1320px, calc(100% - 64px));
+  /* DSP 카피 아래 여백 29→39px */
+  margin: 39px auto 0;
+  /* 여백을 패딩 하나로만 잡는다 — 이미지를 95% 로 줄여 쓰던 방식은 좌우 여백이
+     '패딩 + 축소분' 이라 값이 안 맞았다(패딩 34 → 실제 65px).
+     이제 좌우 60 / 위아래 55 가 화면에서 그대로 나온다 */
+  padding: 55px 60px;
+  background: #eef1fa;
+  border-radius: 24px;
+}
 .company-sol__img {
   display: block;
-  margin: 29px auto 0;
-  max-width: 100%;
+  /* 좌우 여백은 박스 패딩(60px)이 잡는다 — 박스 안쪽 1200px 을 꽉 채운다 */
+  width: 100%;
+  margin: 0 auto;
   height: auto;
 }
 
 /* 소개 영상 — 썸네일 클릭 시 인페이지 유튜브 재생 */
+/* DSP 다이어그램 박스(.company-sol__box)와 가로 1320 으로 맞추되, 배경색 대신
+   라인 박스로 담는다 — 썸네일 원본이 1053px 이라 안쪽 1250px 에서는 1.19배
+   확대된다. 재생되는 유튜브 플레이어는 영상 스트림이라 확대 영향이 없다 */
 .company-video {
-  width: fit-content;
+  width: min(1320px, calc(100% - 64px));
   margin: 52px auto 260px;
-  max-width: calc(100% - 64px);
+  padding: 34px;
+  border: 1px solid #c4d2f3;
+  border-radius: 24px;
 }
 .company-video__btn {
   display: block;
+  width: 100%;
   padding: 0;
   border: 0;
   background: none;
@@ -332,13 +532,12 @@
 }
 .company-video img {
   display: block;
-  max-width: 100%;
+  width: 100%;
   height: auto;
 }
 .company-video iframe {
   display: block;
-  width: 1053px;
-  max-width: calc(100vw - 64px);
+  width: 100%;
   aspect-ratio: 1053 / 591;
   height: auto;
   border: 0;
@@ -1714,7 +1913,13 @@
   .company-ceo__img { margin-left: 0; width: 100%; max-width: 665px; height: auto; }
   .company-ceo__txt { margin-left: 0; padding-top: 48px; max-width: none; }
   .company-ceo__title { font-size: 30px; line-height: 42px; }
+  /* 기업 현황 — 표/사진 세로 스택 */
+  .company-stat { grid-template-columns: 1fr; gap: 48px; margin-top: 80px; }
+  /* 단일 칼럼으로 바뀌며 사진이 가로 배치되므로 데스크탑의 고정 폭(300px)을 푼다 */
+  .company-stat__media { flex-direction: row; justify-content: center; gap: 24px; width: auto; }
+  .company-stat__fig { flex: 1; max-width: 300px; }
   .company-sol__title { font-size: 27px; line-height: 40px; }
+  .company-sol__title--dsp { font-size: 24px; line-height: 38px; }
   .catalog { grid-template-columns: 1fr; max-width: 420px; }
   .sub-tabs__btn { font-size: 18px; }
   .history__year { font-size: 36px; line-height: 44px; }
@@ -1766,6 +1971,17 @@
   .sub-hero__sub--en { font-size: 20px; }
   .company-intro { margin-top: 60px; }
   .company-intro__title { font-size: 26px; }
+  /* 기업 현황 — 라벨/값 세로 배치, 사진도 세로 스택 */
+  .company-stat { width: calc(100% - 40px); }
+  .company-stat__card { padding: 40px 20px 24px; }
+  .company-stat__title { left: 20px; padding: 8px 24px; font-size: 19px; }
+  .company-stat__row { grid-template-columns: 1fr; gap: 4px; margin: 0 -20px; padding: 16px 20px 16px 35px; }
+  .company-stat__label,
+  .company-stat__value { font-size: 17px; }
+  .company-stat__media { flex-direction: column; align-items: center; }
+  /* DSP 배경박스 — 좁은 화면에서 여백이 이미지를 더 줄이므로 패딩을 줄인다
+     (AI 팩토리 박스의 모바일 값과 동일) */
+  .company-sol__box { width: calc(100% - 40px); padding: 16px; border-radius: 18px; }
   .air365-intro .company-intro__title { font-size: 24px; }
   .air365-measure { margin-top: 70px; width: calc(100% - 40px); }
   .air365-measure__title { font-size: 24px; }
@@ -1808,7 +2024,8 @@
   .company-ceo__txt { padding-top: 32px; }
   .company-ceo__title { font-size: 24px; line-height: 34px; }
   .company-sol__title { font-size: 20px; line-height: 30px; padding: 0 20px; }
-  .company-video { margin: 40px auto 100px; max-width: calc(100% - 40px); }
+  /* DSP 박스 모바일 값과 동일하게 — 좁은 화면에서 박스 여백이 영상을 더 줄이지 않게 */
+  .company-video { margin: 40px auto 100px; width: calc(100% - 40px); padding: 16px; border-radius: 18px; }
   .sub-tabs { width: calc(100% - 40px); grid-template-columns: 1fr; }
   .sub-tabs__btn { height: 56px; font-size: 16px; }
   .sub-tabs__btn + .sub-tabs__btn { border-top: none; }

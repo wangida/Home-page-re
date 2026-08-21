@@ -12,6 +12,31 @@ export const metadata: Metadata = {
     "케이웨더 기업소개 — 기상 & 공기 빅데이터플랫폼 기업, AI 시대 기후테크 기업으로 도약합니다.",
 };
 
+/* 기업 현황 표 — 홈페이지 주소는 푸터에 있어 제외 */
+const COMPANY_STAT = [
+  { label: "회사명", value: "케이웨더(주)" },
+  { label: "설립일", value: "1997년 06월 17일" },
+  { label: "상장일", value: "2024년 02월 22일", badge: true },
+  { label: "인력현황", value: "80여명 (2025년 6월 기준)" },
+  { label: "본사", value: "서울시 구로구 디지털로26길 5 (에이스하이엔드타워1차 401호)" },
+  { label: "주요제품", value: "빅데이터플랫폼, AI환기청정솔루션" },
+  { label: "자본금", value: "44.5억원" },
+];
+
+/* 사진 — 두 장 모두 300×200(3:2) 표시, 원본은 2배수 600×400 */
+const COMPANY_PHOTOS = [
+  {
+    cap: "케이웨더 본사 (서울 구로)",
+    src: "/assets/sub/company_thum01.jpg",
+    alt: "케이웨더 본사 사무실 입구의 로고 조형물",
+  },
+  {
+    cap: "케이웨더 인천검단공장",
+    src: "/assets/sub/company_thum02.jpg",
+    alt: "케이웨더 인천검단공장 건물 외관",
+  },
+];
+
 export default function CompanyPage() {
   return (
     <>
@@ -85,17 +110,70 @@ export default function CompanyPage() {
           </div>
         </section>
 
+        {/* 기업 현황 — 좌: 항목 표 / 우: 사옥 사진(에셋 수급 전이라 자리만) */}
+        <section className="company-stat">
+          <div className="company-stat__card">
+            <h3 className="company-stat__title">기업 현황</h3>
+            <dl className="company-stat__list">
+              {COMPANY_STAT.map((row) => (
+                <div className="company-stat__row" key={row.label}>
+                  <dt className="company-stat__label">{row.label}</dt>
+                  <dd className="company-stat__value">
+                    {row.value}
+                    {row.badge && (
+                      <img
+                        className="company-stat__kosdaq"
+                        src="/assets/sub/company_kosdaq.jpg"
+                        width={71}
+                        height={30}
+                        alt="코스닥 상장법인"
+                      />
+                    )}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+          <div className="company-stat__media">
+            {COMPANY_PHOTOS.map((photo) => (
+              <figure className="company-stat__fig" key={photo.cap}>
+                {/* 테두리 박스에는 사진만 넣고, 캡션은 박스 밖 아래에 둔다 */}
+                <div className="company-stat__frame">
+                  <img
+                    className="company-stat__photo"
+                    src={photo.src}
+                    width={600}
+                    height={400}
+                    alt={photo.alt}
+                  />
+                </div>
+                <figcaption className="company-stat__cap">{photo.cap}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+
+        {/* DSP 사업모델 — 카피 아래 3분야 상호관계 다이어그램 */}
         <section className="company-sol">
-          <h3 className="company-sol__title">
-            날씨와 환경데이터의 분석을 통해 새로운 솔루션을 제시합니다.
+          <h3 className="company-sol__title company-sol__title--dsp">
+            케이웨더는 Data, Service, Product (DSP) 3분야가
+            <br />
+            상호 시너지를 발휘하는 독특한 사업모델을 가지고 있습니다.
           </h3>
-          <img
-            className="company-sol__img"
-            src="/assets/sub/company_02img.png"
-            width={1000}
-            height={578}
-            alt="날씨·환경 데이터와 빅데이터 분석, 인공지능 모델, 날씨경영을 잇는 K-WEATHER 솔루션 다이어그램"
-          />
+          <div className="company-sol__box">
+            {/* 2배수(2588×1782) JPG — 박스 배경색(#eef1fa)을 이미지에 구워 넣어
+                투명도 없이 내보낸 버전. 1189px 로 0.46배 축소되므로 리샘플링이
+                깔끔하게 떨어져 흰 제품 몸통의 우글거림이 눈에 걸리지 않는다.
+                비워둔 베이스 + 제품컷 2장 겹치기(company_dsp02 + _img01/02) 방식은
+                이걸로 대체했다 */}
+            <img
+              className="company-sol__img"
+              src="/assets/sub/company_dsp.jpg"
+              width={2588}
+              height={1782}
+              alt="케이웨더 DSP 사업모델 다이어그램. Data(기상데이터·공기데이터)는 국내 최대 날씨·공기 빅데이터를, Product(기상장비·공기측정기·환기청정기)는 국가인증 1등급 공기제품 제조 기술을, Service(날씨경영 컨설팅·공기지능 서비스)는 지능형 공기지능서비스 전문인력을 핵심역량으로 하며 세 분야가 서로 시너지를 낸다."
+            />
+          </div>
         </section>
 
         <CompanyVideo />

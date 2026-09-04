@@ -113,6 +113,9 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
 /* 세로 점선(ia_line.png) x 좌표 — 피치 160, 시작 x=282 */
 const MEGA_LINES_X = [282, 442, 602, 762, 922, 1082, 1242];
 
+/* 메가메뉴 우하단 프로모(날씨데이터토큰생성기) 링크 — 이미지·바로가기 공통 */
+const PROMO_HREF = "https://wlbn.wellbianlabs.io/";
+
 /* 패밀리 영역 — Figma family(371:528): 프레임 x=1477(뷰포트), y=34(패널 상대), 241×275
    썸네일 75×55 r10, 라벨 17px #515151 x=96, 버튼 btn_sgo 20×20 (라벨별 위치 상이) */
 const FAMILY_ITEMS = [
@@ -421,18 +424,31 @@ export default function Header({ solid = false }: { solid?: boolean }) {
             ))}
           </div>
 
-          {/* 마스크 프로모 — Figma mask(371:527) */}
-          <div className="mega__mask">
-            <img
-              src="/assets/mask_img.png"
-              srcSet="/assets/mask_img.png 1x, /assets/mask_img@2x.png 2x"
-              alt="데일리 마스크 + 세정티슈"
-              className="mega__mask-img"
-              loading="lazy"
-            />
-            <span className="mega__mask-small">차단·위생·세정 한번에</span>
-            <strong className="mega__mask-title">데일리 마스크</strong>
-            <a href="#" className="mega__mask-link" aria-label="데일리 마스크 바로가기">
+          {/* 날씨데이터토큰생성기 프로모 — Figma navi_re */}
+          <div className="mega__promo">
+            <a
+              href={PROMO_HREF}
+              className="mega__promo-imglink"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="/assets/weather_menu_banner.png"
+                srcSet="/assets/weather_menu_banner.png 1x, /assets/weather_menu_banner@2x.png 2x"
+                alt="실내 공기질 측정기 날씨데이터토큰생성기"
+                className="mega__promo-img"
+                loading="lazy"
+              />
+            </a>
+            <span className="mega__promo-small">날씨데이터가 자산이 됩니다</span>
+            <strong className="mega__promo-title">날씨데이터토큰생성기<span className="mega__promo-tm" aria-hidden="true">TM</span></strong>
+            <a
+              href={PROMO_HREF}
+              className="mega__promo-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="날씨데이터토큰생성기 바로가기"
+            >
               바로가기
               <img src="/assets/btn_sgo.svg" alt="" />
             </a>

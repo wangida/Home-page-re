@@ -1442,44 +1442,61 @@ img, svg { display: block; max-width: 100%; }
 }
 .mega__family-btn img { width: 100%; height: 100%; display: block; }
 
-/* 마스크 프로모 — Figma mask(371:527): x=1680(캔버스 1320), y=466(패널 376), 324×103 */
-.mega__mask {
+/* 날씨데이터토큰생성기 프로모 — Figma navi_re > mask(103:384): x=1676(캔버스 1436), y=456(패널 366), 362×143.
+   좌표는 기존 마스크 배너와 동일한 매핑(캔버스 압축분 반영) + 이미지 10% 축소분 반영 */
+.mega__promo {
   position: absolute;
   left: 1305px;
-  top: 350px;
-  width: 324px;
-  height: 103px;
+  top: 330px;
+  width: 340px;
+  height: 143px;
 }
-.mega__mask-img {
+/* 이미지 — Figma 146×143에서 10% 축소(131×128.7), 세로 중심은 그대로 유지 */
+.mega__promo-imglink {
   position: absolute;
   left: 0;
-  top: 0;
-  width: 170px;
+  top: 7px;
+  display: block;
+  width: 131px;
+}
+.mega__promo-img {
+  display: block;
+  width: 100%;
   height: auto;
 }
-.mega__mask-small {
+.mega__promo-small {
   position: absolute;
-  left: 181px;
-  top: 16px;
-  font-size: 13px;
+  left: 150px;
+  top: 42px;
+  font-size: 14px;
   line-height: 1.15;
   color: #222;
   white-space: nowrap;
 }
-.mega__mask-title {
+.mega__promo-title {
   position: absolute;
-  left: 181px;
-  top: 38px;
-  font-size: 20px;
+  left: 150px;
+  top: 63px;
+  font-size: 20px; /* Figma 22px에서 2pt 축소 */
   line-height: 1.2;
   font-weight: 600;
   color: #222;
   white-space: nowrap;
 }
-.mega__mask-link {
+/* ™ — Figma 271:721: 8px SemiBold. 제목 폭이 바뀌어도 따라가도록 인라인 어깨글자로 */
+.mega__promo-tm {
+  font-size: 8px;
+  font-weight: 600;
+  line-height: 1;
+  vertical-align: baseline;
+  position: relative;
+  bottom: 8px;
+  margin-left: 1px;
+}
+.mega__promo-link {
   position: absolute;
-  left: 181px;
-  top: 70px;
+  left: 151px;
+  top: 97px;
   display: inline-flex;
   align-items: center;
   gap: 5px;
@@ -1487,8 +1504,8 @@ img, svg { display: block; max-width: 100%; }
   color: #222;
   white-space: nowrap;
 }
-.mega__mask-link img { width: 20px; height: 20px; display: block; }
-.mega__mask-link:hover { color: #3f5abb; }
+.mega__promo-link img { width: 20px; height: 20px; display: block; }
+.mega__promo-link:hover { color: #3f5abb; }
 
 .kpi-pop {
   display: inline-block;

@@ -13,6 +13,10 @@ const NAV = [
   { key: "about", label: "회사소개" },
 ] as const;
 
+/* 날씨데이터토큰생성기(웰비안) 외부 링크 — 메가메뉴 2depth·우하단 프로모·히어로 공통.
+   MEGA_COLS 안에서 참조하므로 반드시 그 위에 선언한다(아래에 두면 TDZ 로 터진다). */
+const PROMO_HREF = "https://wlbn.wellbianlabs.io/";
+
 /* ===== 메가메뉴 — Figma navi(211:164) 좌표 그대로 (1920 기준, 프레임 x−240 보정)
    패널 상대 y = Figma y − 90(상단바 높이) ===== */
 type MegaItem = { label: string; small?: string; href?: string };
@@ -70,6 +74,7 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
           { label: "공기측정기", href: "/product/airmeter" },
           { label: "환기청정기", href: "/product/circulation" },
           { label: "공기 빅데이터 플랫폼", href: "/product/air365" },
+          { label: "날씨데이터토큰생성기", href: "/product/wellbian" },
         ],
       },
       { y: 319, tight: true, items: [{ label: "체감온도계", href: "/product/heat_re" }, { label: "기상장비", href: "/product/apuipment" }] },
@@ -112,9 +117,6 @@ const MEGA_COLS: { key: string; x: number; blocks: MegaBlock[] }[] = [
 
 /* 세로 점선(ia_line.png) x 좌표 — 피치 160, 시작 x=282 */
 const MEGA_LINES_X = [282, 442, 602, 762, 922, 1082, 1242];
-
-/* 메가메뉴 우하단 프로모(날씨데이터토큰생성기) 링크 — 이미지·바로가기 공통 */
-const PROMO_HREF = "https://wlbn.wellbianlabs.io/";
 
 /* 패밀리 영역 — Figma family(371:528): 프레임 x=1477(뷰포트), y=34(패널 상대), 241×275
    썸네일 75×55 r10, 라벨 17px #515151 x=96, 버튼 btn_sgo 20×20 (라벨별 위치 상이) */
@@ -360,7 +362,12 @@ export default function Header({ solid = false }: { solid?: boolean }) {
               >
                 {block.items.map((it) => (
                   <li key={it.label} className={it.small ? "has-small" : ""}>
-                    <a href={it.href ?? "#"}>
+                    <a
+                      href={it.href ?? "#"}
+                      /* 외부 링크(날씨데이터 토큰생성기 등)는 새 탭 */
+                      target={it.href?.startsWith("http") ? "_blank" : undefined}
+                      rel={it.href?.startsWith("http") ? "noopener noreferrer" : undefined}
+                    >
                       {it.label}
                       {it.small && (
                         <span className="mega__small">{it.small}</span>
@@ -549,7 +556,12 @@ export default function Header({ solid = false }: { solid?: boolean }) {
                         >
                           {block.items.map((it) => (
                             <li key={it.label}>
-                              <a href={it.href ?? "#"} onClick={closeMobile}>
+                              <a
+                                href={it.href ?? "#"}
+                                target={it.href?.startsWith("http") ? "_blank" : undefined}
+                                rel={it.href?.startsWith("http") ? "noopener noreferrer" : undefined}
+                                onClick={closeMobile}
+                              >
                                 {it.label}
                                 {it.small && <em className="mnav__d2-small">{it.small}</em>}
                               </a>

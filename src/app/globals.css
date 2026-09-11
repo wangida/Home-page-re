@@ -409,6 +409,14 @@ img, svg { display: block; max-width: 100%; }
     linear-gradient(90deg, rgba(2,8,28,0.28) 0%, rgba(2,8,28,0.10) 26%, rgba(2,8,28,0) 46%),
     linear-gradient(180deg, rgba(0,0,0,0.26) 0%, rgba(0,0,0,0) 28%);
 }
+/* 신설(날씨데이터 토큰 생성기) — 배경 자체가 어두운 보라라 가독성은 이미 충분하다.
+   좌측·상단만 아주 옅게 정리해 흰 글자 뒤 파티클 무늬를 눌러준다.
+   제품 이미지(z-index 1)보다 아래라 기기는 흐려지지 않는다 */
+.hero__bg-image-veil--wellbian {
+  background:
+    linear-gradient(90deg, rgba(10,2,26,0.42) 0%, rgba(10,2,26,0.16) 28%, rgba(10,2,26,0) 48%),
+    linear-gradient(180deg, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0) 26%);
+}
 .hero__bg-image-veil--idol {
   background:
     linear-gradient(180deg, rgba(0, 35, 90, 0.45) 0%, rgba(0, 35, 90, 0.18) 14%, rgba(0,0,0,0) 30%);
@@ -660,6 +668,11 @@ img, svg { display: block; max-width: 100%; }
 .hero__cols--map { grid-template-columns: 1fr; align-items: start; }
 .hero__cols--map .hero__text { justify-self: end; text-align: left; max-width: 560px; margin-top: calc(clamp(30px, 8vh, 88px) - 30px); }
 
+/* 신설(날씨데이터 토큰 생성기) — 제품이 우측을 채우므로 텍스트는 좌측 상단.
+   1920 기준 제품 이미지 좌측 여백이 883px 부터라, 텍스트 폭은 620px 로 묶어 겹치지 않게 한다 */
+.hero__cols--wellbian { grid-template-columns: 1fr; align-items: start; }
+.hero__cols--wellbian .hero__text { justify-self: start; text-align: left; max-width: 620px; margin-top: clamp(16px, 6vh, 52px); }
+
 /* 신설(날씨 AI 팩토리) — 모니터가 우측을 채우므로 텍스트는 좌측 상단 */
 .hero__cols--aif { grid-template-columns: 1fr; align-items: start; }
 .hero__cols--aif .hero__text { justify-self: start; text-align: left; max-width: 680px; margin-top: calc(clamp(30px, 8vh, 88px) - 20px); margin-left: -20px; position: relative; z-index: 0; }
@@ -756,6 +769,24 @@ img, svg { display: block; max-width: 100%; }
 .hero--heat .hero__title   { color: #fff; font-size: clamp(32px, 3.6vw, 46px); }
 .hero--robot .hero__eyebrow { color: #53D9FF; }
 .hero--robot .hero__title   { color: #fff; font-size: clamp(30px, 3.6vw, 44px); }
+/* 시안 기준: eyebrow 를 작게 깔고 타이틀을 크게 세우는 위계.
+   eyebrow 색은 시안 픽셀값(rgb 247,174,249)을 그대로 쓴다 — 배경 보라와 같은 계열이라
+   흰 타이틀과 부딪히지 않고, 어두운 배경 대비 충분히 밝다. */
+.hero--wellbian .hero__eyebrow {
+  color: #F7AEF9;
+  font-weight: 300;
+  font-size: clamp(18px, 1.4vw, 27px);
+  letter-spacing: -0.01em;
+}
+.hero--wellbian .hero__title {
+  color: #fff;
+  /* 상한 51px — 1920 에서 첫 줄이 x 795 근처에서 끝나 제품 이미지와 넉넉히 떨어진다.
+     시안은 73px 이지만 그건 텍스트가 컨테이너(1440) 밖 x=257 에 놓인 경우다.
+     사이트 공통 컨테이너를 지키면서 낼 수 있는 최대치가 이 값이다. */
+  font-size: clamp(29px, 2.75vw, 51px);
+  line-height: 1.24;
+  margin-top: 10px;
+}
 .hero__title-thin { font-weight: 300; font-size: calc(1em - 1px); }
 .hero__title-muted { opacity: 1; }
 .hero__title-sm { font-size: calc(1em - 1px); }
@@ -909,8 +940,9 @@ img, svg { display: block; max-width: 100%; }
 /* 폰: 제목 3줄 + 버튼과 제품 이미지가 겹쳐 → 이미지를 하단으로 크게 내림 */
 @media (max-width: 560px) {
   .hero__product { bottom: 2%; width: min(90vw, 500px); }
-  /* 폭염·날씨아이돌 슬라이드 텍스트를 위로 당김 */
+  /* 폭염·날씨아이돌·토큰생성기 슬라이드 텍스트를 위로 당김 */
   .hero__cols--heat .hero__text,
+  .hero__cols--wellbian .hero__text,
   .hero__cols--idol .hero__text { margin-top: -28px; }
   /* 데이터·AI 슬라이드 텍스트도 위로 당김 */
   .hero__cols--data .hero__text,
@@ -970,6 +1002,134 @@ img, svg { display: block; max-width: 100%; }
 }
 /* 좌측 하단 인디케이터가 밝은 지구본 위에 겹쳐 흐려지므로 이 슬라이드만 그림자로 분리 */
 .hero--map .hero__nav { filter: drop-shadow(0 2px 6px rgba(0,0,0,0.55)); }
+
+/* ===== 신설: 날씨데이터 토큰 생성기 — 공기 방울 4개 =====
+   웰비안랩스 히어로(store.master.css .v2-bub)를 그대로 옮겼다. 원본은 1920 무대에
+   --s(=100vw/1920) 배율로 좌표를 쓰지만, 우리 배경은 폭이 줄어도 축소되지 않고
+   2400 중 가운데가 잘릴 뿐이라 배율 없이 "중앙 기준 px 오프셋"으로 환산해야 배경과 맞는다.
+     left = calc(50% + (원본 x − 960)px)
+   세로는 원본 무대 752 → 우리 히어로 780 이라 (780−752)/2 = 14px 씩 내렸다.
+   크기·폰트·부유 애니메이션 주기는 원본 값 그대로다. */
+.hero__bubs { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+.hero__bub {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  background: url("/assets/hero_wellbian_bubble.png") 50% / 100% 100% no-repeat;
+  animation: hero-bub-in 1.05s cubic-bezier(.22,1,.36,1) forwards;
+}
+.hero__bub > span {
+  color: #fff;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0;
+  /* 방울 그림의 시각 중심이 살짝 위라 글자를 4px 올린다(원본 값) */
+  transform: translateY(-4px);
+  text-shadow: 0 1px 6px rgba(20,12,60,0.55);
+}
+.hero__bub sub { vertical-align: baseline; font-size: .62em; position: relative; top: .22em; }
+
+/* 아래 left 값은 원본 좌표(791.57 / 1533.7 / 747 / 1643.69)에 +55px 를 더한 것이다
+   — 요청으로 15 → 25 → 35 → 55 로 같은 값만큼 네 개를 함께 밀었다.
+   ※ 화면에서 이동이 잘 안 보이면 부유 애니메이션(±10~18px) 때문이다. 좌표 자체는 여기 값이 맞다. */
+.hero__bub--1 { left: calc(50% - 113.4px); top: 123px;   width: 100.2px; height: 126.9px; }
+.hero__bub--2 { left: calc(50% + 628.7px); top: 200px;   width: 77.9px;  height: 98.7px; }
+.hero__bub--3 { left: calc(50% - 158px);   top: 452px;   width: 77.9px;  height: 98.7px; }
+.hero__bub--4 { left: calc(50% + 738.7px); top: 532.8px; width: 54.6px;  height: 69.1px; }
+.hero__bub--1 > span { font-size: 32.4px; }
+.hero__bub--2 > span,
+.hero__bub--3 > span,
+.hero__bub--4 > span { font-size: 18px; }
+
+/* 등장 후에는 각자 다른 주기로 떠다닌다 — 음수 delay 로 시작 위상을 어긋나게 둔다 */
+.hero__bub--1 { animation: hero-bub-in 1.05s cubic-bezier(.22,1,.36,1) forwards, hero-bub-float1 8s ease-in-out -2s infinite; }
+.hero__bub--2 { animation: hero-bub-in 1.05s cubic-bezier(.22,1,.36,1) forwards, hero-bub-float2 11s ease-in-out -5s infinite; }
+.hero__bub--3 { animation: hero-bub-in 1.05s cubic-bezier(.22,1,.36,1) forwards, hero-bub-float3 13s ease-in-out -8.5s infinite; }
+.hero__bub--4 { animation: hero-bub-in 1.05s cubic-bezier(.22,1,.36,1) forwards, hero-bub-float4 9s ease-in-out -3.5s infinite; }
+@keyframes hero-bub-in { to { opacity: 1; } }
+@keyframes hero-bub-float1 {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate3d(-14px, -26px, 0); }
+  50% { transform: translate3d(9px, -40px, 0); }
+  75% { transform: translate3d(16px, -15px, 0); }
+}
+@keyframes hero-bub-float2 {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate3d(15px, -18px, 0); }
+  50% { transform: translate3d(-8px, -36px, 0); }
+  75% { transform: translate3d(-17px, -12px, 0); }
+}
+@keyframes hero-bub-float3 {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate3d(-12px, -22px, 0); }
+  50% { transform: translate3d(14px, -42px, 0); }
+  75% { transform: translate3d(18px, -17px, 0); }
+}
+@keyframes hero-bub-float4 {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate3d(13px, -20px, 0); }
+  50% { transform: translate3d(-10px, -34px, 0); }
+  75% { transform: translate3d(-16px, -13px, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero__bub { opacity: 1; animation: none; }
+}
+/* 1100px 아래로는 히어로 높이가 뷰포트를 따라가 배경 배율이 달라진다 —
+   좌표가 배경과 어긋나고 텍스트·제품과 겹치므로 방울은 감춘다. */
+@media (max-width: 1100px) {
+  .hero__bubs { display: none; }
+}
+
+/* ===== 신설: 날씨데이터 토큰 생성기 제품 뷰 =====
+   시안(2400×780) 계측값 — 배경의 단상 위에 기기가 정확히 얹히는 좌표다.
+   에셋 hero_wellbian_img.png 는 850×533 원본을 그대로(배율 1.0) 쓴다.
+     · 이미지 좌상단 = 배경 원본 좌표 (1090, 146)
+     · 즉 오른쪽 끝은 배경 중앙 +740px (1090+850 = 1940, 중앙 1200 기준)
+   배경(.hero__bg-image)은 min-width 1920 / max-width 2400 으로 항상 화면 중앙에 오고
+   height 780 에 cover 되므로, 1920 이상에서는 중앙 기준 px 오프셋이 배경과 1:1로 맞는다.
+   ⚠️ 1920 미만에서는 배경 박스가 뷰포트 밖으로 넘쳐 calc(50% - N) 이 화면 밖으로 나간다
+      (.hero__aif-view 주석 참고). 그래서 아래 1920 미만 구간은 우측 고정값으로 둔다 —
+      1920 에서 두 값이 220px 로 이어지므로 경계에서 튀지 않는다. */
+.hero__wellbian-view {
+  position: absolute;
+  /* 원본 850×533 에서 두 번 5% 축소(850 → 807 → 767). 단상 위 중심(배경 원본 x 1515)과
+     기기 바닥선(배경 원본 y 648)은 그대로 두고 크기만 줄인 값이다.
+     PNG 안의 실제 그림 상자는 x 33~813 / y 44~502 라, 배율이 바뀌면 top·right 도 같이 계산해야
+     중심과 바닥선이 유지된다. */
+  top: 195px;
+  /* 배경 박스는 뷰포트 폭과 무관하게 항상 "2400×780 이미지를 화면 중앙에 둔" 결과가 된다
+     (width:100% + min-width:1920 + max-width:2400 + cover 조합).
+     따라서 배경 원본 x 를 중앙 기준 오프셋으로 환산한 이 값이 모든 폭에서 그대로 맞는다.
+     1918.5 − 1200 = 718.5 → 719px. (.hero__aif-view 처럼 폭별로 나눌 필요가 없다) */
+  right: calc(50% - 700px);
+  width: 767px;
+  height: auto;
+  display: block;
+  z-index: 1;
+  pointer-events: none;
+  filter: drop-shadow(0 26px 54px rgba(0,0,0,0.45));
+}
+/* 1500px 아래: 위 좌표대로면 기기 오른쪽 끝(원본 1918.5)이 화면 밖으로 밀려 폰이 잘린다.
+   단상은 배경에 구워져 있어 같이 줄일 수 없으므로, 기기만 620px 로 줄이고
+   단상 중심(원본 x 1500 = 중앙 +300)과 바닥선(원본 y 648)에 다시 맞춘다.
+   left = 50% + 300 − 294.5, top = 648 − 589/850×502 */
+@media (min-width: 1101px) and (max-width: 1500px) {
+  .hero__wellbian-view { top: 300px; right: auto; left: calc(50% + 5.5px); width: 589px; }
+}
+/* 1100px 아래로는 히어로 높이가 뷰포트를 따라가 배경 배율이 달라진다.
+   텍스트(좌측 상단)를 피해 우측 하단으로 물리고 크기를 줄인다. */
+@media (max-width: 1100px) {
+  .hero__cols--wellbian .hero__text { max-width: none; margin-top: clamp(12px, 4vh, 38px); }
+  .hero__wellbian-view { top: auto; bottom: 14%; right: 3%; width: min(58vw, 520px); }
+}
+/* 폰: 2줄 제목·CTA와 겹쳐 글자가 묻히므로 아래로 완전히 내린다 */
+@media (max-width: 640px) {
+  .hero__wellbian-view { bottom: 8%; right: 2%; width: min(76vw, 360px); }
+}
+/* 배경 하단 단상 주변이 밝아 좌측 하단 인디케이터가 묻히므로 그림자로 분리 */
+.hero--wellbian .hero__nav { filter: drop-shadow(0 2px 6px rgba(0,0,0,0.55)); }
 
 /* ===== 신설: 날씨 AI 팩토리 모니터 뷰 =====
    포토샵 시안(2400×780, 1920 영역은 x 240~2160)에서 모니터는

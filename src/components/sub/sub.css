@@ -12,6 +12,18 @@
   color: #fff;
   padding-top: 190px;
 }
+/* 배경이 밝거나 무늬가 많은 서브(웰비안 등)에서만 켜는 딤.
+   dim prop 을 안 넘긴 기존 서브 페이지는 아무 영향이 없다. */
+.sub-hero--dim { position: relative; }
+.sub-hero__dim {
+  position: absolute; inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(3, 9, 28, .58) 0%, rgba(3, 9, 28, .34) 46%, rgba(3, 9, 28, .18) 100%);
+}
+.sub-hero--dim .sub-hero__title,
+.sub-hero--dim .sub-hero__sub { position: relative; z-index: 1; }
+
 .sub-hero__title {
   font-family: "Pretendard Variable", Pretendard, sans-serif;
   font-weight: 700;

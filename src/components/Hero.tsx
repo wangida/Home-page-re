@@ -7,7 +7,7 @@ import AnimatedText from "./AnimatedText";
 import { EASE_EXPO } from "@/lib/motion-variants";
 import { useParallax } from "@/lib/use-parallax";
 
-type SlideKey = "data" | "map" | "aif" | "ai" | "heat" | "robot" | "idol";
+type SlideKey = "data" | "map" | "aif" | "ai" | "wellbian" | "heat" | "robot" | "idol";
 
 type Slide = {
   key: SlideKey;
@@ -15,6 +15,8 @@ type Slide = {
   title: string;
   bg: string;
   cta: { label: string; href: string };
+  /* 보조 CTA — 지금은 웰비안 슬라이드만 쓴다(웰비안랩스 서비스로 바로 보내는 버튼) */
+  cta2?: { label: string; href: string };
 };
 
 const HERO_SLIDES: Slide[] = [
@@ -50,12 +52,26 @@ const HERO_SLIDES: Slide[] = [
     cta: { label: "바로가기", href: "/product/circulation" },
   },
   {
-    key: "heat",
-    eyebrow: "폭염 관리 솔루션",
-    title: '<span class="hero__title-thin hero__title-muted">산업재해</span> <strong>폭염</strong>\n<span class="hero__title-muted hero__title-sm">체감온도 데이터와 현장별</span>\n<span class="hero__title-muted hero__title-sm">예보로 통합 관리합니다</span>',
-    bg: "/assets/hero_03.jpg?v=3",
-    cta: { label: "바로가기", href: "/product/heat_re" },
+    /* 폭염 슬라이드 자리를 이어받은 날씨데이터 토큰 생성기(웰비안 × XRP Ledger).
+       배경(보라 파티클 + 단상)과 제품 합성 이미지를 따로 얹는다 — aif 슬라이드와 같은 구조. */
+    key: "wellbian",
+    eyebrow: "날씨데이터 토큰 생성기",
+    title: "내가 측정한 날씨 데이터가\n가치를 지닌 자산이 됩니다",
+    bg: "/assets/hero_wellbian_bg.jpg",
+    cta: { label: "바로가기", href: "/product/wellbian" },
+    cta2: { label: "wellbian 바로가기", href: "https://wlbn.wellbianlabs.io/" },
   },
+  /* ⏸ 2026-09-11 비노출 — 폭염 관리 솔루션 슬라이드(웰비안으로 교체).
+     ▶ 원복: 아래 주석만 해제하면 그대로 돌아온다. SlideKey 의 "heat", 제품 이미지
+       연출(s.key === "heat"), globals.css 의 .hero--heat / .hero__bg-image-veil--heat /
+       .hero__product, 배경(hero_03.jpg) 전부 그대로 남아 있다. */
+  // {
+  //   key: "heat",
+  //   eyebrow: "폭염 관리 솔루션",
+  //   title: '<span class="hero__title-thin hero__title-muted">산업재해</span> <strong>폭염</strong>\n<span class="hero__title-muted hero__title-sm">체감온도 데이터와 현장별</span>\n<span class="hero__title-muted hero__title-sm">예보로 통합 관리합니다</span>',
+  //   bg: "/assets/hero_03.jpg?v=3",
+  //   cta: { label: "바로가기", href: "/product/heat_re" },
+  // },
   {
     // 신설 슬라이드 — 로봇까지 합성된 완성 배경
     key: "robot",
@@ -175,6 +191,30 @@ export default function Hero() {
         />
       )}
 
+      {/* 웰비안랩스 히어로의 공기 방울 4개를 그대로 옮겼다(air_bubble.png + v2BubIn/v2BubFloat).
+          좌표는 원본과 같은 1920 무대 기준이고, 우리 배경도 2400 중 가운데 1920 이 화면 중앙에
+          오므로 중앙 기준 px 오프셋으로 환산하면 그대로 맞는다 — globals.css .hero__bub 참고. */}
+      {s.key === "wellbian" && (
+        <div className="hero__bubs" aria-hidden="true" key={`bub-${idx}`}>
+          <span className="hero__bub hero__bub--1"><span>CO<sub>2</sub></span></span>
+          <span className="hero__bub hero__bub--2"><span>PM2.5</span></span>
+          <span className="hero__bub hero__bub--3"><span>PM10</span></span>
+          <span className="hero__bub hero__bub--4"><span>CO<sub>2</sub></span></span>
+        </div>
+      )}
+
+      {s.key === "wellbian" && (
+        <motion.img
+          key={`wellbian-${idx}`}
+          src="/assets/hero_wellbian_img.png"
+          alt="날씨데이터 토큰 생성기 — 미세먼지·CO₂·온습도·VOCs를 표시하는 웰비안 실내 공기질 측정기와 NFT 라이선스 카드, 모바일 앱 화면"
+          className="hero__wellbian-view"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 1.1, ease: EASE_EXPO }}
+        />
+      )}
+
       {s.key === "heat" && (
         <motion.img
           key={`heat-${idx}`}
@@ -244,6 +284,7 @@ export default function Hero() {
                   s.key === "data" ||
                   s.key === "map" ||
                   s.key === "aif" ||
+                  s.key === "wellbian" ||
                   s.key === "heat" ||
                   s.key === "robot"
                     ? "btn--ondark"
@@ -259,6 +300,27 @@ export default function Hero() {
               >
                 {s.cta.label} <Icon name="arrow" size={16} />
               </motion.a>
+              {s.cta2 && (
+                <motion.a
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    delay: 0.5,
+                    duration: 0.75,
+                    ease: EASE_EXPO,
+                  }}
+                  className="btn btn--ondark"
+                  href={s.cta2.href}
+                  target={s.cta2.href.startsWith("http") ? "_blank" : undefined}
+                  rel={
+                    s.cta2.href.startsWith("http")
+                      ? "noopener noreferrer"
+                      : undefined
+                  }
+                >
+                  {s.cta2.label} <Icon name="arrow" size={16} />
+                </motion.a>
+              )}
             </div>
           </motion.div>
         </div>

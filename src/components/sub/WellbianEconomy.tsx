@@ -4,7 +4,7 @@
    마크업·클래스명·수치는 원본(wellbianlabs src/components/launch/Landing.tsx +
    src/app/launch/store.css)을 유지하고, 다국어(i18n)만 걷어내 한국어로 고정했다.
    스타일은 wellbian.css 가 .wb-store 스코프 안에서 원본 규칙을 그대로 들고 있다. */
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /* 제품 갤러리 — 원본 SPEC_GALLERY. 5장 모두 2000×1125 파일이지만 실제 사진은 가운데 4:3 이고
    좌우 250px 는 블러 밴드다. 그래서 .spec-main 을 4/3 으로 두어 밴드만 잘라낸다(원본 주석). */
@@ -65,6 +65,20 @@ export default function WellbianEconomy() {
   const [specImg, setSpecImg] = useState(0);
   const [playing, setPlaying] = useState(false);
 
+  /* 영상이 끝나면 마지막 프레임에 그대로 멈춰 있었다(딤·재생버튼만 다시 뜸).
+     끝나고 2초 뒤 포스터 화면으로 되돌린다 — load() 를 써야 currentTime 만
+     0 으로 돌릴 때와 달리 poster 이미지가 다시 표시된다.
+     2초 안에 사용자가 다시 재생하면 되돌리기를 취소한다. */
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const resetTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const cancelReset = () => {
+    if (resetTimer.current) {
+      clearTimeout(resetTimer.current);
+      resetTimer.current = null;
+    }
+  };
+  useEffect(() => cancelReset, []);
+
   return (
     <div className="wb-store">
       {/* ── 홍보 영상 ── */}
@@ -73,15 +87,26 @@ export default function WellbianEconomy() {
           <h2 className="wb-h2">날씨 데이터가 자산이 되는 세상</h2>
           <div className="wb-film">
             <video
+              ref={videoRef}
               className="wb-film__video"
               src="/assets/sub/wellbian/intro.mp4"
               poster="/assets/sub/wellbian/intro.jpg"
               controls
               playsInline
               preload="metadata"
-              onPlay={() => setPlaying(true)}
+              onPlay={() => {
+                cancelReset();
+                setPlaying(true);
+              }}
               onPause={() => setPlaying(false)}
-              onEnded={() => setPlaying(false)}
+              onEnded={() => {
+                setPlaying(false);
+                cancelReset();
+                resetTimer.current = setTimeout(() => {
+                  resetTimer.current = null;
+                  videoRef.current?.load();
+                }, 2000);
+              }}
             />
             {/* 멈춰 있을 때만 딤 + 재생 버튼. pointer-events:none 이라 기본 컨트롤은 그대로 눌린다 */}
             {!playing && (

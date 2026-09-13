@@ -23,7 +23,7 @@ const COLS: { title: string; groups: string[][]; groupGap?: number }[] = [
   {
     title: "제품",
     groups: [
-      ["공기측정기", "환기청정기", "공기빅데이터플랫폼"],
+      ["공기측정기", "환기청정기", "공기빅데이터플랫폼", "날씨데이터토큰생성기"],
       ["체감온도계", "기상장비"],
     ],
   },
@@ -47,6 +47,7 @@ const MENU_LINKS: Record<string, string> = {
   방송컨텐츠: "/data/broadcast",
   모바일정보: "/data/mobile",
   공기빅데이터플랫폼: "/product/air365",
+  날씨데이터토큰생성기: "/product/wellbian",
   "조리실 자동제어": "/solution/kitchen",
   "공기질 통합관리": "/solution/airall",
   저온저장창고: "/solution/coldstorage",

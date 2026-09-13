@@ -115,6 +115,62 @@ export default function Hero() {
      전부 다시 맞춰야 한다. globals.css 의 .hero__bg-image 주석도 함께 볼 것. */
   const bgY = useParallax(sectionRef, { strength: 0.2, mobileScale: 0.3 });
 
+  /* ── 배경 크로스페이드 레이어 ────────────────────────────────────────────
+     예전에는 배경 div 하나를 key={s.key} 로 갈아끼웠다. 그러면 슬라이드가 바뀌는
+     순간 이전 배경이 곧바로 언마운트되고 새 배경은 그때부터 내려받기 시작하므로,
+     아직 캐시에 없는 슬라이드로 점프하면 .hero 의 바탕색(#000)이 그대로 드러났다.
+     특히 4번(ai)은 유일하게 밝은 배경 + 짙은 남색 글자라, 그 순간 제목이 검정 위
+     검정이 되어 "처음으로 되돌아간 것처럼" 보였다.
+     → 새 레이어를 이전 레이어 '위에' 얹어 페이드인시키고, 다 덮은 뒤에 아래를 버린다.
+        이전 레이어는 페이드아웃하지 않는다 — 둘 다 반투명해지는 구간이 생기면
+        그 틈으로 다시 검정이 비친다. */
+  const layerSeq = useRef(0);
+  const [layers, setLayers] = useState<
+    { id: number; key: SlideKey; bg: string }[]
+  >(() => [{ id: 0, key: HERO_SLIDES[0].key, bg: HERO_SLIDES[0].bg }]);
+
+  useEffect(() => {
+    const sl = HERO_SLIDES[idx];
+    setLayers((ls) => {
+      if (ls[ls.length - 1]?.key === sl.key) return ls;
+      layerSeq.current += 1;
+      return [...ls, { id: layerSeq.current, key: sl.key, bg: sl.bg }];
+    });
+  }, [idx]);
+
+  /* 히어로 이미지 선행 로드.
+     배경 6장뿐 아니라 슬라이드마다 따로 얹는 오버레이(지구본·모니터·기기·방울)까지
+     함께 받아둔다. 이게 없으면 각 슬라이드를 '처음' 여는 순간에만 빈 화면과 뒤늦은
+     팝인이 생긴다. 첫 페인트를 밀어내지 않도록 idle 시점까지 미룬다. */
+  useEffect(() => {
+    const urls = [
+      ...HERO_SLIDES.map((sl) => sl.bg),
+      "/assets/hero_map_earth02.png",
+      "/assets/hero_Aifactory_view.png",
+      "/assets/hero_wellbian_img.png",
+      "/assets/hero_wellbian_bubble.png",
+    ];
+    let cancelled = false;
+    const start = () => {
+      if (cancelled) return;
+      for (const u of urls) {
+        const img = new Image();
+        img.decoding = "async";
+        img.src = u;
+      }
+    };
+    let timeoutId: number | undefined;
+    if (typeof window.requestIdleCallback === "function") {
+      window.requestIdleCallback(start, { timeout: 2500 });
+    } else {
+      timeoutId = window.setTimeout(start, 1200);
+    }
+    return () => {
+      cancelled = true;
+      if (timeoutId !== undefined) window.clearTimeout(timeoutId);
+    };
+  }, []);
+
   /* idx를 의존성에 두어 수동 조작(도트·화살표) 직후에도 대기 시간이 초기화되게 한다.
      빼면 클릭 직후 남은 잔여 시간만큼만 지나고 바로 다음 슬라이드로 넘어간다. */
   useEffect(() => {
@@ -136,18 +192,36 @@ export default function Hero() {
 
   return (
     <section id="top" className={`hero hero--${s.key}`} ref={sectionRef}>
-      <motion.div
-        key={s.key}
-        className="hero__bg-image is-on"
-        style={{
-          backgroundImage: `url(${s.bg})`,
-          y: bgY,
-          willChange: "transform",
-        }}
-      />
-      <div
-        className={`hero__bg-image-veil is-on hero__bg-image-veil--${s.key}`}
-      />
+      {layers.map((l, i) => {
+        const isTop = i === layers.length - 1;
+        return (
+          <motion.div
+            key={l.id}
+            className="hero__bg-layer"
+            initial={{ opacity: l.id === 0 ? 1 : 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.55, ease: "linear" }}
+            onAnimationComplete={() => {
+              /* 맨 위 레이어가 아래를 완전히 덮은 뒤에만 아래를 버린다 */
+              if (isTop) {
+                setLayers((ls) => (ls.length > 1 ? ls.slice(-1) : ls));
+              }
+            }}
+          >
+            <motion.div
+              className="hero__bg-image is-on"
+              style={{
+                backgroundImage: `url(${l.bg})`,
+                y: bgY,
+                willChange: "transform",
+              }}
+            />
+            <div
+              className={`hero__bg-image-veil is-on hero__bg-image-veil--${l.key}`}
+            />
+          </motion.div>
+        );
+      })}
 
       {s.key === "idol" && (
         <div className="hero__water" aria-hidden="true">

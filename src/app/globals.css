@@ -345,6 +345,16 @@ img, svg { display: block; max-width: 100%; }
   transition: opacity 700ms ease;
 }
 
+/* 배경 크로스페이드 래퍼 — 슬라이드 하나당 한 겹(배경 + 베일)을 묶어 함께 페이드인한다.
+   안쪽 .hero__bg-image 가 left:50% / min-width:1920px 로 잡히므로 이 래퍼는 반드시
+   히어로와 같은 박스(inset:0)여야 좌표가 그대로 유지된다. Hero.tsx 의 layers 주석 참고. */
+.hero__bg-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
 .hero__bg-image {
   position: absolute;
   top: 0; bottom: 0;
@@ -1126,7 +1136,16 @@ img, svg { display: block; max-width: 100%; }
 }
 /* 폰: 2줄 제목·CTA와 겹쳐 글자가 묻히므로 아래로 완전히 내린다 */
 @media (max-width: 640px) {
-  .hero__wellbian-view { bottom: 8%; right: 2%; width: min(76vw, 360px); }
+  /* 폰에서는 우측에 작게 붙어 여백만 넓었다 → 키우면서 좌측으로 당겼다.
+     right 상한은 PNG 좌측 투명 여백(원본 850 중 x 33 부터가 그림)까지 계산한 값이다.
+     92vw + right 9% 면 360~430px 구간 전부에서 TAXON 카드 왼쪽 끝이 화면 안에 남는다
+     (좌측 그림 끝 ≈ 9~11px). 더 키우거나 더 밀면 카드가 잘린다. */
+  .hero__wellbian-view { bottom: 7%; right: 9%; width: min(92vw, 400px); }
+}
+/* 좁은 폰(≈360px)에서는 CTA 두 개가 두 줄로 접혀 세로를 더 먹는다.
+   폭은 그대로 두고 아래로만 더 내려, 버튼과 기기 사이 간격(28px)을 확보한다. */
+@media (max-width: 380px) {
+  .hero__wellbian-view { bottom: 3%; }
 }
 /* 배경 하단 단상 주변이 밝아 좌측 하단 인디케이터가 묻히므로 그림자로 분리 */
 .hero--wellbian .hero__nav { filter: drop-shadow(0 2px 6px rgba(0,0,0,0.55)); }
@@ -1174,6 +1193,23 @@ img, svg { display: block; max-width: 100%; }
 }
 /* 배경 바닥이 밝아 좌측 하단 인디케이터가 묻히므로 그림자로 분리 */
 .hero--aif .hero__nav { filter: drop-shadow(0 2px 6px rgba(0,0,0,0.55)); }
+
+/* ── 모바일(≤560px) 히어로 텍스트 시작 높이 정리 ───────────────────────────
+   ⚠️ 이 블록은 반드시 슬라이드별 @media (max-width: 1100px) 규칙들
+      (위쪽 .hero__cols--map / --wellbian / --aif 블록) '뒤'에 있어야 한다.
+      선택자가 전부 (0,2,0) 로 특정도가 같아 순서로만 승부가 나는데,
+      기존 ≈955행의 -28px 규칙은 그 1100px 규칙들보다 앞서 있어 통째로 덮여
+      죽은 코드였다. 그래서 map·aif·wellbian 세 장만 텍스트가 65px 처져
+      헤더와 제목 사이가 휑하게 벌어졌다.
+   기준은 data·ai 슬라이드(-18px = 헤더 아래 17px). 여섯 장이 같은 높이에서 시작한다. */
+@media (max-width: 560px) {
+  .hero__cols--map .hero__text,
+  .hero__cols--aif .hero__text,
+  .hero__cols--wellbian .hero__text { margin-top: -18px; }
+  /* 데스크톱에서 배경 모니터에 맞춰 밀어둔 -20px 이 모바일에서는 .hero__inner 의
+     좌측 여백 20px 을 정확히 상쇄해, 제목이 화면 왼쪽 끝에 붙어 잘려 보였다 */
+  .hero__cols--aif .hero__text { margin-left: 0; }
+}
 
 .scroll-hint { display: none; }
 

@@ -55,7 +55,7 @@ const HERO_SLIDES: Slide[] = [
     /* 폭염 슬라이드 자리를 이어받은 날씨데이터 토큰 생성기(웰비안 × XRP Ledger).
        배경(보라 파티클 + 단상)과 제품 합성 이미지를 따로 얹는다 — aif 슬라이드와 같은 구조. */
     key: "wellbian",
-    eyebrow: "날씨데이터 토큰 생성기",
+    eyebrow: "날씨데이터 토큰생성기",
     title: "내가 측정한 날씨 데이터가\n가치를 지닌 자산이 됩니다",
     bg: "/assets/hero_wellbian_bg.jpg",
     cta: { label: "바로가기", href: "/product/wellbian" },
@@ -281,7 +281,7 @@ export default function Hero() {
         <motion.img
           key={`wellbian-${idx}`}
           src="/assets/hero_wellbian_img.png"
-          alt="날씨데이터 토큰 생성기 — 미세먼지·CO₂·온습도·VOCs를 표시하는 웰비안 실내 공기질 측정기와 NFT 라이선스 카드, 모바일 앱 화면"
+          alt="날씨데이터 토큰생성기 — 미세먼지·CO₂·온습도·VOCs를 표시하는 웰비안 실내 공기질 측정기와 NFT 라이선스 카드, 모바일 앱 화면"
           className="hero__wellbian-view"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

@@ -136,7 +136,7 @@ const FAMILY_APPS = [
 /* 모바일 드로어 하단 패밀리 사이트 — Figma 개편 컨셉(85:662) 세로 리스트.
    썸네일 80×60, 라벨 18px #515151, 행 간격 20px. 날씨앱은 IOS/Android 2개 링크 */
 const MNAV_FAMILY = [
-  { label: "날씨지도", thumb: "/assets/ia_s_thumre02.png", href: "https://map.kweather.co.kr" },
+  { label: "날씨지도", thumb: "/assets/ia_s_thumre02.png", href: "https://kweathermap.com/" },
   { label: "Air365", thumb: "/assets/ia_s_thum02.png", href: "https://www.air365.co.kr" },
   { label: "날씨환경청", thumb: "/assets/ia_s_thum03.png", href: "https://www.kweather.co.kr" },
   {
@@ -283,12 +283,12 @@ export default function Header({ solid = false }: { solid?: boolean }) {
           </a>
 
           <a
-            href="https://www.kweather.co.kr"
+            href="https://kweathermap.com/"
             target="_blank"
             rel="noopener noreferrer"
             className="gnb__shop"
           >
-            <span>날씨정보</span>
+            <span>케이웨더 맵</span>
             <svg
               width="14"
               height="14"
@@ -500,7 +500,7 @@ export default function Header({ solid = false }: { solid?: boolean }) {
           </div>
 
           <div className="mnav__scroll" data-lenis-prevent>
-          {/* 쇼핑몰·날씨정보 — 원형 아이콘 + 라벨 + btn_sgo (Figma 개편 컨셉 UI) */}
+          {/* 쇼핑몰·케이웨더 맵 — 원형 아이콘 + 라벨 + btn_sgo (Figma 개편 컨셉 UI) */}
           <div className="mnav__util">
             <a
               href="https://www.kweather.co.kr"
@@ -514,14 +514,14 @@ export default function Header({ solid = false }: { solid?: boolean }) {
               <Image className="mnav__util-go" src="/assets/btn_sgo.svg" alt="" aria-hidden width={20} height={20} />
             </a>
             <a
-              href="https://www.kweather.co.kr"
+              href="https://kweathermap.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="mnav__util-btn"
               onClick={closeMobile}
             >
               <Image className="mnav__util-ico" src="/assets/sub/mobile_navi_icon02.svg" alt="" aria-hidden width={36} height={36} />
-              <span>날씨정보</span>
+              <span>케이웨더 맵</span>
               <Image className="mnav__util-go" src="/assets/btn_sgo.svg" alt="" aria-hidden width={20} height={20} />
             </a>
           </div>

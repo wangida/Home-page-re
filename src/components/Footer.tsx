@@ -69,7 +69,7 @@ const MENU_LINKS: Record<string, string> = {
 
 const FAMILY_SITES = [
   { label: "날씨정보", href: "https://www.kweather.co.kr" },
-  { label: "날씨지도 (kweather map)", href: "https://map.kweather.co.kr" },
+  { label: "날씨지도 (kweather map)", href: "https://kweathermap.com/" },
   { label: "Air365", href: "https://www.air365.co.kr" },
   { label: "날씨환경청", href: "https://www.kweather.co.kr" },
   { label: "날씨앱", href: "https://www.kweather.co.kr" },

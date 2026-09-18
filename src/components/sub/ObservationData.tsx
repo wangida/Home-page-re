@@ -121,6 +121,14 @@ function ClientsSection() {
    GNB·히어로의 「날씨 AI 팩토리」 바로가기는 그대로 2번(개요)으로 들어온다.
    여기서 window.location 을 읽어 마운트 후 바꾸면 첫 탭이 한 번 보였다 넘어가므로
    초기값으로 받아 첫 렌더부터 맞는 탭을 그린다. */
+/* isNew: 탭 이름 앞에 붙는 NEW 배지(Figma ico_new 279:710 — 36×20, r30, #C11E72) */
+const TABS = [
+  { label: "케이웨더 정보" },
+  { label: "기상청 정보" },
+  { label: "날씨 AI 팩토리의 개요" },
+  { label: "AI 기상예보 상품", isNew: true },
+];
+
 export default function ObservationData({ initialTab = 0 }: { initialTab?: number }) {
   const [info, setInfo] = useState(initialTab);
 
@@ -129,16 +137,17 @@ export default function ObservationData({ initialTab = 0 }: { initialTab?: numbe
       {/* 타이틀·서브카피는 상단 SubHero로 대체(중복 제거) */}
       {/* 케이웨더 정보 / 기상청 정보 토글 */}
       <div className="sub-tabs sub-tabs--four" role="tablist" aria-label="정보 출처 선택">
-        {["케이웨더 정보", "기상청 정보", "날씨 AI 팩토리의 개요", "AI 기상예보 상품"].map((t, i) => (
+        {TABS.map((t, i) => (
           <button
-            key={t}
+            key={t.label}
             type="button"
             role="tab"
             aria-selected={i === info}
             className={`sub-tabs__btn ${i === info ? "is-on" : ""}`}
             onClick={() => setInfo(i)}
           >
-            {t}
+            {t.isNew && <span className="sub-tabs__new">NEW</span>}
+            {t.label}
           </button>
         ))}
       </div>

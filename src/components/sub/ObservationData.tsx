@@ -1,8 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import AiFactory from "./AiFactory";
-import AiForecastProducts from "./AiForecastProducts";
+import AiFactoryTabs from "./AiFactoryTabs";
 
 /* 관측 데이터 본문 — 기존 기상 데이터 탭(첫 번째)에서 이관.
    케이웨더 정보 / 기상청 정보 토글은 그대로 유지. */
@@ -117,37 +116,35 @@ function ClientsSection() {
 }
 
 /* initialTab: 서버(page.tsx)가 ?tab= 을 읽어 넘겨주는 첫 탭.
-   0: 케이웨더 정보, 1: 기상청 정보, 2: 날씨 AI 팩토리의 개요, 3: AI 기상예보 상품
-   GNB·히어로의 「날씨 AI 팩토리」 바로가기는 그대로 2번(개요)으로 들어온다.
+   0: 케이웨더 정보, 1: 기상청 정보, 2: 날씨 AI 팩토리
+   날씨 AI 팩토리 안의 「개요 / AI 기상예보 상품」은 AiFactoryTabs 가 따로 관리한다.
    여기서 window.location 을 읽어 마운트 후 바꾸면 첫 탭이 한 번 보였다 넘어가므로
    초기값으로 받아 첫 렌더부터 맞는 탭을 그린다. */
-/* isNew: 탭 이름 앞에 붙는 NEW 배지(Figma ico_new 279:710 — 36×20, r30, #C11E72) */
-const TABS = [
-  { label: "케이웨더 정보" },
-  { label: "기상청 정보" },
-  { label: "날씨 AI 팩토리의 개요" },
-  { label: "AI 기상예보 상품", isNew: true },
-];
-
 export default function ObservationData({ initialTab = 0 }: { initialTab?: number }) {
   const [info, setInfo] = useState(initialTab);
+  /* 「날씨 AI 팩토리」를 누를 때마다 하위 탭을 첫 번째(개요)로 되돌린다.
+     이미 그 탭에 있을 때는 setInfo 로 상태가 안 바뀌어 리마운트되지 않으므로,
+     누른 횟수를 key 로 걸어 강제로 다시 그린다. */
+  const [aifVisit, setAifVisit] = useState(0);
 
   return (
     <section className="company-intro wd-obs" key="weather">
       {/* 타이틀·서브카피는 상단 SubHero로 대체(중복 제거) */}
       {/* 케이웨더 정보 / 기상청 정보 토글 */}
-      <div className="sub-tabs sub-tabs--four" role="tablist" aria-label="정보 출처 선택">
-        {TABS.map((t, i) => (
+      <div className="sub-tabs sub-tabs--three" role="tablist" aria-label="정보 출처 선택">
+        {["케이웨더 정보", "기상청 정보", "날씨 AI 팩토리"].map((t, i) => (
           <button
-            key={t.label}
+            key={t}
             type="button"
             role="tab"
             aria-selected={i === info}
             className={`sub-tabs__btn ${i === info ? "is-on" : ""}`}
-            onClick={() => setInfo(i)}
+            onClick={() => {
+              setInfo(i);
+              if (i === 2) setAifVisit((v) => v + 1);
+            }}
           >
-            {t.isNew && <span className="sub-tabs__new">NEW</span>}
-            {t.label}
+            {t}
           </button>
         ))}
       </div>
@@ -548,9 +545,7 @@ export default function ObservationData({ initialTab = 0 }: { initialTab?: numbe
         </div>
       )}
 
-      {info === 2 && <AiFactory />}
-
-      {info === 3 && <AiForecastProducts />}
+      {info === 2 && <AiFactoryTabs key={aifVisit} />}
     </section>
   );
 }

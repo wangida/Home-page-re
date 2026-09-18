@@ -97,38 +97,9 @@
    두 번째부터 1px 당겨 두 테두리를 겹쳐 놓아 경계선을 1px 로 만든다.
    탭 3개인 기상데이터에서만 눈에 띄어 우선 이 탭바에만 적용한다 —
    다른 2개짜리 탭바(방송·진단·예보·연혁)는 기존 모습을 유지한다. */
-.sub-tabs--three .sub-tabs__btn + .sub-tabs__btn,
-.sub-tabs--four .sub-tabs__btn + .sub-tabs__btn { margin-left: -1px; }
+.sub-tabs--three .sub-tabs__btn + .sub-tabs__btn { margin-left: -1px; }
 /* 선택된 탭은 파란 테두리라, 겹쳤을 때 회색 밑에 깔리지 않도록 위로 올린다 */
-.sub-tabs--three .sub-tabs__btn.is-on,
-.sub-tabs--four .sub-tabs__btn.is-on { position: relative; z-index: 1; }
-/* 기상데이터 — 4칸(케이웨더 정보 / 기상청 정보 / 날씨 AI 팩토리의 개요 / AI 기상예보 상품).
-   칸이 좁아지므로 이 탭바에서만 글자를 조금 줄인다. */
-.sub-tabs--four {
-  grid-template-columns: repeat(4, 1fr);
-}
-.sub-tabs--four .sub-tabs__btn {
-  font-size: 20px;
-  padding-inline: 8px;
-  text-align: center;
-  word-break: keep-all;
-}
-/* 신규 탭 표시 — Figma ico_new(36×20, 라운드 30, #C11E72 / NEW Bold 10 흰색) */
-.sub-tabs__new {
-  flex: none;
-  display: inline-grid;
-  place-items: center;
-  width: 36px;
-  height: 20px;
-  margin-right: 8px;
-  border-radius: 30px;
-  background: #c11e72;
-  font-size: 10px;
-  /* 10px 이라 700 으로는 가늘어 보인다 — 한 단계 더 굵게 */
-  font-weight: 800;
-  line-height: 1.5;
-  color: #fff;
-}
+.sub-tabs--three .sub-tabs__btn.is-on { position: relative; z-index: 1; }
 .sub-tabs__btn.is-on {
   background: #4762c5;
   border-color: #4762c5;
@@ -1869,21 +1840,48 @@
   overflow: hidden;
   background: #000;
 }
-.aifp__video iframe {
+.aifp__video iframe,
+.aifp__video-btn {
   position: absolute;
   inset: 0;
   display: block;
   width: 100%;
   height: 100%;
+  padding: 0;
   border: 0;
+  background: none;
+  cursor: pointer;
 }
+.aifp__video-btn img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* 유튜브와 같은 위치의 재생 버튼 */
+.aifp__video-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 50px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, .62);
+  color: #fff;
+  transition: background 160ms ease;
+}
+.aifp__video-btn:hover .aifp__video-play { background: #f00; }
+.aifp__video-play svg { width: 30px; height: 30px; }
 
 /* ----- 특장점 — 전지구/한반도 2단 카드 ----- */
 /* 두 카드는 높이를 맞춘다 — 안쪽 상품 박스 개수는 같고 줄 수만 달라서
    align-items: start 로 두면 오른쪽 카드만 길어져 아래 선이 어긋난다.
-   좌측 이미지를 키우려면 가로가 필요해, 이 블록만 탭바와 같은 1440 으로 넓힌다. */
+   폭은 같은 탭의 영상·표와 같은 1320(.aif)을 그대로 따른다 — 이 블록만 넓히면
+   가운데만 튀어나와 보인다. */
 .aifp-feat {
-  width: min(1440px, 100%);
   margin: 30px auto 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1967,7 +1965,7 @@
    이미지가 아직 없으면 같은 크기의 빈 박스가 자리를 지킨다. */
 .aifp-item__thumb {
   flex: none;
-  width: 314px;
+  width: 260px;
   aspect-ratio: 16 / 9;
   border: 1px solid #dde5f8;
   border-radius: 12px;
@@ -2357,12 +2355,6 @@
   .company-sol__title--dsp { font-size: 24px; line-height: 38px; }
   .catalog { grid-template-columns: 1fr; max-width: 420px; }
   .sub-tabs__btn { font-size: 18px; }
-  /* 4칸은 이 폭부터 글자가 눌리므로 2×2로 접는다 */
-  .sub-tabs--four { grid-template-columns: repeat(2, 1fr); }
-  .sub-tabs--four .sub-tabs__btn { font-size: 18px; height: 64px; }
-  .sub-tabs--four .sub-tabs__btn + .sub-tabs__btn { margin-left: 0; }
-  .sub-tabs--four .sub-tabs__btn:nth-child(even) { margin-left: -1px; }
-  .sub-tabs--four .sub-tabs__btn:nth-child(n + 3) { margin-top: -1px; }
   .history__year { font-size: 36px; line-height: 44px; }
   .history__month,
   .history__text { font-size: 17px; line-height: 26px; }
@@ -2470,10 +2462,6 @@
   .sub-tabs { width: calc(100% - 40px); grid-template-columns: 1fr; }
   .sub-tabs__btn { height: 56px; font-size: 16px; }
   .sub-tabs__btn + .sub-tabs__btn { border-top: none; }
-  /* 한 칸씩 세로로 쌓이므로 가로 겹침(-1px)은 세로 겹침으로 바꾼다 */
-  .sub-tabs--four { grid-template-columns: 1fr; }
-  .sub-tabs--four .sub-tabs__btn { font-size: 16px; }
-  .sub-tabs--four .sub-tabs__btn + .sub-tabs__btn { margin-left: 0; margin-top: -1px; }
   .aifp__video { margin-top: 30px; border-radius: 12px; }
   .aifp-feat { grid-template-columns: 1fr; gap: 20px; }
   .aifp-card { padding: 20px; border-radius: 16px; }
@@ -3609,6 +3597,23 @@
   color: #2c54d4;
   font-weight: 700;
 }
+/* 2열 탭 변형 */
+.mnt-steps--two { grid-template-columns: repeat(2, 1fr); }
+/* 하위 탭 위 공통 머리말 */
+.aif-head {
+  width: min(1320px, calc(100% - 64px));
+  margin: 0 auto;
+}
+.aif-head .wd-panel__lead { margin-top: 80px; }
+
+/* 기상데이터 「날씨 AI 팩토리」 하위 탭 — 상단 탭(.sub-tabs)과 좌우 끝선을 맞춘다 */
+.aif-subtabs {
+  width: min(1440px, calc(100% - 64px));
+  margin-top: 36px;
+}
+/* 하위 탭 바로 뒤 패널의 리드는 상단 탭 아래(90px)보다 10px 좁게.
+   .wd-panel__lead 자체를 건드리면 케이웨더·기상청 탭까지 같이 올라간다. */
+.aif-subtabs + .wd-panel .wd-panel__lead { margin-top: 80px; }
 /* 조리실 자동제어 — 4열 탭 변형 */
 .mnt-steps--4 { grid-template-columns: repeat(4, 1fr); }
 /* 활성 탭 사각 처리(라운딩 제거) */

@@ -1,4 +1,8 @@
-/* 기상데이터 4번째 탭 — AI 기상예보 상품.
+"use client";
+
+import { useState } from "react";
+
+/* 날씨 AI 팩토리 하위 탭 — AI 기상예보 상품.
    구성은 앞 탭(날씨 AI 팩토리의 개요, AiFactory)과 동일하게
    리드 타이틀 → 설명 → 본문 순서로 맞춘다. */
 
@@ -187,6 +191,8 @@ const AREAS = [
 ] as const;
 
 export default function AiForecastProducts() {
+  const [playing, setPlaying] = useState(false);
+
   return (
     <div className="wd-panel aif aifp" key="aifp">
       <h3 className="wd-panel__lead">날씨 AI 팩토리의 첫 AI 기상예보 상품</h3>
@@ -197,15 +203,37 @@ export default function AiForecastProducts() {
         한반도 특화 AI 기상예보 상품을 제공합니다.
       </p>
 
-      {/* 탭을 눌러 이 패널이 마운트될 때만 iframe 이 붙으므로
-         기상데이터 페이지 첫 로드에는 유튜브 스크립트가 따라오지 않는다. */}
+      {/* 평소엔 썸네일만, 누르면 그 자리에서 재생 — 소개 영상(CompanyVideo)과 같은 방식.
+         iframe 을 처음부터 깔아 두면 그 위에서 휠 이벤트가 iframe 안으로 먹혀
+         Lenis 스무스 스크롤이 멈춘 것처럼 걸린다. */}
       <div className="aifp__video">
-        <iframe
-          src={`https://www.youtube.com/embed/${VIDEO_ID}?rel=0`}
-          title="날씨 AI 팩토리 AI 기상예보 상품 설명 영상"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-        />
+        {playing ? (
+          <iframe
+            src={`https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1&rel=0`}
+            title="날씨 AI 팩토리 AI 기상예보 상품 설명 영상"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          />
+        ) : (
+          <button
+            type="button"
+            className="aifp__video-btn"
+            onClick={() => setPlaying(true)}
+            aria-label="AI 기상예보 상품 설명 영상 재생"
+          >
+            <img
+              src="/assets/sub/aifp_movie.jpg"
+              width={1280}
+              height={720}
+              alt="케이웨더 NVIDIA AI 기상예보 10종 상품설명 영상"
+            />
+            <span className="aifp__video-play" aria-hidden>
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </span>
+          </button>
+        )}
       </div>
 
       <section className="aif__block">

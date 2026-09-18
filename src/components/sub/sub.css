@@ -97,9 +97,22 @@
    두 번째부터 1px 당겨 두 테두리를 겹쳐 놓아 경계선을 1px 로 만든다.
    탭 3개인 기상데이터에서만 눈에 띄어 우선 이 탭바에만 적용한다 —
    다른 2개짜리 탭바(방송·진단·예보·연혁)는 기존 모습을 유지한다. */
-.sub-tabs--three .sub-tabs__btn + .sub-tabs__btn { margin-left: -1px; }
+.sub-tabs--three .sub-tabs__btn + .sub-tabs__btn,
+.sub-tabs--four .sub-tabs__btn + .sub-tabs__btn { margin-left: -1px; }
 /* 선택된 탭은 파란 테두리라, 겹쳤을 때 회색 밑에 깔리지 않도록 위로 올린다 */
-.sub-tabs--three .sub-tabs__btn.is-on { position: relative; z-index: 1; }
+.sub-tabs--three .sub-tabs__btn.is-on,
+.sub-tabs--four .sub-tabs__btn.is-on { position: relative; z-index: 1; }
+/* 기상데이터 — 4칸(케이웨더 정보 / 기상청 정보 / 날씨 AI 팩토리의 개요 / AI 기상예보 상품).
+   칸이 좁아지므로 이 탭바에서만 글자를 조금 줄인다. */
+.sub-tabs--four {
+  grid-template-columns: repeat(4, 1fr);
+}
+.sub-tabs--four .sub-tabs__btn {
+  font-size: 20px;
+  padding-inline: 8px;
+  text-align: center;
+  word-break: keep-all;
+}
 .sub-tabs__btn.is-on {
   background: #4762c5;
   border-color: #4762c5;
@@ -1828,6 +1841,279 @@
   transform: scale(1.05);
 }
 
+/* ===== 기상데이터 4번째 탭 — AI 기상예보 상품 ===== */
+/* 폭·상단 리드는 앞 탭(.aif)을 그대로 쓴다.
+   영상은 라인 박스 없이 영상 자체의 모서리만 둥글린다
+   — 웰비안 홍보 영상(.wb-film)과 동일한 16px 라운드. */
+.aifp__video {
+  position: relative;
+  margin: 56px auto 0;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #000;
+}
+.aifp__video iframe {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ----- 특장점 — 전지구/한반도 2단 카드 ----- */
+/* 두 카드는 높이를 맞춘다 — 안쪽 상품 박스 개수는 같고 줄 수만 달라서
+   align-items: start 로 두면 오른쪽 카드만 길어져 아래 선이 어긋난다.
+   좌측 이미지를 키우려면 가로가 필요해, 이 블록만 탭바와 같은 1440 으로 넓힌다. */
+.aifp-feat {
+  width: min(1440px, 100%);
+  margin: 30px auto 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+.aifp-card {
+  padding: 26px;
+  border: 1px solid #c4d2f3;
+  border-radius: 20px;
+  background: #f7f9ff;
+}
+/* 아이콘 · 영역명 · 설명을 한 줄로 — 설명은 영역명 옆에 붙는다.
+   글자 묶음은 따로 감싸, 아이콘 원과 세로 중심을 맞춘다. */
+.aifp-card__head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 4px 20px;
+  /* 패널 전체가 가운데 정렬이라 카드 안쪽은 따로 왼쪽으로 돌려놓는다 */
+  text-align: left;
+}
+.aifp-card__txt {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.aifp-card__icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #2e3c8f;
+  color: #fff;
+}
+.aifp-card__icon svg { width: 24px; height: 24px; }
+.aifp-card__title {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #2e3c8f;
+}
+.aifp-card__sub {
+  margin: 0;
+  font-size: 17px;
+  color: #56607a;
+  word-break: keep-all;
+}
+/* 영역 안의 예보 종류별 상품 박스 */
+.aifp-item {
+  padding: 20px 22px;
+  border: 1px solid #dde5f8;
+  border-radius: 14px;
+  background: #fff;
+  text-align: left;
+}
+.aifp-item + .aifp-item { margin-top: 16px; }
+/* 우측 글줄 맨 윗줄 — 예보 종류 옆에 모델명 알약이 붙는다 */
+.aifp-item__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 18px;
+}
+.aifp-item__kind {
+  margin: 0;
+  flex: none;
+  font-size: 20px;
+  font-weight: 700;
+  color: #222;
+}
+/* 본문 — 좌측 이미지 + 우측 텍스트 2단 */
+.aifp-item__body {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+/* 들어오는 이미지가 AI 맵 캡처(1920×1080)라 박스도 같은 16:9 로 잡는다.
+   이미지가 아직 없으면 같은 크기의 빈 박스가 자리를 지킨다. */
+.aifp-item__thumb {
+  flex: none;
+  width: 314px;
+  aspect-ratio: 16 / 9;
+  border: 1px solid #dde5f8;
+  border-radius: 12px;
+  background: #eef2fd;
+  overflow: hidden;
+}
+.aifp-item__thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.aifp-item__txt { min-width: 0; flex: 1; }
+/* 좌측 이미지가 가로로 넓어진 만큼 우측 폭이 좁다 — 상품명·스펙은
+   한 줄에 떨어지는 크기로 맞춘다(제일 긴 「3일 한반도 초정밀 예보」 기준). */
+.aifp-item__name {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1c2a63;
+  word-break: keep-all;
+}
+/* 모델명 알약 — 탭 선택색(#4762c5) 계열의 옅은 배경. 예보 종류 옆에 붙는다 */
+.aifp-item__model {
+  display: inline-block;
+  margin: 0;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: #e4ecff;
+  font-size: 16px;
+  font-weight: 700;
+  color: #2e3c8f;
+}
+.aifp-item__spec {
+  margin: 20px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid #e8edf9;
+  font-size: 16px;
+  color: #333;
+}
+.aifp-item__spec-row {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  white-space: nowrap;
+}
+.aifp-item__spec-row + .aifp-item__spec-row { margin-top: 8px; }
+/* 값 사이 구분선 — 시안의 세로 막대 */
+.aifp-item__spec-row span + span {
+  padding-left: 11px;
+  border-left: 1px solid #ccd5ea;
+}
+
+/* ----- 상품 정보 상세 표 — 「제공 기상정보 상세」(.wd-spec__table)와 같은 룩 ----- */
+/* 타이틀(.aif__title) 바로 아래가 표라 기본 12px 로는 붙어 보인다 */
+.aifp-spec { margin-top: 30px; }
+.aifp-spec__table { font-size: 14px; }
+.aifp-spec__table th { height: 60px; }
+/* 10칸이라 글자가 작아진 만큼 행을 넉넉히 — 두 줄 셀도 답답하지 않게 */
+.aifp-spec__table td {
+  padding: 18px 8px;
+  line-height: 1.7;
+}
+/* 링크 열 — 버튼이 셀 높이를 키우지 않도록 위아래 패딩만 줄인다 */
+.aifp-spec__link { padding: 10px 8px; }
+/* 이동하기 배지 — 표 안의 보조 동작이라 튀지 않게 회색 라인으로 둔다.
+   외부 사이트로 나가는 링크라 헤더 상단 버튼과 같은 대각선 화살표를 붙인다.
+   마우스를 올렸을 때만 파란색으로 살아난다. */
+.aifp-go {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  min-width: 86px;
+  padding: 3px 12px;
+  border: 1px solid #c2c8d4;
+  border-radius: 999px;
+  background: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: #5c636f;
+  text-decoration: none;
+  transition: border-color 160ms ease, color 160ms ease;
+}
+.aifp-go svg { flex: none; }
+.aifp-go:hover { border-color: #4762c5; color: #4762c5; }
+/* 좁은 화면용 상품 카드 — 넓은 화면에서는 표만 보인다 */
+.aifp-plist { display: none; }
+
+@media (max-width: 1100px) {
+  /* 10칸을 옆으로 밀어 보게 하는 대신, 상품별로 끊어 세로로 쌓는다 */
+  .aifp-spec { display: none; }
+  .aifp-plist {
+    display: grid;
+    gap: 16px;
+    margin: 30px 0 0;
+    padding: 0;
+    list-style: none;
+    text-align: left;
+  }
+  .aifp-pcard {
+    border: 1px solid #dde5f8;
+    border-radius: 14px;
+    background: #fff;
+    /* 머리띠 배경이 모서리 밖으로 새지 않게 */
+    overflow: hidden;
+  }
+  /* 머리띠는 표의 「상품명」 칸(.c2)과 같은 톤·같은 글자 규격으로 맞춘다 */
+  .aifp-pcard__head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 18px;
+    border-bottom: 1px solid #d3d8e0;
+    background: #f1f5ff;
+  }
+  .aifp-pcard__no {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #2e3c8f;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .aifp-pcard__name {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: #2a2f37;
+    word-break: keep-all;
+  }
+  /* 라벨-값 2단 — 라벨 폭은 제일 긴 「최대 예보기간」 기준 */
+  .aifp-pcard__spec {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 8px 12px;
+    margin: 16px 18px 0;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .aifp-pcard__spec dt { color: #7a828f; }
+  .aifp-pcard__spec dd { margin: 0; color: #2a2f37; word-break: keep-all; }
+  .aifp-pcard .aifp-go { margin: 16px 18px 18px; }
+  /* 카드가 좁아지면 좌우 2단으로는 이미지가 우표만 해진다 — 위아래로 쌓아
+     이미지를 카드 폭 전체로 키운다. */
+  .aifp-item__body {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+  .aifp-item__thumb { width: 100%; }
+  /* 카드가 반 폭이라 영역명 옆에 설명을 두면 둘 다 접힌다 — 위아래로 */
+  .aifp-card__txt { display: block; }
+  .aifp-card__sub { margin-top: 2px; }
+}
+
 /* ===== E-카탈로그 — Figma 카탈로그(10:857), 카드 420×450 ×3 (간격 46) ===== */
 .catalog {
   width: min(1440px, calc(100% - 64px));
@@ -2055,6 +2341,12 @@
   .company-sol__title--dsp { font-size: 24px; line-height: 38px; }
   .catalog { grid-template-columns: 1fr; max-width: 420px; }
   .sub-tabs__btn { font-size: 18px; }
+  /* 4칸은 이 폭부터 글자가 눌리므로 2×2로 접는다 */
+  .sub-tabs--four { grid-template-columns: repeat(2, 1fr); }
+  .sub-tabs--four .sub-tabs__btn { font-size: 18px; height: 64px; }
+  .sub-tabs--four .sub-tabs__btn + .sub-tabs__btn { margin-left: 0; }
+  .sub-tabs--four .sub-tabs__btn:nth-child(even) { margin-left: -1px; }
+  .sub-tabs--four .sub-tabs__btn:nth-child(n + 3) { margin-top: -1px; }
   .history__year { font-size: 36px; line-height: 44px; }
   .history__month,
   .history__text { font-size: 17px; line-height: 26px; }
@@ -2162,6 +2454,24 @@
   .sub-tabs { width: calc(100% - 40px); grid-template-columns: 1fr; }
   .sub-tabs__btn { height: 56px; font-size: 16px; }
   .sub-tabs__btn + .sub-tabs__btn { border-top: none; }
+  /* 한 칸씩 세로로 쌓이므로 가로 겹침(-1px)은 세로 겹침으로 바꾼다 */
+  .sub-tabs--four { grid-template-columns: 1fr; }
+  .sub-tabs--four .sub-tabs__btn { font-size: 16px; }
+  .sub-tabs--four .sub-tabs__btn + .sub-tabs__btn { margin-left: 0; margin-top: -1px; }
+  .aifp__video { margin-top: 30px; border-radius: 12px; }
+  .aifp-feat { grid-template-columns: 1fr; gap: 20px; }
+  .aifp-card { padding: 20px; border-radius: 16px; }
+  .aifp-card__title { font-size: 22px; }
+  .aifp-card__sub { font-size: 15px; }
+  .aifp-item { padding: 16px 18px 18px; }
+  .aifp-item__kind { font-size: 18px; }
+  .aifp-item__name { font-size: 18px; }
+  .aifp-item__model { font-size: 14px; }
+  .aifp-item__spec { font-size: 15px; }
+  .aifp-item__thumb { border-radius: 12px; }
+  .aifp-pcard__head { padding: 12px 16px; }
+  .aifp-pcard__spec { grid-template-columns: 88px 1fr; margin: 14px 16px 0; font-size: 14px; }
+  .aifp-pcard .aifp-go { margin: 14px 16px 16px; }
   .sub-tabpanel > .broad-sec:first-child { margin-top: 70px; }
   .sub-tabpanel > .tab-lead,
   .sub-tabpanel > .company-intro:first-child { margin-top: 50px; }

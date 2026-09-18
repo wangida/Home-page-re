@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import AiFactory from "./AiFactory";
+import AiForecastProducts from "./AiForecastProducts";
 
 /* 관측 데이터 본문 — 기존 기상 데이터 탭(첫 번째)에서 이관.
    케이웨더 정보 / 기상청 정보 토글은 그대로 유지. */
@@ -116,7 +117,8 @@ function ClientsSection() {
 }
 
 /* initialTab: 서버(page.tsx)가 ?tab= 을 읽어 넘겨주는 첫 탭.
-   0: 케이웨더 정보, 1: 기상청 정보, 2: 날씨 AI 팩토리
+   0: 케이웨더 정보, 1: 기상청 정보, 2: 날씨 AI 팩토리의 개요, 3: AI 기상예보 상품
+   GNB·히어로의 「날씨 AI 팩토리」 바로가기는 그대로 2번(개요)으로 들어온다.
    여기서 window.location 을 읽어 마운트 후 바꾸면 첫 탭이 한 번 보였다 넘어가므로
    초기값으로 받아 첫 렌더부터 맞는 탭을 그린다. */
 export default function ObservationData({ initialTab = 0 }: { initialTab?: number }) {
@@ -126,8 +128,8 @@ export default function ObservationData({ initialTab = 0 }: { initialTab?: numbe
     <section className="company-intro wd-obs" key="weather">
       {/* 타이틀·서브카피는 상단 SubHero로 대체(중복 제거) */}
       {/* 케이웨더 정보 / 기상청 정보 토글 */}
-      <div className="sub-tabs sub-tabs--three" role="tablist" aria-label="정보 출처 선택">
-        {["케이웨더 정보", "기상청 정보", "날씨 AI 팩토리"].map((t, i) => (
+      <div className="sub-tabs sub-tabs--four" role="tablist" aria-label="정보 출처 선택">
+        {["케이웨더 정보", "기상청 정보", "날씨 AI 팩토리의 개요", "AI 기상예보 상품"].map((t, i) => (
           <button
             key={t}
             type="button"
@@ -538,6 +540,8 @@ export default function ObservationData({ initialTab = 0 }: { initialTab?: numbe
       )}
 
       {info === 2 && <AiFactory />}
+
+      {info === 3 && <AiForecastProducts />}
     </section>
   );
 }
